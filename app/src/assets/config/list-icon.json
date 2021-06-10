@@ -1,0 +1,474 @@
+[
+  {
+    "id": "categoryAction",
+    "group": "Category-Action",
+    "listIcon": [
+      {
+        "id": "icon01",
+        "iconName": "3d rotation icon",
+        "iconCode": "3d_rotation"
+      },
+      {
+        "id": "icon02",
+        "iconName": "accessibility icon",
+        "iconCode": "accessibility"
+      },
+      {
+        "id": "icon03",
+        "iconName": " accessibility new icon",
+        "iconCode": "accessibility_new"
+      },
+      {
+        "id": "icon04",
+        "iconName": "accessible icon",
+        "iconCode": "accessible"
+      },
+      {
+        "id": "icon05",
+        "iconName": "accessible forward icon",
+        "iconCode": "accessible_forward"
+      },
+      {
+        "id": "icon06",
+        "iconName": "account balance icon",
+        "iconCode": "account_balance"
+      },
+      {
+        "id": "icon07",
+        "iconName": "account balance wallet icon",
+        "iconCode": "account_balance_wallet"
+      },
+      {
+        "id": "icon09",
+        "iconName": "account box icon",
+        "iconCode": "account_box"
+      },
+      {
+        "id": "icon10",
+        "iconName": "account circle icon",
+        "iconCode": "account_circle"
+      },
+      {
+        "id": "icon11",
+        "iconName": "add shopping cart icon",
+        "iconCode": "add_shopping_cart"
+      },
+      {
+        "id": "icon12",
+        "iconName": "alarm icon",
+        "iconCode": "alarm"
+      },
+      {
+        "id": "icon13",
+        "iconName": "alarm add icon",
+        "iconCode": "alarm_add"
+      },
+      {
+        "id": "icon14",
+        "iconName": "alarm off icon",
+        "iconCode": "alarm_off"
+      },
+      {
+        "id": "icon15",
+        "iconName": "alarm on icon",
+        "iconCode": "alarm_on"
+      },
+      {
+        "id": "icon16",
+        "iconName": "all out icon",
+        "iconCode": "all_out"
+      },
+      {
+        "id": "icon17",
+        "iconName": "android icon",
+        "iconCode": "android"
+      },
+      {
+        "id": "icon18",
+        "iconName": "announcement icon",
+        "iconCode": "announcement"
+      },
+      {
+        "id": "icon19",
+        "iconName": "arrow right alt icon",
+        "iconCode": "arrow_right_alt"
+      },
+      {
+        "id": "icon20",
+        "iconName": "aspect ratio icon",
+        "iconCode": "aspect_ratio"
+      },
+      {
+        "id": "icon21",
+        "iconName": "assessment icon",
+        "iconCode": "assessment"
+      },
+      {
+        "id": "icon22",
+        "iconName": "assignment icon",
+        "iconCode": "assignment"
+      },
+      {
+        "id": "icon23",
+        "iconName": "assignment ind icon",
+        "iconCode": "assignment_ind"
+      },
+      {
+        "id": "icon24",
+        "iconName": "assignment late icon",
+        "iconCode": "assignment_late"
+      },
+      {
+        "id": "icon25",
+        "iconName": "assignment return icon",
+        "iconCode": "assignment_return"
+      },
+      {
+        "id": "icon26",
+        "iconName": "assignment returned icon",
+        "iconCode": "assignment_returned"
+      },
+      {
+        "id": "icon27",
+        "iconName": "assignment turned in icon",
+        "iconCode": "assignment_turned_in"
+      },
+      {
+        "id": "icon28",
+        "iconName": "autorenew icon",
+        "iconCode": "autorenew"
+      },
+      {
+        "id": "icon29",
+        "iconName": "backup icon",
+        "iconCode": "backup"
+      },
+      {
+        "id": "icon30",
+        "iconName": "book icon",
+        "iconCode": "book"
+      },
+      {
+        "id": "icon31",
+        "iconName": "bookmark icon",
+        "iconCode": "bookmark"
+      },
+      {
+        "id": "icon32",
+        "iconName": "bookmark border icon",
+        "iconCode": "bookmark_border"
+      },
+      {
+        "id": "icon33",
+        "iconName": "bug report icon",
+        "iconCode": "bug_report"
+      },
+      {
+        "id": "icon34",
+        "iconName": "build icon",
+        "iconCode": "build"
+      },
+      {
+        "id": "icon35",
+        "iconName": "cached icon",
+        "iconCode": "cached"
+      },
+      {
+        "id": "icon36",
+        "iconName": "calendar today icon",
+        "iconCode": "calendar_today"
+      },
+      {
+        "id": "icon37",
+        "iconName": "calendar view day icon",
+        "iconCode": "calendar_view_day"
+      },
+      {
+        "id": "icon38",
+        "iconName": "camera enhance icon",
+        "iconCode": "camera_enhance"
+      },
+      {
+        "id": "icon39",
+        "iconName": "card giftcard icon",
+        "iconCode": "card_giftcard"
+      },
+      {
+        "id": "icon40",
+        "iconName": "card membership icon",
+        "iconCode": "card_membership"
+      },
+      {
+        "id": "icon41",
+        "iconName": "card travel icon",
+        "iconCode": "card_travel"
+      },
+      {
+        "id": "icon42",
+        "iconName": "change history icon",
+        "iconCode": "change_history"
+      },
+      {
+        "id": "icon43",
+        "iconName": "check circle icon",
+        "iconCode": "check_circle"
+      },
+      {
+        "id": "icon44",
+        "iconName": "check circle outline icon",
+        "iconCode": "check_circle_outline"
+      },
+      {
+        "id": "icon45",
+        "iconName": "chrome reader mode icon",
+        "iconCode": "chrome_reader_mode"
+      },
+      {
+        "id": "icon46",
+        "iconName": "class icon",
+        "iconCode": "class"
+      },
+      {
+        "id": "icon47",
+        "iconName": "code icon",
+        "iconCode": "code"
+      },
+      {
+        "id": "icon48",
+        "iconName": "commute icon",
+        "iconCode": "commute"
+      },
+      {
+        "id": "icon49",
+        "iconName": "compare arrows icon",
+        "iconCode": "compare_arrows"
+      },
+      {
+        "id": "icon50",
+        "iconName": "contact support icon",
+        "iconCode": "contact_support"
+      },
+      {
+        "id": "icon51",
+        "iconName": "copyright icon",
+        "iconCode": "copyright"
+      },
+      {
+        "id": "icon52",
+        "iconName": "credit card icon",
+        "iconCode": "credit_card"
+      },
+      {
+        "id": "icon53",
+        "iconName": "dashboard icon",
+        "iconCode": "dashboard"
+      },
+      {
+        "id": "icon54",
+        "iconName": "date range icon",
+        "iconCode": "date_range"
+      },
+      {
+        "id": "icon55",
+        "iconName": "delete icon",
+        "iconCode": "delete"
+      },
+      {
+        "id": "icon56",
+        "iconName": "delete forever icon",
+        "iconCode": "delete_forever"
+      },
+      {
+        "id": "icon57",
+        "iconName": "delete outline icon",
+        "iconCode": "delete_outline"
+      },
+      {
+        "id": "icon58",
+        "iconName": "description icon",
+        "iconCode": "description"
+      },
+      {
+        "id": "icon59",
+        "iconName": "dns icon",
+        "iconCode": "dns"
+      },
+      {
+        "id": "icon60",
+        "iconName": "done icon",
+        "iconCode": "done"
+      },
+      {
+        "id": "icon61",
+        "iconName": "done all icon",
+        "iconCode": "done_all"
+      },
+      {
+        "id": "icon62",
+        "iconName": "done outline icon",
+        "iconCode": "done_outline"
+      },
+      {
+        "id": "icon63",
+        "iconName": "donut large icon",
+        "iconCode": "donut_large"
+      },
+      {
+        "id": "icon64",
+        "iconName": "donut small icon",
+        "iconCode": "donut_small"
+      },
+      {
+        "id": "icon65",
+        "iconName": "drag indicator icon",
+        "iconCode": "drag_indicator"
+      },
+      {
+        "id": "icon66",
+        "iconName": "eject icon",
+        "iconCode": "eject"
+      },
+      {
+        "id": "icon67",
+        "iconName": "euro symbol icon",
+        "iconCode": "euro_symbol"
+      },
+      {
+        "id": "icon68",
+        "iconName": "event icon",
+        "iconCode": "event"
+      },
+      {
+        "id": "icon69",
+        "iconName": "event seat icon",
+        "iconCode": "event_seat"
+      },
+      {
+        "id": "icon70",
+        "iconName": "exit to app icon",
+        "iconCode": "exit_to_app"
+      },
+      {
+        "id": "icon71",
+        "iconName": "explore icon",
+        "iconCode": "explore"
+      },
+      {
+        "id": "icon72",
+        "iconName": "extension icon",
+        "iconCode": "extension"
+      },
+      {
+        "id": "icon73",
+        "iconName": "face icon",
+        "iconCode": "face"
+      },
+      {
+        "id": "icon74",
+        "iconName": "favorite icon",
+        "iconCode": "favorite"
+      },
+      {
+        "id": "icon75",
+        "iconName": "favorite border icon",
+        "iconCode": "favorite_border"
+      },
+      {
+        "id": "icon76",
+        "iconName": "feedback icon",
+        "iconCode": "feedback"
+      },
+      {
+        "id": "icon77",
+        "iconName": "find in page icon",
+        "iconCode": "find_in_page"
+      },
+      {
+        "id": "icon78",
+        "iconName": "find replace icon",
+        "iconCode": "find_replace"
+      },
+      {
+        "id": "icon79",
+        "iconName": "fingerprint icon",
+        "iconCode": "fingerprint"
+      },
+      {
+        "id": "icon80",
+        "iconName": "flight land icon",
+        "iconCode": "flight_land"
+      }
+    ]
+  },
+  {
+    "id": "categoryCommunication",
+    "group": "Category-Communication",
+    "listIcon": [
+      {
+        "id": "icon01",
+        "iconName": "alternate email icon",
+        "iconCode": "alternate_email"
+      },
+      {
+        "id": "icon02",
+        "iconName": "business icon",
+        "iconCode": "business"
+      },
+      {
+        "id": "icon03",
+        "iconName": "call icon",
+        "iconCode": "call"
+      },
+      {
+        "id": "icon04",
+        "iconName": "call end icon",
+        "iconCode": "call_end"
+      },
+      {
+        "id": "icon05",
+        "iconName": "call made icon",
+        "iconCode": "call_made"
+      },
+      {
+        "id": "icon06",
+        "iconName": "call merge icon",
+        "iconCode": "call_merge"
+      },
+      {
+        "id": "icon07",
+        "iconName": "call missed icon",
+        "iconCode": "call_missed"
+      },
+      {
+        "id": "icon09",
+        "iconName": "call missed outgoing icon",
+        "iconCode": "call_missed_outgoing"
+      },
+      {
+        "id": "icon10",
+        "iconName": "call received icon",
+        "iconCode": "call_received"
+      },
+      {
+        "id": "icon11",
+        "iconName": "call split icon",
+        "iconCode": "call_split"
+      },
+      {
+        "id": "icon12",
+        "iconName": "cancel presentation icon",
+        "iconCode": "cancel_presentation"
+      },
+      {
+        "id": "icon13",
+        "iconName": "cell wifi icon",
+        "iconCode": "cell_wifi"
+      },
+      {
+        "id": "icon14",
+        "iconName": "chat icon",
+        "iconCode": "chat"
+      }
+    ]
+  }
+]

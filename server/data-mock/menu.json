@@ -1,0 +1,298 @@
+[
+  {
+    "id": "menu01",
+    "type": "MENU_TOP",
+    "listItem": [
+      {
+        "id": "1",
+        "lable": "home",
+        "url": "",
+        "icon": "home",
+        "showOrHidden": true,
+        "role": [
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "id": "3",
+        "lable": "source",
+        "url": "source",
+        "showOrHidden": false,
+        "role": [
+          3
+        ]
+      },
+      {
+        "id": "4",
+        "lable": "my_life",
+        "url": "my-life",
+        "showOrHidden": true,
+        "role": [
+          1,
+          2
+        ]
+      },
+      {
+        "id": "2",
+        "lable": "Info",
+        "url": "info",
+        "showOrHidden": true,
+        "role": [
+          3
+        ]
+      },
+      {
+        "id": "6",
+        "lable": "login",
+        "url": "login",
+        "showOrHidden": true,
+        "role": [
+          1,
+          2
+        ]
+      },
+      {
+        "id": "7",
+        "lable": "Cv",
+        "url": "cv",
+        "showOrHidden": false,
+        "role": [
+          3
+        ]
+      },
+      {
+        "id": "8",
+        "lable": "logout",
+        "url": "logout",
+        "showOrHidden": false,
+        "role": [
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "id": "9",
+        "lable": "admin",
+        "url": "admin",
+        "showOrHidden": false,
+        "role": [
+          1,
+          2
+        ]
+      }
+    ]
+  },
+  {
+    "id": "menu02",
+    "type": "ADMIN_MENU_LEFT",
+    "listItem": [
+      {
+        "id": "overview",
+        "lable": "overview",
+        "url": "overviewComponent",
+        "showOrHidden": true,
+        "role": [
+          3
+        ]
+      },
+      {
+        "id": "account",
+        "lable": "account",
+        "url": "",
+        "icon": "account_box",
+        "showOrHidden": true,
+        "children": [
+          {
+            "id": "add_account",
+            "lable": "add_account",
+            "showOrHidden": true,
+            "url": "addAccountComponent",
+            "icon": "add_circle",
+            "role": [
+              3
+            ]
+          },
+          {
+            "id": "delete_account",
+            "lable": "delete_account",
+            "showOrHidden": true,
+            "url": "deleteAccountComponent",
+            "icon": "delete_sweep",
+            "role": [
+              3
+            ]
+          },
+          {
+            "id": "update_account",
+            "lable": "update_account",
+            "showOrHidden": true,
+            "url": "updateAccountComponent",
+            "icon": "update",
+            "role": [
+              1,
+              2,
+              3
+            ]
+          }
+        ],
+        "role": [
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "id": "menu",
+        "lable": "menu",
+        "url": "",
+        "icon": "menu",
+        "showOrHidden": true,
+        "children": [
+          {
+            "id": "add_menu",
+            "lable": "add_menu",
+            "url": "addMenuComponent",
+            "showOrHidden": true,
+            "icon": "add_circle",
+            "role": [
+              3
+            ]
+          },
+          {
+            "id": "delete_menu",
+            "lable": "delete_menu",
+            "showOrHidden": true,
+            "url": "deleteMenuComponent",
+            "icon": "delete_sweep",
+            "role": [
+              3
+            ]
+          },
+          {
+            "id": "update_menu",
+            "lable": "update_menu",
+            "showOrHidden": true,
+            "url": "updateMenuComponent",
+            "icon": "update",
+            "role": [
+              3
+            ]
+          }
+        ],
+        "role": [
+          3
+        ]
+      },
+      {
+        "id": "post",
+        "lable": "post",
+        "url": "",
+        "showOrHidden": true,
+        "children": [
+          {
+            "id": "add_post",
+            "lable": "add_post",
+            "url": "addPostComponent",
+            "showOrHidden": true,
+            "icon": "add_circle",
+            "role": [
+              3
+            ]
+          },
+          {
+            "id": "delete_post",
+            "lable": "delete_post",
+            "url": "deletePostComponent",
+            "showOrHidden": true,
+            "icon": "delete_sweep",
+            "role": [
+              3
+            ]
+          }
+        ],
+        "role": [
+          3
+        ]
+      },
+      {
+        "id": "setting",
+        "lable": "setting",
+        "url": "",
+        "icon": "settings",
+        "showOrHidden": true,
+        "children": [
+          {
+            "id": "setting_language",
+            "lable": "language",
+            "url": "",
+            "icon": "language",
+            "showOrHidden": true,
+            "role": [
+              1,
+              2,
+              3
+            ]
+          }
+        ],
+        "role": [
+          1,
+          2,
+          3
+        ]
+      }
+    ]
+  },
+  {
+    "id": "menu03",
+    "type": "LOGIN_MENU_LEFT",
+    "listItem": [
+      {
+        "id": "login",
+        "lable": "login",
+        "url": "loginComponent",
+        "showOrHidden": true
+      },
+      {
+        "id": "register",
+        "lable": "register",
+        "url": "registerComponent",
+        "showOrHidden": true
+      },
+      {
+        "id": "forgetpass",
+        "lable": "forget_password",
+        "url": "forgetPasswordComponent",
+        "showOrHidden": true
+      }
+    ]
+  },
+  {
+    "id": "menu04",
+    "type": "LANGUAGE_MENU_LEFT_SOURCE",
+    "listItem": [
+      {
+        "id": "lang_php",
+        "lable": "PHP",
+        "url": "",
+        "showOrHidden": true,
+        "children": [
+          {
+            "id": "bai_1",
+            "lable": "Bai 1: Gioi thieu",
+            "url": "detailSourceComponent",
+            "showOrHidden": true
+          },
+          {
+            "id": "bai_2",
+            "lable": "Bai 2: Gioi thieu",
+            "url": "detailSourceComponent",
+            "showOrHidden": true
+          }
+        ]
+      }
+    ]
+  }
+]

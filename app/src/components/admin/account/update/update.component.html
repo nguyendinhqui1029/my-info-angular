@@ -1,0 +1,94 @@
+<div fxLayout="column" class="width-100vh" fxLayoutAlign="end start">
+  <div fxLayout="row" class="width-100vh container-header">
+    <span>{{'update_account' | translate}}</span>
+  </div>
+  <div fxLayout="row" class="width-100vh container-form">
+    <form [formGroup]="formUpdateAccount" class="width-100vh">
+      <div fxLayout="column">
+        <div fxLayout="row wrap" fxLayoutAlign="space-around start">
+          <mat-form-field appearance="outline" class="input-container">
+            <mat-label>{{"name"| translate}}</mat-label>
+            <input matInput placeholder="{{'name' | translate}}" formControlName="name" required>
+            <mat-icon matSuffix>check</mat-icon>
+            <mat-hint>Message error Message error Message error Message error
+              Message error Message error Message error Message error Message error
+              Message error Message error Message error Message error Message error
+            </mat-hint>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="input-container">
+            <mat-label>{{'phone'| translate}}</mat-label>
+            <input matInput placeholder="{{'phone'| translate}}" formControlName="phone" required>
+            <mat-icon matSuffix>close</mat-icon>
+            <mat-hint>Message error</mat-hint>
+          </mat-form-field>
+        </div>
+
+        <div fxLayout="row wrap" fxLayoutAlign="space-around start">
+          <mat-form-field appearance="outline" class="input-container">
+            <mat-label>{{'email' | translate}}</mat-label>
+            <input matInput placeholder="{{'email' | translate}}" formControlName="email" required>
+            <mat-icon matSuffix>close</mat-icon>
+            <mat-hint>Message error</mat-hint>
+          </mat-form-field>
+          <mat-form-field appearance="outline" fxFlex.sm="75%" class="input-container">
+            <mat-label *ngIf="selectedFiles; else newFile">{{selectedFiles.name}}</mat-label>
+            <ng-template #newFile>
+              <mat-label>Choose file</mat-label>
+            </ng-template>
+            <input matInput disabled>
+            <button mat-icon-button matSuffix (click)="fileInput.click()">
+              <mat-icon>attach_file</mat-icon>
+            </button>
+            <input hidden (change)="selectFile($event)" #fileInput type="file" id="file" formControlName="file">
+          </mat-form-field>
+        </div>
+
+        <div fxLayout="row wrap" fxLayoutAlign="space-around start">
+          <div class="input-container" fxLayoutAlign="start center">
+            <mat-checkbox class="example-margin" (change)="changeCheckBox($event.checked)" [checked]="showChangePass">
+              {{'change_password'|
+              translate}}</mat-checkbox>
+          </div>
+          <div class="input-container">
+
+          </div>
+        </div>
+
+        <ng-container *ngIf="showChangePass">
+          <div fxLayout="row wrap" fxLayoutAlign="space-around start">
+            <mat-form-field appearance="outline" class="input-container">
+              <mat-label>{{'password' | translate}}</mat-label>
+              <input matInput placeholder="{{'password' | translate}}" formControlName="password" required>
+              <mat-icon matSuffix>close</mat-icon>
+              <mat-hint>Message error</mat-hint>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="input-container">
+              <mat-label>{{'new_password' | translate}}</mat-label>
+              <input matInput placeholder="{{'new_password' | translate}}" formControlName="newpassword" required>
+              <mat-icon matSuffix>close</mat-icon>
+              <mat-hint>Message error</mat-hint>
+            </mat-form-field>
+          </div>
+
+          <div fxLayout="row wrap" fxLayoutAlign="space-around start">
+            <mat-form-field appearance="outline" class="input-container">
+              <mat-label>{{'re_password' | translate}}</mat-label>
+              <input matInput placeholder="{{'re_password' | translate}}" formControlName="repassword" required>
+              <mat-icon matSuffix>close</mat-icon>
+              <mat-hint>Message error</mat-hint>
+            </mat-form-field>
+            <div class="input-container">
+
+            </div>
+          </div>
+        </ng-container>
+
+        <div fxLayout="row" fxLayoutAlign="end center" class="container-action">
+          <button mat-button class="border-2" (click)="resetAccount()">{{'reset' | translate}}</button>
+          <button mat-button class="login-button ml-20">{{'update_account' | translate}}</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

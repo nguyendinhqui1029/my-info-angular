@@ -1,0 +1,6 @@
+<mat-form-field appearance="outline">
+  <mat-label>{{placeholder}}</mat-label>
+  <input matInput [placeholder]="placeholder" [formControlName]="controlName" [required]="isRequire">
+  <mat-icon matSuffix>{{listError.length > 0 ? 'close' :'check'}}</mat-icon>
+  <mat-hint *ngFor="let item of listError">{{item.value}}</mat-hint>
+</mat-form-field>

@@ -1,0 +1,13 @@
+<div fxLayout="column" style="position: relative;">
+  <button *ngIf="data.showButtonClose" mat-icon-button mat-dialog-close class="button-close-dialog">
+    <mat-icon>close</mat-icon>
+  </button>
+  <div mat-dialog-content #componentContainer>
+
+  </div>
+  <div mat-dialog-actions fxLayout="row" fxLayoutAlign="end start">
+    <button mat-button *ngFor="let item of data.listButton"
+      [ngStyle]="{'color': item.color, 'background-color':item.background}"
+      (click)="action(item.actionName)">{{item.name | translate}}</button>
+  </div>
+</div>

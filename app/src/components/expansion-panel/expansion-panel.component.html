@@ -1,0 +1,30 @@
+<div class="expansion">
+  <mat-expansion-panel hideToggle [ngClass]="{'background-transparent':true}" [id]="dataExpandsion.id">
+    <mat-expansion-panel-header style="padding: 2px;" #panelH (click)="clickExpandsion(panelH);">
+      <mat-panel-title>
+        <div fxLayout="row" class="width-100vh " fxLayoutAlign="space-around center">
+          <mat-icon fxLayoutAlign="start center" *ngIf="dataExpandsion.icon && !isDeviceXS">{{dataExpandsion.icon}}
+          </mat-icon>
+          <span class="width-100vh font-weight-bold pl-5"
+            [ngStyle]="{'text-align':!isDeviceXS ? 'left' : 'center'}">{{dataExpandsion.lable | translate}}</span>
+          <mat-icon fxLayoutAlign="end center" *ngIf="!isDeviceXS">{{iconName}}</mat-icon>
+        </div>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <ng-container *ngFor="let children of dataExpandsion.children">
+      <div fxLayout="column" class="width-100vh" *ngIf="children.showOrHidden">
+        <button mat-flat-button
+          [ngClass]="{'width-100vh':true,'background-transparent':true,'bradius-0':true, 'pd-none':true}"
+          [id]="children.id"
+          (click)="markActionForTabParent(dataExpandsion.id); markActionForTab(children.id); getComponent(children); autoCloseExpandsionMobile(panelH)">
+          <div fxLayout="row" class="width-100vh" fxLayoutAlign="start center">
+            <mat-icon fxLayoutAlign="start center" *ngIf="children.icon && !isDeviceXS">{{children.icon}}</mat-icon>
+            <span style="width: 100%; font-weight: bold; text-align: left; margin-left: 5px;">{{children.lable |
+              translate}}</span>
+            <mat-icon fxLayoutAlign="end center">keyboard_arrow_right</mat-icon>
+          </div>
+        </button>
+      </div>
+    </ng-container>
+  </mat-expansion-panel>
+</div>

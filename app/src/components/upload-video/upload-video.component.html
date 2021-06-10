@@ -1,0 +1,63 @@
+<form [formGroup]="formGroupUploadVideo" class="width-100">
+  <div fxLayout="column">
+    <div fxLayout="row wrap" fxLayoutAlign="space-around start">
+      <mat-form-field appearance="outline" fxFlex.sm="75%" class="input-container">
+        <mat-label>{{'title' | translate}}</mat-label>
+        <input matInput placeholder="{{'title' | translate}}" required formControlName="title">
+        <mat-icon matSuffix>check</mat-icon>
+        <mat-hint>
+        </mat-hint>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" fxFlex.sm="75%" class="input-container">
+        <mat-label>{{'group'| translate}}</mat-label>
+        <mat-select formControlName="group">
+          <mat-option value="cs">
+            Cuoc song
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div fxLayout="row wrap" fxLayoutAlign="space-around start">
+      <mat-form-field appearance="outline" fxFlex.sm="75%" class="input-container">
+        <mat-label *ngIf="selectedFiles; else newFile">{{selectedFiles.name}}</mat-label>
+        <ng-template #newFile>
+          <mat-label>Choose file</mat-label>
+        </ng-template>
+        <input matInput disabled>
+        <button mat-icon-button matSuffix (click)="fileInput.click()">
+          <mat-icon>attach_file</mat-icon>
+        </button>
+        <input hidden (change)="selectFile($event)" #fileInput type="file" id="file" formControlName="file">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" fxFlex.sm="75%" class="input-container">
+        <mat-label>Tag</mat-label>
+        <mat-chip-list #chipList aria-label="Tag" formControlName="tag">
+          <mat-chip *ngFor="let tag of listTag" [selectable]="selectable" [removable]="removable"
+            (removed)="remove(tag)">
+            {{tag}}
+            <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+          </mat-chip>
+          <input placeholder="New tag..." [matChipInputFor]="chipList"
+            [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
+            (matChipInputTokenEnd)="add($event)">
+        </mat-chip-list>
+      </mat-form-field>
+    </div>
+
+    <div fxLayout="row wrap" fxLayoutAlign="space-around start">
+      <mat-form-field appearance="outline" fxFlex.sm="75%" class="input-container">
+        <mat-label>{{'description' | translate}}</mat-label>
+        <textarea matInput class="width-100" rows="7" formControlName="description"></textarea>
+      </mat-form-field>
+      <div fxFlex.sm="75%" class="input-container">
+        <mat-progress-bar [color]="'primary'" [mode]="'determinate'" [value]="currentProgress">
+        </mat-progress-bar>
+      </div>
+    </div>
+  </div>
+
+  <button (click)="click()">click</button>
+</form>

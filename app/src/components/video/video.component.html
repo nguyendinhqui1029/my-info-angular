@@ -1,0 +1,10 @@
+<div (mouseover)="hiddenImageLoadVideo($event);" *ngIf="showImageThumnail">
+  <image-custom [url]="imageThumnail" [containerId]="containeId">
+  </image-custom>
+</div>
+
+
+<youtube-player *ngIf="url" [id]="'yt_'+containeId" [ngStyle]="{'display': !showImageThumnail ?'inline-block': 'none'}"
+  videoId="{{getVideoID(url)}}" suggestedQuality="highres" [startSeconds]="0" #player (mouseover)="player.playVideo()"
+  (mouseout)="player.pauseVideo()" [width]="widthVideo" [height]="heightVideo">
+</youtube-player>

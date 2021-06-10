@@ -1,0 +1,9 @@
+.mat-icon-button ::ng-deep .mat-button-focus-overlay {
+  display: none;
+}
+
+.button-close-dialog {
+  position: absolute;
+  top: -30px;
+  right: -24px;
+}

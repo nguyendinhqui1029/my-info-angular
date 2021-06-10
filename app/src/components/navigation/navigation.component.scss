@@ -1,0 +1,19 @@
+.img-avatar {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: 1px solid rgb(236, 233, 236);
+}
+
+.name {
+  font-size: 0.5rem;
+  line-height: 15px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.mat-toolbar-row {
+  padding: 0px;
+}

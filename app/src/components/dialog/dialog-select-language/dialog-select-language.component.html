@@ -1,0 +1,20 @@
+<div fxLayout="column" style="position: relative; min-width: 200px; height: auto;">
+  <button *ngIf="data.showButtonClose" mat-icon-button mat-dialog-close class="button-close-dialog">
+    <mat-icon>close</mat-icon>
+  </button>
+  <h3 mat-dialog-title *ngIf="data.title" fxFlex="100%">{{data.title| translate}}</h3>
+  <div *ngIf="data.message" fxFlex="100%" style="height: auto;">
+    {{data.message| translate}}
+    <section class="example-section" fxLayout="column" style="margin-left:10px;">
+      <mat-checkbox class="Vietnamese" [checked]="selectLanguage" (change)="changeLanguage()">{{'vietnamese'|
+        translate}}</mat-checkbox>
+      <mat-checkbox class="English" [checked]="!selectLanguage" (change)="changeLanguage()">{{'english'| translate}}
+      </mat-checkbox>
+    </section>
+  </div>
+  <div mat-dialog-actions fxLayoutAlign="end start" fxFlex="100%">
+    <button mat-button *ngFor="let item of data.listButton"
+      [ngStyle]="{'color': item.color, 'background-color':item.background}"
+      (click)="action(item.actionName)">{{item.name | translate}}</button>
+  </div>
+</div>

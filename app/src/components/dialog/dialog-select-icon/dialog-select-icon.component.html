@@ -1,0 +1,24 @@
+<div fxLayout="column" style="position: relative;">
+  <button *ngIf="data.showButtonClose" mat-icon-button mat-dialog-close class="button-close-dialog">
+    <mat-icon>close</mat-icon>
+  </button>
+  <h1 mat-dialog-title *ngIf="data.title">{{data.title | translate}}</h1>
+  <div mat-dialog-content>
+    <mat-tab-group mat-align-tabs="start">
+      <mat-tab *ngFor="let iconGroup of listObjectIcon" label="{{iconGroup.group|translate}}">
+        <div fxLayout="row wrap" fxLayoutAlign="space-around center">
+          <button mat-mini-fab *ngFor="let icon of iconGroup.listIcon" fxLayoutAlign="space-around center"
+            style="margin:3px; background-color: black;" (click)="getIconSelected(icon.iconCode)">
+            <mat-icon>{{icon.iconCode}}</mat-icon>
+          </button>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+  <div mat-dialog-actions fxLayout="row" fxLayoutAlign="end center">
+    <button mat-button *ngFor="let item of data.listButton"
+      [ngStyle]="{'color': item.color, 'background-color':item.background}"
+      (click)="action(item.actionName)">{{(iconSelected ? item.name : 'cancle')
+      | translate}}</button>
+  </div>
+</div>
