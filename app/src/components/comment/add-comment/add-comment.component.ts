@@ -13,7 +13,8 @@ import { LocatorService } from 'src/service/locator.service';
 })
 export class AddCommentComponent implements OnInit {
   @Input("idPost") idPost: string;
-  @Input("idComment") idComment: string;
+  @Input("idComment") idComment?: string;
+  @Input("contentDefault") contentDefault: string;
   @Output("bindingCommentHtml") bindingCommentHtml = new EventEmitter<any>();
   commentService: CommentService;
   formCommentGroup: FormGroup;
@@ -23,26 +24,38 @@ export class AddCommentComponent implements OnInit {
 
   ngOnInit(): void {
     this.formCommentGroup = this.formBuilder.group({
-      contentComment: ['', Validators.required]
+      contentComment: [this.contentDefault, Validators.required]
     });
   }
 
   addComment() {
     if (!this.formCommentGroup.invalid) {
-      const comment = new CommentModel();
-      comment.id = Guid.create().toJSON().value;
-      comment.idCommentator = Guid.create().toJSON().value; //TODO: update after
-      comment.idAnwser = this.idComment || '0';
-      comment.idPost = this.idPost;
-      comment.content = this.formCommentGroup.controls.contentComment.value;
-      comment.date = moment().format("YYYY-MM-DD HH:mm:ss");
-      this.commentService.addComment(comment).subscribe(result => {
-        if (result.status === 200) {
-          this.bindingCommentHtml.emit(result.body);
-        }
-      });
+      if (!this.contentDefault) {
+        const comment = new CommentModel();
+        comment.id = Guid.create().toJSON().value;
+        comment.idCommentator = Guid.create().toJSON().value; //TODO: update after
+        comment.date = moment().format("YYYY-MM-DD HH:mm:ss");
+        comment.content = this.formCommentGroup.controls.contentComment.value;
+        comment.idPost = this.idPost;
+        comment.idAnwser = this.idComment;
+        this.commentService.addComment(comment).subscribe(result => {
+          if (result.status === 200) {
+            this.bindingCommentHtml.emit();
+            this.commentService.eventUpdateCommentToUI.emit();
+          }
+        });
+      } else {
+        const comment = new CommentModel();
+        comment.id = this.idComment;
+        comment.content = this.formCommentGroup.controls.contentComment.value;
+        this.commentService.updateComment(comment).subscribe(result => {
+          if (result.status === 200) {
+            this.bindingCommentHtml.emit();
+            this.commentService.eventUpdateCommentToUI.emit();
+          }
+        });
+      }
     }
   }
-
 
 }

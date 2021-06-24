@@ -1,6 +1,9 @@
+import { CategoryModel } from "./category.model";
+
 export class Post {
   id: string;
   title: string;
+  subContent: string;
   contentDetail: string;
   urlVideo: string;
   urlThumnail?: string;

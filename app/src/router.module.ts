@@ -12,51 +12,55 @@ import { AuthGuard } from './app/auth.guard';
 
 const routes: Routes = [
   {
-    path: '', component: TemplateComponent,
+    path: '',
+    component: TemplateComponent,
     children: [
       {
         path: '',
-        component: HomeComponent
+        component: HomeComponent,
       },
       {
         path: 'cv',
-        component: CVComponent
+        component: CVComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'info',
-        component: PersonalInfoComponent
+        component: PersonalInfoComponent,
       },
       {
         path: 'login',
-        component: LoginPageComponent
+        component: LoginPageComponent,
       },
       {
         path: 'detail/:id',
-        component: DetailComponent
+        component: DetailComponent,
       },
       {
         path: 'my-life',
-        component: MyLifePageComponent
+        component: MyLifePageComponent,
       },
       {
         path: 'source',
-        component: SourceComponent
-      }
-
-    ]
+        component: SourceComponent,
+      },
+    ],
   },
   {
-    path: 'admin', component: TemplateComponent,
+    path: 'admin',
+    component: TemplateComponent,
     children: [
       {
         path: '',
-        component: AdminContainerComponent
-      }],
-    canActivate: [AuthGuard]
+        component: AdminContainerComponent,
+      },
+    ],
+    canActivate: [AuthGuard],
   },
   {
-    path: '**', component: PageNotFoundComponent
-  }
+    path: '**',
+    component: PageNotFoundComponent,
+  },
 ];
 
 export const RouterListModule = routes;

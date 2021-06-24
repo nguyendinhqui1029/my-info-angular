@@ -1,5 +1,6 @@
 import { TypeConfig } from "src/config/type-config";
 import { AuthService } from "./auth.service";
+import { CategoryService } from "./category.service";
 import { CommentService } from "./comment.service";
 import { DynamicComponentService } from "./dynamic-component.service";
 import { ImageService } from "./image.service";
@@ -26,7 +27,8 @@ export const allService = [
   UploadVideoService,
   MailerService,
   PostService,
-  CommentService
+  CommentService,
+  CategoryService
 ];
 export const allServiceTypeConfig: TypeConfig[] = [
   {
@@ -76,6 +78,10 @@ export const allServiceTypeConfig: TypeConfig[] = [
   {
     key: "commentService",
     type: CommentService
+  },
+  {
+    key: "categoryService",
+    type: CategoryService
   }
 ];
 
@@ -90,3 +96,4 @@ export * from "./auth.service";
 export * from "./upload-video.service";
 export * from "./mailer.service";
 export * from "./comment.service";
+export * from "./category.service";

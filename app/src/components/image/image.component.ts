@@ -4,39 +4,15 @@ import { ChangeDetectorRef, Component, HostListener, Inject, Input, OnInit } fro
 @Component({
   selector: 'image-custom',
   templateUrl: './image.component.html',
-  styleUrls: ['./image.component.scss']
+  styleUrls: ['./image.component.scss'],
 })
 export class ImageCustomComponent implements OnInit {
-  @Input("url") url: string;
-  @Input("ngClass") ngClass: any = {};
-  @Input("containerId") containerId: string;
-  @Input("calHeight") calHeight: boolean = true;
-  heightImage: number;
-  widthImage: number;
-  constructor(@Inject(DOCUMENT) private document, private cd: ChangeDetectorRef) {
+  @Input('url') url: string;
+  @Input('isShow') isShow: boolean=false;
+  @Input('width') width: number | undefined;
+  @Input('height') height: number | undefined;
 
-  }
+  constructor() {}
 
-  ngOnInit(): void {
-
-  }
-
-  @HostListener("window:resize")
-  onResize() {
-    this.setHeightAndWidthImage();
-  }
-
-  setHeightAndWidthImage() {
-    if (this.document.querySelector(`#${this.containerId}`)) {
-      if (this.widthImage !== this.document.querySelector(`#${this.containerId}`).offsetWidth) {
-        this.widthImage = this.document.querySelector(`#${this.containerId}`).offsetWidth;
-        this.heightImage = this.calHeight ? (this.widthImage / 1.69) : this.document.querySelector(`#${this.containerId}`).offsetHeight;
-      }
-    }
-  }
-
-  ngAfterViewChecked(): void {
-    this.setHeightAndWidthImage();
-    this.cd.detectChanges();
-  }
+  ngOnInit(): void {}
 }

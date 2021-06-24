@@ -17,15 +17,15 @@
           <mat-form-field appearance="outline" class="input-container">
             <mat-label>{{'category'| translate}}</mat-label>
             <mat-select formControlName="category">
-              <mat-option value="cs">
-                Cuoc song
+              <mat-option *ngFor="let category of categoryList" [value]="category.id">
+                {{category.title}}
               </mat-option>
             </mat-select>
           </mat-form-field>
         </div>
 
         <div fxLayout="row" class="input-container">
-          <ckeditor-custom [value]="getValue()" (valueChange)="setValue($event)">
+          <ckeditor-custom (valueChange)="setValue($event)">
           </ckeditor-custom>
         </div>
       </div>

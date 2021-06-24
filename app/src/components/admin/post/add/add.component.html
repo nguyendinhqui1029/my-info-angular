@@ -19,21 +19,20 @@
           <mat-form-field appearance="outline" fxFlex.sm="75%" class="input-container">
             <mat-label>{{'category'| translate}}</mat-label>
             <mat-select formControlName="category">
-              <mat-option value="cs">
-                Cuoc song
+              <mat-option *ngFor="let category of categoryList" [value]="category.id">
+                {{category.title}}
               </mat-option>
             </mat-select>
             <mat-icon matSuffix>check</mat-icon>
-            <mat-hint>Message error Message error Message error Message error
-              Message error Message error Message error Message error Message error
+            <mat-hint>Message error Message error Message error Message
             </mat-hint>
           </mat-form-field>
         </div>
 
         <div fxLayout="row wrap" fxLayoutAlign="space-around start">
           <mat-form-field appearance="outline" fxFlex.sm="75%" class="input-container">
-            <mat-label>{{'view' | translate}}</mat-label>
-            <input matInput placeholder="view" formControlName="view" required>
+            <mat-label>{{'urlVideo' | translate}}</mat-label>
+            <input matInput placeholder="urlVideo" formControlName="urlVideo" required>
             <mat-icon matSuffix>check</mat-icon>
             <mat-hint>Message error Message error Message error Message error
               Message error Message error Message error Message error Message error
@@ -59,26 +58,13 @@
 
         <div fxLayout="row wrap" fxLayoutAlign="space-around start">
           <mat-form-field appearance="outline" fxFlex.sm="75%" class="input-container">
-            <mat-label>{{'rating' | translate}}</mat-label>
-            <input matInput placeholder="rating" formControlName="rating" required>
-            <mat-icon matSuffix>check</mat-icon>
-            <mat-hint>Message error Message error Message error Message error
-              Message error Message error Message error Message error Message error
-            </mat-hint>
+            <mat-label>{{'subContent' | translate}}</mat-label>
+            <textarea matInput style="color:black;" formControlName="subContent" maxlength="200" rows="5"></textarea>
           </mat-form-field>
-
-          <mat-form-field appearance="outline" fxFlex.sm="75%" class="input-container">
-            <mat-label>{{'urlVideo' | translate}}</mat-label>
-            <input matInput placeholder="urlVideo" formControlName="urlVideo" required>
-            <mat-icon matSuffix>check</mat-icon>
-            <mat-hint>Message error Message error Message error Message error
-              Message error Message error Message error Message error Message error
-            </mat-hint>
-          </mat-form-field>
+          <div fxFlex.sm="75%" class="input-container"></div>
         </div>
-
         <div fxLayout="row wrap" fxLayoutAlign="space-around start">
-          <ckeditor-custom [value]="getValue()" (valueChange)="setValue($event)">
+          <ckeditor-custom (valueChange)="setValue($event)">
           </ckeditor-custom>
         </div>
         <div fxLayout="row" fxLayoutAlign="end center" class="container-action">

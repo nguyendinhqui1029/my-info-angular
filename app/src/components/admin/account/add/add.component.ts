@@ -8,6 +8,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class AddAccountComponent implements OnInit {
   firstFormGroup: FormGroup;
+  startDate: any = new Date(1990, 0, 1);
   constructor(private _formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
@@ -16,7 +17,8 @@ export class AddAccountComponent implements OnInit {
       phone: ['', Validators.required],
       email: ['', Validators.required],
       password: ['', Validators.required],
-      repassword: ['', Validators.required]
+      repassword: ['', Validators.required],
+      dateOfBirth: ['', Validators.required]
     });
   }
 }

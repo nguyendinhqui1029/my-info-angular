@@ -1,0 +1,65 @@
+<div fxLayout="column" class="width-100vh" fxLayoutAlign="end start">
+  <div fxLayout="row" class="width-100vh container-header">
+    <span>{{'delete_category' | translate}}</span>
+  </div>
+  <div fxLayout="column" class="width-100vh container-form pd-10px">
+    <div fxLayout="row" class="width-100vh">
+      <mat-form-field>
+        <mat-label>Filter</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+      </mat-form-field>
+    </div>
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <!-- Checkbox Column -->
+      <ng-container matColumnDef="select">
+        <th mat-header-cell *matHeaderCellDef>
+          <mat-checkbox (change)="$event ? masterToggle() : null" [checked]="selection.hasValue() && isAllSelected()"
+            [indeterminate]="selection.hasValue() && !isAllSelected()" [aria-label]="checkboxLabel()">
+          </mat-checkbox>
+        </th>
+        <td mat-cell *matCellDef="let row">
+          <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null"
+            [checked]="selection.isSelected(row)" [aria-label]="checkboxLabel(row)">
+          </mat-checkbox>
+        </td>
+      </ng-container>
+
+      <!-- title Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef style="padding: 4px;"> Id </th>
+        <td mat-cell *matCellDef="let element" style="padding: 4px;"> {{element.id}} </td>
+      </ng-container>
+
+      <!-- title Column -->
+      <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef style="padding: 4px;"> Title </th>
+        <td mat-cell *matCellDef="let element" style="padding: 4px;"> {{element.title}} </td>
+      </ng-container>
+
+      <!-- contentDetail Column -->
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef style="padding: 4px;"> Status </th>
+        <td mat-cell *matCellDef="let element" style="padding: 4px;" [innerHtml]="element.status"> </td>
+      </ng-container>
+
+      <!-- action -->
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef class="text-align-center" style="min-width: 100px; padding: 4px;"> Action
+        </th>
+        <td mat-cell *matCellDef="let element" class="text-align-center" style="min-width: 100px; padding: 4px;">
+          <button mat-icon-button (click)="updateItem(element)">
+            <mat-icon>update</mat-icon>
+          </button>
+          <button mat-icon-button (click)="deleteItem(element.id)">
+            <mat-icon class="button-delete">delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns" class="header-tabel"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+      </tr>
+    </table>
+  </div>
+</div>

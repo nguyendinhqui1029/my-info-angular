@@ -8,19 +8,14 @@ import { LocatorService } from 'src/service/locator.service';
 })
 export class HeaderCommentComponent implements OnInit {
   @Input("date") date: string;
-  @Input("avatar") avatar: string = "https://material.angular.io/assets/img/examples/shiba2.jpg";
+  @Input("avatar") avatar: string;
   @Input("name") name: string;
-  @Input("idComment") idComment: string;
   constructor(private ls: LocatorService) {
 
   }
 
   ngOnInit(): void {
 
-  }
-
-  editComment() {
-    alert(1)
   }
 
 }

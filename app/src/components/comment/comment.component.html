@@ -1,18 +1,26 @@
 <div fxLayout="column" fxFlex="100%" class="container-comment">
-  <add-comment [idPost]="isPost" (bindingCommentHtml)="bindingCommentHtml($event)"></add-comment>
+  <add-comment [idPost]="isPost"></add-comment>
   <!-- content comment  -->
-  <!-- <div fxFlex="100%" fxLayout="column" class="container-content mb-20">
-    <div fxLayout="column" class="width-100vh border-bottom" *ngFor="let comment of listComment">
-      <header-comment [date]="comment.date" [name]="'Nguyen Van A'"></header-comment>
-      <div class="content mat-form-field-wrapper" *ngIf="comment.parentContent">
-        <span>Nguyen Van A:</span>{{comment.parentContent}}
-      </div>
+  <div fxFlex="100%" fxLayout="column" class="container-content mb-20" *ngFor="let comment of listComment">
+    <div fxLayout="column" class="width-100vh border-bottom">
+      <header-comment *ngIf="comment.user" [date]="comment.date" [name]="comment.user.name"
+        [avatar]="comment.user.avatar"></header-comment>
       <div class="content">
         <span>{{comment.content}}</span>
       </div>
       <footer-comment [idPost]="isPost" [idComment]="comment.id"></footer-comment>
     </div>
-  </div> -->
-
-  <div [innerHtml]="a">dfds</div>
+    <div class="plr-1rem border-bottom" *ngFor="let child of comment.childComment">
+      <div fxLayout="column" class="width-100vh">
+        <header-comment *ngIf="child.user" [date]="child.date" [name]="child.user.name" [avatar]="child.user.avatar">
+        </header-comment>
+        <div class="content">
+          <span>{{child.content}}</span>
+        </div>
+        <footer-comment *ngIf="child.childComment" [idPost]="isPost" [idComment]="child.id"
+          [childComment]="child.childComment">
+        </footer-comment>
+      </div>
+    </div>
+  </div>
 </div>

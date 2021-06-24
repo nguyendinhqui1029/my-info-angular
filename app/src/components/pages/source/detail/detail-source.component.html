@@ -1,56 +1,11 @@
-<div fxLayout="row" fxLayoutAlign="space-around start">
-  <div fxLayout="column">
-    <div fxLayout="column">
+<div fxLayout="row" fxFlex="100%">
+    <div fxLayout="column" fxFlex="100%">
       <div fxLayout="row" class="width-100 container-header">
         <span>{{dataDynamic.lable | translate}}</span>
       </div>
       <div fxLayout="column" class="container-form mb-15">
-        <div fxLayout="row" fxFlex="100%" fxLayoutAlign="space-around start">
-          <div fxFlex="80%" fxFlex.xs="90%" fxLayoutAlign="space-around center" id="container-video">
-            <video-custom [url]="'https://youtu.be/oE_E0p5soIA'"
-              [imageThumnail]="'https://material.angular.io/assets/img/examples/shiba2.jpg'"
-              [containerId]="'container-video'" [showImageThumnail]="false"></video-custom>
-          </div>
-        </div>
-        <!-- <div fxLayout="row" fxLayoutAlign="space-around start">
-                <syntax-highlight [data]="data" fxFlex="100%" fxFlex.xs="100%"></syntax-highlight>
-              </div> -->
-
         <!-- Section content  -->
-        <div fxLayout="column" fxFlex="100%" style="padding: 5px;">
-          <p>Xác minh sơ bộ lịch trình của bệnh nhân như sau: ngày 26.1, bệnh nhân gặp F0 (bệnh nhân 1722) tại cổng
-            chung
-            cư, nói chuyện trong khoảng 5 phút, cả 2 có đeo khẩu trang.</p>
-          <p>Ngày 29.1, buổi sáng bệnh nhân có đến cơ quan tại số 221 Đội Cấn để ký văn bản và tiếp xúc với một người
-            tên
-            N.,
-            có đi
-            đến chợ Mỹ Đình (không nhớ rõ những nơi đã đến).</p>
-          <p>Chiều 29.1, bệnh nhân đi xe máy một mình đến khu vực Bệnh viện Y học cổ truyền Hà Nội để liên hệ khám bệnh
-            cho
-            con,
-            nhưng khi đến cổng thì thấy có biển báo viện chưa khám và làm xét nghiệm cho các bệnh nhân có yếu tố dịch tễ
-            liên quan
-            đến Covid-19, nên lại đi xe về. Quá trình đi và về bệnh nhân không tiếp xúc với ai. Tất cả các thời điểm
-            bệnh
-            nhân ra
-            ngoài đều đeo khẩu trang.</p>
-          <p>Ngày 30.1, có bạn tên L., địa chỉ tại Trần Cung, P.Cổ Nhuế, Q.Bắc Từ Liêm, sang nhà bệnh nhân chơi khoảng
-            30
-            phút.</p>
-          <p>Ngày 2.2 và ngày 4.2, bệnh nhân đi gội đầu tại cửa hàng dưới tầng 1 của chung cư. Trong quá trình đi gội
-            đầu
-            có
-            đeo khẩu
-            trang, khi đi thang máy và khi tiếp xúc với nhân viên cửa hàng gội đầu bệnh nhân không đeo khẩu trang.</p>
-          <p>Ngày 5.2, bệnh nhân có triệu chứng sốt, ho và đau rát họng. 16 giờ 45 ngày 6.2, bệnh nhân gọi điện vào số
-            điện
-            thoại
-            đường dây nóng của CDC Hà Nội xin tư vấn.</p>
-          <p>Những khoảng thời gian còn lại bệnh nhân chỉ ở nhà chăm con, không đi ra ngoài và tiếp xúc với ai khác.
-            Đến ngày 7.2, bệnh nhân được Trung tâm Y tế Q.Nam Từ Liêm lấy mẫu xét nghiệm, kết quả dương tính SAR-CoV-2
-            cùng
-            ngày.</p>
+        <div fxLayout="row" *ngIf="postDetail.contentDetail" fxFlex="100%" style="padding: 5px;" [innerHtml]="postDetail.contentDetail | safeHtml">
         </div>
         <!-- End Section content  -->
 
@@ -59,8 +14,5 @@
         <!-- End comment post  -->
       </div>
     </div>
-
     <!-- End Section post  -->
-    <div>Quang cao</div>
-  </div>
 </div>

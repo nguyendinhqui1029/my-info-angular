@@ -32,9 +32,15 @@
       </ng-container>
 
       <!-- contentDetail Column -->
-      <ng-container matColumnDef="contentDetail">
-        <th mat-header-cell *matHeaderCellDef style="padding: 4px;"> Content Detail </th>
-        <td mat-cell *matCellDef="let element" style="padding: 4px;" [innerHtml]="element.contentDetail"> </td>
+      <ng-container matColumnDef="subContent">
+        <th mat-header-cell *matHeaderCellDef style="padding: 4px;"> {{'sub_content'|translate}} </th>
+        <td mat-cell *matCellDef="let element" style="padding: 4px;" [innerHtml]="element.subContent|safeHtml"> </td>
+      </ng-container>
+
+      <!-- category Column -->
+      <ng-container matColumnDef="category">
+        <th mat-header-cell *matHeaderCellDef style="padding: 4px;"> {{'category'|translate}} </th>
+        <td mat-cell *matCellDef="let element" style="padding: 4px;" [innerHtml]="element.category.title"> </td>
       </ng-container>
 
       <!-- view Column -->

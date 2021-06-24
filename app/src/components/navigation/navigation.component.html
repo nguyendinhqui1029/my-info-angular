@@ -17,7 +17,7 @@
     </div>
 
     <div>
-      <ng-container *ngIf="isLogin; else showSettingLanguage">
+      <ng-container *ngIf="authService.isLogin; else showSettingLanguage">
         <button mat-button (click)="navigationService.navigateTo(listItem[0].url)">
           <img class="img-avatar" [src]="userInfo.photoUrl">
           <span class="name">{{userInfo.name}}</span>

@@ -1,5 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CommentModel } from 'src/model/comment.model';
 import { environment } from '../environments/environment';
@@ -7,13 +7,13 @@ import { environment } from '../environments/environment';
 export class CommentService {
   url: string = environment.api.url;
   config: any;
+  eventUpdateCommentToUI: EventEmitter<any> = new EventEmitter<any>();
   constructor(private http: HttpClient) {
     this.config = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })
     };
-
   }
 
   getCommentByIdAnwser(idAnwser: string): Observable<any> {
@@ -30,5 +30,9 @@ export class CommentService {
 
   addComment(comment: CommentModel): Observable<any> {
     return this.http.post(`${this.url}/add-comment`, comment);
+  }
+
+  getCommentByIdComment(idComment: string): Observable<any> {
+    return this.http.get(`${this.url}/get-comment-by-comment/${idComment}`, this.config);
   }
 }

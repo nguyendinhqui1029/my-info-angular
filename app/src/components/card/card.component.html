@@ -1,20 +1,69 @@
-<mat-card class="example-card">
-  <mat-card-header *ngIf="cardModel.title || cardModel.date || cardModel.organization || cardModel.address">
-    <mat-card-title class="{{cardModel.classTitle}}">{{cardModel.title}}</mat-card-title>
-    <mat-card-subtitle><span class="{{cardModel.classDate}}">{{cardModel.date}}</span></mat-card-subtitle>
-    <mat-card-title class="{{cardModel.classTitle}}">
-      <span class="{{cardModel.classOrganization}}">{{cardModel.organization}}</span>
-      <span *ngIf="cardModel.address"> - </span>
-      <span class="{{cardModel.classAddress}}">
-        {{cardModel.address}}
-      </span>
-    </mat-card-title>
-  </mat-card-header>
-  <img mat-card-image *ngIf="cardModel.image" src="{{cardModel.image}}" alt="{{cardModel.image}}">
-  <mat-card-content [innerHtml]="cardModel.descriptive" class="{{cardModel.classDescriptive}}">
-  </mat-card-content>
-  <!-- <mat-card-actions>
-    <button mat-button>LIKE</button>
-    <button mat-button>SHARE</button>
-  </mat-card-actions> -->
-</mat-card>
+<div fxLayout="row wrap" class="card-center" fxLayoutAlign="center start">
+  <!-- video or image -->
+  <div
+    #demoYouTubePlayer
+    class="demo-youtube-player"
+    fxFlex.xs="70%"
+    *ngIf="post.urlVideo || post.urlThumnail"
+    fxFlex="45%"
+    fxFlex.sm="70%"
+    fxFlexFill
+  >
+  <image-custom [url]="post.urlThumnail"
+      [width]="videoWidth"
+      [height]="videoHeight" [isShow]="isShow" (mouseover)="setIsShowVideo()"></image-custom>
+    <video-custom
+      [url]="post.urlVideo"
+      [videoWidth]="videoWidth"
+      [videoHeight]="videoHeight"
+      [isShow]="!isShow"
+    >
+    </video-custom>
+  </div>
+  <!-- video or image -->
+  <!-- content card  -->
+  <div
+    fxFlex.xs="100%"
+    fxFlex.sm="100%"
+    fxFlex="50%"
+    fxFlexFill
+  >
+    <h3 class="title-3-dot pd-5">
+      <a [routerLink]="['/detail', post.id]">
+        {{ post.title | translate }}
+      </a>
+    </h3>
+    <div
+      fxLayout="row wrap"
+      class="width-100vh"
+      fxLayoutAlign="space-between start"
+    >
+      <div fxLayout="column" *ngIf="post.view != 0">
+        <span fxLayoutAlign="start center">
+          <mat-icon style="font-size: 1.5rem">remove_red_eye</mat-icon>
+          <span style="margin-left: 10px; color: #f44336">{{ post.view }}</span>
+        </span>
+      </div>
+      <div fxLayout="column" *ngIf="post.rating != 0">
+        <rating-component
+          [readOnly]="true"
+          [rating]="post.rating"
+          style="margin: 0px; padding: 0px"
+        >
+        </rating-component>
+      </div>
+    </div>
+    <hr style="width: 100%; color: rgba(100, 100, 98, 0.835)" />
+    <div class="content">
+      <p>
+        {{ post.subContent }}
+      </p>
+    </div>
+    <div [ngClass]="{ 'width-100vh': true }" fxLayout="row-reverse">
+      <a [routerLink]="['/detail', post.id]" class="see-more">
+        {{ "see_more" | translate }}
+      </a>
+    </div>
+  </div>
+  <!-- content card  -->
+</div>

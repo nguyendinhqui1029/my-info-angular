@@ -13,7 +13,7 @@ export class NavigationService {
 
   navigateTo(path) {
     if (path === 'logout') {
-      this.authService.logoutUser();
+      this.authService.signOut();
       this.router.navigate(['/login'], { relativeTo: this.route });
     } else {
       this.router.navigate([path], { relativeTo: this.route });

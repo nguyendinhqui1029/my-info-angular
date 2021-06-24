@@ -46,7 +46,13 @@
             <mat-icon matSuffix>close</mat-icon>
             <mat-hint>Message error</mat-hint>
           </mat-form-field>
-          <div class="input-container" fxFlex.sm="75%"></div>
+          <mat-form-field appearance="outline" fxFlex.sm="75%" class="input-container">
+            <mat-label>Date of Birth</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="dateOfBirth">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker startView="year" [startAt]="startDate">
+            </mat-datepicker>
+          </mat-form-field>
         </div>
 
         <div fxLayout="row" fxLayoutAlign="end center" class="container-action">

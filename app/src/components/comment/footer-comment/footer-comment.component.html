@@ -3,9 +3,20 @@
   <div style="margin-left: 1rem;">
     <button mat-flat-button style="margin-right: 1rem;" (click)="replyComment()">
       {{(isShowComment?'Close':'Reply') | translate}}</button>
+
+    <button mat-flat-button style="margin-right: 1rem;" (click)="seeMoreReply(idComment)" *ngIf="numberChildComment">
+      {{numberChildComment}} {{ 'Anwser' | translate}}</button>
+
+    <button mat-icon-button aria-label="Edit comment" (click)="showEditForm()" style="margin-right: 1rem;">
+      <mat-icon>edit</mat-icon> {{('Edit') | translate}}
+    </button>
+
     <button mat-flat-button style="margin-left: 1rem;" aria-label="Example icon button with a heart icon">
-      <mat-icon color="warn">favorite</mat-icon><label>10000</label>
+      <label>10000</label>
+      <mat-icon color="warn">favorite</mat-icon>
     </button>
   </div>
 </div>
-<add-comment *ngIf="isShowComment" [idPost]="idPost" [idComment]="idComment"></add-comment>
+<add-comment *ngIf="isShowComment" [idPost]="idPost" [idComment]="idComment" [contentDefault]="contentDefault"
+  (bindingCommentHtml)="closeFormComment()">
+</add-comment>

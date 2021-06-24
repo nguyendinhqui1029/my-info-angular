@@ -15,7 +15,6 @@ export class NavigationComponent implements OnInit, OnDestroy {
   isDeviceXS: boolean = false;
   mediaScreen: Subscription;
   userInfoSub: Subscription;
-  isLogin: boolean = false;
   userInfo: any;
   // Service 
   mediaScreenService: MediaScreenService;
@@ -25,7 +24,6 @@ export class NavigationComponent implements OnInit, OnDestroy {
     this.mediaScreenService = this.ls.getService<MediaScreenService>("mediaScreenService");
     this.navigationService = this.ls.getService<NavigationService>('navigationService');
     this.authService = this.ls.getService<AuthService>('authService');
-    this.isLogin = !!localStorage.getItem('user');
     this.userInfo = JSON.parse(localStorage.getItem('user'));
   }
 
@@ -37,21 +35,20 @@ export class NavigationComponent implements OnInit, OnDestroy {
     this.userInfoSub = this.authService.infoUser.subscribe(user => {
       if (user) {
         this.userInfo = user;
-        this.isLogin = true;
       }
+      this.listItem.forEach((item) => {
+        switch (item.url) {
+          case 'admin':
+          case 'logout': item.showOrHidden = this.authService.isLogin;
+            break;
+          case 'login':
+            item.showOrHidden = !this.authService.isLogin;
+            break;
+        }
+      });
     });
   }
 
-  ngAfterViewChecked(): void {
-    this.listItem.forEach(item => {
-      if ((item.url === 'admin' && this.navigationService.getPathParent() !== 'admin') || item.url === 'logout') {
-        item.showOrHidden = this.isLogin;
-      }
-      if (item.url === 'login') {
-        item.showOrHidden = !this.isLogin;
-      }
-    });
-  }
 
   openDrawer() {
     this.mediaScreenService.toggleDrawer(this.listItem);

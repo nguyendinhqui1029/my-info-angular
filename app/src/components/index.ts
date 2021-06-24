@@ -43,6 +43,7 @@ import { DialogUpdateComponent } from './dialog/dialog-update/dialog-update.comp
 import { HeaderCommentComponent } from './comment/header-comment/header-comment.component';
 import { FooterCommentComponent } from './comment/footer-comment/footer-comment.component';
 import { AddCommentComponent } from './comment/add-comment/add-comment.component';
+import { SearchComponent } from './search/search.component';
 
 
 export const allComponent = [
@@ -88,7 +89,8 @@ export const allComponent = [
   DialogUpdateComponent,
   HeaderCommentComponent,
   FooterCommentComponent,
-  AddCommentComponent
+  AddCommentComponent,
+  SearchComponent
 ];
 
 export const allComponentTypeConfig: TypeConfig[] = [
@@ -261,6 +263,10 @@ export const allComponentTypeConfig: TypeConfig[] = [
   {
     key: 'addCommentComponent',
     type: AddCommentComponent
+  },
+  {
+    key: 'searchComponent',
+    type: SearchComponent
   }
 
 ];
@@ -301,3 +307,4 @@ export * from './dialog/dialog-update/dialog-update.component';
 export * from './comment/header-comment/header-comment.component';
 export * from './comment/footer-comment/footer-comment.component';
 export * from './comment/add-comment/add-comment.component';
+export * from './search/search.component'

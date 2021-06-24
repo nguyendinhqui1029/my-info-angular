@@ -1,4 +1,4 @@
-import { Safe } from "./SafePipe.pipe";
+import { SafeHtml } from "./SafePipe.pipe";
 
-export const allPipe = [Safe];
+export const allPipe = [SafeHtml];
 export * from "./SafePipe.pipe";

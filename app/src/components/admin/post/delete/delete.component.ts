@@ -9,6 +9,11 @@ import { Post } from 'src/model/post.model';
 import { LocatorService } from 'src/service/locator.service';
 import { PostService } from 'src/service/post.service';
 import * as moment from 'moment';
+import { CategoryService } from 'src/service';
+import { CategoryModel } from 'src/model/category.model';
+import { resourceLimits } from 'worker_threads';
+import { Observable, of, pipe } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'delete-post',
@@ -16,20 +21,58 @@ import * as moment from 'moment';
   styleUrls: ['./delete.component.scss']
 })
 export class DeletePostComponent implements OnInit {
-  displayedColumns: string[] = ['select', 'title', 'contentDetail', 'view', 'rating', 'action'];
+  displayedColumns: string[] = ['select', 'title', 'subContent', 'category', 'view', 'rating', 'action'];
   dataSource = new MatTableDataSource<Post>([]);
   selection = new SelectionModel<Post>(true, []);
   postService: PostService;
+  categoryService: CategoryService;
   constructor(private dialog: MatDialog, private ls: LocatorService, private _formBuilder: FormBuilder) {
     this.postService = this.ls.getService<PostService>('postService');
+    this.categoryService = this.ls.getService('categoryService');
   }
 
   ngOnInit(): void {
-    this.postService.getAllPost().subscribe(postData => {
-      this.dataSource = new MatTableDataSource<Post>(postData);
-    });
+    if (!this.dataSource.data.length) {
+      console.log(1)
+      this.getAllPost().subscribe(listDataPost => {
+        this.dataSource = new MatTableDataSource<Post>(listDataPost);
+      });
+    }
   }
 
+  getAllPost(): Observable<any> {
+    return new Observable((subscrition) => {
+      this.postService.getAllPost().subscribe(result => {
+        if (result.status == 200 && result.body.length) {
+          const listDataPost = [];
+          result.body.some((post, index) => {
+            this.getCategoryById(post.category).pipe(
+              map((category) => {
+                const newPost = Object.assign(post);
+                newPost.category = category;
+                listDataPost.push(newPost);
+              })
+            ).subscribe(() => {
+              if (index >= (result.body.length - 1)) {
+                subscrition.next(listDataPost);
+                subscrition.complete();
+              }
+            });
+          })
+        }
+      });
+    });
+  }
+  getCategoryById(id: string): Observable<any> {
+    return new Observable((subscrition) => {
+      this.categoryService.getCategoryByID(id).subscribe(result => {
+        if (result.status === 200) {
+          subscrition.next(result.body);
+          subscrition.complete();
+        }
+      });
+    });
+  }
   isAllSelected() {
     /** Whether the number of selected elements matches the total number of rows. */
     const numSelected = this.selection.selected.length;
@@ -69,7 +112,7 @@ export class DeletePostComponent implements OnInit {
       }
     })
     resultAfterDialogClose.afterClosed().subscribe(data => {
-      if (data.actionName === 'ok') {
+      if (data && data.actionName === 'ok') {
         this.postService.deletePostByID(idPost).subscribe(reponse => {
           const idPostDeleted = reponse.body.id;
           const ind = this.dataSource.data
@@ -102,7 +145,7 @@ export class DeletePostComponent implements OnInit {
       }
     })
     resultAfterDialogClose.afterClosed().subscribe(data => {
-      if (data.actionName === 'ok') {
+      if (data && data.actionName === 'ok') {
         const post = new Post();
         post.id = item.id;
         post.title = data.value.value.titlePost;

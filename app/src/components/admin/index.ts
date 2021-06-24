@@ -11,6 +11,9 @@ import { OverviewComponent } from "./overview/overview.component";
 import { AddPostComponent } from "./post/add/add.component";
 import { DeletePostComponent } from "./post/delete/delete.component";
 import { UpdatePostComponent } from "./post/update/update-post.component";
+import { AddCategoryComponent } from "./category/add-category/add-category.component";
+import { DeleteCategoryComponent } from "./category/delete-category/delete-category.component";
+import { UpdateCategoryComponent } from "./category/update-category/update-category.component";
 
 export const allComponentAdmin = [
   FooterAminComponent,
@@ -27,6 +30,11 @@ export const allComponentAdmin = [
   AddPostComponent,
   DeletePostComponent,
   UpdatePostComponent,
+
+  AddCategoryComponent,
+  DeleteCategoryComponent,
+  UpdateCategoryComponent,
+
   OverviewComponent
 ];
 
@@ -78,6 +86,18 @@ export const allComponentAdminTypeConfig: TypeConfig[] = [
   {
     key: 'updatePostComponent',
     type: UpdatePostComponent
+  },
+  {
+    key: 'addCategoryComponent',
+    type: AddCategoryComponent
+  },
+  {
+    key: 'deleteCategoryComponent',
+    type: DeleteCategoryComponent
+  },
+  {
+    key: 'updateCategoryComponent',
+    type: UpdateCategoryComponent
   }
 ];
 export * from "./footer/footer.component";
@@ -92,3 +112,6 @@ export * from "./overview/overview.component";
 export * from "./post/add/add.component";
 export * from "./post/delete/delete.component";
 export * from "./post/update/update-post.component";
+export * from "./category/add-category/add-category.component";
+export * from "./category/delete-category/delete-category.component";
+export * from "./category/update-category/update-category.component";

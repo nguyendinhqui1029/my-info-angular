@@ -1,115 +1,84 @@
 <div class="container">
   <div fxLayout="column">
-    <div class="flex-container" class="container-new-post">
-      <div fxLayout="row" class="border-bottom-1-white mt-3 background-card border-radius-top-left-right-5">
-        <h3 class="title-all-post pd-3">New Post</h3>
-        <div fxLayout="row" fxLayoutAlign="end start" class="container-group-button pd-3">
-          <paginator [listItem]="listItemDefault" [keyListReload]="'NEW_POST'"></paginator>
-        </div>
-      </div>
-
-      <mat-grid-list cols="4" rowHeight="200px">
-        <mat-grid-tile *ngFor="let newpost of newPosts; let i=index;" [colspan]="newpost.cols" [rowspan]="newpost.rows"
-          class="item-post" [id]="'post'+i">
-          <ng-container *ngIf="newpost.type === 'image'; else showVideo">
-            <a [routerLink]="[ '/detail',1]" style="width: 100%; height: 100%;">
-              <image-custom [url]="newpost.url" [containerId]="'post'+i" [calHeight]="false"></image-custom>
-            </a>
-          </ng-container>
-          <ng-template #showVideo>
-            <video-custom [url]="'https://youtu.be/oE_E0p5soIA'" [containerId]="'post'+i"></video-custom>
-          </ng-template>
-
-          <div class="content-item-post">
-            <div style="margin: 10px;">
-              <h3 class="title-content">
-                <a [routerLink]="[ '/detail',1 ]">{{newpost.text}}</a>
-              </h3>
-              <p class="content">
-                The following example adds a transition effect for both the width and height property, with a duration
-                of
-                2 seconds for
-                the width and 4 seconds for the height:
-              </p>
-            </div>
-          </div>
-        </mat-grid-tile>
-      </mat-grid-list>
-    </div>
-
+    <custom-carousel
+      [marginBottom]="15"
+      [listSlides]="slides"
+      style="width: 100%; height: 100%"
+    >
+    </custom-carousel>
     <!-- card two -->
     <div class="flex-container">
       <div fxLayout="row" fxLayoutAlign="space-around start">
         <div fxLayout="row" fxFlex="95%" fxFlex.xs="100%">
           <div fxLayout="column" fxFlex="70%" fxFlex.xs="100%">
             <!-- Header All Post -->
-            <div fxLayout="row" style="width: 100%;" fxLayoutAlign="start start"
-              class="container-header border-bottom-1-white mt-3 background-card border-radius-top-left-right-5">
-              <span>All Post</span>
+            <div
+              fxLayout="row"
+              style="width: 100%"
+              fxLayoutAlign="start start"
+              class="
+                container-header
+                border-bottom-1-white
+                mt-3
+                background-card
+                border-radius-top-left-right-5
+              "
+            >
+              <span>{{ "all_post" | translate }}</span>
             </div>
 
             <div fxLayout="column" class="container-form mb-15">
               <!-- card 1 -->
-              <div [fxLayout]="isDeviceXS ? 'column' : 'row'" fxLayoutAlign="space-around start" class="card-center">
-                <div fxFlex="30%" fxFlex.xs="100%" class="pd-5">
-                  <img src="https://material.angular.io/assets/img/examples/shiba2.jpg" class="image-post">
-                </div>
-                <div fxLayout="column" fxLayoutAlign="space-around start" fxFlex="70%" fxFlex.xs="100%" class="pd-5">
-                  <h3 class="title-3-dot">
-                    <a href="#">
-                      Title 1 Title 1 Title 1 Title 1 Title 1 Title 1 Title 1 Title 1
-                      Title 1
-                    </a>
-                  </h3>
-                  <div fxLayout="row" style="width: 100%;">
-                    <div fxLayout="column" fxFlex="50%">
-                      <span fxLayoutAlign="space-center center">
-                        <mat-icon style="font-size:1.5rem">mms</mat-icon>
-                        <span>1000</span>
-                      </span>
-                    </div>
-                    <div fxLayout="column" fxFlex="50%">
-                      <rating-component [readOnly]="true" style="margin: 0px; padding: 0px;"></rating-component>
-                    </div>
-                  </div>
-                  <hr style="width:100%; color:rgba(100, 100, 98, 0.835)" />
-                  <div class="content">
-                    <p>content content content content content content
-                      content content content content content content content content
-                      content content content content content content content content
-                      content content content content content content
-                      content content content content content content content content
-                      content content content content content content content content
-                    </p>
-                  </div>
-                  <div style="width: 100%;" class="pd-5" fxLayout="row-reverse">
-                    <a href="#" class="see-more">
-                      See more
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div fxLayout="row">
-                <paginator [listItem]="[]" [keyListReload]="'ALL_POST'"></paginator>
-              </div>
+              <card-component
+                *ngFor="let post of listPostLatestAfterPagination"
+                [post]="post"
+                fxFlexFill
+                fxFlex="100%"
+              ></card-component>
+
+              <paginator
+                *ngIf="listAllPost.length"
+                [listItem]="listAllPost"
+                [keyListReload]="'ALL_POST'"
+                [numberItemPage]="4"
+                [mode]="'NONE_LOOP'"
+              ></paginator>
             </div>
           </div>
 
-
           <div fxLayout="column" fxFlex="30%" *ngIf="!isDeviceXS" class="m-5-3">
             <div fxLayout="column">
-              <div fxLayout="row" style="width: 100%;" fxLayoutAlign="space-around start" class="container-header">
-                <span>Quick link</span>
+              <div
+                fxLayout="row"
+                style="width: 100%"
+                fxLayoutAlign="space-around start"
+                class="container-header"
+              >
+                <span>{{ "quick_link" | translate }}</span>
               </div>
               <div fxLayout="column" class="container-form">
                 <div fxLayout="column" class="pd-3">
-                  <div fxLayoutAlign="start center" class="pd-3" *ngFor="let item of listItems">
+                  <div
+                    fxLayoutAlign="start center"
+                    class="pd-3"
+                    *ngFor="let item of listItemsQuickLink"
+                  >
                     <mat-icon>loyalty</mat-icon>
-                    <a href="#" class="color-black ml-2 title-3-dot-1-line"> {{item}}</a>
+                    <a href="#" class="color-black ml-2 title-3-dot-1-line">
+                      {{ item }}</a
+                    >
                   </div>
-                  <div fxLayout="row" fxLayoutAlign="space-around start" class="container-see-more">
+                  <div
+                    fxLayout="row"
+                    fxLayoutAlign="space-around start"
+                    class="container-see-more"
+                  >
                     <div fxLayout="row">
-                      <paginator [listItem]="listItemQuickLink" [keyListReload]="'QUICK_LINK'" [mode]="'NONE_LOOP'">
+                      <paginator
+                        [listItem]="listItemQuickLink"
+                        [keyListReload]="'QUICK_LINK'"
+                        [mode]="'NONE_LOOP'"
+                      >
                       </paginator>
                     </div>
                   </div>
@@ -117,26 +86,26 @@
               </div>
             </div>
 
-
             <!-- FanPage -->
             <div fxLayout="column">
-              <div fxLayout="row" style="width: 100%;" fxLayoutAlign="space-around start" class="container-header">
-                <span>{{'my_fanpage'|translate}}</span>
+              <div
+                fxLayout="row"
+                style="width: 100%"
+                fxLayoutAlign="space-around start"
+                class="container-header"
+              >
+                <span>{{ "my_fanpage" | translate }}</span>
               </div>
 
-              <div class="container-form" id="fanpage" fxLayoutAlign="center start">
+              <div
+                class="container-form"
+                id="fanpage"
+                fxLayoutAlign="center start"
+              >
                 <fanpage-facebook [containerId]="'fanpage'"></fanpage-facebook>
-              </div>
-
-            </div>
-            <!-- End FanPage -->
-            <div fxLayout="column" class="card-center">
-              <div fxLayoutAlign="center start" id="ads">
-                content
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </div>
