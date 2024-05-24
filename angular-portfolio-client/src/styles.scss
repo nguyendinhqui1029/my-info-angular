@@ -1,1 +1,55 @@
 /* You can add global styles to this file, and also import other style files */
+// Define variables for commonly used values
+$default-font-family: Arial, sans-serif;
+$default-font-size: 16px;
+
+// Light mode variables
+$primary-background: linear-gradient(90deg, #FEF2E9 0%, #7C58FE 100%);
+$primary-background-opacity: hsl(253.41deg 100% 50% / 30.2%);
+$secondary-background: #FFFFFF;
+
+$light-mode: (
+  background-color: $primary-background,
+  text-color: #333333,
+  link-color: #007bff,
+  // Other styles...
+);
+
+$dark-mode: (
+  background-color: #1e1e1e,
+  text-color: #ffffff,
+  link-color: #4caf50,
+  // Other styles...
+);
+
+@mixin apply-mode($mode) {
+    @each $property, $value in $mode {
+      #{$property}: $value;
+    }
+  }
+// Resetting default browser styles
+html,
+body,
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: $default-font-family;
+  font-size: $default-font-size;
+  @include apply-mode($light-mode);
+}
+
+// Website mode
+.dark-mode {
+    @include apply-mode($dark-mode);
+}
+
+// Optionally, reset styles for specific elements if needed
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
