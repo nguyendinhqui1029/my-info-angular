@@ -1,7 +1,8 @@
 import { Routes } from '@angular/router';
-import { LayoutComponent } from '@pages/client/layout/layout.component';
-import { HomeComponent } from '@pages/client/home/home.component';
-import { AdminLayoutComponent } from '@pages/admin/layout/admin-layout.component';
+import { LayoutComponent } from '@client/layout/layout.component';
+import { HomeComponent } from '@client/home/home.component';
+import { AdminLayoutComponent } from '@admin/layout/admin-layout.component';
+import { DashboardComponent } from '@admin/dashboard/dashboard.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -9,8 +10,14 @@ export const routes: Routes = [
         path: '', 
         component: LayoutComponent, 
         children: [
-            { path: '/home', component: HomeComponent }
+            { path: 'home', component: HomeComponent }
          ]
     },
-    { path: 'admin', component: AdminLayoutComponent },
+    { 
+        path: '', 
+        component: AdminLayoutComponent, 
+        children: [
+            { path: 'admin', component:  DashboardComponent }
+         ]
+    }
   ];

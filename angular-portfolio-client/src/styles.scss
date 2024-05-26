@@ -1,50 +1,56 @@
+body {
+  @import 'assets/styles/variables/light.mode.scss'; // Default mode
+  background-image: $primary-background;
+}
+body.dark {
+  @import 'assets/styles/variables/dark.mode.scss';
+  background: $primary-background;
+  color: $wc-primary-text;
+}
+
+
 /* You can add global styles to this file, and also import other style files */
 // Define variables for commonly used values
 $default-font-family: Arial, sans-serif;
-$default-font-size: 16px;
+$default-font-size: 1rem; // 16px
 
-// Light mode variables
-$primary-background: linear-gradient(90deg, #FEF2E9 0%, #7C58FE 100%);
-$primary-background-opacity: hsl(253.41deg 100% 50% / 30.2%);
-$secondary-background: #FFFFFF;
-
-$light-mode: (
-  background-color: $primary-background,
-  text-color: #333333,
-  link-color: #007bff,
-  // Other styles...
-);
-
-$dark-mode: (
-  background-color: #1e1e1e,
-  text-color: #ffffff,
-  link-color: #4caf50,
-  // Other styles...
-);
-
-@mixin apply-mode($mode) {
-    @each $property, $value in $mode {
-      #{$property}: $value;
-    }
-  }
 // Resetting default browser styles
 html,
 body,
+div,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+img,
 ul,
-ol {
+ol,
+li,
+table,
+tbody,
+thead,
+tfoot,
+tr,
+th,
+td,
+form,
+fieldset,
+legend,
+input,
+textarea,
+button,
+select {
   margin: 0;
   padding: 0;
-}
-
-body {
-  font-family: $default-font-family;
-  font-size: $default-font-size;
-  @include apply-mode($light-mode);
-}
-
-// Website mode
-.dark-mode {
-    @include apply-mode($dark-mode);
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 
 // Optionally, reset styles for specific elements if needed
@@ -53,3 +59,13 @@ a {
   color: inherit;
 }
 
+h1,
+h2,
+h3 {
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
