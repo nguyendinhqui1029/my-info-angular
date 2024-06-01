@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-porfolio-client": {
+    "angular-portfolio-client": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -30,8 +30,9 @@
               "src/assets"
             ],
             "styles": [
-              "@angular/material/prebuilt-themes/deeppurple-amber.css",
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/primeng/resources/themes/lara-light-blue/theme.css",
+              "node_modules/primeng/resources/primeng.min.css"
             ],
             "scripts": [],
             "server": "src/main.server.ts",
@@ -54,7 +55,25 @@
                   "maximumError": "4kb"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "optimization": true,
+              "sourceMap": false,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "assets": [
+                "src/favicon.ico",
+                "src/assets"
+              ],
+              "styles": [
+                "src/styles.scss"
+              ]
             },
             "development": {
               "optimization": false,
@@ -68,10 +87,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "angular-porfolio-client:build:production"
+              "buildTarget": "angular-portfolio-client:build:production"
             },
             "development": {
-              "buildTarget": "angular-porfolio-client:build:development"
+              "buildTarget": "angular-portfolio-client:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -79,7 +98,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "angular-porfolio-client:build"
+            "buildTarget": "angular-portfolio-client:build"
           }
         },
         "test": {

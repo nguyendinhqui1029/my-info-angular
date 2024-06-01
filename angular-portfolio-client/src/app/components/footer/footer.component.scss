@@ -1,0 +1,54 @@
+@import 'assets/styles/common.scss'; // Common css
+.footer-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: $vertical-spacing-items;
+    padding: $padding;
+
+    .footer-content-wrapper {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(20.5em, 1fr));
+        gap: $horizontal-spacing-items;
+
+        .content-wrapper {
+            display: flex;
+            flex-direction: column;
+            list-style: none;
+            gap: $vertical-spacing-items;
+
+            .content {
+                display: flex;
+                align-items: end;
+                gap: $horizontal-spacing-items;
+                cursor: pointer;
+            }
+
+
+            h3 {
+                font-size: 1.5rem;
+            }
+            
+            .logo-wrapper {
+                .logo {
+                    width: 3rem;
+                    height: 3rem;
+                }
+            }
+
+            .social-wrapper, .logo-wrapper {
+                display: flex;
+                flex-direction: row;
+                gap: $horizontal-spacing-items;
+                align-items: center;
+            }
+        }
+    }
+
+    .copyright-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        font-weight: bold;
+    }
+}

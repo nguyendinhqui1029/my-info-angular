@@ -1,3 +1,18 @@
 {
-    "title": "test"
+    "title": "test",
+    "author_name": "Nguyễn Đình Qui",
+    "contact": "Liên hệ",
+    "search": "Tìm kiếm",
+    "login": "Đăng nhập",
+    "logout": "Đăng xuất",
+    "register": "Đăng kí",
+    "change_site_to": "Thay đổi sang màu {{mode}}",
+    "dark_mode": "tối",
+    "light_mode": "sáng",
+    "button_search": "Tìm kiếm",
+    "change_language": "Thay đổi ngôn ngữ",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "life": "Cuộc sống",
+    "about_me": "Về tôi"
 }

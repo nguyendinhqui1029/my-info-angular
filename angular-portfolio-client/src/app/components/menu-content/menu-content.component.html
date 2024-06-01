@@ -1,0 +1,19 @@
+<nav [ngClass]="{'nav-horizontal-wrapper': !isVertical, 'nav-vertical-wrapper': isVertical}">
+    <p-button icon="pi pi-star-fill" styleClass="button-full" size="small" [attr.aria-label]="'frontend' | translate" [label]="'frontend' | translate" [text]="true" [raised]="true" severity="warning" class="width:100%" />
+
+    <p-button styleClass="button-full" size="small" [attr.aria-label]="'backend' | translate" [label]="'backend' | translate" [text]="true" [raised]="true" severity="warning" />
+
+    <p-button styleClass="button-full" size="small" [attr.aria-label]="'life' | translate" [label]="'life' | translate" [text]="true" [raised]="true" severity="warning" />
+
+    <p-button styleClass="button-full" size="small" [attr.aria-label]="'about_me' | translate"  [label]="'about_me' | translate" [text]="true" [raised]="true" severity="warning" />
+
+    @if(!isVertical) {
+        <a [routerLink]="'google'" class="p-menuitem-link">
+            <p-avatar 
+        icon="pi pi-user" 
+        styleClass="mr-2" 
+        [style]="{ 'background-color': '#ece9fc', color: '#2a1261' }" 
+        shape="circle" />
+        </a>
+    }
+</nav>

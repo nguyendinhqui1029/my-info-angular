@@ -1,0 +1,37 @@
+<footer class="footer-wrapper">
+    <div class="footer-content-wrapper">
+        <!-- Introduce Myself -->
+        <ul class="content-wrapper">
+            <li class="logo-wrapper">
+                <img class="logo" [src]="footerInfo().data?.data?.infos?.logo || 'assets/images/logo.png'" alt="logo" />
+                <h3>{{ footerInfo().data?.data?.infos?.name }}</h3>
+            </li>
+            <li>
+                <p>{{footerInfo().data?.data?.infos?.description}}</p>
+            </li>
+            <li class="social-wrapper">
+                @for(item of footerInfo().data?.data?.infos?.social; track item) {
+                <a href="{{item.link}}" [attr.aria-label]="item.name">
+                    <i class="social-icon {{item?.icon}}"></i>
+                </a>
+                }
+            </li>
+        </ul>
+
+        <!-- Contact  -->
+        <ul class="content-wrapper">
+            <li>
+                <h3>{{ 'contact' | translate}}</h3>
+            </li>
+            @for(item of footerInfo().data?.data?.contact; track item) {
+                <li class="content">
+                    <i class="social-icon {{item?.icon}}"></i>
+                    <label>{{item?.content}}</label>
+                </li>
+            }
+        </ul>
+    </div>
+    <div class="copyright-wrapper ">
+        <span class="highlight-text"> © Copyright 2024 by {{ 'author_name' | translate}}</span>
+    </div>
+</footer>

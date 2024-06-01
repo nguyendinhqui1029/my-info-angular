@@ -12,6 +12,7 @@
       "@interceptors/*": ["app/interceptors/*"],
       "@environments/*": ["environments/*"],
       "@configs/*": ["app/configs/*"],
+      "@components/*": ["app/components/*"],
     },
     "outDir": "./dist/out-tsc",
     "strict": true,

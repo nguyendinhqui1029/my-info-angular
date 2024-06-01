@@ -1,0 +1,22 @@
+::ng-deep {
+    .nav-vertical-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        padding-top: 0.25rem;
+        font-weight: bold;
+        .button-full {
+            width: 100%;
+            text-align: left;
+        }
+    }
+    
+    .nav-horizontal-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        font-weight: bold;
+    }
+
+    
+}

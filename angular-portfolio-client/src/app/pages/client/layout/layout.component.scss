@@ -1,0 +1,7 @@
+.layout-wrapper {
+    display: flex;
+    flex-direction: column;
+    .content-wrapper {
+        padding: 1em;
+    }
+}

@@ -1,0 +1,75 @@
+@import 'assets/styles/common.scss'; // Common css
+
+.menu-top-wrapper {
+    display: flex;
+    container: sidebar / inline-size;
+    justify-content: space-between;
+    align-items: center;
+    padding: $horizontal-spacing-items;
+
+    .logo-wrapper, .menu-content {
+        display: flex;
+        gap: $horizontal-spacing-items;
+        align-items: center;
+    }
+
+    .menu-icon {
+        display: none;
+        font-size: 2rem;
+    }
+
+    .logo-wrapper {
+        display: flex;
+        align-items: center;
+        flex: 1 1 auto;
+        .logo {
+            width: 3em !important;
+            height: 3em !important;
+        }
+    
+        .name {
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+    }
+    .horizontal-menu-content {
+        display: block;
+    }
+    @container sidebar (max-width: 40em) {
+        .horizontal-menu-content {
+            display: none !important;
+        }
+
+        .menu-icon {
+            display: block !important;
+        }
+    }
+}
+
+.sidebar {
+    .logo-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        flex: 1 1 auto;
+        .logo {
+            width: 3em !important;
+            height: 3em !important;
+        }
+    
+        .name {
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+    }
+}
+
+.action-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    flex: 1 1 auto;
+    padding: 0 1rem;
+    gap: 1rem;
+}
+

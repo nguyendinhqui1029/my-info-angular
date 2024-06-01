@@ -1,0 +1,29 @@
+@import 'assets/styles/variables/light.mode.scss';
+@import 'assets/styles/variables/dark.mode.scss';
+$default-font-family: Arial, sans-serif;
+$default-font-size: 1rem; // 16px
+
+$vertical-spacing-items: 1rem;
+$horizontal-spacing-items: 1rem;
+$padding: 1rem;
+$spacing-header: 1.5rem;
+
+$line-height-text: 1.5em;
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: bold;
+  line-height: $line-height-text;
+}
+

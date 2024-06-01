@@ -1,3 +1,18 @@
 {
-    "title": "en test"
+    "title": "en test",
+    "author_name": "Alex Nguyen",
+    "contact": "Contact",
+    "search": "Search",
+    "login": "Login",
+    "logout": "Logout",
+    "register": "Register",
+    "change_site_to": "Change website to {{mode}}",
+    "dark_mode": "dark mode",
+    "light_mode": "light mode",
+    "button_search": "Search",
+    "change_language": "Change language",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "life": "My Life",
+    "about_me": "About me"
 }
