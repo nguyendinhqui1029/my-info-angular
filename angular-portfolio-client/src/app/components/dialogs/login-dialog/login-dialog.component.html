@@ -1,0 +1,32 @@
+<section class="login-wrapper">
+  <article class="image">
+  </article>
+  <form class="form-wrapper">
+
+    <!-- email  -->
+    <div class="input-wrapper">
+      <label for="email">{{'email' | translate}}</label>
+      <input pInputText inputId="email" />
+    </div>
+
+    <!-- Password  -->
+    <div class="input-wrapper">
+      <label for="password">{{'password' | translate}}</label>
+      <p-password class="p-fluid" [feedback]="false" inputId="password" [toggleMask]="true"/>
+    </div>
+
+    <!-- Checkbox remember me  -->
+    <div class="remember-me-wrapper">
+      <p-checkbox 
+        binary
+        inputId="remember-me" />
+      <label for="remember-me">{{'remember_me' | translate}}</label>
+    </div>
+
+    <!-- Button -->
+    <div class="button-wrapper">
+      <p-button size="small" [label]="'login_header' | translate"/>
+      <p-button size="small" [label]="'forgot_password_header' | translate" severity="warning" [outlined]="true"/>
+    </div>
+  </form>
+</section>

@@ -1,0 +1,16 @@
+<div class="language-wrapper">
+  @for(item of languages().data?.data; track item) {
+    <div class="language-item">
+      <p-radioButton [name]="item.name" [(ngModel)]="selectedLanguage" [value]="item.code" [inputId]="item.code" />
+      <div class="content-wrapper">
+        <img [src]="item.flag" [alt]="item.description" class="flag"/>
+        <label [for]="item.code">
+          {{item.name}}
+        </label>
+      </div>
+    </div>
+  }
+</div>
+<div class="button-wrapper">
+  <p-button [label]="'button_ok' | translate" [attr.aria-label]="'button_ok' | translate" (click)="handleOkClick()"/>
+</div>

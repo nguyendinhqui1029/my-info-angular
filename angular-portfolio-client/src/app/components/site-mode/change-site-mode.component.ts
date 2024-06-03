@@ -1,5 +1,5 @@
-import { DOCUMENT } from '@angular/common';
-import { AfterViewInit, Component, inject, signal } from '@angular/core';
+import { DOCUMENT, isPlatformBrowser } from '@angular/common';
+import { AfterViewInit, Component, PLATFORM_ID, inject, signal } from '@angular/core';
 import { LocalStorageKey } from '@app/constants/common.const';
 import { TranslateModule } from '@ngx-translate/core';
 import { ButtonModule } from 'primeng/button';
@@ -15,16 +15,21 @@ import { TooltipModule } from 'primeng/tooltip';
 })
 export class ChangeSiteModeComponent implements AfterViewInit {
 
-  isLightMode = signal<boolean>(localStorage.getItem(LocalStorageKey.websiteMode) !== 'dark');
+  isLightMode = signal<boolean>(true);
   private document:Document = inject(DOCUMENT);
+  private platformId:Object = inject(PLATFORM_ID);
 
   ngAfterViewInit(): void { 
+    if (isPlatformBrowser(this.platformId)) {
+      this.isLightMode.set(localStorage.getItem(LocalStorageKey.websiteMode) !== 'dark');
+      if(!localStorage.getItem(LocalStorageKey.websiteMode)) {
+        localStorage.setItem(LocalStorageKey.websiteMode, this.isLightMode() ?  'light' : 'dark')
+      }
+    }
     if (!this.isLightMode()) {
       this.document.body?.classList?.add('dark');
     }
-    if(!localStorage.getItem(LocalStorageKey.websiteMode)) {
-      localStorage.setItem(LocalStorageKey.websiteMode, this.isLightMode() ?  'light' : 'dark')
-    }
+    
   }
 
   handleChangeMode() {
@@ -32,6 +37,8 @@ export class ChangeSiteModeComponent implements AfterViewInit {
       this.document.body?.classList.toggle('dark');
     }
     this.isLightMode.set(!this.isLightMode());
-    localStorage.setItem(LocalStorageKey.websiteMode, this.isLightMode() ?  'light' : 'dark');
+    if (isPlatformBrowser(this.platformId)) {
+      localStorage.setItem(LocalStorageKey.websiteMode, this.isLightMode() ?  'light' : 'dark');
+    }
   }
 }

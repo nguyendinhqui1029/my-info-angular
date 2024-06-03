@@ -1,0 +1,28 @@
+<section class="search-wrapper">
+  <article>
+    <p-iconField iconPosition="left" class="p-fluid">
+      <p-inputIcon styleClass="pi pi-search" />
+      <input type="text" pInputText [placeholder]="'placeholder_search' | translate"
+        (input)="handleSearchChange($event)" />
+    </p-iconField>
+  </article>
+  <main class="result-wrapper">
+    <h4>{{'result_label' | translate}}</h4>
+    <p-scrollPanel [style]="{ width: '100%' }">
+      @if(!searchResult?.length && keywordSearch?.trim()?.length) {
+      <p>{{'empty_result' | translate}} <strong>'{{ keywordSearch }}'</strong></p>
+    } @else {
+      <ul class="result-content">
+        @for(item of searchResult; track item) {
+        <li>
+          <h5 highlightSearchResultDirective [keyword]="keywordSearch" [content]="item.title">{{item.title}}</h5>
+          <small highlightSearchResultDirective [keyword]="keywordSearch" [content]="item.content">
+          </small>
+        </li>
+        }
+      </ul>
+      }
+    </p-scrollPanel>
+  </main>
+
+</section>

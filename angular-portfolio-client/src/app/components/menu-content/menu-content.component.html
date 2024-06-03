@@ -1,19 +1,22 @@
 <nav [ngClass]="{'nav-horizontal-wrapper': !isVertical, 'nav-vertical-wrapper': isVertical}">
-    <p-button icon="pi pi-star-fill" styleClass="button-full" size="small" [attr.aria-label]="'frontend' | translate" [label]="'frontend' | translate" [text]="true" [raised]="true" severity="warning" class="width:100%" />
+    @for(item of menuItems(); track item) {
+        <p-button 
+            icon="{{item.isActive ? 'pi pi-star-fill' : ''}}" 
+            styleClass="button-full" 
+            size="small" 
+            [attr.aria-label]="item.name | translate" 
+            [label]="item.name | translate" 
+            [text]="true" 
+            [raised]="true" 
+            severity="warning" 
+            (click)="menuItemClick.emit(item)"/>
+    }
 
-    <p-button styleClass="button-full" size="small" [attr.aria-label]="'backend' | translate" [label]="'backend' | translate" [text]="true" [raised]="true" severity="warning" />
-
-    <p-button styleClass="button-full" size="small" [attr.aria-label]="'life' | translate" [label]="'life' | translate" [text]="true" [raised]="true" severity="warning" />
-
-    <p-button styleClass="button-full" size="small" [attr.aria-label]="'about_me' | translate"  [label]="'about_me' | translate" [text]="true" [raised]="true" severity="warning" />
-
-    @if(!isVertical) {
-        <a [routerLink]="'google'" class="p-menuitem-link">
-            <p-avatar 
+    @if(!isVertical && isLogin()) {
+        <p-avatar 
+        (click)="avatarUserClick.emit()"
         icon="pi pi-user" 
-        styleClass="mr-2" 
-        [style]="{ 'background-color': '#ece9fc', color: '#2a1261' }" 
+        [style]="{ 'background-color': '#ece9fc', color: '#2a1261', 'border': '1px solid #ece9fc', 'cursor': 'pointer'  }" 
         shape="circle" />
-        </a>
     }
 </nav>

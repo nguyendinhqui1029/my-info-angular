@@ -1,9 +1,13 @@
 <div class="menu-top-wrapper">
   <div class="logo-wrapper">
     <img class="logo" src="assets/images/logo.png" alt="logo" />
-    <span class="name">Name</span>
+    <span class="name">{{'author_name' | translate}}</span>
   </div>
-  <q-menu-content [isVertical]="false" class="horizontal-menu-content"></q-menu-content>
+  <q-menu-content 
+    [isVertical]="false" 
+    class="horizontal-menu-content" 
+    (menuItemClick)="handleMenuItemClick($event)"
+    (avatarUserClick)="handleAvatarUserClick()"></q-menu-content>
   <i class="menu-icon pi pi-bars" (click)="handleToggleMenuClick()"></i>
 </div>
 
@@ -12,17 +16,17 @@
   <change-site-mode></change-site-mode>
   
   <!-- Change language  -->
-  <p-button size="small" [attr.aria-label]="'change_language' | translate"  icon="pi pi-language" [pTooltip]="'change_language' | translate" tooltipPosition="bottom" [text]="true" [raised]="true" severity="warning" />
+  <p-button (click)="handleOpenSelectLanguageDialog()" size="small" [attr.aria-label]="'change_language' | translate"  icon="pi pi-language" [pTooltip]="'change_language' | translate" tooltipPosition="bottom" [text]="true" [raised]="true" severity="warning" />
 
   @if(!isLogin()) {
   <!-- login  -->
-  <p-button size="small" [attr.aria-label]="'login' | translate"  icon="pi pi-sign-in" [pTooltip]="'login' | translate" tooltipPosition="bottom" [text]="true" [raised]="true" severity="warning" />
+  <p-button size="small" [attr.aria-label]="'login' | translate"  icon="pi pi-sign-in" [pTooltip]="'login' | translate" tooltipPosition="bottom" [text]="true" [raised]="true" severity="warning" (click)="handleOpenLoginDialog()"/>
 
   <!-- register  -->
-  <p-button size="small" [attr.aria-label]="'register' | translate"  icon="pi pi-user-plus" [pTooltip]="'register' | translate" tooltipPosition="bottom" [text]="true" [raised]="true" severity="warning" />
+  <p-button size="small" [attr.aria-label]="'register' | translate"  icon="pi pi-user-plus" [pTooltip]="'register' | translate" tooltipPosition="bottom" [text]="true" [raised]="true" severity="warning" (click)="handleOpenRegisterDialog()"/>
   } @else {
   <!-- logout  -->
-  <p-button size="small" [attr.aria-label]="'logout' | translate"  icon="pi pi-sign-out" [pTooltip]="'logout' | translate" tooltipPosition="bottom" [text]="true" [raised]="true" severity="warning" />
+  <p-button size="small" [attr.aria-label]="'logout' | translate"  icon="pi pi-sign-out" [pTooltip]="'logout' | translate" tooltipPosition="bottom" [text]="true" [raised]="true" severity="warning" (click)="handleLogout()"/>
   }
 
   <!-- Search -->
@@ -37,5 +41,9 @@
       <span class="name">Name</span>
     </div>
   </ng-template>
-  <q-menu-content [isVertical]="true"></q-menu-content>
+  <q-menu-content 
+    [isVertical]="true"
+    (menuItemClick)="handleMenuItemClick($event)"
+    (avatarUserClick)="handleAvatarUserClick()"
+  ></q-menu-content>
 </p-sidebar>

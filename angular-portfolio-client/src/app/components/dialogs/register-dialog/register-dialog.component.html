@@ -1,0 +1,56 @@
+<section class="register-wrapper">
+    <article class="image">
+    </article>
+    <form class="form-wrapper">
+  
+        <!-- Nickname  -->
+      <div class="input-wrapper">
+        <label for="nickname">{{'nickname' | translate}}</label>
+        <input pInputText inputId="nickname" />
+      </div>
+
+        <!-- Email  -->
+      <div class="input-wrapper">
+        <label for="email">{{'email' | translate}}</label>
+        <input pInputText inputId="email" />
+      </div>
+  
+      <!-- Password  -->
+      <div class="input-wrapper">
+        <label for="password">{{'password' | translate}}</label>
+        <p-password class="p-fluid" [feedback]="false" inputId="password" [toggleMask]="true"/>
+      </div>
+  
+      <!-- Confirm Password  -->
+      <div class="input-wrapper">
+        <label for="confirm_password">{{'confirm_password' | translate}}</label>
+        <p-password class="p-fluid" [feedback]="false" inputId="confirm_password" [toggleMask]="true"/>
+      </div>
+
+      <!-- Checkbox remember me  -->
+      <div class="remember-me-wrapper">
+        <p-checkbox 
+          binary
+          inputId="remember-me" />
+        <label for="remember-me">{{'term_content' | translate: { term: ('term' | translate)} }}</label>
+      </div>
+  
+      <!-- Code  -->
+      <div class="code-wrapper">
+        <div class="input-code-wrapper">
+            <p-inputOtp [integerOnly]="true" />
+            <p-button size="small" [label]="'resend_code' | translate" severity="warning" [outlined]="true"/>
+        </div>
+        @if(isDisplayMessage()) {
+            <small class="message">
+                {{ 'message_request_code_success' | translate }}
+            </small>
+        }
+      </div>
+
+      <!-- Button -->
+      <div class="button-wrapper">
+        <p-button size="small" [label]="'register_header' | translate"/>
+      </div>
+    </form>
+  </section>

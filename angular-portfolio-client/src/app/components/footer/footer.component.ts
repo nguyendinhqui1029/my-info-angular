@@ -1,4 +1,3 @@
-import { JsonPipe } from '@angular/common';
 import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { FooterService } from '@app/shared/services/footer.service';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
@@ -7,7 +6,7 @@ import { Subscription } from 'rxjs/internal/Subscription';
 @Component({
   selector: 'q-footer',
   standalone: true,
-  imports: [TranslateModule, JsonPipe],
+  imports: [TranslateModule],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss',
   providers: [FooterService]

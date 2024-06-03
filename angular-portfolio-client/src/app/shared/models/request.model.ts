@@ -7,7 +7,7 @@ export interface RequestOptions {
     headers?: HttpHeaders | {
       [header: string]: string | string[];
     };
-    observe: any;
+    observe?: any;
     context?: HttpContext;
     params?: HttpParams | {
       [param: string]: string | number | boolean | ReadonlyArray<string | number | boolean>;

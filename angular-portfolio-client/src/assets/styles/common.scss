@@ -10,7 +10,9 @@ $spacing-header: 1.5rem;
 
 $line-height-text: 1.5em;
 
-ul {
+ul, p, h1,
+h2,
+h3 {
   margin: 0;
   padding: 0;
 }
