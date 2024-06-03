@@ -9,7 +9,7 @@
   <main class="result-wrapper">
     <h4>{{'result_label' | translate}}</h4>
     <p-scrollPanel [style]="{ width: '100%' }">
-      @if(!searchResult?.length && keywordSearch?.trim()?.length) {
+      @if(!searchResult.length && keywordSearch.trim().length) {
       <p>{{'empty_result' | translate}} <strong>'{{ keywordSearch }}'</strong></p>
     } @else {
       <ul class="result-content">
