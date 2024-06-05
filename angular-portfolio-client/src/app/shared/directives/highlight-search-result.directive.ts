@@ -14,11 +14,11 @@ export class HighlightSearchResultDirective implements OnChanges{
       const contentClone = this.content;
       const firstPosition = contentClone.toLowerCase().indexOf(changes['keyword'].currentValue.trim());
       if(firstPosition === -1) {
-        this.elementRef.nativeElement.innerHTML = firstPosition+this.content;
+        this.elementRef.nativeElement.innerHTML = contentClone.toLowerCase() +'----' +changes['keyword'].currentValue +this.content;
         return;
       }
       const contentTransform = `${this.content.substring(0,firstPosition)}<span class="text-highlight">${this.content.substring(firstPosition,firstPosition + changes['keyword'].currentValue.length)}</span>${this.content.substring(firstPosition + changes['keyword'].currentValue.length)}`;
-      this.elementRef.nativeElement.innerText = 'span'+firstPosition+contentTransform;
+      this.elementRef.nativeElement.innerText = contentTransform;
     }
   }
 }
