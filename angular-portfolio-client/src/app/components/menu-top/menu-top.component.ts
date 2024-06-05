@@ -110,7 +110,7 @@ export class MenuTopComponent implements OnInit, OnDestroy {
   handleOpenSelectLanguageDialog() {
     this.dynamicDialogRef = this.dialogService.open(SelectLanguageDialogComponent, {
       header: this.translateService.instant('select_language'),
-      width: '50vw',
+      width: '70em',
       contentStyle: { overflow: 'auto' },
       breakpoints: {
         '960px': '75vw',

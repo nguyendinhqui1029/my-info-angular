@@ -7,7 +7,6 @@ import { ApiResponse } from '@app/shared/models/api-response.model';
 import { SearchResult } from '@app/shared/models/search-result.model';
 import { SearchService } from '@app/shared/services/search.service';
 import { TranslateService } from '@ngx-translate/core';
-import { Subscription } from 'rxjs/internal/Subscription';
 
 @Component({
   selector: 'q-search-dialog',

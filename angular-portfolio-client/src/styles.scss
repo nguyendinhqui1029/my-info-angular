@@ -5,7 +5,7 @@
 
 body {
   @import 'assets/styles/variables/light.mode.scss'; // Default mode
-  background-image: $primary-background;
+  background: $primary-background;
   line-height: $line-height-text;
   color: $wc-highlight;
 
@@ -33,7 +33,15 @@ body {
         }
     }
   }
+  
+  .nav-horizontal-wrapper, .nav-vertical-wrapper {
+    .button-full {
+      color: $wc-highlight;
+    }
+  }
 }
+
+
 body.dark {
   @import 'assets/styles/variables/dark.mode.scss';
   background: $primary-background;
