@@ -76,6 +76,12 @@ body.dark {
         }
     }
   }
+
+  .nav-horizontal-wrapper, .nav-vertical-wrapper {
+    .button-full {
+      color: $wc-green;
+    }
+  }
 }
 
 

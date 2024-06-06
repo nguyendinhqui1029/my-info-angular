@@ -13,6 +13,7 @@
       "@environments/*": ["environments/*"],
       "@configs/*": ["app/configs/*"],
       "@components/*": ["app/components/*"],
+      "@pages/*": ["app/pages/*"],
     },
     "outDir": "./dist/out-tsc",
     "strict": true,

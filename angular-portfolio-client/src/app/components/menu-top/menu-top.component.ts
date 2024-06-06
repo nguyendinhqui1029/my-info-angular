@@ -13,6 +13,7 @@ import { LoginDialogComponent } from '@app/components/dialogs/login-dialog/login
 import { RegisterDialogComponent } from '@components/dialogs/register-dialog/register-dialog.component';
 import { SearchDialogComponent } from '@components/dialogs/search-dialog/search-dialog.component';
 import { SelectLanguageDialogComponent } from '@components/dialogs/select-language-dialog/select-language-dialog.component';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'q-menu-top',
@@ -30,6 +31,7 @@ export class MenuTopComponent implements OnInit, OnDestroy {
   private dialogService: DialogService = inject(DialogService);
   private translateService: TranslateService = inject(TranslateService);
   private userService: UserService = inject(UserService);
+  private router: Router = inject(Router);
 
   private unSubscribeLoginSubject: Subscription | undefined;
 
@@ -110,7 +112,7 @@ export class MenuTopComponent implements OnInit, OnDestroy {
   handleOpenSelectLanguageDialog() {
     this.dynamicDialogRef = this.dialogService.open(SelectLanguageDialogComponent, {
       header: this.translateService.instant('select_language'),
-      width: '70em',
+      width: '40vw',
       contentStyle: { overflow: 'auto' },
       breakpoints: {
         '960px': '75vw',
@@ -133,7 +135,7 @@ export class MenuTopComponent implements OnInit, OnDestroy {
   }
 
   handleMenuItemClick(menu: MenuItem) {
-    console.log(menu);
+    this.router.navigate([menu.path]);
   }
 
   handleAvatarUserClick() {

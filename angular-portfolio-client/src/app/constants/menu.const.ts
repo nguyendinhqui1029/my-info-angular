@@ -4,14 +4,14 @@ export const MENU_ITEMS: MenuItem[] = [
     {
         id: 'MENU01',
         name: 'frontend',
-        path: '/frontend',
+        path: '/skills/1',
         icon: '',
         isActive: false
     },
     {
         id: 'MENU02',
         name: 'backend',
-        path: '/backend',
+        path: '/skills/2',
         icon: '',
         isActive: false
     },
