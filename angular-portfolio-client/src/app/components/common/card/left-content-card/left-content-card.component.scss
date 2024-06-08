@@ -18,6 +18,16 @@
         min-width: $min-width;
         padding: 1rem;
 
+        .date {
+          display: flex;
+          align-items: center;
+          gap: 0.25rem;
+          color: $main-content-text;
+          i {
+            color: $main-highlight-content-text;
+          }
+        }
+
         .button-wrapper {
           display: flex;
           gap: 1rem;
@@ -88,6 +98,16 @@
         min-width: $min-width;
         padding: 1rem;
 
+        .date {
+          display: flex;
+          align-items: center;
+          gap: 0.25rem;
+          color: $main-content-text;
+          i {
+            color: $main-highlight-content-text;
+          }
+        }
+        
         .button-wrapper {
           display: flex;
           gap: 1rem;

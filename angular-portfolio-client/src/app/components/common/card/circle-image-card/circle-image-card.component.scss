@@ -1,0 +1,101 @@
+::ng-deep {
+  body {
+    @import 'assets/styles/variables/light.mode.scss'; // Default mode
+
+    .circle-image-card-wrapper {
+      display: flex;
+      flex-wrap: wrap-reverse;
+      color: $wc-primary-text;
+
+      .content-wrapper {
+        display: flex;
+        flex: 2;
+        flex-direction: column;
+        flex-wrap: wrap-reverse;
+        gap: 1rem;
+        min-width: $min-width;
+        padding: 1rem;
+
+        .date {
+          display: flex;
+          align-items: center;
+          gap: 0.25rem;
+          color: $main-content-text;
+          i {
+            color: $main-highlight-content-text;
+          }
+        }
+        .button-wrapper {
+          display: flex;
+          gap: 1rem;
+        }
+
+        .title {
+          color: $main-header-text;
+        }
+
+        .content {
+          color: $main-content-text;
+        }
+      }
+
+      .image-wrapper {
+        display: flex;
+        flex: 1;
+        padding: 3rem;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+
+  body.dark {
+    @import 'assets/styles/variables/dark.mode.scss';
+
+    .circle-image-card-wrapper {
+      display: flex;
+      flex-wrap: wrap-reverse;
+      color: $wc-primary-text;
+      
+      .content-wrapper {
+        display: flex;
+        flex: 2;
+        flex-direction: column;
+        gap: 1rem;
+        min-width: $min-width;
+        padding: 1rem;
+
+        .date {
+          display: flex;
+          align-items: center;
+          gap: 0.25rem;
+          color: $main-content-text;
+          i {
+            color: $main-highlight-content-text;
+          }
+        }
+        
+        .button-wrapper {
+          display: flex;
+          gap: 1rem;
+        }
+
+        .title {
+          color: $main-header-text;
+        }
+
+        .content {
+          color: $main-content-text;
+        }
+
+        .image-wrapper {
+          display: flex;
+          flex: 1;
+          padding: 3rem;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+    }
+  }
+}

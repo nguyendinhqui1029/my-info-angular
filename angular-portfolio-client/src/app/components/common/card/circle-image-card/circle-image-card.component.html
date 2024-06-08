@@ -1,1 +1,19 @@
-<p>circle-image-card works!</p>
+<div class="circle-image-card-wrapper">
+  <article class="content-wrapper">
+    <h2 class="title">{{title}}</h2>
+    <small class="date"> <i class="pi pi-calendar"></i>12/12/2023</small>
+    <p class="content">
+      {{ content }}
+    </p>
+    <article class="button-wrapper">
+      @for(item of buttons; track item) {
+      <p-button label="{{(item?.label || '') | translate}}" [icon]="item?.icon" [size]="item?.size || 'small'"
+        [badge]="item?.badge" [badgeClass]="item?.badgeClass" [outlined]="item?.outlined" [rounded]="item?.rounded"
+        [text]="item?.text" [severity]="item?.severity" [raised]="item?.raised" (click)="clickEvent.emit(item.id)" />
+      }
+    </article>
+  </article>
+  <div class="image-wrapper">
+    <q-image-around [images]="images"/>
+  </div>
+</div>

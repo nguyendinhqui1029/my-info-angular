@@ -18,6 +18,16 @@
         min-width: $min-width;
         padding: 1rem;
 
+        .date {
+          display: flex;
+          align-items: center;
+          gap: 0.25rem;
+          color: $main-content-text;
+          i {
+            color: $main-highlight-content-text;
+          }
+        }
+
         .button-wrapper {
           display: flex;
           justify-content: flex-end;
@@ -39,8 +49,8 @@
         position: relative;
         border-radius: 1.5rem;
         min-width: $min-width;
-        min-height: 15em;
-        max-height: 20em;
+        min-height: 10em;
+        max-height: 15em;
         border: 0.05rem solid $main-border;
 
         .video-container {
@@ -84,6 +94,16 @@
         min-width: $min-width;
         padding: 1rem;
 
+        .date {
+          display: flex;
+          align-items: center;
+          gap: 0.25rem;
+          color: $main-content-text;
+          i {
+            color: $main-highlight-content-text;
+          }
+        }
+        
         .button-wrapper {
           display: flex;
           gap: 1rem;
@@ -104,8 +124,8 @@
         position: relative;
         border-radius: 1.5rem;
         min-width: $min-width;
-        min-height: 15em;
-        max-height: 20em;
+        min-height: 10em;
+        max-height: 15em;
         border: 0.05rem solid $main-border;
         
         .video-container {
