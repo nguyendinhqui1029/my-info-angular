@@ -13,8 +13,18 @@ import { IconFieldModule } from 'primeng/iconfield';
 import { InputIconModule } from 'primeng/inputicon';
 import { InputOtpModule } from 'primeng/inputotp';
 import { ScrollPanelModule } from 'primeng/scrollpanel';
+import { LabelWrapperComponent } from "@app/components/common/label-wrapper/label-wrapper.component";
+import { VideoCardComponent } from "@app/components/common/card/video-card/video-card.component";
+import { LeftContentCardComponent } from "@app/components/common/card/left-content-card/left-content-card.component";
+import { VideoComponent } from "@app/components/common/video/video.component";
 
 export const PrimeComponent = [
+    //Custom component
+    LabelWrapperComponent,
+    VideoCardComponent,
+    LeftContentCardComponent,
+    VideoComponent,
+    
     // Translate Module
     TranslateModule,
     // Prime Component

@@ -3,13 +3,14 @@ import { FooterService } from '@app/shared/services/footer.service';
 import { RequestService } from '@app/shared/services/request.service';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
-import { JsonPipe } from '@angular/common';
 import { ChangeSiteModeComponent } from '@app/components/site-mode/change-site-mode.component';
+import { Button } from '@app/shared/models/button.model';
+import { PrimeComponent } from '@app/configs/prime-angular/prime.config';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [TranslateModule, JsonPipe, ChangeSiteModeComponent],
+  imports: [PrimeComponent ,TranslateModule, ChangeSiteModeComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
   providers: [FooterService]
@@ -25,7 +26,12 @@ export class HomeComponent implements OnInit {
 
   toggleLang = signal<boolean>(false);
   footer = this.footerService.getFooter().result;
-
+  buttons:Button[] = [{
+    id: 'VIEW_DETAIL',
+    label: 'view_detail',
+    rounded: true
+  }];
+  
   ngOnInit() {
     this.subscription = this.translateService.onLangChange.subscribe(() => {
       this.footerService.refetchFooter();

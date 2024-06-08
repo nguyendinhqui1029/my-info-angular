@@ -4,16 +4,18 @@
   <form class="form-wrapper">
 
     <!-- email  -->
-    <div class="input-wrapper">
-      <label for="email">{{'email' | translate}}</label>
-      <input pInputText inputId="email" />
-    </div>
+    <q-label-wrapper label="{{'email' | translate}}" [isRequired]="true" id="email" [message]="''">
+      <span ngProjectAs="control-component">
+        <input class="p-fluid" pInputText inputId="email" />
+      </span>
+    </q-label-wrapper>
 
     <!-- Password  -->
-    <div class="input-wrapper">
-      <label for="password">{{'password' | translate}}</label>
-      <p-password class="p-fluid" [feedback]="false" inputId="password" [toggleMask]="true"/>
-    </div>
+    <q-label-wrapper label="{{'password' | translate}}" [isRequired]="true" id="password" [message]="''">
+      <span ngProjectAs="control-component">
+        <p-password class="p-fluid" [feedback]="false" inputId="password" [toggleMask]="true"/>
+      </span>
+    </q-label-wrapper>
 
     <!-- Checkbox remember me  -->
     <div class="remember-me-wrapper">

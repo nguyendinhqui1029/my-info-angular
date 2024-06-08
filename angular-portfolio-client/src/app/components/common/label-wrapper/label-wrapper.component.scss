@@ -1,0 +1,65 @@
+::ng-deep {
+  body {
+    @import 'assets/styles/variables/light.mode.scss'; // Default mode
+
+    .input-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5em;
+
+      .label-text {
+        display: flex;
+        align-items: center;
+        gap: 0.15rem;
+        color: $label-text;
+        font-weight: 600;
+
+        .require {
+          color: $required-symbol;
+        }
+      }
+      
+
+      .control-wrapper {
+        display: flex;
+        flex-direction: column;
+        
+        .error-message {
+          color: $error-message;
+        }
+      }
+
+    }
+  }
+
+  body.dark {
+    @import 'assets/styles/variables/dark.mode.scss';
+
+    .input-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5em;
+
+      .label-text {
+        display: flex;
+        gap: 0.15rem;
+        color: $label-text;
+        font-weight: 600;
+        
+        .require {
+          color: $required-symbol;
+        }
+      }
+      
+
+      .control-wrapper {
+        display: flex;
+        flex-direction: column;
+        .error-message {
+          color: $error-message;
+        }
+      }
+
+    }
+  }
+}

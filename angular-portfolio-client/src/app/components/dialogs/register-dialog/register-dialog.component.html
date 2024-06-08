@@ -4,42 +4,46 @@
     <form class="form-wrapper">
   
         <!-- Nickname  -->
-      <div class="input-wrapper">
-        <label for="nickname">{{'nickname' | translate}}</label>
-        <input pInputText inputId="nickname" />
-      </div>
+      <q-label-wrapper label="{{'nickname' | translate}}" [isRequired]="true" id="nickname" [message]="''">
+        <span ngProjectAs="control-component">
+          <input class="p-fluid" pInputText inputId="nickname" />
+        </span>
+      </q-label-wrapper>
 
         <!-- Email  -->
-      <div class="input-wrapper">
-        <label for="email">{{'email' | translate}}</label>
-        <input pInputText inputId="email" />
-      </div>
-  
+      <q-label-wrapper label="{{'email' | translate}}" [isRequired]="true" id="email" [message]="''">
+        <span ngProjectAs="control-component">
+          <input class="p-fluid" pInputText inputId="email" />
+        </span>
+      </q-label-wrapper>
+
       <!-- Password  -->
-      <div class="input-wrapper">
-        <label for="password">{{'password' | translate}}</label>
-        <p-password class="p-fluid" [feedback]="false" inputId="password" [toggleMask]="true"/>
-      </div>
-  
+      <q-label-wrapper label="{{'password' | translate}}" [isRequired]="true" id="password" [message]="''">
+        <span ngProjectAs="control-component">
+          <p-password class="p-fluid" [feedback]="false" inputId="password" [toggleMask]="true"/>
+        </span>
+      </q-label-wrapper>
+
       <!-- Confirm Password  -->
-      <div class="input-wrapper">
-        <label for="confirm_password">{{'confirm_password' | translate}}</label>
-        <p-password class="p-fluid" [feedback]="false" inputId="confirm_password" [toggleMask]="true"/>
-      </div>
+      <q-label-wrapper label="{{'confirm_password' | translate}}" [isRequired]="true" id="confirm_password" [message]="''">
+        <span ngProjectAs="control-component">
+          <p-password class="p-fluid" [feedback]="false" inputId="confirm_password" [toggleMask]="true"/>
+        </span>
+      </q-label-wrapper>
 
       <!-- Checkbox remember me  -->
       <div class="remember-me-wrapper">
         <p-checkbox 
           binary
           inputId="remember-me" />
-        <label for="remember-me">{{'term_content' | translate: { term: ('term' | translate)} }}</label>
+        <small for="remember-me">{{'term_content' | translate: { term: ('term' | translate)} }}</small>
       </div>
   
       <!-- Code  -->
       <div class="code-wrapper">
         <div class="input-code-wrapper">
             <p-inputOtp [integerOnly]="true" />
-            <p-button size="small" [label]="'resend_code' | translate" severity="warning" [outlined]="true"/>
+            <p-button class="get-code" size="small" label="{{'resend_code' | translate}}" severity="warning" [outlined]="true"/>
         </div>
         @if(isDisplayMessage()) {
             <small class="message">
@@ -50,7 +54,7 @@
 
       <!-- Button -->
       <div class="button-wrapper">
-        <p-button size="small" [label]="'register_header' | translate"/>
+        <p-button size="small" label="{{'register_header' | translate}}"/>
       </div>
     </form>
   </section>

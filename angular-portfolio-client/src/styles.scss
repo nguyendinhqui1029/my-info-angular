@@ -2,6 +2,11 @@
 @import "primeng/resources/primeng.css";
 @import "primeicons/primeicons.css";
 @import 'assets/styles/common.scss'; // Common css
+html, body, body.dark { 
+  height: 100%; 
+  margin: 0; 
+  font-family: Roboto, "Helvetica Neue", sans-serif; 
+}
 
 body {
   @import 'assets/styles/variables/light.mode.scss'; // Default mode
@@ -39,6 +44,14 @@ body {
       color: $wc-highlight;
     }
   }
+  
+  .p-inputtext {
+    width: 100%;
+  }
+
+  .p-inputotp-input {
+    width: 2.5rem;
+  }
 }
 
 
@@ -58,9 +71,15 @@ body.dark {
     background: $secondary-background;
     color: $wc-primary-text;
   }
+
   .p-inputtext {
     background: $secondary-background;
     color: $wc-primary-text;
+    width: 100%;
+  }
+
+  .p-inputotp-input {
+    width: 2.5rem;
   }
 
   .text-highlight {
@@ -81,18 +100,5 @@ body.dark {
     .button-full {
       color: $wc-green;
     }
-  }
-}
-
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
-.input-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-  label {
-    font-weight: 600;
   }
 }

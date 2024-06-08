@@ -13,7 +13,7 @@ import { LoginDialogComponent } from '@app/components/dialogs/login-dialog/login
 import { RegisterDialogComponent } from '@components/dialogs/register-dialog/register-dialog.component';
 import { SearchDialogComponent } from '@components/dialogs/search-dialog/search-dialog.component';
 import { SelectLanguageDialogComponent } from '@components/dialogs/select-language-dialog/select-language-dialog.component';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'q-menu-top',
@@ -136,6 +136,10 @@ export class MenuTopComponent implements OnInit, OnDestroy {
 
   handleMenuItemClick(menu: MenuItem) {
     this.router.navigate([menu.path]);
+  }
+
+  handleNavigateToHome() {
+    this.router.navigate(['']);
   }
 
   handleAvatarUserClick() {

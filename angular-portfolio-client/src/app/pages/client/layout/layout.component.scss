@@ -1,7 +1,24 @@
 .layout-wrapper {
     display: flex;
     flex-direction: column;
+    height: 100%;
+    max-width: 96em;
+    margin: auto;
+
     .content-wrapper {
-        padding: 1em;
+        display: flex;
+        flex: 1 1 auto;
+        container: marginContent/inline-size;
+
+        .content {
+            margin: 3rem 7rem;
+            width: 100%;
+        }
+        @container marginContent (max-width: 45em) {
+            .content {
+                margin: 3rem 2rem;
+                width: 100%;
+            }
+        }
     }
 }
