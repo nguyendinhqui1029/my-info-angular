@@ -1,0 +1,35 @@
+:host {
+  --leftSectionWidth: 14.75rem;
+  --rightSectionWidth: 12.25rem;
+}
+.skill-wrapper {
+  display: flex;
+  width: 100%;
+  container: mainWrapper900/inline-size;
+
+  .left-section {
+    width: var(--leftSectionWidth);
+    transition: width 0.3s ease-in-out;
+    overflow: hidden;
+    position: relative;
+
+    .toggle-button {
+      position: absolute;
+      right: 0.5rem;
+      transform: translate(0);
+    }
+  }
+  .right-section {
+    width: var(--rightSectionWidth);
+  }
+  .main-content {
+    display: flex;
+    flex: 1;
+  }
+
+  @container mainWrapper900 (max-width: 56.25em) {
+    .right-section {
+      display: none;
+    }
+  }
+}

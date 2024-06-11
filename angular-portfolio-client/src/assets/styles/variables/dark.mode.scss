@@ -1,6 +1,5 @@
 // Dark mode colors
-$primary-background: rgb(22, 22, 22); // Nền chính tối
-$secondary-background: rgb(28, 28, 28); // Màu nền phụ tối
+
 $woo-commerce: rgb(182, 255, 27);; // Màu cửa hàng tối
 $wc-green: #22f916; // Màu xanh lá cây
 $wc-red: #ff3b30; // Màu đỏ
@@ -18,6 +17,8 @@ $primary-border: rgb(246, 246, 246);
 $secondary-border: rgb(57, 57, 57);
 
 // New color
+$primary-background: rgb(22, 22, 22); // Nền chính tối
+$secondary-background: rgb(28, 28, 28); // Màu nền phụ tối
 
 $label-text: rgb(246, 246, 246);
 $required-symbol: rgb(182, 255, 27);
@@ -32,5 +33,6 @@ $second-circle-color: #FF007A;
 $three-circle-color: #ffba00;
 
 $main-border: rgb(133, 133, 133);
+$second-border: rgb(246, 246, 246);
 
 $min-width: 16.5rem;

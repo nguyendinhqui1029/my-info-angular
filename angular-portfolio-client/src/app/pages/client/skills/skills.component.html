@@ -1,1 +1,17 @@
-<p>skills works!</p>
+
+<main class="skill-wrapper">
+  <article class="left-section" [style]="{'--leftSectionWidth': sectionMenuLeftWidth}">
+    <q-vertical-menu-left 
+    [parentId]="initParentId()" 
+    [childId]="initChildId()" 
+    [items]="menuList" 
+    (itemClick)="handleCategoryClick($event)"></q-vertical-menu-left>
+    <q-toggle-sidebar-button class="toggle-button" (eventClick)="handleToggleSidebar($event)" [isOpen]="isOpenMenuLeft" tooltipMessage="{{isOpenMenuLeft ? 'Close sidebar' : 'Open sidebar'}}"/>
+  </article>
+  <section class="main-content">
+    center
+  </section>
+  <article class="right-section">
+    right
+  </article>
+</main>

@@ -11,10 +11,10 @@
         container: marginContent/inline-size;
 
         .content {
-            margin: 3rem 7rem;
+            margin: 3rem 5rem;
             width: 100%;
         }
-        @container marginContent (max-width: 45em) {
+        @container marginContent (max-width: 52em) {
             .content {
                 margin: 3rem 2rem;
                 width: 100%;
