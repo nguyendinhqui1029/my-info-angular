@@ -1,76 +1,179 @@
-@import 'assets/styles/common.scss'; // Common css
+::ng-deep {
+  body {
+    @import 'assets/styles/variables/light.mode.scss'; // Default mode
 
-.menu-top-wrapper {
-    display: flex;
-    container: sidebar / inline-size;
-    justify-content: space-between;
-    align-items: center;
-    padding: $horizontal-spacing-items;
+    .menu-container {
+      padding: 1rem 0;
+      box-shadow: 0rem 0.005rem 0.2rem #767676;
+      background: $primary-background;
 
-    .logo-wrapper, .menu-content {
+      .menu-top-wrapper {
         display: flex;
-        gap: $horizontal-spacing-items;
+        container: sidebar / inline-size;
+        justify-content: space-between;
         align-items: center;
-    }
+        padding: 0.75rem;
 
-    .menu-icon {
-        display: none;
-        font-size: 2rem;
-    }
-
-    .logo-wrapper {
-        display: flex;
-        align-items: center;
-        flex: 1 1 auto;
-        cursor: pointer;
-        .logo {
-            width: 3em !important;
-            height: 3em !important;
-        }
-    
-        .name {
-            font-size: 1.25rem;
-            font-weight: bold;
-        }
-    }
-    .horizontal-menu-content {
-        display: block;
-    }
-    @container sidebar (max-width: 43em) {
-        .horizontal-menu-content {
-            display: none !important;
+        .logo-wrapper,
+        .menu-content {
+          display: flex;
+          gap: 0.75rem;
+          align-items: center;
         }
 
         .menu-icon {
-            display: block !important;
+          display: none;
+          font-size: 2rem;
         }
-    }
-}
 
-.sidebar {
-    .logo-wrapper {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        flex: 1 1 auto;
-        .logo {
+        .logo-wrapper {
+          display: flex;
+          align-items: center;
+          flex: 1 1 auto;
+          cursor: pointer;
+
+          .logo {
             width: 3em !important;
             height: 3em !important;
-        }
-    
-        .name {
+          }
+
+          .name {
             font-size: 1.25rem;
             font-weight: bold;
+          }
         }
+
+        .horizontal-menu-content {
+          display: block;
+        }
+
+        @container sidebar (max-width: 43em) {
+          .horizontal-menu-content {
+            display: none !important;
+          }
+
+          .menu-icon {
+            display: block !important;
+          }
+        }
+      }
+
+      .sidebar {
+        .logo-wrapper {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          flex: 1 1 auto;
+
+          .logo {
+            width: 3em !important;
+            height: 3em !important;
+          }
+
+          .name {
+            font-size: 1.25rem;
+            font-weight: bold;
+          }
+        }
+      }
+
+      .action-wrapper {
+        display: flex;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+        flex: 1 1 auto;
+        padding: 0 1rem;
+        gap: 1rem;
+      }
     }
-}
+  }
 
-.action-wrapper {
-    display: flex;
-    justify-content: flex-end;
-    flex-wrap: wrap;
-    flex: 1 1 auto;
-    padding: 0 1rem;
-    gap: 1rem;
-}
+  body.dark {
+    @import 'assets/styles/variables/dark.mode.scss';
 
+    .menu-container {
+      padding: 1rem 0;
+      box-shadow: 0rem 0.005rem 0.2rem #767676;
+      background: $primary-background;
+
+      .menu-top-wrapper {
+        display: flex;
+        container: sidebar / inline-size;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.75rem;
+
+        .logo-wrapper,
+        .menu-content {
+          display: flex;
+          gap: 0.75rem;
+          align-items: center;
+        }
+
+        .menu-icon {
+          display: none;
+          font-size: 2rem;
+        }
+
+        .logo-wrapper {
+          display: flex;
+          align-items: center;
+          flex: 1 1 auto;
+          cursor: pointer;
+
+          .logo {
+            width: 3em !important;
+            height: 3em !important;
+          }
+
+          .name {
+            font-size: 1.25rem;
+            font-weight: bold;
+          }
+        }
+
+        .horizontal-menu-content {
+          display: block;
+        }
+
+        @container sidebar (max-width: 43em) {
+          .horizontal-menu-content {
+            display: none !important;
+          }
+
+          .menu-icon {
+            display: block !important;
+          }
+        }
+      }
+
+      .sidebar {
+        .logo-wrapper {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          flex: 1 1 auto;
+
+          .logo {
+            width: 3em !important;
+            height: 3em !important;
+          }
+
+          .name {
+            font-size: 1.25rem;
+            font-weight: bold;
+          }
+        }
+      }
+
+      .action-wrapper {
+        display: flex;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+        flex: 1 1 auto;
+        padding: 0 1rem;
+        gap: 1rem;
+      }
+    }
+  }
+}

@@ -10,14 +10,25 @@
   .left-section {
     width: var(--leftSectionWidth);
     transition: width 0.3s ease-in-out;
-    overflow: hidden;
-    position: relative;
 
-    .toggle-button {
-      position: absolute;
-      right: 0.5rem;
-      transform: translate(0);
+    q-vertical-menu-left  {
+      display: block;
+      width: 100%;
+      position: sticky;
+      top: 13rem;
+      left: 0;
+      max-height: calc(100vh - 226px);
+      overflow: auto;
     }
+    .toggle-button {
+      display: flex;
+      position: sticky;
+      top: 24.5rem;
+      right: 0;
+      width: fit-content;
+      left: 20rem;
+    }
+    
   }
   .right-section {
     width: var(--rightSectionWidth);
@@ -25,6 +36,7 @@
   .main-content {
     display: flex;
     flex: 1;
+    padding: 0 2rem;
   }
 
   @container mainWrapper900 (max-width: 56.25em) {

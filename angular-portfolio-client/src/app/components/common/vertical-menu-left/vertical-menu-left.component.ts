@@ -1,5 +1,4 @@
-import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output, inject, input } from '@angular/core';
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import { Component, EventEmitter, Input, Output, input } from '@angular/core';
 import { PrimeComponent } from '@app/configs/prime-angular/prime.config';
 import { Category } from '@app/shared/models/category.model';
 

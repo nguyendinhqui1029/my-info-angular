@@ -1,10 +1,16 @@
 .layout-wrapper {
     display: flex;
     flex-direction: column;
-    height: 100%;
     max-width: 96em;
     margin: auto;
+    position: relative;
 
+    q-menu-top {
+        position: sticky;
+        left: 0;
+        top: 0;
+        z-index: 100;
+    }
     .content-wrapper {
         display: flex;
         flex: 1 1 auto;
@@ -16,7 +22,7 @@
         }
         @container marginContent (max-width: 52em) {
             .content {
-                margin: 3rem 2rem;
+                margin: 3rem 0.75rem;
                 width: 100%;
             }
         }

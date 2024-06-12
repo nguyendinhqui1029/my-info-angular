@@ -77,6 +77,61 @@ export class SkillsComponent  {
           }]
         },
         {
+          id: 'JAVASCRIPT1',
+          label: 'Javascript',
+          icon: '',
+          children: [{
+            id: 'FUNCTION',
+            label: 'Function',
+            icon: '',
+            children: []
+          }]
+        },
+        {
+          id: 'JAVASCRIPT2',
+          label: 'Javascript',
+          icon: '',
+          children: [{
+            id: 'FUNCTION',
+            label: 'Function',
+            icon: '',
+            children: []
+          }]
+        },
+        {
+          id: 'JAVASCRIPT3',
+          label: 'Javascript',
+          icon: '',
+          children: [{
+            id: 'FUNCTION',
+            label: 'Function',
+            icon: '',
+            children: []
+          }]
+        },
+        {
+          id: 'JAVASCRIPT4',
+          label: 'Javascript',
+          icon: '',
+          children: [{
+            id: 'FUNCTION',
+            label: 'Function',
+            icon: '',
+            children: []
+          }]
+        },
+        {
+          id: 'JAVASCRIPT5',
+          label: 'Javascript',
+          icon: '',
+          children: [{
+            id: 'FUNCTION',
+            label: 'Function',
+            icon: '',
+            children: []
+          }]
+        },
+        {
           id: 'TEST',
           label: 'Test',
           icon: '',

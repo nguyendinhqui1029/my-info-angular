@@ -8,7 +8,9 @@
       gap: 0.075rem;
       list-style: none;
       position: relative;
-
+      overflow: hidden;
+      width: calc(100% - 0.6rem);
+      
       li {
         display: flex;
         flex-direction: column;
@@ -61,7 +63,8 @@
       flex-direction: column;
       gap: 0.075rem;
       list-style: none;
-      
+      overflow: hidden;
+
       li {
         display: flex;
         flex-direction: column;
