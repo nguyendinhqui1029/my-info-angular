@@ -1,7 +1,13 @@
-<section class="register-wrapper">
-    <article class="image">
-    </article>
-    <form class="form-wrapper">
+<section class="register-wrapper"
+  qContainerChangeSize 
+  (sizeChange)="handleLoginWrapperChangeSize($event)" 
+  [maxWidth]="512">
+    @if(!registerWrapper?.isMatchWidth) {
+      <article class="image">
+      </article>
+    }
+ 
+    <form class="form-wrapper" [style]="{'width': registerWrapper?.isMatchWidth ? '100%' : '55%'}">
   
         <!-- Nickname  -->
       <q-label-wrapper label="{{'nickname' | translate}}" [isRequired]="true" id="nickname" [message]="''">

@@ -1,18 +1,7 @@
 .register-wrapper {
     display: flex;
     gap: 1rem;
-
-    container: imageLoginShow/inline-size;
-
-    @container imageLoginShow (max-width: 32rem) {
-        .image {
-            display: none;
-        }
-
-        .form-wrapper {
-            width: 100% !important;
-        }
-    }
+    
     .image {
         width: 45%;
         background-image: url('assets/images/signup.webp');

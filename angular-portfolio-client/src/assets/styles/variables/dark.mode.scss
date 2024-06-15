@@ -25,7 +25,7 @@ $required-symbol: rgb(182, 255, 27);
 $error-message: #f97316;
 
 $main-header-text: #f97316;
-$main-content-text: rgb(246, 246, 246);
+$main-content-text: rgba(246, 246, 246, 0.878);
 $main-highlight-content-text: #22f916;
 
 $first-circle-color: #22f916;
@@ -36,3 +36,6 @@ $main-border: rgb(133, 133, 133);
 $second-border: rgb(246, 246, 246);
 
 $min-width: 16.5rem;
+
+$hover-background: rgb(44, 44, 44); // Màu nổi bật
+$hover-text: rgb(246, 246, 246); // Màu văn bản nổi bật trắng

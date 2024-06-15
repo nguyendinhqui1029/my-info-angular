@@ -1,9 +1,11 @@
 <div class="layout-wrapper">
-    <q-menu-top></q-menu-top>
-    <div class="content-wrapper">
-        <div class="content">
-            <router-outlet></router-outlet>
-        </div>
-    </div>
-    <q-footer></q-footer>
+  <q-menu-top></q-menu-top>
+  <div class="content-wrapper" 
+    qContainerChangeSize 
+    (sizeChange)="handleContentLayoutWrapperChangeSize($event)"
+    [maxWidth]="832"
+    [class.margin-mobile]="contentLayoutWrapper?.isMatchWidth">
+    <router-outlet></router-outlet>
+  </div>
+  <q-footer></q-footer>
 </div>

@@ -1,18 +1,22 @@
 
 <div class="menu-container">
-  <div class="menu-top-wrapper">
+  <div class="menu-top-wrapper" qContainerChangeSize (sizeChange)="handleMenuTopWrapperChangeSize($event)" [maxWidth]="688">
     <div class="logo-wrapper" (click)="handleNavigateToHome()">
       <img class="logo" src="assets/images/logo.png" alt="logo" />
       <span class="name">{{'author_name' | translate}}</span>
     </div>
-    <q-menu-content 
+   
+    @if(!menuTopWrapper?.isMatchWidth) {
+      <q-menu-content 
       [isVertical]="false" 
       class="horizontal-menu-content" 
       (menuItemClick)="handleMenuItemClick($event)"
       (avatarUserClick)="handleAvatarUserClick()"></q-menu-content>
-    <i class="menu-icon pi pi-bars" (click)="handleToggleMenuClick()"></i>
+      
+    } @else {
+      <i class="menu-icon pi pi-bars" (click)="handleToggleMenuClick()"></i>
+    }
   </div>
-  
   <section class="action-wrapper">
     <!-- Toggle site mode  -->
     <change-site-mode></change-site-mode>

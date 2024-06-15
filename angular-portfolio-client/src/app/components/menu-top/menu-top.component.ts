@@ -14,6 +14,8 @@ import { RegisterDialogComponent } from '@components/dialogs/register-dialog/reg
 import { SearchDialogComponent } from '@components/dialogs/search-dialog/search-dialog.component';
 import { SelectLanguageDialogComponent } from '@components/dialogs/select-language-dialog/select-language-dialog.component';
 import { Router } from '@angular/router';
+import { ContainerChangeSizeDirective } from '@app/shared/directives/container-change-size.directive';
+import { ContainerSize } from '@app/shared/models/container-size.mode';
 
 @Component({
   selector: 'q-menu-top',
@@ -21,7 +23,8 @@ import { Router } from '@angular/router';
   imports: [
     ...PrimeComponent,
     MenuContentComponent,
-    ChangeSiteModeComponent],
+    ChangeSiteModeComponent,
+    ContainerChangeSizeDirective],
   templateUrl: './menu-top.component.html',
   styleUrl: './menu-top.component.scss',
   providers: [DialogService]
@@ -40,7 +43,13 @@ export class MenuTopComponent implements OnInit, OnDestroy {
 
   dynamicDialogRef: DynamicDialogRef | undefined;
 
+  // Element Container 
+  menuTopWrapper!: ContainerSize;
 
+  handleMenuTopWrapperChangeSize(element: ContainerSize) {
+    this.menuTopWrapper = element;
+  }
+  
   ngOnInit(): void {
    this.unSubscribeLoginSubject =  this.userService.isLoginSubject.subscribe((value: boolean) => this.isLogin.set(value));
   }

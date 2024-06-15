@@ -1,1 +1,7 @@
-<p>vertical-menu-right works!</p>
+<ul class="vertical-menu-right-wrapper">
+    @for(item of items; track item) {
+    <li (click)="handleMenuItemClick(item.id)" [class.active]="item.id === sectionId">
+     {{item.label}}
+    </li>
+    }
+  </ul>

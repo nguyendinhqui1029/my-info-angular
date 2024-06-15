@@ -1,4 +1,5 @@
 import { Directive, Input, ElementRef, inject, OnChanges, SimpleChanges } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Directive({
   selector: '[highlightSearchResultDirective]',
