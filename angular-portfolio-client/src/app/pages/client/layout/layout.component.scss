@@ -2,18 +2,18 @@
   display: flex;
   flex-direction: column;
   max-width: 96em;
-  margin: auto;
   position: relative;
   box-sizing: content-box;
 
   q-menu-top {
     position: sticky;
+    width: 100%;
     left: 0;
     top: 0;
-    z-index: 100;
+    z-index: 9999;
   }
 
-  .content-wrapper {
+  .layout-content-wrapper {
     display: flex;
     flex-direction: column;
     width: 100%;

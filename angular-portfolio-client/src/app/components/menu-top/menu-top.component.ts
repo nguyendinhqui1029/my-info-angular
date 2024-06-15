@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, inject, signal } from '@angular/core';
+import { ChangeDetectorRef, Component, OnDestroy, OnInit, inject, signal } from '@angular/core';
 import { Subscription } from 'rxjs/internal/Subscription';
 
 import { MenuItem } from '@app/shared/models/menu.mode';
@@ -35,7 +35,8 @@ export class MenuTopComponent implements OnInit, OnDestroy {
   private translateService: TranslateService = inject(TranslateService);
   private userService: UserService = inject(UserService);
   private router: Router = inject(Router);
-
+  private changeDetectorRef: ChangeDetectorRef = inject(ChangeDetectorRef);
+  
   private unSubscribeLoginSubject: Subscription | undefined;
 
   sidebarVisible = signal<boolean>(false);
@@ -44,10 +45,11 @@ export class MenuTopComponent implements OnInit, OnDestroy {
   dynamicDialogRef: DynamicDialogRef | undefined;
 
   // Element Container 
-  menuTopWrapper!: ContainerSize;
+  menuTopWrapper = signal<ContainerSize | null>(null);
 
   handleMenuTopWrapperChangeSize(element: ContainerSize) {
-    this.menuTopWrapper = element;
+    this.menuTopWrapper.set(element);
+    this.changeDetectorRef.detectChanges();
   }
   
   ngOnInit(): void {
@@ -56,6 +58,7 @@ export class MenuTopComponent implements OnInit, OnDestroy {
 
   handleToggleMenuClick() {
     this.sidebarVisible.update((value: boolean) => !value);
+    console.log('change')
   }
 
   handleOpenSearchDialog() {

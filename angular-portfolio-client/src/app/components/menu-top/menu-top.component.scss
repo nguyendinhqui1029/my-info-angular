@@ -6,7 +6,7 @@
       padding: 1rem 0;
       box-shadow: 0rem 0.005rem 0.2rem #767676;
       background: $primary-background;
-
+    
       .menu-top-wrapper {
         display: flex;
         justify-content: space-between;
@@ -22,6 +22,7 @@
 
         .menu-icon {
           font-size: 2rem;
+          cursor: pointer;
         }
 
         .logo-wrapper {
@@ -43,6 +44,7 @@
       }
 
       .sidebar {
+
         .logo-wrapper {
           display: flex;
           align-items: center;
@@ -95,6 +97,7 @@
 
         .menu-icon {
           font-size: 2rem;
+          cursor: pointer;
         }
 
         .logo-wrapper {

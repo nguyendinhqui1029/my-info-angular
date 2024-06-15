@@ -1,13 +1,14 @@
-import { Directive, ElementRef, EventEmitter, Input, OnChanges, OnDestroy, Output, SimpleChanges, inject } from '@angular/core';
+import { Directive, ElementRef, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges, inject } from '@angular/core';
 import ResizeObserver from 'resize-observer-polyfill';
 import { ContainerSize } from '@shared/models/container-size.mode';
+import { Subscription } from 'rxjs/internal/Subscription';
 
 @Directive({
   selector: '[qContainerChangeSize]',
   standalone: true
 })
 export class ContainerChangeSizeDirective implements OnDestroy, OnChanges {
-
+  @Input({ required: false }) key!: string;
   @Input({ required: false }) maxWidth!: number;
   @Input({ required: false }) minWidth!: number;
   @Input({ required: false }) minHeight!: number;
@@ -16,7 +17,6 @@ export class ContainerChangeSizeDirective implements OnDestroy, OnChanges {
 
   private elementRef: ElementRef = inject(ElementRef);
   private resizeObserver!: ResizeObserver;
-  resizeObserverEntry!: ResizeObserverEntry;
 
   ngOnChanges(changes: SimpleChanges): void {
     if(changes['maxWidth'].isFirstChange() 
@@ -25,8 +25,7 @@ export class ContainerChangeSizeDirective implements OnDestroy, OnChanges {
     || changes['maxHeight'].isFirstChange()) {
       this.resizeObserver = new ResizeObserver((entries: ResizeObserverEntry[]) => {
         if (entries && entries.length) {
-          this.resizeObserverEntry = entries[0];
-          const { left, top, right, bottom, width, height } = this.resizeObserverEntry.contentRect;
+          const { left, top, right, bottom, width, height } = entries[0].contentRect;
           this.sizeChange.next({
             height: height,
             width: width,
@@ -42,7 +41,6 @@ export class ContainerChangeSizeDirective implements OnDestroy, OnChanges {
       this.resizeObserver.observe(this.elementRef.nativeElement);
     }
   }
-
 
   ngOnDestroy(): void {
     if (this.resizeObserver) {

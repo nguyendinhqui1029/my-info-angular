@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, computed, inject, signal } from '@angular/core';
+import { ChangeDetectorRef, Component, OnDestroy, OnInit, computed, inject, signal } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { VerticalMenuLeftComponent } from '@app/components/common/vertical-menu-left/vertical-menu-left.component';
 import { VerticalMenuRightComponent } from '@app/components/common/vertical-menu-right/vertical-menu-right.component';
@@ -27,6 +27,7 @@ export class SkillsComponent implements OnDestroy, OnInit {
   activatedRoute: ActivatedRoute = inject(ActivatedRoute);
   skillContentService: SkillContentService = inject(SkillContentService);
   private translateService: TranslateService = inject(TranslateService);
+  private changeDetectorRef: ChangeDetectorRef = inject(ChangeDetectorRef);
 
   isOpenMenuLeft: boolean = true;
   menuList: Category[] = [];
@@ -50,6 +51,7 @@ export class SkillsComponent implements OnDestroy, OnInit {
 
   handleSkillWrapperChangeSize(element: ContainerSize) {
     this.skillWrapper = element;
+    this.changeDetectorRef.detectChanges();
   }
 
   ngOnInit() {

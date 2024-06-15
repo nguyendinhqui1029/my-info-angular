@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { ChangeDetectorRef, Component, inject, signal } from '@angular/core';
 import { PrimeComponent } from '@app/configs/prime-angular/prime.config';
 import { ContainerChangeSizeDirective } from '@app/shared/directives/container-change-size.directive';
 import { ContainerSize } from '@app/shared/models/container-size.mode';
@@ -12,6 +12,8 @@ import { ContainerSize } from '@app/shared/models/container-size.mode';
 })
 export class RegisterDialogComponent {
 
+  private changeDetectorRef: ChangeDetectorRef = inject(ChangeDetectorRef);
+
   isDisplayMessage = signal<boolean>(false);
 
   // Element Container 
@@ -19,5 +21,6 @@ export class RegisterDialogComponent {
 
   handleLoginWrapperChangeSize(element: ContainerSize) {
     this.registerWrapper = element;
+    this.changeDetectorRef.detectChanges();
   }
 }

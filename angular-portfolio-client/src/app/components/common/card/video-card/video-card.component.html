@@ -1,17 +1,21 @@
 <section class="video-card-wrapper">
   <article class="video-wrapper">
-    <div class="video-container" #videoChild>
-      <q-video [path]="videoUrl" [width]="width" [height]="height"/>
+    <div class="video-container"  
+    qContainerChangeSize 
+    (sizeChange)="handleVideoCardWrapperChangeSize($event)"
+    [maxWidth]="512"
+    >
+      <q-video [path]="videoUrl" [width]="videoWrapper?.width || 200" [height]="(9/16 * (videoWrapper?.width|| 100))"/>
     </div>
 
     <span class="first-circle"></span>
   </article>
-
+ 
   <article class="content-wrapper">
     <h2 class="title">{{title}}</h2>
     <small class="date"> <i class="pi pi-calendar"></i>12/12/2023</small>
     <p class="content">
-      {{ content }}
+      {{ content }} 
     </p>
     <article class="button-wrapper">
       @for(item of buttons; track item) {

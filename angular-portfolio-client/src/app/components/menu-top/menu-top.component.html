@@ -5,8 +5,8 @@
       <img class="logo" src="assets/images/logo.png" alt="logo" />
       <span class="name">{{'author_name' | translate}}</span>
     </div>
-   
-    @if(!menuTopWrapper?.isMatchWidth) {
+    {{menuTopWrapper()?.width}}
+    @if(!menuTopWrapper()?.isMatchWidth) {
       <q-menu-content 
       [isVertical]="false" 
       class="horizontal-menu-content" 
@@ -17,6 +17,7 @@
       <i class="menu-icon pi pi-bars" (click)="handleToggleMenuClick()"></i>
     }
   </div>
+ 
   <section class="action-wrapper">
     <!-- Toggle site mode  -->
     <change-site-mode></change-site-mode>
@@ -39,7 +40,8 @@
     <p-button size="small" [attr.aria-label]="'button_search' | translate" [label]="'button_search' | translate" icon="pi pi-search" [text]="true" [raised]="true" severity="warning" (click)="handleOpenSearchDialog()" />
   </section>
 </div>
-<p-sidebar [(visible)]="sidebarVisible" class="sidebar" [showCloseIcon]="false">
+
+<p-sidebar [(visible)]="sidebarVisible"  class="sidebar" [showCloseIcon]="false">
   <ng-template pTemplate="header">
     <div class="logo-wrapper">
       <p-avatar size="large" image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png"

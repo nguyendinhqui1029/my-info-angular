@@ -1,15 +1,17 @@
 import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, EventEmitter, HostListener, Input, Output, ViewChild, inject } from '@angular/core';
 import { PrimeComponent } from '@app/configs/prime-angular/prime.config';
+import { ContainerChangeSizeDirective } from '@app/shared/directives/container-change-size.directive';
 import { Button } from '@app/shared/models/button.model';
+import { ContainerSize } from '@app/shared/models/container-size.mode';
 
 @Component({
   selector: 'q-video-card',
   standalone: true,
-  imports: [PrimeComponent],
+  imports: [PrimeComponent, ContainerChangeSizeDirective],
   templateUrl: './video-card.component.html',
   styleUrl: './video-card.component.scss'
 })
-export class VideoCardComponent implements AfterViewInit{
+export class VideoCardComponent {
   @Input() isDisplayUI!: boolean;
   @Input({required: true}) videoUrl!: string;
   @Input({required: true}) content!: string;
@@ -19,23 +21,12 @@ export class VideoCardComponent implements AfterViewInit{
 
   @Output() clickEvent = new EventEmitter<string>();
 
-  @ViewChild('videoChild') videoChild!: ElementRef;
-
   private changeDetectorRef: ChangeDetectorRef = inject(ChangeDetectorRef)
-  width: number = 200;
-  height: number = 100;
   
-  ngAfterViewInit(): void {
-    this.width = this.videoChild.nativeElement.offsetWidth;
-    this.height = this.videoChild.nativeElement.offsetHeight;
-    this.changeDetectorRef.detectChanges();
-  }
+  videoWrapper!: ContainerSize;
 
-  @HostListener('window:resize', ['$event'])
-  handleKeyDown() {
-    this.width = this.videoChild.nativeElement.offsetWidth;
-    this.height = this.videoChild.nativeElement.offsetHeight;
-  
+  handleVideoCardWrapperChangeSize(element: ContainerSize) {
+    this.videoWrapper = element;
     this.changeDetectorRef.detectChanges();
   }
 }

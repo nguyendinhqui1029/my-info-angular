@@ -4,6 +4,7 @@
 @import 'assets/styles/common.scss'; // Common css
 html, body, body.dark { 
   height: 100%; 
+  width: 100vw;
   margin: 0; 
   font-family: Roboto, "Helvetica Neue", sans-serif; 
 }
