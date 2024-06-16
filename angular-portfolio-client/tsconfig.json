@@ -6,6 +6,7 @@
     "paths": {
       "@app/*": ["app/*"],
       "@shared/*": ["app/shared/*"],
+      "@utils/*": ["app/shared/utils/*"],
       "@shared/service/*": ["app/shared/service/*"],
       "@admin/*": ["app/pages/admin/*"],
       "@client/*": ["app/pages/client/*"],
@@ -14,6 +15,7 @@
       "@configs/*": ["app/configs/*"],
       "@components/*": ["app/components/*"],
       "@pages/*": ["app/pages/*"],
+     
     },
     "outDir": "./dist/out-tsc",
     "strict": true,

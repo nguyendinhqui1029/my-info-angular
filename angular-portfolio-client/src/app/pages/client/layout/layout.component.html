@@ -3,8 +3,8 @@
   <div class="layout-content-wrapper" 
     qContainerChangeSize 
     (sizeChange)="handleContentLayoutWrapperChangeSize($event)"
-    [maxWidth]="832"
-    [class.margin-mobile]="contentLayoutWrapper?.isMatchWidth">
+    [maxWidth]="[832]"
+    [class.margin-mobile]="contentLayoutWrapper?.['832']?.isMaxWidthMatch">
     <router-outlet></router-outlet>
   </div>
   <q-footer></q-footer>

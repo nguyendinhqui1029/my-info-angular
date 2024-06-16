@@ -6,6 +6,7 @@ import { ContainerChangeSizeDirective } from '@app/shared/directives/container-c
 import { Category } from '@app/shared/models/category.model';
 import { ContainerSize } from '@app/shared/models/container-size.mode';
 import { ContentSection } from '@app/shared/models/content-section.model';
+import { CategoryService } from '@app/shared/services/category.service';
 import { SkillContentService } from '@app/shared/services/skill-content.service';
 import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs/internal/Subscription';
@@ -16,7 +17,8 @@ import { Subscription } from 'rxjs/internal/Subscription';
   standalone: true,
   imports: [VerticalMenuLeftComponent, VerticalMenuRightComponent, ContainerChangeSizeDirective],
   templateUrl: './skills.component.html',
-  styleUrl: './skills.component.scss'
+  styleUrl: './skills.component.scss',
+  providers: [CategoryService]
 })
 export class SkillsComponent implements OnDestroy, OnInit {
 
@@ -28,17 +30,19 @@ export class SkillsComponent implements OnDestroy, OnInit {
   skillContentService: SkillContentService = inject(SkillContentService);
   private translateService: TranslateService = inject(TranslateService);
   private changeDetectorRef: ChangeDetectorRef = inject(ChangeDetectorRef);
+  private categoryService: CategoryService = inject(CategoryService);
 
   isOpenMenuLeft: boolean = true;
-  menuList: Category[] = [];
-  sectionMenuLeftWidth: string = '14.75rem';
+  isOpenMenuRight: boolean = true;
   sectionMenuRightWidth: string = '12.25rem';
   skillId: string = '';
 
-  initParentId = signal<string>('');
-  initChildId = signal<string>('');
+  initParentId: string = '';
+  initChildId: string = '';
 
-  contentList = this.skillContentService.getSkillContent({ skillId: this.skillId, parentCategoryId: this.initParentId(), childCategoryId: this.initChildId() }).result;
+  contentList = this.skillContentService.getSkillContent({ skillId: this.skillId, parentCategoryId: this.initParentId, childCategoryId: this.initChildId }).result;
+  menuList = this.categoryService.getCategories(this.skillId).result;
+
   contentSection = computed(() => (this.contentList()?.data?.data || []).map((item: ContentSection) => ({
     id: item.id,
     label: item.header,
@@ -46,147 +50,45 @@ export class SkillsComponent implements OnDestroy, OnInit {
     children: []
   })));
 
-  // Element Container 
-  skillWrapper!: ContainerSize;
+  menuListDisplayUi = computed(() => this.menuList()?.data?.data || []);
 
-  handleSkillWrapperChangeSize(element: ContainerSize) {
+  // Element Container 
+  skillWrapper!:Record<string, ContainerSize>;
+
+  handleSkillWrapperChangeSize(element: Record<string, ContainerSize>) {
     this.skillWrapper = element;
+    this.isOpenMenuLeft = !this.skillWrapper?.['730'].isMaxWidthMatch;
+    this.isOpenMenuRight = !this.skillWrapper?.['900'].isMaxWidthMatch;
     this.changeDetectorRef.detectChanges();
   }
 
   ngOnInit() {
     this.activatedRoute.params.subscribe((params: Params) => {
       this.skillId = params['id'];
-      this.menuList = [
-        {
-          id: 'HTML',
-          label: 'Html',
-          icon: '',
-          children: [{
-            id: 'HTML',
-            label: 'Html',
-            icon: '',
-            children: []
-          },
-          {
-            id: 'HTML1',
-            label: 'Html1',
-            icon: '',
-            children: []
-          }]
-        },
-        {
-          id: 'CSS',
-          label: 'Css',
-          icon: '',
-          children: [{
-            id: 'FLEX',
-            label: 'Flex',
-            icon: '',
-            children: []
-          },
-          {
-            id: 'HTML1',
-            label: 'Html1',
-            icon: '',
-            children: []
-          },
-          {
-            id: 'HTML1',
-            label: 'Html1',
-            icon: '',
-            children: []
-          }]
-        },
-        {
-          id: 'JAVASCRIPT',
-          label: 'Javascript',
-          icon: '',
-          children: [{
-            id: 'FUNCTION',
-            label: 'Function',
-            icon: '',
-            children: []
-          }]
-        },
-        {
-          id: 'JAVASCRIPT1',
-          label: 'Javascript',
-          icon: '',
-          children: [{
-            id: 'FUNCTION',
-            label: 'Function',
-            icon: '',
-            children: []
-          }]
-        },
-        {
-          id: 'JAVASCRIPT2',
-          label: 'Javascript',
-          icon: '',
-          children: [{
-            id: 'FUNCTION',
-            label: 'Function',
-            icon: '',
-            children: []
-          }]
-        },
-        {
-          id: 'JAVASCRIPT3',
-          label: 'Javascript',
-          icon: '',
-          children: [{
-            id: 'FUNCTION',
-            label: 'Function',
-            icon: '',
-            children: []
-          }]
-        },
-        {
-          id: 'JAVASCRIPT4',
-          label: 'Javascript',
-          icon: '',
-          children: [{
-            id: 'FUNCTION',
-            label: 'Function',
-            icon: '',
-            children: []
-          }]
-        },
-        {
-          id: 'JAVASCRIPT5',
-          label: 'Javascript',
-          icon: '',
-          children: [{
-            id: 'FUNCTION',
-            label: 'Function',
-            icon: '',
-            children: []
-          }]
-        },
-        {
-          id: 'TEST',
-          label: 'Test',
-          icon: '',
-          children: []
-        }
-      ];
-      this.initParentId.set(this.menuList[0].id);
-      if (this.menuList[0].children[0].id) {
-        this.initChildId.set(this.menuList[0].children[0].id);
-      }
+      this.categoryService.refetchCategories();
+        // if(this.menuListDisplayUi().length) {
+        //   this.initParentId.set(this.menuListDisplayUi()[0].id);
+        //   if (this.menuListDisplayUi()[0].children[0].id) {
+        //     this.initChildId.set(this.menuListDisplayUi()[0].children[0].id);
+        //   }
+        // }
     });
 
     this.activatedRoute.queryParams.subscribe((params: Params) => {
-      this.initParentId.set(params['parentId']);
-      if (params['childId']) {
-        this.initChildId.set(params['childId']);
+      if(params['parentId'] !== this.initParentId || params['childId'] !== this.initChildId) {
+        this.initParentId = params['parentId'];
+        if (params['childId']) {
+          this.initChildId = params['childId'];
+        }
+        this.skillContentService.refetchSkillContent();
       }
-      this.skillContentService.refetchSkillContent();
     });
 
 
-    this.subscription = this.translateService.onLangChange.subscribe(() => this.skillContentService.refetchSkillContent());
+    this.subscription = this.translateService.onLangChange.subscribe(() => {
+      this.skillContentService.refetchSkillContent();
+      this.categoryService.refetchCategories();
+    });
 
 
   }
@@ -198,12 +100,7 @@ export class SkillsComponent implements OnDestroy, OnInit {
     if (item?.childId) {
       params['childId'] = item.childId;
     }
-    this.router.navigate([], { queryParams: params })
-  }
-
-  handleToggleSidebar(isOpen: boolean) {
-    this.isOpenMenuLeft = isOpen;
-    this.sectionMenuLeftWidth = isOpen ? '14.75rem' : '0rem';
+    this.router.navigate([], {relativeTo: this.activatedRoute, queryParams: {...params, ...this.activatedRoute.snapshot.queryParams } });
   }
 
   ngOnDestroy(): void {

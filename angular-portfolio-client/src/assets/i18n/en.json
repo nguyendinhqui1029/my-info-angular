@@ -33,5 +33,7 @@
     "placeholder_search": "Enter search keyword",
     "result_label": "Result:",
     "empty_result": "No result for",
-    "view_detail": "View Detail"
+    "view_detail": "View Detail",
+     "open_sidebar": "Open category list",
+     "close_sidebar": "Close category list"
 }

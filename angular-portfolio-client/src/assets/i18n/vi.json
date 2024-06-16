@@ -33,5 +33,7 @@
     "placeholder_search": "Nhập từ khoá tìm kiếm",
     "result_label": "Kết quả:",
     "empty_result": "Không có kết quả cho",
-    "view_detail": "Xem chi tiết"
+    "view_detail": "Xem chi tiết",
+    "open_sidebar": "Mở danh sách danh mục",
+     "close_sidebar": "Đóng danh sách danh mục"
 }

@@ -17,9 +17,9 @@ export class RegisterDialogComponent {
   isDisplayMessage = signal<boolean>(false);
 
   // Element Container 
-  registerWrapper!: ContainerSize;
+  registerWrapper!: Record<string,ContainerSize>;
 
-  handleLoginWrapperChangeSize(element: ContainerSize) {
+  handleLoginWrapperChangeSize(element: Record<string,ContainerSize>) {
     this.registerWrapper = element;
     this.changeDetectorRef.detectChanges();
   }

@@ -16,9 +16,9 @@ export class LayoutComponent {
   private changeDetectorRef: ChangeDetectorRef = inject(ChangeDetectorRef);
 
   // Element Container 
-  contentLayoutWrapper!: ContainerSize;
+  contentLayoutWrapper: Record<string,ContainerSize> = {};
 
-  handleContentLayoutWrapperChangeSize(element: ContainerSize) {
+  handleContentLayoutWrapperChangeSize(element: Record<string,ContainerSize>) {
     this.contentLayoutWrapper = element;
     this.changeDetectorRef.detectChanges();
   }

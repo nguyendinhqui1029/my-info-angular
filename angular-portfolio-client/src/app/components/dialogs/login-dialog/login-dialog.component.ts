@@ -14,9 +14,9 @@ export class LoginDialogComponent {
   private changeDetectorRef: ChangeDetectorRef = inject(ChangeDetectorRef);
 
   // Element Container 
-  loginWrapper!: ContainerSize;
+  loginWrapper!: Record<string,ContainerSize>;
 
-  handleLoginWrapperChangeSize(element: ContainerSize) {
+  handleLoginWrapperChangeSize(element: Record<string,ContainerSize>) {
     this.loginWrapper = element;
     this.changeDetectorRef.detectChanges();
   }

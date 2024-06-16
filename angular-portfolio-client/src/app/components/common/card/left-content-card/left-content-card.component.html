@@ -23,7 +23,13 @@
       }
     </article>
   </article>
-  <article class="image-wrapper" style.background-image="url({{imageUrl}})">
+  <article class="image-wrapper" 
+    qContainerChangeSize 
+    (sizeChange)="handleImageWrapperWrapperChangeSize($event)" 
+    [maxWidth]="[512]" 
+    style.background-image="url({{imageUrl}})"
+    style.height="{{((imageWrapper?.['512']?.width || 100) | aspectRatioHeight)}}px"
+    >
     <span class="first-circle"></span>
     <span class="second-circle"></span>
   </article>

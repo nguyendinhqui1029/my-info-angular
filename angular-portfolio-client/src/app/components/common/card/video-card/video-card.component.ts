@@ -3,11 +3,12 @@ import { PrimeComponent } from '@app/configs/prime-angular/prime.config';
 import { ContainerChangeSizeDirective } from '@app/shared/directives/container-change-size.directive';
 import { Button } from '@app/shared/models/button.model';
 import { ContainerSize } from '@app/shared/models/container-size.mode';
+import { AspectRatioHeightPipe } from '@app/shared/pipes/aspect-ratio-height.pipe';
 
 @Component({
   selector: 'q-video-card',
   standalone: true,
-  imports: [PrimeComponent, ContainerChangeSizeDirective],
+  imports: [PrimeComponent, ContainerChangeSizeDirective, AspectRatioHeightPipe],
   templateUrl: './video-card.component.html',
   styleUrl: './video-card.component.scss'
 })
@@ -23,9 +24,9 @@ export class VideoCardComponent {
 
   private changeDetectorRef: ChangeDetectorRef = inject(ChangeDetectorRef)
   
-  videoWrapper!: ContainerSize;
+  videoWrapper!: Record<string,ContainerSize>;
 
-  handleVideoCardWrapperChangeSize(element: ContainerSize) {
+  handleVideoCardWrapperChangeSize(element: Record<string,ContainerSize>) {
     this.videoWrapper = element;
     this.changeDetectorRef.detectChanges();
   }

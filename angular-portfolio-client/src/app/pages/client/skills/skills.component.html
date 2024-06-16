@@ -1,10 +1,12 @@
-<main class="skill-wrapper" qContainerChangeSize (sizeChange)="handleSkillWrapperChangeSize($event)" [maxWidth]="900">
-  <article class="left-section" [style]="{'--leftSectionWidth': sectionMenuLeftWidth}">
-    <q-vertical-menu-left [parentId]="initParentId()" [childId]="initChildId()" [items]="menuList"
-      (itemClick)="handleCategoryClick($event)"></q-vertical-menu-left>
+<main class="skill-wrapper" qContainerChangeSize (sizeChange)="handleSkillWrapperChangeSize($event)" [maxWidth]="[900, 730]">
+  <article class="left-section">
+    <q-vertical-menu-left [parentId]="initParentId" [childId]="initChildId" [items]="menuListDisplayUi()"
+      (itemClick)="handleCategoryClick($event)"
+      [isOpen]="isOpenMenuLeft"
+      ></q-vertical-menu-left>
   </article>
   <section class="main-content">
-    @for(item of (contentList()?.data?.data || []); track item.id) {
+    @for(item of (contentList().data?.data || []); track item.id) {
     <div class="section" [id]="item.id">
       <h3 class="title">{{item.header}}</h3>
       <article class="content">
@@ -14,6 +16,6 @@
     }
   </section>
   <article class="right-section">
-    <q-vertical-menu-right [items]="contentSection()"></q-vertical-menu-right>
+    <q-vertical-menu-right [items]="contentSection()" [isOpen]="isOpenMenuRight"></q-vertical-menu-right>
   </article>
 </main>

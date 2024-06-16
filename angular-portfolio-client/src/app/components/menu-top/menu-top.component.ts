@@ -45,10 +45,10 @@ export class MenuTopComponent implements OnInit, OnDestroy {
   dynamicDialogRef: DynamicDialogRef | undefined;
 
   // Element Container 
-  menuTopWrapper = signal<ContainerSize | null>(null);
+  menuTopWrapper:Record<string,ContainerSize> = {};
 
-  handleMenuTopWrapperChangeSize(element: ContainerSize) {
-    this.menuTopWrapper.set(element);
+  handleMenuTopWrapperChangeSize(element: Record<string,ContainerSize>) {
+    this.menuTopWrapper = element ;
     this.changeDetectorRef.detectChanges();
   }
   
@@ -135,7 +135,6 @@ export class MenuTopComponent implements OnInit, OnDestroy {
 
     // Handle dialog closed 
     this.dynamicDialogRef.onClose.subscribe((language: string) => {
-      console.log(1);
       if (!language) {
         return;
       }

@@ -5,6 +5,8 @@ export interface ContainerSize {
     paddingLeft: number;
     paddingRight: number;
     paddingBottom: number;
-    isMatchWidth: boolean;
-    isMatchHeight: boolean;
+    isMinWidthMatch: boolean;
+    isMaxWidthMatch: boolean;
+    isMaxHeightMatch: boolean;
+    isMinHeightMatch: boolean;
 }

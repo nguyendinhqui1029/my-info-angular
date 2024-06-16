@@ -2,8 +2,7 @@
   :host {
     --topLineHight: 0px;
     --topLineRotate: 0deg;
-    --bottomLineHight:
-      0px;
+    --bottomLineHight: 0px;
     --bottomLineRotate: 0deg;
   }
 
@@ -13,8 +12,9 @@
     .toggle-icon-wrapper {
       display: flex;
       flex-direction: column;
-      width: fit-content;
+      max-width: fit-content;
       cursor: pointer;
+      padding: 0 0.5rem;
 
       .top-line {
         border-top-left-radius: 1rem;
@@ -47,8 +47,9 @@
     .toggle-icon-wrapper {
       display: flex;
       flex-direction: column;
-      width: fit-content;
+      max-width: fit-content;
       cursor: pointer;
+      padding: 0 0.5rem;
 
       .top-line {
         border-top-left-radius: 1rem;
@@ -68,8 +69,7 @@
         border-bottom-right-radius: 1rem;
         height: 0.75rem;
         width: 0.001rem;
-        border-left:
-          0.3rem solid $second-border;
+        border-left: 0.3rem solid $second-border;
         transform: rotate(var(--bottomLineRotate)) translateY(var(--bottomLineHight));
         transition: transform 0.3s;
       }

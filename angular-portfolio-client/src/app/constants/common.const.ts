@@ -2,7 +2,8 @@ export const QUERY_KEYS = {
     FOOTER: 'footer-key',
     LANGUAGE: 'language-key',
     SEARCH: 'search-key',
-    SKILL_CONTENT: 'skill-content'
+    SKILL_CONTENT: 'skill-content',
+    CATEGORIES_BY_ID: 'categories-by-id'
 }
 
 export enum LocalStorageKey {

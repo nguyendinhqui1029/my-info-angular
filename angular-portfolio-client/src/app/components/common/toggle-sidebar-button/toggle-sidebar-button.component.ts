@@ -1,5 +1,5 @@
 import { NgStyle } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { PrimeComponent } from '@app/configs/prime-angular/prime.config';
 
 @Component({
@@ -9,7 +9,8 @@ import { PrimeComponent } from '@app/configs/prime-angular/prime.config';
   templateUrl: './toggle-sidebar-button.component.html',
   styleUrl: './toggle-sidebar-button.component.scss'
 })
-export class ToggleSidebarButtonComponent {
+export class ToggleSidebarButtonComponent implements OnChanges{
+  @Input({ required: false }) isDisabled: boolean = false;
   @Input({ required: true }) isOpen!: boolean;
   @Input({ required: true }) tooltipMessage!: string;
   @Input({ required: false }) position: 'right' | 'left' = 'left';
@@ -20,29 +21,42 @@ export class ToggleSidebarButtonComponent {
   bottomLineHight: string = '0px';
   bottomLineRotate: string = '0deg';
 
-  ngOnInit(): void {
-    if (!this.isOpen) {
-      this.topLineHight = '0.08rem';
-      this.topLineRotate = '-20deg';
-      this.bottomLineHight = '-0.08rem';
-      this.bottomLineRotate = '20deg';
+  ngOnChanges(changes: SimpleChanges): void {
+    if(changes['isOpen']?.currentValue !== null) {
+      if (!changes['isOpen']?.currentValue) {
+        this.topLineHight = '0.08rem';
+        this.topLineRotate = this.position === 'left' ? '-20deg' :'20deg';
+        this.bottomLineHight = '-0.08rem';
+        this.bottomLineRotate = this.position === 'left' ? '20deg' :'-20deg';
+        return;
+      }
+      this.topLineHight = '0';
+      this.topLineRotate = '0deg';
+      this.bottomLineHight = '0';
+      this.bottomLineRotate = '0deg';
     }
   }
 
   handleMouseOver() {
+    if(this.isDisabled) {
+      return;
+    }
     if (this.isOpen) {
       this.topLineHight = '0.08rem';
-      this.topLineRotate = '20deg';
+      this.topLineRotate = this.position === 'left' ? '20deg' :'-20deg';
       this.bottomLineHight = '-0.08rem';
-      this.bottomLineRotate = '-20deg';
+      this.bottomLineRotate = this.position === 'left' ? '-20deg' :'20deg';
       return;
     }
     this.topLineHight = '0.08rem';
-    this.topLineRotate = '-20deg';
+    this.topLineRotate = this.position === 'left' ? '-20deg' :'20deg';
     this.bottomLineHight = '-0.08rem';
-    this.bottomLineRotate = '20deg';
+    this.bottomLineRotate = this.position === 'left' ? '20deg' :'-20deg';
   }
   handleMouseOut() {
+    if(this.isDisabled) {
+      return;
+    }
     if (this.isOpen) {
       this.topLineHight = '0';
       this.topLineRotate = '0deg';
@@ -52,6 +66,9 @@ export class ToggleSidebarButtonComponent {
   }
 
   handleToggle() {
+    if(this.isDisabled) {
+      return;
+    }
     this.isOpen = !this.isOpen;
     this.eventClick.next(this.isOpen);
     if (this.isOpen) {
@@ -62,8 +79,8 @@ export class ToggleSidebarButtonComponent {
       return;
     }
     this.topLineHight = '0.08rem';
-    this.topLineRotate = '-20deg';
+    this.topLineRotate = this.position === 'left' ? '-20deg' :'20deg';
     this.bottomLineHight = '-0.08rem';
-    this.bottomLineRotate = '20deg';
+    this.bottomLineRotate = this.position === 'left' ? '20deg' :'-20deg';
   }
 }

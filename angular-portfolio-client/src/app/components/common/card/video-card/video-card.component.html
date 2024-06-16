@@ -3,9 +3,9 @@
     <div class="video-container"  
     qContainerChangeSize 
     (sizeChange)="handleVideoCardWrapperChangeSize($event)"
-    [maxWidth]="512"
+    [maxWidth]="[512]"
     >
-      <q-video [path]="videoUrl" [width]="videoWrapper?.width || 200" [height]="(9/16 * (videoWrapper?.width|| 100))"/>
+      <q-video [path]="videoUrl" [width]="videoWrapper?.['512']?.width || 200" [height]="(videoWrapper?.['512']?.width || 100) | aspectRatioHeight"/>
     </div>
 
     <span class="first-circle"></span>
