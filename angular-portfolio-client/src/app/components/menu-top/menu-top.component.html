@@ -12,7 +12,7 @@
       [isVertical]="false" 
       class="horizontal-menu-content" 
       (menuItemClick)="handleMenuItemClick($event)"
-      (avatarUserClick)="handleAvatarUserClick()"></q-menu-content>
+      (avatarUserClick)="handleAvatarUserClick()" style="z-index: 0;"></q-menu-content>
       
     } @else {
       <i class="menu-icon pi pi-bars" (click)="handleToggleMenuClick()"></i>
@@ -45,7 +45,7 @@
 <p-sidebar [(visible)]="sidebarVisible"  class="sidebar" [showCloseIcon]="false">
   <ng-template pTemplate="header">
     <div class="logo-wrapper">
-      <p-avatar size="large" image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png"
+      <p-avatar image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png"
         [style]="{ 'background-color': '#ece9fc', color: '#2a1261' }" shape="circle" />
       <span class="name">Name</span>
     </div>

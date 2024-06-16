@@ -27,8 +27,8 @@
 
         .logo-wrapper {
           display: flex;
+          gap: 0.75rem;
           align-items: center;
-          flex: 1 1 auto;
           cursor: pointer;
 
           .logo {
@@ -43,26 +43,7 @@
         }
       }
 
-      .sidebar {
-
-        .logo-wrapper {
-          display: flex;
-          align-items: center;
-          gap: 1rem;
-          flex: 1 1 auto;
-
-          .logo {
-            width: 3em !important;
-            height: 3em !important;
-          }
-
-          .name {
-            font-size: 1.25rem;
-            font-weight: bold;
-          }
-        }
-      }
-
+   
       .action-wrapper {
         display: flex;
         justify-content: flex-end;
@@ -72,6 +53,27 @@
         gap: 1rem;
       }
     }
+
+    .sidebar {
+
+      .logo-wrapper {
+        display: flex;
+        gap: 0.75rem;
+        align-items: center;
+        cursor: pointer;
+
+        .logo {
+          width: 3em !important;
+          height: 3em !important;
+        }
+
+        .name {
+          font-size: 1.25rem;
+          font-weight: bold;
+        }
+      }
+    }
+
   }
 
   body.dark {
@@ -81,7 +83,7 @@
       padding: 1rem 0;
       box-shadow: 0rem 0.005rem 0.2rem #767676;
       background: $primary-background;
-
+    
       .menu-top-wrapper {
         display: flex;
         justify-content: space-between;
@@ -102,8 +104,8 @@
 
         .logo-wrapper {
           display: flex;
+          gap: 0.75rem;
           align-items: center;
-          flex: 1 1 auto;
           cursor: pointer;
 
           .logo {
@@ -118,25 +120,7 @@
         }
       }
 
-      .sidebar {
-        .logo-wrapper {
-          display: flex;
-          align-items: center;
-          gap: 1rem;
-          flex: 1 1 auto;
-
-          .logo {
-            width: 3em !important;
-            height: 3em !important;
-          }
-
-          .name {
-            font-size: 1.25rem;
-            font-weight: bold;
-          }
-        }
-      }
-
+   
       .action-wrapper {
         display: flex;
         justify-content: flex-end;
@@ -144,6 +128,26 @@
         flex: 1 1 auto;
         padding: 0 1rem;
         gap: 1rem;
+      }
+    }
+
+    .sidebar {
+
+      .logo-wrapper {
+        display: flex;
+        gap: 0.75rem;
+        align-items: center;
+        cursor: pointer;
+
+        .logo {
+          width: 3em !important;
+          height: 3em !important;
+        }
+
+        .name {
+          font-size: 1.25rem;
+          font-weight: bold;
+        }
       }
     }
   }

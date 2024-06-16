@@ -42,7 +42,7 @@ export class MenuTopComponent implements OnInit, OnDestroy {
   
   private unSubscribeLoginSubject: Subscription | undefined;
 
-  sidebarVisible = signal<boolean>(false);
+  sidebarVisible:boolean = false;
   isLogin = signal<boolean>(true);
 
   dynamicDialogRef: DynamicDialogRef | undefined;
@@ -61,7 +61,8 @@ export class MenuTopComponent implements OnInit, OnDestroy {
   }
 
   handleToggleMenuClick() {
-    this.sidebarVisible.update((value: boolean) => !value);
+    this.sidebarVisible = !this.sidebarVisible;
+    this.changeDetectorRef.detectChanges();
   }
 
   handleOpenSearchDialog() {

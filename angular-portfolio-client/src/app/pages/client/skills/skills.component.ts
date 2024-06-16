@@ -63,7 +63,6 @@ export class SkillsComponent implements OnDestroy, OnInit {
     this.skillWrapper = element;
     this.isOpenMenuLeft = !this.skillWrapper?.['730'].isMaxWidthMatch;
     this.isOpenMenuRight = !this.skillWrapper?.['900'].isMaxWidthMatch;
-    console.log(this.skillWrapper)
     this.changeDetectorRef.detectChanges();
   }
 

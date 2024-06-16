@@ -38,7 +38,6 @@ export class VerticalMenuRightComponent implements OnChanges{
     if (changes['isOpen']?.currentValue !== undefined) {
       this.isToggle = changes['isOpen']?.currentValue;
       this.sectionMenuRightWidth = this.isToggle ? '12.25rem' : '0rem';
-      console.log(this.isToggle)
     }
   }
 
