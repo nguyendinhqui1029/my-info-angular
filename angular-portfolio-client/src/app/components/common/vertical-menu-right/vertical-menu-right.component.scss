@@ -1,7 +1,8 @@
+:host {
+  --rightSectionWidth: 12.25rem; 
+}
 ::ng-deep {
-    :host {
-      --rightSectionWidth: 12.25rem; 
-    }
+   
     body {
       @import 'assets/styles/variables/light.mode.scss'; // Default mode
   

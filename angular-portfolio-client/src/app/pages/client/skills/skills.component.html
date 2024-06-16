@@ -1,11 +1,11 @@
 <main class="skill-wrapper" qContainerChangeSize (sizeChange)="handleSkillWrapperChangeSize($event)" [maxWidth]="[900, 730]">
   <article class="left-section">
-    <q-vertical-menu-left [parentId]="initParentId" [childId]="initChildId" [items]="menuListDisplayUi()"
+    <q-vertical-menu-left [items]="menuListDisplayUi()"
       (itemClick)="handleCategoryClick($event)"
       [isOpen]="isOpenMenuLeft"
       ></q-vertical-menu-left>
   </article>
-  <section class="main-content">
+  <section class="main-content" [style.--flooredMenuTopHeight]="menuTopHeight">
     @for(item of (contentList().data?.data || []); track item.id) {
     <div class="section" [id]="item.id">
       <h3 class="title">{{item.header}}</h3>

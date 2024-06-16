@@ -22,7 +22,7 @@ export class ToggleSidebarButtonComponent implements OnChanges{
   bottomLineRotate: string = '0deg';
 
   ngOnChanges(changes: SimpleChanges): void {
-    if(changes['isOpen']?.currentValue !== null) {
+    if(changes['isOpen']?.currentValue !== undefined) {
       if (!changes['isOpen']?.currentValue) {
         this.topLineHight = '0.08rem';
         this.topLineRotate = this.position === 'left' ? '-20deg' :'20deg';

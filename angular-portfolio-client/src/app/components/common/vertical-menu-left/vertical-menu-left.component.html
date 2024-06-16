@@ -2,7 +2,7 @@
   <ul class="vertical-menu-left-wrapper" [style]="{'--leftSectionWidth': sectionMenuLeftWidth}">
     @for(item of items; track item) {
     <li>
-      <h4 (click)="handleItemClick(item.id)">
+      <h4 (click)="handleItemClick(item.id, item.children.length ? item.children?.[0]?.id : undefined)">
         {{item.label}}
         @if(item?.children?.length) {
         <i class="pi {{item.id === parentId ? 'pi-angle-up' : 'pi-angle-down'}}"></i>

@@ -1,11 +1,12 @@
-::ng-deep {
-  :host {
-    --topLineHight: 0px;
-    --topLineRotate: 0deg;
-    --bottomLineHight: 0px;
-    --bottomLineRotate: 0deg;
-  }
+:host {
+  --topLineHight: 0px;
+  --topLineRotate: 0deg;
+  --bottomLineHight: 0px;
+  --bottomLineRotate: 0deg;
+}
 
+::ng-deep {
+ 
   body {
     @import 'assets/styles/variables/light.mode.scss'; // Default mode
 

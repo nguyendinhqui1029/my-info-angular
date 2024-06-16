@@ -1,5 +1,5 @@
 import { DOCUMENT } from '@angular/common';
-import { Component, EventEmitter, HostListener, Input, OnChanges, Output, SimpleChanges, inject } from '@angular/core';
+import { Component, HostListener, Input, OnChanges, SimpleChanges, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PrimeComponent } from '@app/configs/prime-angular/prime.config';
 import { Category } from '@app/shared/models/category.model';
@@ -20,21 +20,25 @@ export class VerticalMenuRightComponent implements OnChanges{
   router: Router = inject(Router);
   document: Document = inject(DOCUMENT);
   
-  sectionId: string = this.activatedRoute.snapshot.queryParams['sectionId'];
+  sectionId: string = this.activatedRoute.snapshot.queryParams?.['sectionId'];
   sectionMenuRightWidth: string = '14.75rem';
   isToggle: boolean = false;
 
   ngOnChanges(changes: SimpleChanges): void {
     if(!changes['items']?.isFirstChange() && this.items?.length) {
-      this.sectionId = this.items[0].id;
-      this.router.navigate([], { queryParams: {sectionId: this.sectionId } });
+      if(!this.activatedRoute.snapshot.queryParams?.['sectionId']) {
+        this.sectionId = this.items[0].id;
+      }
+
       const element = this.document.getElementById(this.sectionId);
       element?.scrollIntoView({ behavior: 'smooth' });
+      this.router.navigate([], { queryParams: {...this.activatedRoute.snapshot.queryParams, sectionId: this.sectionId } });
     }
 
-    if (changes['isOpen']?.currentValue !== null) {
+    if (changes['isOpen']?.currentValue !== undefined) {
       this.isToggle = changes['isOpen']?.currentValue;
       this.sectionMenuRightWidth = this.isToggle ? '12.25rem' : '0rem';
+      console.log(this.isToggle)
     }
   }
 
@@ -53,14 +57,13 @@ export class VerticalMenuRightComponent implements OnChanges{
   @HostListener('window:scroll', ['$event'])
   onScroll() {
     const sections = this.document.querySelectorAll('.section');
-
     sections.forEach((section) => {
       const sectionTop = section.getBoundingClientRect().top;
       if (sectionTop <= 165) {
         this.sectionId = section.id;
-        this.router.navigate([], { queryParams: {sectionId: this.sectionId, ...this.activatedRoute.snapshot.queryParams, } })
       }
     });
+    this.router.navigate([], { queryParams: {...this.activatedRoute.snapshot.queryParams, sectionId: this.sectionId, } })
   }
 }
 

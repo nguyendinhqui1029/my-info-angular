@@ -7,6 +7,7 @@ import { Category } from '@app/shared/models/category.model';
 import { ContainerSize } from '@app/shared/models/container-size.mode';
 import { ContentSection } from '@app/shared/models/content-section.model';
 import { CategoryService } from '@app/shared/services/category.service';
+import { CommonService } from '@app/shared/services/common.service';
 import { SkillContentService } from '@app/shared/services/skill-content.service';
 import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs/internal/Subscription';
@@ -23,7 +24,7 @@ import { Subscription } from 'rxjs/internal/Subscription';
 export class SkillsComponent implements OnDestroy, OnInit {
 
   private subscription: Subscription | undefined;
-
+  private subscriptionListenMenuHeightChange: Subscription | undefined;
 
   router: Router = inject(Router);
   activatedRoute: ActivatedRoute = inject(ActivatedRoute);
@@ -31,14 +32,17 @@ export class SkillsComponent implements OnDestroy, OnInit {
   private translateService: TranslateService = inject(TranslateService);
   private changeDetectorRef: ChangeDetectorRef = inject(ChangeDetectorRef);
   private categoryService: CategoryService = inject(CategoryService);
+  private commonService: CommonService = inject(CommonService);
 
   isOpenMenuLeft: boolean = true;
   isOpenMenuRight: boolean = true;
   sectionMenuRightWidth: string = '12.25rem';
+  menuTopHeight: string = '10rem';
   skillId: string = '';
 
   initParentId: string = '';
   initChildId: string = '';
+  initSectionId: string = '';
 
   contentList = this.skillContentService.getSkillContent({ skillId: this.skillId, parentCategoryId: this.initParentId, childCategoryId: this.initChildId }).result;
   menuList = this.categoryService.getCategories(this.skillId).result;
@@ -59,6 +63,7 @@ export class SkillsComponent implements OnDestroy, OnInit {
     this.skillWrapper = element;
     this.isOpenMenuLeft = !this.skillWrapper?.['730'].isMaxWidthMatch;
     this.isOpenMenuRight = !this.skillWrapper?.['900'].isMaxWidthMatch;
+    console.log(this.skillWrapper)
     this.changeDetectorRef.detectChanges();
   }
 
@@ -66,12 +71,12 @@ export class SkillsComponent implements OnDestroy, OnInit {
     this.activatedRoute.params.subscribe((params: Params) => {
       this.skillId = params['id'];
       this.categoryService.refetchCategories();
-        // if(this.menuListDisplayUi().length) {
-        //   this.initParentId.set(this.menuListDisplayUi()[0].id);
-        //   if (this.menuListDisplayUi()[0].children[0].id) {
-        //     this.initChildId.set(this.menuListDisplayUi()[0].children[0].id);
-        //   }
-        // }
+        if(this.menuListDisplayUi().length) {
+          this.initParentId = this.menuListDisplayUi()[0].id;
+          if (this.menuListDisplayUi()[0].children[0].id) {
+            this.initChildId = this.menuListDisplayUi()[0].children[0].id;
+          }
+        }
     });
 
     this.activatedRoute.queryParams.subscribe((params: Params) => {
@@ -90,22 +95,34 @@ export class SkillsComponent implements OnDestroy, OnInit {
       this.categoryService.refetchCategories();
     });
 
-
+    this.subscriptionListenMenuHeightChange = this.commonService.menuTopHeightSubject.subscribe((height: number) => {
+      this.menuTopHeight = `${Math.floor(height/16)}rem`;
+    });
   }
 
   handleCategoryClick(item: { parentId: string; childId?: string; }) {
     let params: Record<string, string | undefined> = {
       parentId: item.parentId
     };
+
     if (item?.childId) {
       params['childId'] = item.childId;
     }
-    this.router.navigate([], {relativeTo: this.activatedRoute, queryParams: {...params, ...this.activatedRoute.snapshot.queryParams } });
+    // Merge query params
+    if(this.activatedRoute.snapshot.queryParams) {
+      params = {...this.activatedRoute.snapshot.queryParams, ...params};
+    }
+
+    this.router.navigate([], { queryParams: { ...params } });
   }
 
   ngOnDestroy(): void {
     if (this.subscription) {
       this.subscription.unsubscribe();
+    }
+
+    if(this.subscriptionListenMenuHeightChange) {
+      this.subscriptionListenMenuHeightChange.unsubscribe();
     }
   }
 }
