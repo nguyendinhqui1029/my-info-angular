@@ -3,18 +3,18 @@ import { PrimeComponent } from '@app/configs/prime-angular/prime.config';
 import { Button } from '@app/shared/models/button.model';
 
 @Component({
-  selector: 'q-circle-image-card',
+  selector: 'q-animation-image-card',
   standalone: true,
   imports: [PrimeComponent],
-  templateUrl: './circle-image-card.component.html',
-  styleUrl: './circle-image-card.component.scss'
+  templateUrl: './animation-image-card.component.html',
+  styleUrl: './animation-image-card.component.scss'
 })
-export class CircleImageCardComponent {
+export class AnimationImageCardComponent {
   @Input() isDisplayUI!: boolean;
-  @Input({required: true}) images!: string[];
+  @Input({required: true}) imageUrl!: string;
   @Input({required: true}) content!: string;
+  @Input({required: false}) date!: string;
   @Input({required: true}) title!: string;
-  @Input({required: false}) buttonName!: string;
   @Input({required: false}) buttons!: Button[];
 
   @Output() clickEvent = new EventEmitter<string>();

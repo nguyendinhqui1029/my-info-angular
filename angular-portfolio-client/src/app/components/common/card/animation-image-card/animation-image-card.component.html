@@ -1,7 +1,7 @@
 <div class="circle-image-card-wrapper">
   <article class="content-wrapper">
     <h2 class="title">{{title}}</h2>
-    <small class="date"> <i class="pi pi-calendar"></i>12/12/2023</small>
+    <small class="date"> <i class="pi pi-calendar"></i>{{date}}</small>
     <p class="content">
       {{ content }}
     </p>
@@ -12,8 +12,12 @@
         [text]="item?.text" [severity]="item?.severity" [raised]="item?.raised" (click)="clickEvent.emit(item.id)" />
       }
     </article>
+    <span class="triangle"></span>
   </article>
   <div class="image-wrapper">
-    <q-image-around [images]="images"/>
+   <div class="image-content-wrapper">
+    <div class="border-animation"></div>
+    <img class="image" [src]="imageUrl" [alt]="title"/>
+   </div>
   </div>
 </div>

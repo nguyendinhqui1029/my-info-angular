@@ -17,8 +17,7 @@ import { LabelWrapperComponent } from "@app/components/common/label-wrapper/labe
 import { VideoCardComponent } from "@app/components/common/card/video-card/video-card.component";
 import { LeftContentCardComponent } from "@app/components/common/card/left-content-card/left-content-card.component";
 import { VideoComponent } from "@app/components/common/video/video.component";
-import { CircleImageCardComponent } from "@app/components/common/card/circle-image-card/circle-image-card.component";
-import { ImageAroundComponent } from "@app/components/common/image-around/image-around.component";
+import { AnimationImageCardComponent } from "@app/components/common/card/animation-image-card/animation-image-card.component";
 
 export const PrimeComponent = [
     //Custom component
@@ -26,8 +25,7 @@ export const PrimeComponent = [
     VideoCardComponent,
     LeftContentCardComponent,
     VideoComponent,
-    CircleImageCardComponent,
-    ImageAroundComponent,
+    AnimationImageCardComponent,
     
     // Translate Module
     TranslateModule,

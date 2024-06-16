@@ -1,5 +1,25 @@
 .home-content {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+
+
+  .item {
+    transform-origin: center;
+    animation: scroll-watcher linear;
+    animation-fill-mode: both;
+    animation-timeline: view(25% 95%);
+  
+    @keyframes scroll-watcher {
+      from {
+        opacity: 1;
+        scale: 1;
+      }
+      to {
+        opacity: 0;
+        scale: 0.8;
+      }
+    }
+  }
+  
 }
