@@ -4,26 +4,208 @@
     "data": [
         {
             "id": "HTML",
-            "label": "Html",
+            "label": "HTML",
             "icon": "",
             "children": [
                 {
-                    "id": "Htmlq",
-                    "label": "Html",
+                    "id": "HTML1",
+                    "label": "HTML Tutorial",
                     "icon": "",
                     "children": []
                 },
                 {
-                    "id": "Html2",
-                    "label": "Html",
+                    "id": "HTML2",
+                    "label": "HTML Introduction",
+                    "icon": "",
+                    "children": []
+                },
+                {
+                    "id": "HTML3",
+                    "label": "HTML Editors",
+                    "icon": "",
+                    "children": []
+                },
+                {
+                    "id": "HTML4",
+                    "label": "HTML Basic Examples",
+                    "icon": "",
+                    "children": []
+                },
+                {
+                    "id": "HTML5",
+                    "label": "HTML Elements",
+                    "icon": "",
+                    "children": []
+                },
+                {
+                    "id": "HTML6",
+                    "label": "HTML Elements",
+                    "icon": "",
+                    "children": []
+                },
+                {
+                    "id": "HTML7",
+                    "label": "HTML Headings",
+                    "icon": "",
+                    "children": []
+                },
+                {
+                    "id": "HTML8",
+                    "label": "HTML Paragraphs",
+                    "icon": "",
+                    "children": []
+                },
+                {
+                    "id": "HTML9",
+                    "label": "HTML Styles",
+                    "icon": "",
+                    "children": []
+                },
+                {
+                    "id": "HTML10",
+                    "label": "HTML Text Formatting",
                     "icon": "",
                     "children": []
                 }
             ]
         },
         {
-            "id": "CSS1",
-            "label": "CSS",
+            "id": "CSS",
+            "label": "Css",
+            "icon": "",
+            "children": [
+                {
+                    "id": "CSS1",
+                    "label": "CSS Tutorial",
+                    "icon": "",
+                    "children": []
+                },
+                {
+                    "id": "CSS2",
+                    "label": "CSS Introduction",
+                    "icon": "",
+                    "children": []
+                },
+                {
+                    "id": "CSS3",
+                    "label": "CSS Syntax",
+                    "icon": "",
+                    "children": []
+                },
+                {
+                    "id": "CSS4",
+                    "label": "CSS Selectors",
+                    "icon": "",
+                    "children": []
+                },
+                {
+                    "id": "CSS5",
+                    "label": "How To Add CSS",
+                    "icon": "",
+                    "children": []
+                },
+                {
+                    "id": "CSS6",
+                    "label": "CSS Comments",
+                    "icon": "",
+                    "children": []
+                },
+                {
+                    "id": "CSS7",
+                    "label": "CSS Colors",
+                    "icon": "",
+                    "children": []
+                },
+                {
+                    "id": "CSS8",
+                    "label": "CSS Backgrounds",
+                    "icon": "",
+                    "children": []
+                },
+                {
+                    "id": "CSS9",
+                    "label": "CSS Borders",
+                    "icon": "",
+                    "children": []
+                },
+                {
+                    "id": "CSS10",
+                    "label": "CSS Margins",
+                    "icon": "",
+                    "children": []
+                }
+            ]
+        },
+        {
+            "id": "JS",
+            "label": "Javascript",
+            "icon": "",
+            "children": [
+                {
+                    "id": "JS1",
+                    "label": "JavaScript Tutorial",
+                    "icon": "",
+                    "children": []
+                },
+                {
+                    "id": "JS2",
+                    "label": "JavaScript Introduction",
+                    "icon": "",
+                    "children": []
+                },
+                {
+                    "id": "JS3",
+                    "label": "JavaScript Where To",
+                    "icon": "",
+                    "children": []
+                },
+                {
+                    "id": "JS4",
+                    "label": "JavaScript Output",
+                    "icon": "",
+                    "children": []
+                },
+                {
+                    "id": "JS5",
+                    "label": "JavaScript Output",
+                    "icon": "",
+                    "children": []
+                },
+                {
+                    "id": "JS6",
+                    "label": "JavaScript Syntax",
+                    "icon": "",
+                    "children": []
+                },
+                {
+                    "id": "JS7",
+                    "label": "JavaScript Syntax",
+                    "icon": "",
+                    "children": []
+                },
+                {
+                    "id": "JS8",
+                    "label": "JavaScript Variables",
+                    "icon": "",
+                    "children": []
+                },
+                {
+                    "id": "JS9",
+                    "label": "JavaScript Let",
+                    "icon": "",
+                    "children": []
+                },
+                {
+                    "id": "JS10",
+                    "label": "JavaScript Const",
+                    "icon": "",
+                    "children": []
+                }
+            ]
+        },
+        {
+            "id": "TYPESCRIPT",
+            "label": "Typescript",
             "icon": "",
             "children": [
                 {
@@ -39,6 +221,50 @@
                     "children": []
                 }
             ]
+        },
+        {
+            "id": "ANGULAR",
+            "label": "Angular",
+            "icon": "",
+            "children": [
+                {
+                    "id": "CSS2",
+                    "label": "CSS",
+                    "icon": "",
+                    "children": []
+                },
+                {
+                    "id": "CSS3",
+                    "label": "CSS",
+                    "icon": "",
+                    "children": []
+                }
+            ]
+        },
+        {
+            "id": "VUE",
+            "label": "Vuex",
+            "icon": "",
+            "children": [
+                {
+                    "id": "CSS2",
+                    "label": "CSS",
+                    "icon": "",
+                    "children": []
+                },
+                {
+                    "id": "CSS3",
+                    "label": "CSS",
+                    "icon": "",
+                    "children": []
+                }
+            ]
+        },
+        {
+            "id": "TEST",
+            "label": "Test",
+            "icon": "",
+            "children": []
         }
     ]
 }

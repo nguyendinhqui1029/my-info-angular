@@ -2,7 +2,7 @@
   body {
     @import 'assets/styles/variables/light.mode.scss'; // Default mode
 
-    .circle-image-card-wrapper {
+    .animation-image-card-wrapper {
       display: flex;
       flex-wrap: wrap-reverse;
       color: $wc-primary-text;
@@ -17,19 +17,6 @@
         padding: 1rem;
         position: relative;
 
-        .triangle {
-          position: absolute;
-          z-index: -1;
-          top: 5rem;
-          left: 50%;
-          width: 5rem;
-          height: 5rem;
-          border-left: 5rem solid transparent;
-          border-right: 5rem solid $three-border;
-          border-top: 5rem solid $three-border;
-          border-bottom: 5rem solid transparent;
-          transform: rotate3d(1, 1, 1, -65deg);
-        }
         .date {
           display: flex;
           align-items: center;
@@ -101,7 +88,7 @@
   body.dark {
     @import 'assets/styles/variables/dark.mode.scss';
 
-    .circle-image-card-wrapper {
+    .animation-image-card-wrapper {
       display: flex;
       flex-wrap: wrap-reverse;
       color: $wc-primary-text;

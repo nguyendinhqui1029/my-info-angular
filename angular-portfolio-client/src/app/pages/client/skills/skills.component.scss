@@ -10,8 +10,11 @@
       flex-direction: row;
       width: 100%;
       max-width: 100vw;
+      padding: 1rem;
       padding-bottom: 5rem;
-
+      
+      box-sizing: border-box;
+      overflow-x: clip;
     
       .left-section {
         width: fit-content;
