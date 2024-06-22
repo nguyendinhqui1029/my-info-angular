@@ -1,0 +1,34 @@
+{
+  "statusCode": 0,
+  "statusText": "Success",
+  "data": {
+    "introduceMySelf": {
+      "fullName": "Alex Nguyen",
+      "position": "Frontend Developer",
+      "description": "High level experience in Web Design and development knowledge, producing quality work.",
+      "social": [
+        {
+          "name": "Linkedin",
+          "link": "https://www.linkedin.com/in/nguyenqui97",
+          "icon": "pi pi-linkedin"
+        },
+        {
+          "name": "Github",
+          "link": "https://github.com/nguyendinhqui1029",
+          "icon": "pi pi-github"
+        },
+        {
+          "name": "Email",
+          "link": "mailto:nguyendinhqui1029@gmail.com?subject=Contact%20to%20Alex%20Nguyen",
+          "icon": "pi pi-envelope"
+        },
+        {
+          "name": "Facebook",
+          "link": "https://www.facebook.com/nguyenqui100197",
+          "icon": "pi pi-facebook"
+        }
+      ],
+      "avatarUrl": "assets/images/avatar.png"
+    }
+  }
+}

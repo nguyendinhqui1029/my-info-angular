@@ -36,7 +36,6 @@ export class CarouselWrapperComponent {
   handleCarouselWrapperChangeSize(element: Record<string, ContainerSize>) {
     const MAX_HEIGHT = 480;
     this.carouselWrapper = element;
-    console.log(this.carouselWrapper?.['832'].height)
     const maxWidth = this.carouselWrapper?.['832'].width + this.carouselWrapper?.['832'].paddingLeft + this.carouselWrapper?.['832'].paddingRight;
     this.maxHeightCarouselWrapper = this.carouselWrapper?.['832'].width >= (MAX_HEIGHT * 16 / 9) ? '30rem' : `${getHeightAspectRatioVideo(maxWidth) / 16}rem`
     this.changeDetectorRef.detectChanges();

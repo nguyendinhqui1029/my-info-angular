@@ -1,0 +1,188 @@
+::ng-deep {
+    body {
+        @import 'assets/styles/variables/light.mode.scss'; // Default mode
+
+        q-introduce-myself {
+            display: flex;
+            flex-wrap: wrap-reverse;
+            flex: 1 1 auto;
+            align-items: center;
+            justify-content: center;
+
+            .information-wrapper {
+                display: flex;
+                gap: 1.5rem;
+                flex: 1;
+                padding: 1rem;
+                min-width: $min-width;
+
+                .social-wrapper {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1.5rem;
+
+                    i {
+                        font-size: 2rem;
+                        cursor: pointer;
+                        color: $main-icon;
+                    }
+                }
+
+                .content-wrapper {
+                    display: flex;
+                    flex-direction: column;
+
+                    h3 {
+                        color: $main-header-text;
+                    }
+
+                    small {
+                        color: $sub-text;
+                    }
+
+                    p {
+                        color: $main-content-text;
+                        margin-top: 0.75rem;
+                        overflow: hidden;
+                        display: -webkit-box;
+                        -webkit-line-clamp: 5;
+                        -webkit-box-orient: vertical;
+                        line-height: 1rem;
+                    }
+
+                    p-button {
+                        margin-top: 3rem;
+                    }
+                }
+            }
+
+            .avatar-wrapper {
+
+                position: relative;
+                width: 270px;
+                /* Đổi kích thước tùy theo kích thước SVG */
+                height: 280px;
+                /* Đổi kích thước tùy theo kích thước SVG */
+                overflow: hidden;
+                /* Loại bỏ phần dư của hình ảnh nếu có */
+
+                .custom-svg {
+                    position: absolute;
+                    fill: $background-avatar;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    min-width: fit-content;
+                    min-height: fit-content;
+                }
+
+                .image {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    clip-path: url(#avatarClipPath);
+                    min-width: fit-content;
+                    min-height: fit-content;
+                }
+            }
+        }
+    }
+
+    body.dark {
+        @import 'assets/styles/variables/dark.mode.scss';
+
+
+        q-introduce-myself {
+            display: flex;
+            flex-wrap: wrap-reverse;
+            flex: 1 1 auto;
+            align-items: center;
+            justify-content: center;
+
+            .information-wrapper {
+                display: flex;
+                gap: 1.5rem;
+                flex: 1;
+                padding: 1rem;
+                min-width: $min-width;
+
+                .social-wrapper {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1.5rem;
+
+                    i {
+                        font-size: 2rem;
+                        cursor: pointer;
+                        color: $main-icon;
+                    }
+                }
+
+                .content-wrapper {
+                    display: flex;
+                    flex-direction: column;
+
+                    h3 {
+                        color: $main-header-text;
+                    }
+
+                    small {
+                        color: $sub-text;
+                    }
+
+                    p {
+                        color: $main-content-text;
+                        margin-top: 0.75rem;
+                        overflow: hidden;
+                        display: -webkit-box;
+                        -webkit-line-clamp: 5;
+                        -webkit-box-orient: vertical;
+                        line-height: 1rem;
+                    }
+
+                    p-button {
+                        margin-top: 3rem;
+                    }
+                }
+            }
+
+            .avatar-wrapper {
+
+                position: relative;
+                width: 270px;
+                /* Đổi kích thước tùy theo kích thước SVG */
+                height: 280px;
+                /* Đổi kích thước tùy theo kích thước SVG */
+                overflow: hidden;
+                /* Loại bỏ phần dư của hình ảnh nếu có */
+
+                .custom-svg {
+                    position: absolute;
+                    fill: $background-avatar;
+                    top: 0;
+                    left: 0;
+                    min-width: fit-content !important;
+                    min-height: fit-content !important;
+                    width: 100% !important;
+                    height: 100% !important;
+                }
+
+                .image {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    min-width: fit-content !important;
+                    min-height: fit-content !important;
+                    width: 100% !important;
+                    height: 100% !important;
+                    object-fit: cover;
+                    clip-path: url(#avatarClipPath);
+                }
+            }
+        }
+    }
+}

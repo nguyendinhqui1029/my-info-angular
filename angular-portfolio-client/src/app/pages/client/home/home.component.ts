@@ -21,11 +21,11 @@ import { CarouselWrapperComponent } from '@app/components/common/carousel-wrappe
   imports: [PrimeComponent, 
     TranslateModule, 
     ChangeSiteModeComponent, 
-    ContainerChangeSizeDirective, 
     VideoComponent,
     GridContainerComponent,
     ContainerSizePipe,
-    CarouselWrapperComponent
+    CarouselWrapperComponent,
+    ContainerChangeSizeDirective
    ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',

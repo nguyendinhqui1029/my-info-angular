@@ -1,1 +1,13 @@
-<p>about-me works!</p>
+<article class="about-me-wrapper" qContainerChangeSize (sizeChange)="handleAboutMeLayoutWrapperWrapperChangeSize($event)" [maxWidth]="[832]"
+[class.mobile-margin]="(aboutMeLayoutWrapper | containerSize:'832').isMaxWidthMatch"
+>
+<q-introduce-myself [introduce]="introduceMySelf"></q-introduce-myself>
+<q-experience></q-experience>
+<q-skills></q-skills>
+<q-work></q-work>
+<q-projects></q-projects>
+<q-education></q-education>
+<q-hobbies></q-hobbies>
+<q-contact></q-contact>
+</article>
+

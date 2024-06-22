@@ -3,7 +3,8 @@ export const QUERY_KEYS = {
     LANGUAGE: 'language-key',
     SEARCH: 'search-key',
     SKILL_CONTENT: 'skill-content',
-    CATEGORIES_BY_ID: 'categories-by-id'
+    CATEGORIES_BY_ID: 'categories-by-id',
+    ABOUT_ME: 'about-me'
 }
 
 export enum LocalStorageKey {

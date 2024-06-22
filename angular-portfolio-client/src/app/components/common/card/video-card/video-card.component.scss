@@ -86,8 +86,11 @@
       flex-wrap: wrap;
       color: $wc-primary-text;
       justify-content: space-between;
+      align-items: center;
       box-sizing: content-box;
       min-height: 15rem;
+      overflow: hidden;
+      padding: 1rem 0;
 
       .content-wrapper {
         display: flex;
@@ -106,9 +109,10 @@
             color: $main-highlight-content-text;
           }
         }
-        
+
         .button-wrapper {
           display: flex;
+          justify-content: flex-end;
           gap: 1rem;
         }
 
@@ -127,15 +131,17 @@
         position: relative;
         border-radius: 1.5rem;
         min-width: $min-width;
-        min-height: 10em;
-        max-height: 15em;
         border: 0.05rem solid $main-border;
-        
+        height: fit-content;
+
         .video-container {
+          width: 100%;
+          height: fit-content;
           overflow: hidden;
           border-radius: 1.5rem;
           background: $primary-background;
         }
+
         .first-circle {
           position: absolute;
           right: -3rem;

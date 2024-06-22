@@ -1,0 +1,13 @@
+::ng-deep {
+    .about-me-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        padding: 3rem 5rem;
+        gap: 5rem;
+
+        &.mobile-margin {
+            padding: 3rem 0.75rem !important;
+        }
+    }
+}

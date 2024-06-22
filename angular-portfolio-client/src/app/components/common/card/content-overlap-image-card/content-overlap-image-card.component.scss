@@ -44,13 +44,12 @@
           }
 
           p {
-            color: $main-highlight-content-text;
+            color: $main-content-text;
             overflow: hidden;
             display: -webkit-box;
             -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
             line-height: 1rem;
-            color: $main-header-text;
             font-size: 0.75rem;
           }
 
@@ -115,7 +114,6 @@
             -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
             line-height: 1rem;
-            color: $main-header-text;
             font-size: 0.75rem;
           }
 
