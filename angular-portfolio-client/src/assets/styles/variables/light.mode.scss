@@ -20,6 +20,7 @@ $secondary-border: rgb(57, 57, 57);
 
 $primary-background:  #f8fafc;
 $secondary-background: #FFFFFF;
+$background-opacity: rgba(22, 22, 22, 0.2);
 
 $label-text: rgb(22, 22, 22);
 $required-symbol: oklch(69.02% .277 332.77);
@@ -27,7 +28,7 @@ $error-message: oklch(63.32% .24 31.68);
 
 $main-header-text: rgb(22, 22, 22);
 $main-content-text: #5d5b5b;
-$main-highlight-content-text: #6c42ff;
+$main-highlight-content-text: #fff;
 
 
 $first-circle-color: #2639ED;

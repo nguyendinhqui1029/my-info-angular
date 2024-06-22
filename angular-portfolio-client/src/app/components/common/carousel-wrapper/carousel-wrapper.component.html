@@ -1,0 +1,18 @@
+<div class="carousel-container"
+qContainerChangeSize 
+(sizeChange)="handleCarouselWrapperChangeSize($event)" 
+[maxWidth]="[832]" 
+>
+  <igx-carousel #carousel 
+  animationType="slide"
+  [navigation]="false" 
+  [pause]="true"
+   [interval]="2000" 
+   [gesturesSupport]="true"
+   [style.--carousel-height]="maxHeightCarouselWrapper"
+   >
+      <igx-slide *ngFor="let slide of bannerItems">
+        <q-content-overlap-image-card [item]="slide" />
+      </igx-slide>
+  </igx-carousel>
+</div>

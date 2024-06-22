@@ -1,5 +1,5 @@
 <article class="menu-right-wrapper">
-  <q-toggle-sidebar-button [isDisabled]="!items?.length" position="right" [tooltipMessage]="(isToggle ? 'close_sidebar': 'open_sidebar') | translate" [isOpen]="isToggle" (eventClick)="handleToggleSidebar($event)"/>
+  <q-toggle-sidebar-button [isDisabled]="!items.length" position="right" [tooltipMessage]="(isToggle ? 'close_sidebar': 'open_sidebar') | translate" [isOpen]="isToggle" (eventClick)="handleToggleSidebar($event)"/>
 
   <ul class="vertical-menu-right-wrapper" [style]="{'--rightSectionWidth': sectionMenuRightWidth}">
     @for(item of items; track item) {

@@ -17,6 +17,7 @@ import { Router } from '@angular/router';
 import { ContainerChangeSizeDirective } from '@app/shared/directives/container-change-size.directive';
 import { ContainerSize } from '@app/shared/models/container-size.mode';
 import { CommonService } from '@app/shared/services/common.service';
+import { ContainerSizePipe } from '@app/shared/pipes/container-size.pipe';
 
 @Component({
   selector: 'q-menu-top',
@@ -25,7 +26,8 @@ import { CommonService } from '@app/shared/services/common.service';
     ...PrimeComponent,
     MenuContentComponent,
     ChangeSiteModeComponent,
-    ContainerChangeSizeDirective],
+    ContainerChangeSizeDirective,
+    ContainerSizePipe],
   templateUrl: './menu-top.component.html',
   styleUrl: './menu-top.component.scss',
   providers: [DialogService]
@@ -53,7 +55,7 @@ export class MenuTopComponent implements OnInit, OnDestroy {
   handleMenuTopWrapperChangeSize(element: Record<string,ContainerSize>) {
     this.menuTopWrapper = element ;
     this.commonService.setHeight(this.menuTopWrapper?.['688']?.height + this.menuTopWrapper?.['688']?.paddingBottom + this.menuTopWrapper?.['688']?.paddingTop); 
-    this.changeDetectorRef.detectChanges();
+  this.changeDetectorRef.detectChanges();
   }
   
   ngOnInit(): void {
@@ -62,7 +64,7 @@ export class MenuTopComponent implements OnInit, OnDestroy {
 
   handleToggleMenuClick() {
     this.sidebarVisible = !this.sidebarVisible;
-    this.changeDetectorRef.detectChanges();
+  this.changeDetectorRef.detectChanges();
   }
 
   handleOpenSearchDialog() {

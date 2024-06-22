@@ -2,11 +2,12 @@ import { ChangeDetectorRef, Component, inject, signal } from '@angular/core';
 import { PrimeComponent } from '@app/configs/prime-angular/prime.config';
 import { ContainerChangeSizeDirective } from '@app/shared/directives/container-change-size.directive';
 import { ContainerSize } from '@app/shared/models/container-size.mode';
+import { ContainerSizePipe } from '@app/shared/pipes/container-size.pipe';
 
 @Component({
   selector: 'q-register-dialog',
   standalone: true,
-  imports: [PrimeComponent, ContainerChangeSizeDirective],
+  imports: [PrimeComponent, ContainerChangeSizeDirective, ContainerSizePipe],
   templateUrl: './register-dialog.component.html',
   styleUrl: './register-dialog.component.scss'
 })
@@ -21,6 +22,6 @@ export class RegisterDialogComponent {
 
   handleLoginWrapperChangeSize(element: Record<string,ContainerSize>) {
     this.registerWrapper = element;
-    this.changeDetectorRef.detectChanges();
+  this.changeDetectorRef.detectChanges();
   }
 }

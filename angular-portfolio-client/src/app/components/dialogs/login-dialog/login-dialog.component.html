@@ -3,12 +3,12 @@
   qContainerChangeSize 
   (sizeChange)="handleLoginWrapperChangeSize($event)" 
   [maxWidth]="[512]">
-  @if(!loginWrapper?.['512']?.isMaxWidthMatch) {
+  @if((loginWrapper | containerSize:'512').isMaxWidthMatch) {
     <article class="image">
     </article>
   }
  
-  <form class="form-wrapper" [style]="{'width': loginWrapper?.['512']?.isMaxWidthMatch ? '100%' : '55%'}">
+  <form class="form-wrapper" [style]="{'width': (loginWrapper | containerSize:'512').isMaxWidthMatch ? '100%' : '55%'}">
     <!-- email  -->
     <q-label-wrapper label="{{'email' | translate}}" [isRequired]="true" id="email" [message]="''">
       <span ngProjectAs="control-component">

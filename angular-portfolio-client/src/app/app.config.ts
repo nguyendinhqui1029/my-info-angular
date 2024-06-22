@@ -8,14 +8,16 @@ import { RequestInterceptor } from '@interceptors/request.interceptors';
 import { TranslateModule } from '@ngx-translate/core';
 import { provideTranslation } from '@configs/i18n/translate-loader.config';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { BrowserAnimationsModule, provideAnimations } from '@angular/platform-browser/animations';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideRouter(routes), 
+    provideRouter(routes),
     provideHttpClient(withFetch()),
     importProvidersFrom(TranslateModule.forRoot(provideTranslation())),
     provideClientHydration(),
-    importProvidersFrom(HttpClientModule),
+    importProvidersFrom(BrowserAnimationsModule, HttpClientModule),
     { provide: HTTP_INTERCEPTORS, useClass: RequestInterceptor, multi: true }, provideAnimationsAsync(),
+    provideAnimations()
   ]
 };

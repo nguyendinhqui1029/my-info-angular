@@ -28,7 +28,7 @@
     (sizeChange)="handleImageWrapperWrapperChangeSize($event)" 
     [maxWidth]="[512]" 
     style.background-image="url({{imageUrl}})"
-    style.height="{{((imageWrapper?.['512']?.width || 100) | aspectRatioHeight)}}px"
+    style.height="{{((imageWrapper | containerSize: '512').width || 100) | aspectRatioHeight}}px"
     >
     <span class="first-circle"></span>
     <span class="second-circle"></span>

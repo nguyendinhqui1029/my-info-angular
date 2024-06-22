@@ -5,7 +5,7 @@
     (sizeChange)="handleVideoCardWrapperChangeSize($event)"
     [maxWidth]="[512]"
     >
-      <q-video [path]="videoUrl" [width]="videoWrapper?.['512']?.width || 200" [height]="(videoWrapper?.['512']?.width || 100) | aspectRatioHeight"/>
+      <q-video [path]="videoUrl" [width]="((videoWrapper | containerSize:'512').width || 200)" [height]="((videoWrapper | containerSize:'512').width || 100) | aspectRatioHeight"/>
     </div>
 
     <span class="first-circle"></span>
@@ -13,7 +13,9 @@
  
   <article class="content-wrapper">
     <h2 class="title">{{title}}</h2>
-    <small class="date"> <i class="pi pi-calendar"></i>12/12/2023</small>
+    @if(date) {
+      <small class="date"> <i class="pi pi-calendar"></i>{{date}}</small>
+    }
     <p class="content">
       {{ content }} 
     </p>

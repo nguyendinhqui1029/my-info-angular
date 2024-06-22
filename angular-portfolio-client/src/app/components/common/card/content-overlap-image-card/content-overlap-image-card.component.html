@@ -1,0 +1,12 @@
+<img class="image" [src]="item.source" [alt]="item.content" [title]="item.title"/>
+<div class="content-wrapper">
+    <div class="backdrop">
+        <h3>{{item.title}}</h3>
+        <p>{{item.content}}</p>
+        @if(buttonName) {
+            <p-button [label]="buttonName" (click)="eventClick.next(item.id)"></p-button>
+        }
+    </div>
+</div>
+
+

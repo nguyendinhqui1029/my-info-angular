@@ -1,7 +1,6 @@
 .home-content {
   display: flex;
   flex-direction: column;
-  gap: 5rem;
   max-width: 100vw;
   box-sizing: border-box;
   overflow-x: clip;
@@ -10,8 +9,12 @@
     display: flex;
     flex-direction: column;
     padding: 3rem 5rem;
-   
+    gap: 5rem;
 
+    .owl-stage {
+      overflow: hidden;
+      height: 400px;
+    }
     &.mobile-margin {
       padding: 3rem 0.75rem !important;
     }
