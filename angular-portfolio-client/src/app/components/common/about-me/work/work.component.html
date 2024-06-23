@@ -1,1 +1,7 @@
-<p>work works!</p>
+<article class="work-wrapper">
+    <header>
+        <h3>{{'work_header' | translate}}</h3>
+        <small>{{work.subDescription}}</small>
+      </header>
+    <q-timeline [items]="work.companies"></q-timeline>
+</article>

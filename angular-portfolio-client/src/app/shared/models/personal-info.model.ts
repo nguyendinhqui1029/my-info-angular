@@ -33,8 +33,23 @@ export interface Skill {
         }[];
       }[];
 }
+
+export interface Work {
+    subDescription: string;
+    companies: {
+        id: string;
+        name: string;
+        icon: string;
+        startDate: string;
+        endDate: string;
+        address: string;
+        description: string;
+        imageUrl: string;
+      }[];
+}
 export interface AboutMeResponseValue {
     introduceMySelf: IntroduceMySelf;
     experience: Experience;
     skill: Skill;
+    work: Work;
 }

@@ -18,6 +18,7 @@ import { VideoCardComponent } from "@app/components/common/card/video-card/video
 import { LeftContentCardComponent } from "@app/components/common/card/left-content-card/left-content-card.component";
 import { VideoComponent } from "@app/components/common/video/video.component";
 import { AnimationImageCardComponent } from "@app/components/common/card/animation-image-card/animation-image-card.component";
+import { TimelineModule } from 'primeng/timeline';
 
 export const PrimeComponent = [
     //Custom component
@@ -43,5 +44,6 @@ export const PrimeComponent = [
     IconFieldModule,
     InputIconModule,
     InputOtpModule,
-    ScrollPanelModule
+    ScrollPanelModule,
+    TimelineModule
 ];

@@ -3,7 +3,7 @@
   qContainerChangeSize 
   (sizeChange)="handleLoginWrapperChangeSize($event)" 
   [maxWidth]="[512]">
-  @if((loginWrapper | containerSize:'512').isMaxWidthMatch) {
+  @if(!(loginWrapper | containerSize:'512').isMaxWidthMatch) {
     <article class="image">
     </article>
   }

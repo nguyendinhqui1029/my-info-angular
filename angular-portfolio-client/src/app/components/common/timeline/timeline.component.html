@@ -1,0 +1,37 @@
+<p-timeline [value]="items" align="alternate" class="timeline-wrapper">
+  <ng-template pTemplate="marker" let-event>
+    @defer {
+      <span class="marker">
+        <i [class]="event.icon"></i>
+      </span>
+    }
+  </ng-template>
+  <ng-template pTemplate="content" let-event>
+    @defer {
+      <div class="card-wrapper" 
+      qContainerChangeSize 
+      (sizeChange)="handleCardTimeLineWrapperChangeSize($event)" 
+      [maxWidth]="[288]"
+    >
+        <h4>{{event.name}}</h4>
+        @if(!(cardTimeLineWrapper | containerSize:'288').isMaxWidthMatch) {
+          <div class="date">
+            <span class="start"><i class="pi pi-calendar-clock"></i>{{event.startDate}}</span> 
+            <i class="pi pi-arrow-right"></i>
+            <span class="end"><i class="pi pi-calendar-clock"></i>{{event.endDate}}</span>
+          </div>
+        }
+        <div class="location">
+          <i class="pi pi-map-marker"></i>
+          <span>{{event.address}}</span>
+        </div>
+        @if(!(cardTimeLineWrapper | containerSize:'288').isMaxWidthMatch) {
+          <p class="description">{{event.description}}</p>
+        }
+        <img class="image" [src]="event.imageUrl" [alt]="event.name" [title]="event.name"/>
+        <p-button class="open-detail-dialog" icon="pi pi-window-maximize" [text]="true"  [rounded]="true" (click)="eventClick.next(event.id)"/>
+      </div>
+    }
+  </ng-template>
+</p-timeline>
+
