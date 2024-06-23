@@ -11,9 +11,10 @@
 
             h2 {
                 color: $main-header-text;
-                font-weight: bold;
+                font-weight: 700;
                 text-transform: uppercase;
                 margin-bottom: 1rem;
+                font-size: 1.5rem;
             }
 
             section {
@@ -37,11 +38,12 @@
             gap: 1rem;
             box-sizing: border-box;
             h2 {
-                color: $main-header-text;
-                font-weight: bold;
-                text-transform: uppercase;
-                margin-bottom: 1rem;
-            }
+              color: $main-header-text;
+              font-weight: 700;
+              text-transform: uppercase;
+              margin-bottom: 1rem;
+              font-size: 1.5rem;
+          }
 
             section {
                display: grid;

@@ -160,40 +160,45 @@
                     }
                 }
             }
-
             .avatar-wrapper {
+                display: flex;
+                justify-content: center;
+                flex: 1;
+                .avatar {
 
-                position: relative;
-                width: 270px;
-                /* Đổi kích thước tùy theo kích thước SVG */
-                height: 280px;
-                /* Đổi kích thước tùy theo kích thước SVG */
-                overflow: hidden;
-                /* Loại bỏ phần dư của hình ảnh nếu có */
-
-                .custom-svg {
-                    position: absolute;
-                    fill: $background-avatar;
-                    top: 0;
-                    left: 0;
-                    min-width: fit-content !important;
-                    min-height: fit-content !important;
-                    width: 100% !important;
-                    height: 100% !important;
+                    position: relative;
+                    width: 270px;
+                    /* Đổi kích thước tùy theo kích thước SVG */
+                    height: 280px;
+                    /* Đổi kích thước tùy theo kích thước SVG */
+                    overflow: hidden;
+                    /* Loại bỏ phần dư của hình ảnh nếu có */
+    
+                    .custom-svg {
+                        position: absolute;
+                        fill: $background-avatar;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        min-width: fit-content;
+                        min-height: fit-content;
+                    }
+    
+                    .image {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        clip-path: url(#avatarClipPath);
+                        min-width: fit-content;
+                        min-height: fit-content;
+                    }
                 }
-
-                .image {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    min-width: fit-content !important;
-                    min-height: fit-content !important;
-                    width: 100% !important;
-                    height: 100% !important;
-                    object-fit: cover;
-                    clip-path: url(#avatarClipPath);
-                }
-            }
+            } 
+           
         }
     }
 }

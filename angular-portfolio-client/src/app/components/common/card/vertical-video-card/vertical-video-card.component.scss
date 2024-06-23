@@ -25,7 +25,8 @@
                     display: -webkit-box;
                     -webkit-line-clamp: 1;
                     -webkit-box-orient: vertical;
-                    font-size: 1.5rem;
+                    font-size: 1rem;
+                    font-weight: 700;
                     color: $main-header-text;
                     cursor: pointer;
                 }
@@ -36,6 +37,7 @@
                     -webkit-box-orient: vertical;
                     line-height: 1rem;
                     color: $main-content-text;
+                    font-size: 0.875rem;
                 }
             }
         }
@@ -69,7 +71,8 @@
                     display: -webkit-box;
                     -webkit-line-clamp: 1;
                     -webkit-box-orient: vertical;
-                    font-size: 1.5rem;
+                    font-size: 1rem;
+                    font-weight: 700;
                     color: $main-header-text;
                     cursor: pointer;
                 }
@@ -80,6 +83,7 @@
                     -webkit-box-orient: vertical;
                     line-height: 1rem;
                     color: $main-content-text;
+                    font-size: 0.875rem;
                 }
             }
         }
