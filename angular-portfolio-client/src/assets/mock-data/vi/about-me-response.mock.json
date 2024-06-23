@@ -29,6 +29,25 @@
         }
       ],
       "avatarUrl": "assets/images/avatar.png"
+    },
+    "experience": {
+      "subDescription": "Giới thiệu",
+      "image": "assets/images/statistic-work.webp",
+      "description": "Lập trình viên web với kiến thức sâu rộng và nhiều năm kinh nghiệm, làm việc trong các công nghệ web và thiết kế UI/UX, mang lại sản phẩm chất lượng.",
+      "statistic": [
+        {
+          "count": "03+",
+          "name": "Năm kinh nghiệm"
+        },
+        {
+          "count": "10+",
+          "name": "Dự án"
+        },
+        {
+          "count": "03+",
+          "name": "Công ty"
+        }
+      ]
     }
   }
 }

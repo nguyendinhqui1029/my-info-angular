@@ -11,7 +11,7 @@ import { CarouselWrapperComponent } from '@app/components/common/carousel-wrappe
 import { ContainerChangeSizeDirective } from '@app/shared/directives/container-change-size.directive';
 import { ApiResponse } from '@app/shared/models/api-response.model';
 import { ContainerSize } from '@app/shared/models/container-size.mode';
-import { AboutMeResponseValue, IntroduceMySelf } from '@app/shared/models/personal-info.model';
+import { AboutMeResponseValue, Experience, IntroduceMySelf } from '@app/shared/models/personal-info.model';
 import { ContainerSizePipe } from '@app/shared/pipes/container-size.pipe';
 import { AboutMeService } from '@app/shared/services/about-me.service';
 import { QueryObserverResult } from '@ngneat/query';
@@ -22,7 +22,7 @@ import { Subscription } from 'rxjs/internal/Subscription';
   selector: 'q-about-me',
   standalone: true,
   imports: [
-    IntroduceMyselfComponent, 
+    IntroduceMyselfComponent,
     ExperienceComponent,
     SkillsComponent,
     WorkComponent,
@@ -40,15 +40,16 @@ export class AboutMeComponent {
   translateService: TranslateService = inject(TranslateService);
   aboutMeService: AboutMeService = inject(AboutMeService);
   introduceMySelf!: IntroduceMySelf;
+  experience!: Experience;
 
   private subscription: Subscription | undefined;
   private subscriptionGetAboutMe: Subscription | undefined;
-  
-  
-  // Element Container 
-  aboutMeLayoutWrapper: Record<string,ContainerSize> = {};
 
-  handleAboutMeLayoutWrapperWrapperChangeSize(element: Record<string,ContainerSize>) {
+
+  // Element Container 
+  aboutMeLayoutWrapper: Record<string, ContainerSize> = {};
+
+  handleAboutMeLayoutWrapperWrapperChangeSize(element: Record<string, ContainerSize>) {
     this.aboutMeLayoutWrapper = element;
     this.changeDetectorRef.detectChanges();
   }
@@ -59,13 +60,20 @@ export class AboutMeComponent {
       this.aboutMeService.refetchAboutMe();
     });
     this.subscriptionGetAboutMe = this.aboutMeService.getAboutMe().result$.subscribe((value: QueryObserverResult<ApiResponse<AboutMeResponseValue>>) => {
-     this.introduceMySelf = {
-      fullName: value.data?.data?.introduceMySelf.fullName || '',
-      position: value.data?.data?.introduceMySelf.position || '',
-      description: value.data?.data?.introduceMySelf.description || '',
-      avatarUrl: value.data?.data?.introduceMySelf.avatarUrl || '',
-      social: value.data?.data?.introduceMySelf.social || []
-    };
+      this.introduceMySelf = {
+        fullName: value.data?.data?.introduceMySelf?.fullName || '',
+        position: value.data?.data?.introduceMySelf?.position || '',
+        description: value.data?.data?.introduceMySelf?.description || '',
+        avatarUrl: value.data?.data?.introduceMySelf?.avatarUrl || '',
+        social: value.data?.data?.introduceMySelf?.social || []
+      };
+
+      this.experience = {
+        subDescription: value.data?.data?.experience?.subDescription || '',
+        description: value.data?.data?.experience?.description || '',
+        image: value.data?.data?.experience?.image || '',
+        statistic: value.data?.data?.experience?.statistic || []
+      };
     });
   }
 
@@ -77,6 +85,6 @@ export class AboutMeComponent {
     if (this.subscriptionGetAboutMe) {
       this.subscriptionGetAboutMe.unsubscribe();
     }
-    
+
   }
 }

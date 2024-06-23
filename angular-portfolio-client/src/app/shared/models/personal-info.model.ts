@@ -11,6 +11,16 @@ export interface IntroduceMySelf {
     social: Social[];
 }
 
+export interface Experience {
+    subDescription: string;
+    description: string;
+    image: string;
+    statistic: {
+        count: number;
+        name: string;
+    }[];
+}
 export interface AboutMeResponseValue {
     introduceMySelf: IntroduceMySelf;
+    experience: Experience;
 }

@@ -29,6 +29,25 @@
         }
       ],
       "avatarUrl": "assets/images/avatar.png"
+    },
+    "experience": {
+      "subDescription": "My introduction",
+      "image": "assets/images/statistic-work.webp",
+      "description": "Web developer,  with extensive knowledge and years of experience, working in web technologies and UI/UX design, delivering quality work.",
+      "statistic": [
+        {
+          "count": "03+",
+          "name": "Years experience"
+        },
+        {
+          "count": "10+",
+          "name": "Completed projects"
+        },
+        {
+          "count": "03+",
+          "name": "Companies worked"
+        }
+      ]
     }
   }
 }
