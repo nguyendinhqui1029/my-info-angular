@@ -22,6 +22,7 @@ $secondary-background: rgb(28, 28, 28); // Màu nền phụ tối
 $background-opacity: rgba(22, 22, 22, 0.2);
 $background-avatar: #6c42ff;
 
+
 $required-symbol: rgb(182, 255, 27);
 $error-message: #f97316;
 
@@ -30,6 +31,10 @@ $main-header-text: #f97316;
 $main-content-text: rgba(246, 246, 246, 0.878);
 $main-highlight-content-text: #22f916;
 $sub-text: #22f916;
+
+$process-bar-background: rgba(246, 246, 246, 0.878);
+$process-bar-value: rgb(133, 133, 133);
+$process-bar-text: #f97316;
 
 $main-icon: rgb(133, 133, 133);
 
@@ -42,6 +47,7 @@ $second-border: rgb(246, 246, 246);
 $three-border: #f97316;
 
 $min-width: 16.5rem;
+$max-width: 35rem;
 
 $hover-background: rgb(44, 44, 44); // Màu nổi bật
 $hover-text: rgb(246, 246, 246); // Màu văn bản nổi bật trắng

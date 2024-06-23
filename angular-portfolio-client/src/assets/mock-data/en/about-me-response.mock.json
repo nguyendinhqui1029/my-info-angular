@@ -48,6 +48,63 @@
           "name": "Companies worked"
         }
       ]
+    },
+    "skill": {
+      "subDescription": "My skill",
+      "skills": [
+        {
+          "id": "1",
+          "group": "Frontend",
+          "items": [{
+            "id": "1",
+            "name": "HTML",
+            "value": 50
+          },
+          {
+            "id": "2",
+            "name": "Javascript",
+            "value": 20
+          },
+          {
+            "id": "3",
+            "name": "Angular",
+            "value": 20
+          }]
+        },
+        {
+          "id": "2",
+          "group": "Frontend",
+          "items": [{
+            "id": "1",
+            "name": "HTML",
+            "value": 50
+          },
+          {
+            "id": "2",
+            "name": "Javascript",
+            "value": 20
+          },
+          {
+            "id": "3",
+            "name": "Angular",
+            "value": 20
+          }]
+        },
+        {
+          "id": "3",
+          "group": "Frontend",
+          "items": [{
+            "id": "1",
+            "name": "HTML",
+            "value": 50
+          },
+          {
+            "id": "2",
+            "name": "Javascript",
+            "value": 20
+          }]
+        }
+      ]
     }
   }
 }

@@ -42,7 +42,7 @@
           min-width: $min-width;
           border-radius: 1rem;
           background: $background-avatar;
-          max-width: 35rem;
+          max-width: $max-width;
           
           .image {
             object-fit: contain;
@@ -56,7 +56,7 @@
           flex-direction: column;
           gap: 1.5rem;
           min-width: $min-width;
-          max-width: 35rem;
+          max-width: $max-width;
           flex: 1;
 
           p {

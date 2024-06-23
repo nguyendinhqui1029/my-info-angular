@@ -1,0 +1,128 @@
+::ng-deep {
+  body {
+    @import 'assets/styles/variables/light.mode.scss'; // Default mode
+
+    .rating-level-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+
+      .rating-level-header {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        flex-direction: row;
+        align-self: flex-start;
+
+        .icon {
+          font-size: 1.5rem;
+          color: $main-icon;
+        }
+
+        h4 {
+          font-size: 1.25rem;
+          font-weight: 700;
+        }
+      }
+
+      .item-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+
+        .process-bar-wrapper {
+          display: flex;
+          flex-direction: column;
+          gap: 0.25rem;
+          padding-left: 1rem;
+  
+          h5 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: $main-content-text;
+          }
+  
+          .rating-group {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+  
+            q-rating {
+              width: 100%;
+            }
+  
+            .icon {
+              font-size: 1.5rem;
+              color: $main-icon;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+
+  }
+
+  body.dark {
+    @import 'assets/styles/variables/dark.mode.scss';
+
+    .rating-level-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+
+      .rating-level-header {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        flex-direction: row;
+        align-self: flex-start;
+
+        .icon {
+          font-size: 1.5rem;
+          color: $main-icon;
+        }
+
+        h4 {
+          font-size: 1.25rem;
+          font-weight: 700;
+        }
+      }
+      .item-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+
+        .process-bar-wrapper {
+          display: flex;
+          flex-direction: column;
+          gap: 0.25rem;
+          padding-left: 1rem;
+  
+          h5 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: $main-content-text;
+          }
+  
+          .rating-group {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+  
+            q-rating {
+              width: 100%;
+            }
+  
+            .icon {
+              font-size: 1.5rem;
+              color: $main-icon;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+      
+    }
+  }
+}

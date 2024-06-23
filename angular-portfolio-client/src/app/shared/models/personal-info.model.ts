@@ -20,7 +20,21 @@ export interface Experience {
         name: string;
     }[];
 }
+
+export interface Skill {
+    subDescription: string;
+    skills: {
+        id: string;
+        group: string;
+        items: {
+          id: string;
+          name: string;
+          value: string;
+        }[];
+      }[];
+}
 export interface AboutMeResponseValue {
     introduceMySelf: IntroduceMySelf;
     experience: Experience;
+    skill: Skill;
 }
