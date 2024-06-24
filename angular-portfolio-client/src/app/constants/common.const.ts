@@ -16,5 +16,10 @@ export enum CardTypeComponent {
     leftContentCard= 'LEFT_CONTENT_CARD',
     circleImageCard= 'CIRCLE_IMAGE_CARD',
     gridImageCard= 'GRID_IMAGE_CARD',
-    videoImageCard= 'VIDEO_IMAGE_CARD'
+    videoImageCard= 'VIDEO_IMAGE_CARD',
+    videoVerticalCard = 'VIDEO_VERTICAL',
+    videoHorizontalCard = 'VIDEO_HORIZONTAL',
+    imageVerticalCard = 'IMAGE_VERTICAL',
+    imageHorizontalCard = 'IMAGE_HORIZONTAL'
 }
+

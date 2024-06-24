@@ -3,16 +3,26 @@ qContainerChangeSize
 (sizeChange)="handleCarouselWrapperChangeSize($event)" 
 [maxWidth]="[832]" 
 >
-  <igx-carousel #carousel 
-  animationType="slide"
-  [navigation]="false" 
-  [pause]="true"
-   [interval]="2000" 
-   [gesturesSupport]="true"
-   [style.--carousel-height]="maxHeightCarouselWrapper"
-   >
-      <igx-slide *ngFor="let slide of bannerItems">
-        <q-content-overlap-image-card [item]="slide" />
-      </igx-slide>
-  </igx-carousel>
+<owl-carousel-o [options]="customOptions">
+  <ng-container *ngFor="let slide of bannerItems">
+    <ng-template carouselSlide [id]="slide.id">
+      @defer {
+        @if(slide.type === cardTypeComponent.imageHorizontalCard) {
+          <q-content-overlap-image-card [item]="slide" />
+        }
+        @if(slide.type === cardTypeComponent.imageVerticalCard) {
+          <q-vertical-image-card 
+          [id]="slide.id" 
+          [imageUrl]="slide.source" 
+          [date]="slide?.date || ''" [content]="slide.content" [title]="slide. title" (eventClick)="eventClick.next($event)"/>
+        }
+        @if(slide.type === cardTypeComponent.videoVerticalCard) {
+          <q-vertical-video-card [id]="slide.id" 
+          [videoId]="slide.source" 
+          [date]="slide?.date || ''" [content]="slide.content" [title]="slide. title" (eventClick)="eventClick.next($event)"/>
+        }
+      } 
+    </ng-template>
+  </ng-container>
+</owl-carousel-o>
 </div>

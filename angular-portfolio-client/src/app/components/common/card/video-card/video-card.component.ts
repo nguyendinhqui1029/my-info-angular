@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, EventEmitter, HostListener, Input, Output, ViewChild, inject } from '@angular/core';
+import { ChangeDetectorRef, Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { PrimeComponent } from '@app/configs/prime-angular/prime.config';
 import { ContainerChangeSizeDirective } from '@app/shared/directives/container-change-size.directive';
 import { Button } from '@app/shared/models/button.model';

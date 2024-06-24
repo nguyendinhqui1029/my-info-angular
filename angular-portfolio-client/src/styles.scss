@@ -1,14 +1,5 @@
-
-@use "igniteui-angular/theming" as *;
-// Uncomment the following lines if you want to add a custom palette:
-// $primary: #731963 !default;
-// $secondary: #ce5712 !default;
-// $app-palette: palette($primary, $secondary, $surface);
-
-/* autoprefixer grid: on */
-
-@include core();
-@include theme($default-palette);
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
 // CSS Reset, comment out if not required or using a different module
 @import 'minireset.css/minireset';
 @import "primeng/resources/themes/lara-light-blue/theme.css";

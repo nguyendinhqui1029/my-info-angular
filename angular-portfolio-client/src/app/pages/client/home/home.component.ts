@@ -14,6 +14,7 @@ import { GridContainerComponent } from '@app/components/common/grid-container/gr
 import { Card } from '@app/shared/models/card.model';
 import { ContainerSizePipe } from '@app/shared/pipes/container-size.pipe';
 import { CarouselWrapperComponent } from '@app/components/common/carousel-wrapper/carousel-wrapper.component';
+import { CardTypeComponent } from '@app/constants/common.const';
 
 @Component({
   selector: 'app-home',
@@ -68,7 +69,7 @@ export class HomeComponent implements OnInit {
     this.bannerItems = [
       {
         id: 'Banner1',
-        type: 'IMAGE',
+        type: CardTypeComponent.imageHorizontalCard,
         content: 'Content1',
         title: 'content title',
         source: 'https://img.freepik.com/free-photo/wide-angle-shot-single-tree-growing-clouded-sky-during-sunset-surrounded-by-grass_181624-22807.jpg',
@@ -76,7 +77,7 @@ export class HomeComponent implements OnInit {
       },
       {
         id: 'Banner2',
-        type: 'IMAGE',
+        type: CardTypeComponent.imageHorizontalCard,
         content: 'Content2',
         title: 'content title1',
         source: 'https://i0.wp.com/picjumbo.com/wp-content/uploads/blue-endless-ocean-in-fog-free-photo.jpg',
@@ -84,7 +85,7 @@ export class HomeComponent implements OnInit {
       },
       {
         id: 'Banner3',
-        type: 'IMAGE',
+        type: CardTypeComponent.imageHorizontalCard,
         content: 'Content3',
         title: 'content title1',
         source: 'https://i0.wp.com/picjumbo.com/wp-content/uploads/blue-endless-ocean-in-fog-free-photo.jpg',
