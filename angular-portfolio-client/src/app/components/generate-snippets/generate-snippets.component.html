@@ -1,0 +1,64 @@
+<div class="generate-snippets-wrapper">
+  <q-label-wrapper label="Prefix" [isRequired]="true" id="prefix">
+    <span ngProjectAs="control-component">
+      <input class="p-fluid" [(ngModel)]="valueForm.prefix" pInputText inputId="prefix" />
+    </span>
+  </q-label-wrapper>
+
+  <q-label-wrapper label="1rem = {{valueForm.pixel}}px" [isRequired]="true" id="convertToPixel">
+    <span ngProjectAs="control-component">
+      <p-inputNumber class="p-fluid" [(ngModel)]="valueForm.pixel"  inputId="convertToPixel" />
+    </span>
+  </q-label-wrapper>
+
+  <q-label-wrapper label="Attribute Css" [isRequired]="true" id="Attribute">
+    <span ngProjectAs="control-component">
+      <input class="p-fluid" pInputText [(ngModel)]="valueForm.attributeCss"  inputId="Attribute" />
+    </span>
+  </q-label-wrapper>
+
+  <label>Example: $fs-11: 1.1rem !default;</label>
+  <q-label-wrapper label="Define Value" [isRequired]="true" id="textAreaOne">
+    <span ngProjectAs="control-component">
+      <textarea 
+           inputId="textAreaOne"
+          rows="10"
+          cols="50" 
+          pInputTextarea 
+          [(ngModel)]="valueForm.textAreaOne">
+      </textarea>
+    </span>
+  </q-label-wrapper>
+
+  <label>Example: ( "h1": $fs-5, "h2": $fs-42, "h3": $fs-32, "h4": $fs-34, "h5": $fs-2, "h6": $fs-18, "xxs": $fs-11, "xs": $fs-12, "sm": $fs-14, "base": $fs-16, "md": $fs-18 ) !default;
+  </label>
+  <q-label-wrapper label="Mapping value to key" [isRequired]="true" id="textAreaTwo">
+    <span ngProjectAs="control-component">
+      <textarea 
+            inputId="textAreaTwo"
+            rows="10"
+            cols="50" 
+            pInputTextarea 
+            [(ngModel)]="valueForm.textAreaTwo">
+      </textarea>
+    </span>
+  </q-label-wrapper>
+
+  <label>Example: $fs-xs: var(glob-typography-fs-xs, map.get($fontSizesGlob, "xs")) !default;
+  </label>
+  <q-label-wrapper label="Mapping value to to variable" [isRequired]="true" id="textAreaThree">
+    <span ngProjectAs="control-component">
+      <textarea 
+            inputId="textAreaThree"
+            rows="10"
+            cols="50" 
+            pInputTextarea 
+            [(ngModel)]="valueForm.textAreaThree">
+      </textarea>
+    </span>
+  </q-label-wrapper>
+
+  <p-button (click)="handleGenerate()">Generate</p-button>
+  <h3>Result: </h3>
+  <pre>{{result | json}}</pre>
+</div>
