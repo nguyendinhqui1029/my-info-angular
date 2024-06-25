@@ -1,0 +1,151 @@
+{
+  "statusCode": 0,
+  "statusText": "Success",
+  "data": {
+    "introduceMySelf": {
+      "fullName": "Alex Nguyen",
+      "position": "Frontend Developer",
+      "description": "High level experience in Web Design and development knowledge, producing quality work.",
+      "social": [
+        {
+          "name": "Linkedin",
+          "link": "https://www.linkedin.com/in/nguyenqui97",
+          "icon": "pi pi-linkedin"
+        },
+        {
+          "name": "Github",
+          "link": "https://github.com/nguyendinhqui1029",
+          "icon": "pi pi-github"
+        },
+        {
+          "name": "Email",
+          "link": "mailto:nguyendinhqui1029@gmail.com?subject=Contact%20to%20Alex%20Nguyen",
+          "icon": "pi pi-envelope"
+        },
+        {
+          "name": "Facebook",
+          "link": "https://www.facebook.com/nguyenqui100197",
+          "icon": "pi pi-facebook"
+        }
+      ],
+      "avatarUrl": "assets/images/avatar.png"
+    },
+    "experience": {
+      "subDescription": "My introduction",
+      "image": "assets/images/statistic-work.webp",
+      "description": "Web developer,  with extensive knowledge and years of experience, working in web technologies and UI/UX design, delivering quality work.",
+      "statistic": [
+        {
+          "count": "03+",
+          "name": "Years experience"
+        },
+        {
+          "count": "10+",
+          "name": "Completed projects"
+        },
+        {
+          "count": "03+",
+          "name": "Companies worked"
+        }
+      ]
+    },
+    "skill": {
+      "subDescription": "My skill",
+      "skills": [
+        {
+          "id": "1",
+          "group": "Frontend",
+          "items": [
+            {
+              "id": "1",
+              "name": "HTML",
+              "value": 50
+            },
+            {
+              "id": "2",
+              "name": "Javascript",
+              "value": 20
+            },
+            {
+              "id": "3",
+              "name": "Angular",
+              "value": 20
+            }
+          ]
+        },
+        {
+          "id": "2",
+          "group": "Frontend",
+          "items": [
+            {
+              "id": "1",
+              "name": "HTML",
+              "value": 50
+            },
+            {
+              "id": "2",
+              "name": "Javascript",
+              "value": 20
+            },
+            {
+              "id": "3",
+              "name": "Angular",
+              "value": 20
+            }
+          ]
+        },
+        {
+          "id": "3",
+          "group": "Frontend",
+          "items": [
+            {
+              "id": "1",
+              "name": "HTML",
+              "value": 50
+            },
+            {
+              "id": "2",
+              "name": "Javascript",
+              "value": 20
+            }
+          ]
+        }
+      ]
+    },
+    "work": {
+      "subDescription": "My introduction",
+      "companies": [
+        {
+          "id": "1",
+          "name": "Smilegate Viet nam",
+          "icon": "pi pi pi-trophy",
+          "startDate": "09/2019",
+          "endDate": "07/2022",
+          "address": "365 Điện biên phủ, quận bình thạnh",
+          "description": "DXC Technology (NYSE: DXC) helps global companies run their mission-critical systems and operations while modernizing IT, optimizing data architectures, and ensuring security and scalability across public, private and hybrid clouds. The world's largest companies and public sector organizations trust DXC to deploy services to drive new levels of performance, competitiveness, and customer experience across their IT estates. Learn more about how we deliver excellence for our customers and colleagues at DXC.com.",
+          "imageUrl": "https://media.licdn.com/dms/image/C5622AQECY7Za1NLhlA/feedshare-shrink_800/0/1678870517771?e=1721865600&v=beta&t=cw5VtChxt2bSYwU1n_u4oX38P9P9DnKKnm5DRIQEqGY"
+        },
+        {
+          "id": "2",
+          "name": "Saigon Technology",
+          "icon": "pi pi pi-trophy",
+          "startDate": "09/2019",
+          "endDate": "07/2022",
+          "address": "364 Đ. Cộng Hòa, Phường 13, Tân Bình, Hồ Chí Minh",
+          "description": "DXC Technology (NYSE: DXC) helps global companies run their mission-critical systems and operations while modernizing IT, optimizing data architectures, and ensuring security and scalability across public, private and hybrid clouds. The world's largest companies and public sector organizations trust DXC to deploy services to drive new levels of performance, competitiveness, and customer experience across their IT estates. Learn more about how we deliver excellence for our customers and colleagues at DXC.com.",
+          "imageUrl": "https://media.licdn.com/dms/image/C5622AQECY7Za1NLhlA/feedshare-shrink_800/0/1678870517771?e=1721865600&v=beta&t=cw5VtChxt2bSYwU1n_u4oX38P9P9DnKKnm5DRIQEqGY"
+        },
+        {
+          "id": "3",
+          "name": "DXC Technology",
+          "icon": "pi pi pi-trophy",
+          "startDate": "09/2019",
+          "endDate": "07/2022",
+          "address": "364 Đ. Cộng Hòa, Phường 13, Tân Bình, Hồ Chí Minh",
+          "description": "DXC Technology (NYSE: DXC) helps global companies run their mission-critical systems and operations while modernizing IT, optimizing data architectures, and ensuring security and scalability across public, private and hybrid clouds. The world's largest companies and public sector organizations trust DXC to deploy services to drive new levels of performance, competitiveness, and customer experience across their IT estates. Learn more about how we deliver excellence for our customers and colleagues at DXC.com.",
+          "imageUrl": "https://media.licdn.com/dms/image/C5622AQECY7Za1NLhlA/feedshare-shrink_800/0/1678870517771?e=1721865600&v=beta&t=cw5VtChxt2bSYwU1n_u4oX38P9P9DnKKnm5DRIQEqGY"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,18 @@
+<article 
+qContainerChangeSize 
+(sizeChange)="handleVerticalVideoCardChangeSize($event)"
+[maxWidth]="[512]">
+    <q-video [path]="videoId" [width]="((verticalVideoCard | containerSize:'512').width || 200)" [height]="((verticalVideoCard | containerSize:'512').width || 100) | aspectRatioHeight"/>
+    <section>
+        @if(title.length <= 40) {
+            <h3 (click)="eventClick.next(id)">{{title}}</h3>
+
+        } @else {
+            <h3 [pTooltip]="title" tooltipPosition="bottom" (click)="eventClick.next(id)">{{title}}</h3>
+        }
+        @if(date) {
+            <small class="date"> <i class="pi pi-calendar"></i>{{ date }}</small>
+        }
+        <p>{{ content }}</p>
+    </section>
+</article>

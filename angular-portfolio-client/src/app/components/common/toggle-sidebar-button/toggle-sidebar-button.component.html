@@ -1,0 +1,5 @@
+<div class="toggle-icon-wrapper" [pTooltip]="tooltipMessage" tooltipPosition="{{position === 'right' ? 'left' : 'right'}}"  (click)="handleToggle()" (mouseout)="handleMouseOut()" (mouseover)="handleMouseOver()">
+  <span class="top-line" [style]="{'--topLineHight': topLineHight, '--topLineRotate': topLineRotate}"></span>
+  <span class="bottom-line"
+    [style]="{'--bottomLineHight': bottomLineHight, '--bottomLineRotate': bottomLineRotate}"></span>
+</div>

@@ -1,0 +1,193 @@
+::ng-deep {
+  body {
+    @import 'assets/styles/variables/light.mode.scss'; // Default mode
+
+    .experience-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      flex: 1 1 auto;
+
+      header {
+        display: flex;
+        flex-direction: column;
+         gap: 0.25rem;
+         align-self: center;
+
+         h3 {
+          color: $main-header-text;
+          text-align: center;
+          font-size: 1.5rem;
+          }
+
+          small {
+            color: $sub-text;
+            text-align: center;
+        }
+      }
+
+      .content-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        padding: 1rem;
+        gap: 2rem;
+
+        .image-wrapper {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex: 1;
+          min-width: $min-width;
+          border-radius: 1rem;
+          background: $background-avatar;
+          max-width: $max-width;
+          
+          .image {
+            object-fit: contain;
+            object-position: center;
+            aspect-ratio: 16/9;
+          } 
+        }
+
+        .content {
+          display: flex;
+          flex-direction: column;
+          gap: 1.5rem;
+          min-width: $min-width;
+          max-width: $max-width;
+          flex: 1;
+
+          p {
+            color: $main-content-text;
+          }
+
+          .statistic-wrapper {
+            display: flex;
+            gap: 1rem;
+            justify-content: space-between;
+
+            .statistic {
+              display: flex;
+              flex-direction: column;
+              align-self: center;
+              gap: 0.25rem;
+  
+              h3 {
+                color: $main-header-text;
+                text-align: center;
+                font-size: 1.5rem;
+              }
+  
+              small {
+                color: $sub-text;
+                text-align: center;
+              }
+            }
+          }
+
+
+          p-button {
+            margin-top: 0.5rem;
+          }
+        }
+      }
+    }
+  }
+
+  body.dark {
+    @import 'assets/styles/variables/dark.mode.scss';
+
+    .experience-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      flex: 1 1 auto;
+
+      header {
+        display: flex;
+        flex-direction: column;
+         gap: 0.25rem;
+         align-self: center;
+
+         h3 {
+          color: $main-header-text;
+          text-align: center;
+          font-size: 1.5rem;
+          }
+
+          small {
+            color: $sub-text;
+            text-align: center;
+        }
+      }
+
+      .content-wrapper {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        padding: 1rem;
+        gap: 2rem;
+
+        .image-wrapper {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex: 1;
+          min-width: $min-width;
+          border-radius: 1rem;
+          background: $background-avatar;
+          max-width: 30rem;
+
+          .image {
+            object-fit: contain;
+            object-position: center;
+            aspect-ratio: 16/9;
+          } 
+        }
+
+        .content {
+          display: flex;
+          flex-direction: column;
+          gap: 1.5rem;
+          min-width: $min-width;
+          flex: 1;
+
+          p {
+            color: $main-content-text;
+          }
+
+          .statistic-wrapper {
+            display: flex;
+            gap: 1rem;
+            justify-content: space-between;
+
+            .statistic {
+              display: flex;
+              flex-direction: column;
+              align-self: center;
+              gap: 0.25rem;
+  
+              h3 {
+                color: $main-header-text;
+                text-align: center;
+                font-size: 1.5rem;
+              }
+  
+              small {
+                color: $sub-text;
+                text-align: center;
+              }
+            }
+          }
+
+
+          p-button {
+            margin-top: 0.5rem;
+          }
+        }
+      }
+    }
+  }
+}

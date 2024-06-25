@@ -1,0 +1,11 @@
+<article class="skill-wrapper">
+  <header>
+    <h3>{{'skill_header' | translate}}</h3>
+    <small>{{skill.subDescription}}</small>
+  </header>
+  <section class="skill-content-wrapper">
+    @for(itemSkill of skill.skills; track itemSkill) {
+      <q-rating-level [items]="itemSkill.items" [title]="itemSkill.group" (eventClick)="handleViewDetail($event)"></q-rating-level>
+    }
+  </section>
+</article>

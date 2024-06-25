@@ -1,0 +1,90 @@
+:host {
+  --current-value: 0;
+}
+::ng-deep {
+  body {
+    @import 'assets/styles/variables/light.mode.scss'; // Default mode
+
+    .full-value {
+      display: flex;
+      position: relative;
+      justify-content: center;
+      height: 1rem;
+      width: 100%;
+      border-radius: 0.5rem;
+      background: $process-bar-background;
+      overflow: hidden;
+      
+      .current-value {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 0;
+        height: 100%;
+        background: $process-bar-value;
+        border-radius: 0.5rem;
+        z-index: 3;
+        animation: changeWidth 1s linear forwards;
+      }
+
+      @keyframes changeWidth {
+        from {
+          width: 0px;
+        }
+        to {
+          width: var(--current-value, 0);
+        }
+      }
+      .display-text-value {
+        position: absolute;
+        align-self: center;
+        z-index: 5;
+        color: $process-bar-text;
+        height: auto;
+      }
+    }
+  }
+
+  body.dark {
+    @import 'assets/styles/variables/dark.mode.scss';
+
+    .full-value {
+      display: flex;
+      position: relative;
+      justify-content: center;
+      height: 1rem;
+      width: 100%;
+      border-radius: 0.5rem;
+      background: $process-bar-background;
+      overflow: hidden;
+
+      .current-value {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 0;
+        height: 100%;
+        background: $process-bar-value;
+        border-radius: 0.5rem;
+        z-index: 3;
+        animation: changeWidth 1s linear forwards;
+      }
+
+      @keyframes changeWidth {
+        from {
+          width: 0px;
+        }
+        to {
+          width: var(--current-value, 0);
+        }
+      }
+      .display-text-value {
+        position: absolute;
+        align-self: center;
+        z-index: 5;
+        color: $process-bar-text;
+        height: auto;
+      }
+    }
+  }
+}

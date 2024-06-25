@@ -1,0 +1,22 @@
+<article class="menu-left-wrapper">
+  <ul class="vertical-menu-left-wrapper" [style]="{'--leftSectionWidth': sectionMenuLeftWidth}">
+    @for(item of items; track item) {
+    <li>
+      <h4 (click)="handleItemClick(item.id, item.children.length ? item.children[0].id : undefined)">
+        {{item.label}}
+        @if(item?.children?.length) {
+        <i class="pi {{item.id === parentId ? 'pi-angle-up' : 'pi-angle-down'}}"></i>
+        }
+      </h4>
+      <ul [class.transition-height]="item.id === parentId">
+        @for(child of item?.children; track child) {
+        <li [class.active]="child.id === childId" (click)="handleItemClick(item.id, child.id)">
+          {{child.label}}
+        </li>
+        }
+      </ul>
+    </li>
+    }
+  </ul>
+  <q-toggle-sidebar-button [isDisabled]="!items.length" [tooltipMessage]="(isToggle ? 'close_sidebar': 'open_sidebar') | translate" [isOpen]="isToggle" (eventClick)="handleToggleSidebar($event)"/>
+</article>

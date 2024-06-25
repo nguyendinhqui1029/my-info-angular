@@ -1,0 +1,19 @@
+<article class="rating-level-wrapper">
+  <header class="rating-level-header">
+    <i class="icon pi pi-crown"></i>
+    <h4>
+      {{ title }}
+    </h4>
+  </header>
+  <section class="item-wrapper">
+    @for(item of items; track item) {
+      <div class="process-bar-wrapper">
+        <h5>{{item.name}}</h5>
+        <div class="rating-group">
+          <q-rating [value]="+item.value"></q-rating>
+          <i class="icon pi pi-eye" (click)="eventClick.next(item.id)"></i>
+        </div>
+      </div>
+    }
+  </section>
+</article>

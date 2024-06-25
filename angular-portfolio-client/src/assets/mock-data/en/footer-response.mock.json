@@ -1,0 +1,22 @@
+{
+    "statusCode": 0,
+    "statusText": "Success",
+    "data": {
+        "infos": {
+            "name": "Alex Nguyen",
+            "logo": "assets/images/logo.png",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.",
+            "social": [
+                { "name": "Facebook", "link": "facebook", "icon": "pi pi-facebook" }, 
+                { "name": "Linkedin", "link": "Linkedin", "icon": "pi pi-linkedin" }, 
+                { "name": "Twitter", "link": "Twitter", "icon": "pi pi-twitter" },
+                { "name": "Github", "link": "Github", "icon": "pi pi-github" }
+            ]
+        },
+        "contact": [
+            { "content": "50A/2 Binh Tan, Binh My, Chau Phu, An Giang.", "link": "Address", "icon": "pi pi-map-marker" },
+            { "content": "0777 203 042", "link": "Phone", "icon": "pi pi-phone"},
+            { "content": "nguyendinhqui1029@gmail.com", "link": "Email", "icon": "pi pi-google" }
+        ]
+    }
+}

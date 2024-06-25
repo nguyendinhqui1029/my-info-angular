@@ -1,0 +1,66 @@
+:host {
+  --rightSectionWidth: 12.25rem; 
+}
+::ng-deep {
+   
+    body {
+      @import 'assets/styles/variables/light.mode.scss'; // Default mode
+  
+      .menu-right-wrapper {
+        display: flex;
+        align-items: center;
+
+        .vertical-menu-right-wrapper {
+          display: flex;
+          flex-direction: column;
+          list-style: none;
+          width: var(--rightSectionWidth, 12.25rem);
+          transition: width 0.5s ease-in-out;
+          overflow: hidden;
+
+          li {
+              cursor: pointer;
+              border-left: 0.1rem solid $main-border;
+              color: $main-content-text;
+              padding: 0rem 0rem 0rem 0.875rem;
+              color: $main-header-text;
+              text-wrap: nowrap;
+          }
+          .active {
+              border-left: 0.15rem solid $second-border;
+          }
+        }
+      }
+      
+    }
+  
+    body.dark {
+      @import 'assets/styles/variables/dark.mode.scss';
+  
+      .menu-right-wrapper {
+        display: flex;
+        align-items: center;
+
+        .vertical-menu-right-wrapper {
+          display: flex;
+          flex-direction: column;
+          list-style: none;
+          width: var(--rightSectionWidth, 12.25rem);
+          transition: width 0.5s ease-in-out;
+          overflow: hidden;
+
+          li {
+              cursor: pointer;
+              border-left: 0.1rem solid $main-border;
+              color: $main-content-text;
+              padding: 0rem 0rem 0rem 0.875rem;
+              color: $main-header-text;
+              text-wrap: nowrap;
+          }
+          .active {
+              border-left: 0.15rem solid $second-border;
+          }
+        }
+      }
+    }
+  }

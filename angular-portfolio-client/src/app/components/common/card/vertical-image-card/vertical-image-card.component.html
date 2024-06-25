@@ -1,0 +1,15 @@
+<article>
+    <img [src]="imageUrl" [alt]="content" [title]="title">
+    <section>
+        @if(title.length <= 40) {
+            <h3 (click)="eventClick.next(id)">{{title}}</h3>
+
+        } @else {
+            <h3 [pTooltip]="title" tooltipPosition="bottom" (click)="eventClick.next(id)">{{title}}</h3>
+        }
+        @if(date) {
+            <small class="date"> <i class="pi pi-calendar"></i>{{ date }}</small>
+        }
+        <p>{{content}}</p>
+    </section>
+</article>

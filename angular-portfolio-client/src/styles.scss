@@ -1,0 +1,110 @@
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
+// CSS Reset, comment out if not required or using a different module
+@import 'minireset.css/minireset';
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
+@import 'assets/styles/common.scss'; // Common css
+
+html, body, body.dark { 
+  height: 100%; 
+  width: 100vw;
+  margin: 0; 
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+body {
+  @import 'assets/styles/variables/light.mode.scss'; // Default mode
+  background: $primary-background;
+  line-height: $line-height-text;
+  color: $wc-highlight;
+
+
+  .p-dialog-content, .p-dialog-header {
+    color: $wc-highlight
+  }
+
+  .social-icon {
+    color: $wc-secondary-text;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+
+  .text-highlight {
+    color: $woo-commerce;
+    font-weight: 700;
+  }
+  
+  .search-wrapper {
+    .result-content {
+        li:hover {
+          background: $wc-highlight;
+          color: $wc-content-bg;
+        }
+    }
+  }
+  
+  .nav-horizontal-wrapper, .nav-vertical-wrapper {
+    .button-full {
+      color: $wc-highlight;
+    }
+  }
+  
+  .p-inputtext {
+    width: 100%;
+  }
+
+  .p-inputotp-input {
+    width: 2.5rem;
+  }
+}
+
+
+body.dark {
+  @import 'assets/styles/variables/dark.mode.scss';
+  background: $primary-background;
+  color: $wc-primary-text;
+  line-height: $line-height-text;
+
+  .social-icon {
+    color: $wc-secondary-text;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+
+  .p-dialog-content, .p-dialog-header {
+    background: $secondary-background;
+    color: $wc-primary-text;
+  }
+
+  .p-inputtext {
+    background: $secondary-background;
+    color: $wc-primary-text;
+    width: 100%;
+  }
+
+  .p-inputotp-input {
+    width: 2.5rem;
+  }
+
+  .text-highlight {
+    color: $wc-green;
+    font-weight: 700;
+  }
+
+  .search-wrapper {
+    .result-content {
+        li:hover {
+          background: $wc-highlight-text;
+          color: $wc-highlight;
+        }
+    }
+  }
+
+  .nav-horizontal-wrapper, .nav-vertical-wrapper {
+    .button-full {
+      color: $wc-green;
+    }
+  }
+}

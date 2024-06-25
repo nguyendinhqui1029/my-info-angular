@@ -1,0 +1,36 @@
+{
+    "statusCode": 0,
+    "statusText": "Success",
+    "data": [
+        {
+          "name": "Vietnamese",
+          "code": "vi",
+          "flag": "https://flagcdn.com/w320/vn.png",
+          "description": "Official language of Vietnam"
+        },
+        {
+          "name": "English",
+          "code": "en",
+          "flag": "https://flagcdn.com/w320/us.png",
+          "description": "Official language of the United States"
+        },
+        {
+          "name": "Korean",
+          "code": "ko",
+          "flag": "https://flagcdn.com/w320/kr.png",
+          "description": "Official language of South Korea"
+        },
+        {
+          "name": "Thai",
+          "code": "th",
+          "flag": "https://flagcdn.com/w320/th.png",
+          "description": "Official language of Thailand"
+        },
+        {
+          "name": "Chinese",
+          "code": "cn",
+          "flag": "https://flagcdn.com/w320/cn.png",
+          "description": "Official language of China"
+        }
+      ]
+}

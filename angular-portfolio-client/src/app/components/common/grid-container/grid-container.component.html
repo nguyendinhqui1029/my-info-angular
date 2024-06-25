@@ -1,0 +1,14 @@
+<article>
+    <h2 [style.text-align]="titlePosition">{{title}}</h2>
+    <section>
+        @for(item of items; track item.id) {
+            @if(item.type === 'VIDEO') {
+            <q-vertical-video-card [id]="item.id" [videoId]="item.videoId || ''" [content]="item.content" [title]="item.title"
+            [date]="item.date || ''"></q-vertical-video-card>
+            } @else {
+            <q-vertical-image-card [id]="item.id" [imageUrl]="item.thumbnail" [content]="item.content" [title]="item.title"
+            [date]="item.date || ''"></q-vertical-image-card>
+            }
+        }
+    </section>
+</article>

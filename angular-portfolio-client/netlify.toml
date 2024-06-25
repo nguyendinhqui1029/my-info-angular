@@ -1,0 +1,11 @@
+[build]
+  functions = "functions"
+  command = "npm install --legacy-peer-deps"
+
+[dev]
+  publish = ".output/public"
+
+[[redirects]]
+  from = "/*"
+  to = "/"
+  status = 200

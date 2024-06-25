@@ -1,0 +1,23 @@
+<article class="experience-wrapper">
+  <header>
+    <h3>{{'about_me_header' | translate}}</h3>
+    <small>{{experience.subDescription}}</small>
+  </header>
+  <article class="content-wrapper">
+    <section class="image-wrapper">
+      <img [src]="experience.image" [alt]="experience.subDescription" [title]="experience.subDescription" class="image"/>
+    </section>
+    <section class="content">
+      <p>{{experience.description}}</p>
+     <div class="statistic-wrapper">
+      @for(item of experience.statistic; track item) {
+        <div class="statistic">
+          <h3>{{item.count}}</h3>
+          <small>{{item.name}}</small>
+        </div>
+      }
+     </div>
+     <p-button label="Download CV" rounded="true" icon="pi pi-download" size="small" (click)="eventClick.next()"/>
+    </section>
+  </article>
+</article>

@@ -1,0 +1,36 @@
+<section class="information-wrapper">
+    <div class="social-wrapper">
+        @for(item of introduce.social; track item) {
+            <a [href]="item.link" target="_blank">
+                <i class="pi {{item.icon}}"></i>
+            </a>
+        }
+    </div>
+    <div class="content-wrapper">
+        <h4 class="typing-container">
+            {{'hi_i_am' | translate}} {{introduce.fullName}}
+        </h4>
+        <small>{{introduce.position}}</small>
+        <p>{{introduce.description}}</p>
+        <p-button [label]="'contact_me'| translate" icon="pi pi-send" size="small" [rounded]="true" (click)="eventClick.next()"/>
+    </div>
+</section>
+<section class="avatar-wrapper">
+        <div class="avatar">
+            <svg class="custom-svg" width="270" height="280" viewBox="0 0 270 280" fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M186.627 1.12977C142.004 -6.50596 41.4452 25.3649 12.8489 72.5073C-37.6883 155.82 73.1841 280 131.948 280C190.712 280 265.837 190.695 269.588 131.601C276.815 17.7291 186.627 1.12977 186.627 1.12977Z" />
+        </svg>
+        <svg width="0" height="0" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <clipPath id="avatarClipPath">
+                    <path
+                      d="M186.627 1.12977C142.004 -6.50596 41.4452 25.3649 12.8489 72.5073C-37.6883 155.82 73.1841 280 131.948 280C190.712 280 265.837 190.695 269.588 131.601C276.815 17.7291 186.627 1.12977 186.627 1.12977Z" />
+                </clipPath>
+            </defs>
+        </svg>
+        <img class="image" src="assets/images/avatar.png" [alt]="'avatar_description' | translate"
+          [title]="'avatar_description' | translate" />
+        </div>
+</section>

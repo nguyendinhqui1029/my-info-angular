@@ -1,0 +1,129 @@
+::ng-deep {
+  body {
+    @import 'assets/styles/variables/light.mode.scss'; // Default mode
+
+    q-content-overlap-image-card {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      display: flex;
+
+      .image {
+        aspect-ratio: 16/9;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      .content-wrapper {
+        position: absolute;
+        z-index: 50;
+        top: 5%;
+        left: 5%;
+
+        .backdrop {
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
+          padding: 1rem;
+          border-radius: 0.25rem;
+          background: $background-opacity;
+          width: 100%;
+          height: 100%;
+          min-width: 18rem;
+
+          h3 {
+            color: $main-header-text;
+            font-weight: 700;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            cursor: pointer;
+          }
+
+          p {
+            color: $main-content-text;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            line-height: 1rem;
+            font-size: 0.75rem;
+          }
+
+          p-button {
+            align-self: flex-start;
+            margin-top: 0.5rem;
+          }
+        }
+
+      }
+    }
+  }
+
+  body.dark {
+    @import 'assets/styles/variables/dark.mode.scss';
+
+    q-content-overlap-image-card {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      display: flex;
+
+      .image {
+        aspect-ratio: 16/9;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      .content-wrapper {
+        position: absolute;
+        z-index: 50;
+        top: 5%;
+        left: 5%;
+
+        .backdrop {
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
+          padding: 1rem;
+          border-radius: 0.25rem;
+          background: $background-opacity;
+          width: 100%;
+          height: 100%;
+          min-width: 18rem;
+
+          h3 {
+            color: $main-header-text;
+            font-weight: 700;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            cursor: pointer;
+          }
+
+          p {
+            color: $main-highlight-content-text;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            line-height: 1rem;
+            font-size: 0.75rem;
+          }
+
+          p-button {
+            align-self: flex-start;
+            margin-top: 0.5rem;
+          }
+        }
+
+      }
+    }
+  }
+}

@@ -1,0 +1,7 @@
+<p-button 
+    size="small" 
+    icon="pi {{isLightMode() ?  'pi-moon' : 'pi-sun' }}"
+    [attr.aria-label]="'change_site_to' | translate: { 'mode': (isLightMode() ? 'dark_mode' : 'light_mode') | translate}"
+    [pTooltip]="'change_site_to' | translate: { 'mode': (isLightMode() ? 'dark_mode' : 'light_mode') | translate}"
+    tooltipPosition="bottom" [text]="true" [raised]="true" severity="warning" (click)="handleChangeMode()">
+  </p-button>

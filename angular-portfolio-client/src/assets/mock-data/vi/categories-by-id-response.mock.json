@@ -1,0 +1,252 @@
+{
+    "statusCode": 0,
+    "statusText": "Success",
+    "data": [
+        {
+            "id": "HTML",
+            "label": "HTML",
+            "icon": "",
+            "children": [
+                {
+                    "id": "HTML1",
+                    "label": "Hướng dẫn HTML",
+                    "icon": "",
+                    "children": []
+                },
+                {
+                    "id": "HTML2",
+                    "label": "Giới thiệu HTML",
+                    "icon": "",
+                    "children": []
+                },
+                {
+                    "id": "HTML3",
+                    "label": "Trình soạn thảo HTML",
+                    "icon": "",
+                    "children": []
+                },
+                {
+                    "id": "HTML4",
+                    "label": "Ví dụ cơ bản về HTML",
+                    "icon": "",
+                    "children": []
+                },
+                {
+                    "id": "HTML5",
+                    "label": "Phần tử HTML",
+                    "icon": "",
+                    "children": []
+                },
+                {
+                    "id": "HTML7",
+                    "label": "Tiêu đề HTML",
+                    "icon": "",
+                    "children": []
+                },
+                {
+                    "id": "HTML8",
+                    "label": "Đoạn HTML",
+                    "icon": "",
+                    "children": []
+                },
+                {
+                    "id": "HTML9",
+                    "label": "Kiểu HTML",
+                    "icon": "",
+                    "children": []
+                },
+                {
+                    "id": "HTML10",
+                    "label": "Định dạng văn bản HTML",
+                    "icon": "",
+                    "children": []
+                }
+            ]
+        },
+        {
+            "id": "CSS",
+            "label": "Css",
+            "icon": "",
+            "children": [
+                {
+                    "id": "CSS1",
+                    "label": "Hướng dẫn CSS",
+                    "icon": "",
+                    "children": []
+                },
+                {
+                    "id": "CSS2",
+                    "label": "Giới thiệu CSS",
+                    "icon": "",
+                    "children": []
+                },
+                {
+                    "id": "CSS3",
+                    "label": "Cú pháp CSS",
+                    "icon": "",
+                    "children": []
+                },
+                {
+                    "id": "CSS4",
+                    "label": "Bộ chọn CSS",
+                    "icon": "",
+                    "children": []
+                },
+                {
+                    "id": "CSS5",
+                    "label": "Cách thêm CSS",
+                    "icon": "",
+                    "children": []
+                },
+                {
+                    "id": "CSS6",
+                    "label": "Nhận xét CSS",
+                    "icon": "",
+                    "children": []
+                },
+                {
+                    "id": "CSS7",
+                    "label": "Màu CSS",
+                    "icon": "",
+                    "children": []
+                },
+                {
+                    "id": "CSS8",
+                    "label": "Nền CSS",
+                    "icon": "",
+                    "children": []
+                },
+                {
+                    "id": "CSS9",
+                    "label": "Đường viền CSS",
+                    "icon": "",
+                    "children": []
+                },
+                {
+                    "id": "CSS10",
+                    "label": "Lề CSS",
+                    "icon": "",
+                    "children": []
+                }
+            ]
+        },
+        {
+            "id": "JS",
+            "label": "Javascript",
+            "icon": "",
+            "children": [
+                {
+                    "id": "JS1",
+                    "label": "Hướng dẫn JavaScript",
+                    "icon": "",
+                    "children": []
+                },
+                {
+                    "id": "JS2",
+                    "label": "Giới thiệu JavaScript",
+                    "icon": "",
+                    "children": []
+                },
+                {
+                    "id": "JS3",
+                    "label": "JavaScript ở đâu",
+                    "icon": "",
+                    "children": []
+                },
+                {
+                    "id": "JS4",
+                    "label": "Đầu ra JavaScript",
+                    "icon": "",
+                    "children": []
+                },
+                {
+                    "id": "JS6",
+                    "label": "Cú pháp JavaScript",
+                    "icon": "",
+                    "children": []
+                },
+                {
+                    "id": "JS8",
+                    "label": "Kiểu dữ liệu const",
+                    "icon": "",
+                    "children": []
+                },
+                {
+                    "id": "JS9",
+                    "label": "Kiểu dữ liệu let",
+                    "icon": "",
+                    "children": []
+                },
+                {
+                    "id": "JS10",
+                    "label": "Kiểu dữ liệu var",
+                    "icon": "",
+                    "children": []
+                }
+            ]
+        },
+        {
+            "id": "TYPESCRIPT",
+            "label": "Typescript",
+            "icon": "",
+            "children": [
+                {
+                    "id": "CSS2",
+                    "label": "CSS",
+                    "icon": "",
+                    "children": []
+                },
+                {
+                    "id": "CSS3",
+                    "label": "CSS",
+                    "icon": "",
+                    "children": []
+                }
+            ]
+        },
+        {
+            "id": "ANGULAR",
+            "label": "Angular",
+            "icon": "",
+            "children": [
+                {
+                    "id": "CSS2",
+                    "label": "CSS",
+                    "icon": "",
+                    "children": []
+                },
+                {
+                    "id": "CSS3",
+                    "label": "CSS",
+                    "icon": "",
+                    "children": []
+                }
+            ]
+        },
+        {
+            "id": "VUE",
+            "label": "Vuex",
+            "icon": "",
+            "children": [
+                {
+                    "id": "CSS2",
+                    "label": "CSS",
+                    "icon": "",
+                    "children": []
+                },
+                {
+                    "id": "CSS3",
+                    "label": "CSS",
+                    "icon": "",
+                    "children": []
+                }
+            ]
+        },
+        {
+            "id": "TEST",
+            "label": "Test",
+            "icon": "",
+            "children": []
+        }
+    ]
+}

@@ -1,0 +1,129 @@
+::ng-deep {
+    body {
+        @import 'assets/styles/variables/light.mode.scss'; // Default mode
+
+        .footer-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            padding: 1rem;
+
+            .footer-content-wrapper {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(20.5em, 1fr));
+                gap: 0.5rem;
+
+                .content-wrapper {
+                    display: flex;
+                    flex-direction: column;
+                    list-style: none;
+                    gap: 1rem;
+
+                    p {
+                        color: $main-content-text;
+                    }
+
+                    .content {
+                        display: flex;
+                        align-items: start;
+                        gap: 0.5rem;
+                        cursor: pointer;
+                        color: $main-content-text;
+                    }
+
+
+                    h3 {
+                        font-size: 1.5rem;
+                    }
+
+                    .logo-wrapper {
+                        .logo {
+                            width: 3rem;
+                            height: 3rem;
+                        }
+                    }
+
+                    .social-wrapper,
+                    .logo-wrapper {
+                        display: flex;
+                        flex-direction: row;
+                        gap: 1rem;
+                        align-items: center;
+                    }
+                }
+            }
+
+            .copyright-wrapper {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1rem;
+                font-weight: bold;
+            }
+        }
+    }
+
+    body.dark {
+        @import 'assets/styles/variables/dark.mode.scss';
+
+        .footer-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            padding: 1rem;
+
+            .footer-content-wrapper {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(20.5em, 1fr));
+                gap: 0.5rem;
+
+                .content-wrapper {
+                    display: flex;
+                    flex-direction: column;
+                    list-style: none;
+                    gap: 1rem;
+
+                    p {
+                        color: $main-content-text;
+                    }
+                    
+                    .content {
+                        display: flex;
+                        align-items: start;
+                        gap: 0.5rem;
+                        cursor: pointer;
+                        color: $main-content-text;
+                    }
+
+
+                    h3 {
+                        font-size: 1.5rem;
+                    }
+
+                    .logo-wrapper {
+                        .logo {
+                            width: 3rem;
+                            height: 3rem;
+                        }
+                    }
+
+                    .social-wrapper,
+                    .logo-wrapper {
+                        display: flex;
+                        flex-direction: row;
+                        gap: 1rem;
+                        align-items: center;
+                    }
+                }
+            }
+
+            .copyright-wrapper {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1rem;
+                font-weight: bold;
+            }
+        }
+    }
+}

@@ -1,0 +1,13 @@
+<div class="input-wrapper">
+  <label [for]="id" class="label-text">{{ label }}
+    @if(isRequired) {
+    <span class="require">*</span>
+    }
+  </label>
+  <div class="control-wrapper">
+    <ng-content select="control-component"></ng-content>
+    @if(message) {
+    <small class="error-message">{{message}}</small>
+    }
+  </div>
+</div>

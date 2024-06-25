@@ -1,0 +1,22 @@
+<nav [ngClass]="{'nav-horizontal-wrapper': !isVertical, 'nav-vertical-wrapper': isVertical}">
+    @for(item of menuItems(); track item) {
+        <p-button 
+            icon="{{item.isActive ? 'pi pi-star-fill' : ''}}" 
+            styleClass="button-full" 
+            size="small" 
+            [attr.aria-label]="item.name | translate" 
+            [label]="item.name | translate" 
+            [text]="true" 
+            [raised]="true" 
+            severity="warning" 
+            (click)="menuItemClick.emit(item)"/>
+    }
+
+    @if(!isVertical && isLogin()) {
+        <p-avatar 
+        (click)="avatarUserClick.emit()"
+        icon="pi pi-user" 
+        [style]="{ 'background-color': '#ece9fc', color: '#2a1261', 'border': '1px solid #ece9fc', 'cursor': 'pointer'  }" 
+        shape="circle" />
+    }
+</nav>
