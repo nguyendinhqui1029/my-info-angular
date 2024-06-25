@@ -1,6 +1,5 @@
 [build]
-  functions = "functions"
-  command = "npm install --legacy-peer-deps"
+  command = "npm ci && npm install --legacy-peer-deps && npm run build"
 
 [dev]
   publish = ".output/public"
