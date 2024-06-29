@@ -91,6 +91,7 @@ export class GenerateSnippetsComponent {
 
   handleGenerate() {
     this.result = {};
+    this.clipboardResult = {};
     this.valueForm.values.forEach((item) => {
       const objectMapOne: Record<string, {variable: string; value: string}> = {};
       const resultOne = this.getListValueFromTextAreaOne(item.textAreaOne);
@@ -158,7 +159,7 @@ export class GenerateSnippetsComponent {
     textarea.style.opacity = '0';
     let text = '';
     Object.entries(this.clipboardResult).forEach(([key, value]: [string, any]) => {
-      text += `//  Start  //\n\n// ${key} \n\n ${JSON.stringify(value, null, 2)} \n\n//  End  //`
+      text += `// \n\n Start  //\n\n// ${key} \n\n ${JSON.stringify(value, null, 2)}, \n\n//  End  //\n`
     });
     textarea.value = text;
 
