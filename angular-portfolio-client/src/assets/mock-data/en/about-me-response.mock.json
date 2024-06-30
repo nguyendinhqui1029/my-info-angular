@@ -146,6 +146,32 @@
           "imageUrl": "https://media.licdn.com/dms/image/C5622AQECY7Za1NLhlA/feedshare-shrink_800/0/1678870517771?e=1721865600&v=beta&t=cw5VtChxt2bSYwU1n_u4oX38P9P9DnKKnm5DRIQEqGY"
         }
       ]
+    },
+    "project": {
+      "subDescription": "My project",
+      "projects": [
+        {
+          "id": "Banner1",
+          "type": "IMAGE_VERTICAL",
+          "content": "Company Trip",
+          "title": "Company trip with smilegate vietname",
+          "source": "https://assets.topdev.vn/images/2024/06/07/TopDev-80d36a3db5c218eade7dbaf06ca69d9a-1717746089.png"
+        },
+        {
+          "id": "Banner2",
+          "type": "IMAGE_VERTICAL",
+          "content": "Football Team",
+          "title": "Football Team",
+          "source": "https://assets.topdev.vn/images/2024/06/07/TopDev-4ce1c093139e3ead853d8d8663b566a6-1717746090.png"
+        },
+        {
+          "id": "Banner3",
+          "type": "IMAGE_VERTICAL",
+          "content": "Beer time",
+          "title": "Beer time",
+          "source": "https://assets.topdev.vn/images/2024/06/07/TopDev-bb9f0cd89bcdab8696f41b8098bc5cd8-1717746090.png"
+        }
+      ]
     }
   }
 }

@@ -11,7 +11,7 @@ import { CarouselWrapperComponent } from '@app/components/common/carousel-wrappe
 import { ContainerChangeSizeDirective } from '@app/shared/directives/container-change-size.directive';
 import { ApiResponse } from '@app/shared/models/api-response.model';
 import { ContainerSize } from '@app/shared/models/container-size.mode';
-import { AboutMeResponseValue, Experience, IntroduceMySelf, Skill, Work } from '@app/shared/models/personal-info.model';
+import { AboutMeResponseValue, Experience, IntroduceMySelf, Project, Skill, Work } from '@app/shared/models/personal-info.model';
 import { ContainerSizePipe } from '@app/shared/pipes/container-size.pipe';
 import { AboutMeService } from '@app/shared/services/about-me.service';
 import { QueryObserverResult } from '@ngneat/query';
@@ -43,7 +43,8 @@ export class AboutMeComponent {
   experience!: Experience;
   skill!: Skill;
   work!: Work;
-
+  project!: Project;
+  
   private subscription: Subscription | undefined;
   private subscriptionGetAboutMe: Subscription | undefined;
 
@@ -85,6 +86,11 @@ export class AboutMeComponent {
       this.work = {
         subDescription: value.data?.data?.work?.subDescription || '',
         companies: value.data?.data?.work?.companies || []
+      };
+
+      this.project = {
+        subDescription: value.data?.data?.project?.subDescription || '',
+        projects: value.data?.data?.project?.projects || []
       };
     });
   }

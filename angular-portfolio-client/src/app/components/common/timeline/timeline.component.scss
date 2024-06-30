@@ -1,8 +1,14 @@
+:host {
+  --timeline-display: block;
+}
 ::ng-deep {
   body {
     @import 'assets/styles/variables/light.mode.scss'; // Default mode
 
     .timeline-wrapper {
+      .p-timeline-event-opposite {
+        display: var(--timeline-display, block);
+      }
       .marker {
         display: flex;
         align-items: center;
@@ -22,6 +28,7 @@
         background: $secondary-background;
         padding: 1rem;
         max-width: $max-width;
+        margin-bottom: 0.5rem;
         h4 {
           font-weight: 700;
           color: $main-header-text;
@@ -53,8 +60,9 @@
         .location {
           display: flex;
           gap: 0.25rem;
-          align-items: center;
+          align-items: flex-start;
           margin-top: 0.5rem;
+          line-height: 1.2rem;
           i {
             color: $main-icon;
           }
@@ -153,8 +161,9 @@
         .location {
           display: flex;
           gap: 0.25rem;
-          align-items: center;
+          align-items: flex-start;
           margin-top: 0.5rem;
+          line-height: 1.2rem;
           i {
             color: $main-icon;
           }

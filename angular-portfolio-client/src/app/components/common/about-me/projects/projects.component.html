@@ -1,1 +1,9 @@
-<p>projects works!</p>
+<article class="about-me-project-wrapper">
+    <header>
+      <h3>{{'project_header' | translate}}</h3>
+      <small>{{project.subDescription}}</small>
+    </header>
+    <section class="project-content-wrapper">
+      <q-carousel-wrapper [bannerItems]="project.projects || []" [customOptions]="customOptions"></q-carousel-wrapper>
+    </section>
+  </article>

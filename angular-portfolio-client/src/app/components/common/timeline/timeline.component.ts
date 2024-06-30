@@ -3,7 +3,6 @@ import { PrimeComponent } from '@app/configs/prime-angular/prime.config';
 import { ContainerChangeSizeDirective } from '@app/shared/directives/container-change-size.directive';
 import { ContainerSize } from '@app/shared/models/container-size.mode';
 import { TimelineCard } from '@app/shared/models/timeline-card.model';
-import { AspectRatioHeightPipe } from '@app/shared/pipes/aspect-ratio-height.pipe';
 import { ContainerSizePipe } from '@app/shared/pipes/container-size.pipe';
 
 @Component({
@@ -15,7 +14,9 @@ import { ContainerSizePipe } from '@app/shared/pipes/container-size.pipe';
 })
 export class TimelineComponent {
   @Input({required: true}) items: TimelineCard[] = []; // pi pi-trophy
+  @Input({required: false}) isShowButtonViewDetail: boolean = false; 
   @Output() eventClick = new EventEmitter<string>();
+
 
   private changeDetectorRef: ChangeDetectorRef = inject(ChangeDetectorRef);
 

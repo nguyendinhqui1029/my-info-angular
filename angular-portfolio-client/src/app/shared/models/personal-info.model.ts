@@ -1,3 +1,5 @@
+import { Banner } from "@shared/models/banner.model";
+
 export interface Social {
     name: string;
     icon: string;
@@ -34,6 +36,11 @@ export interface Skill {
       }[];
 }
 
+export interface Project {
+    subDescription: string;
+    projects: Banner[];
+}
+
 export interface Work {
     subDescription: string;
     companies: {
@@ -52,4 +59,5 @@ export interface AboutMeResponseValue {
     experience: Experience;
     skill: Skill;
     work: Work;
+    project: Project;
 }

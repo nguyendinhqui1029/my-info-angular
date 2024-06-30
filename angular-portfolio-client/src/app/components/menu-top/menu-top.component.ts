@@ -45,6 +45,7 @@ export class MenuTopComponent implements OnInit, OnDestroy {
   private unSubscribeLoginSubject: Subscription | undefined;
 
   sidebarVisible:boolean = false;
+  shadowMenuTopHeight: string = '144px';
   isLogin = signal<boolean>(true);
 
   dynamicDialogRef: DynamicDialogRef | undefined;
@@ -55,7 +56,8 @@ export class MenuTopComponent implements OnInit, OnDestroy {
   handleMenuTopWrapperChangeSize(element: Record<string,ContainerSize>) {
     this.menuTopWrapper = element ;
     this.commonService.setHeight(this.menuTopWrapper?.['688']?.height + this.menuTopWrapper?.['688']?.paddingBottom + this.menuTopWrapper?.['688']?.paddingTop); 
-  this.changeDetectorRef.detectChanges();
+    this.shadowMenuTopHeight = `${this.menuTopWrapper?.['100']?.height + this.menuTopWrapper?.['100']?.paddingBottom + this.menuTopWrapper?.['100']?.paddingTop}px`;
+    this.changeDetectorRef.detectChanges();
   }
   
   ngOnInit(): void {
