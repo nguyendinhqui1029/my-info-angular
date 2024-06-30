@@ -146,10 +146,28 @@ export class GenerateSnippetsComponent {
           ],
           description: `${item.attributeCss} for ${name.replace('\"','').replace('\"','')} with value ${hasUnit ? `${+pixelValue/+this.valueForm.pixel}rem = ${pixelValue}px` : pixelValue}`
         }
+        if(!this.clipboardResult[item.prefix]) {
+          this.clipboardResult[item.prefix] = {
+            [`${item.prefix}-${name.replace('\"','').replace('\"','')}-${pixelValue}${hasUnit? 'px' : ''}`]:{
+              prefix: `${item.prefix}-${name.replace('\"','').replace('\"','')}-${pixelValue}${hasUnit? 'px' : ''}`,
+              body: [
+              `${item.attributeCss}: \\${variable};`
+              ],
+              description: `${item.attributeCss} for ${name.replace('\"','').replace('\"','')} with value ${hasUnit ? `${+pixelValue/+this.valueForm.pixel}rem = ${pixelValue}px` : pixelValue}`
+            }
+          };
+          return;
+        }
+        this.clipboardResult[item.prefix] = {...this.clipboardResult[item.prefix], ...{
+          [`${item.prefix}-${name.replace('\"','').replace('\"','')}-${pixelValue}${hasUnit? 'px' : ''}`]:{
+            prefix: `${item.prefix}-${name.replace('\"','').replace('\"','')}-${pixelValue}${hasUnit? 'px' : ''}`,
+            body: [
+            `${item.attributeCss}: \\${variable};`
+            ],
+            description: `${item.attributeCss} for ${name.replace('\"','').replace('\"','')} with value ${hasUnit ? `${+pixelValue/+this.valueForm.pixel}rem = ${pixelValue}px` : pixelValue}`
+          }
+        }};
       });
-
-      this.clipboardResult[item.prefix] = this.result;
-
     });
   }
 
