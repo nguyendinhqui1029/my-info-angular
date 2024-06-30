@@ -9,55 +9,19 @@
        max-width: 85rem;
        padding-top: 1rem;
 
-       .grid-image {
-        display: flex;
-        gap: 1rem;
-        flex-wrap: wrap;
+       .content-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
 
-        .main-image {
-            flex: 4;
-            min-width: $min-width;
-            overflow: hidden;
-            border-radius: 1rem;
-            .image {
-                object-fit: fill;
-                object-position: center;
-                width: 100%;
-                height: 100%;
-                cursor: zoom-in;
-                transition: transform .5s ease-in-out;
-            }
+            h2 {
+            font-size: 1.5rem;
+            color: $main-header-text;
+           }
 
-            .image:hover {
-                transform: scale(1.5);
-            }
-        }
-
-        .sub-image {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(calc($min-width / 2 - 0.5rem), 1fr));
-            grid-template-rows: auto;
-            gap: 1rem;
-            flex: 4;
-           
-            
-            .image-wrapper {
-                border-radius: 1rem;
-                overflow: hidden;
-                .image {
-                    width: 100%;
-                    object-fit: fill;
-                    object-position: center;
-                    aspect-ratio: 16/9;
-                    transition: transform .5s ease-in-out;
-                    cursor: zoom-in;
-                }
-                .image:hover {
-                    transform: scale(1.5);
-                }
-            }
-           
-        }
+           .content {
+            color: $main-content-text;
+           }
        }
 
        .activity-wrapper {
@@ -71,7 +35,30 @@
       @import 'assets/styles/variables/dark.mode.scss';
   
       .view-detail-wrapper {
-       
-      }
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+        max-width: 85rem;
+        padding-top: 1rem;
+ 
+        .content-wrapper {
+             display: flex;
+             flex-direction: column;
+             gap: 1.5rem;
+ 
+             h2 {
+             font-size: 1.5rem;
+             color: $main-header-text;
+            }
+ 
+            .content {
+             color: $main-content-text;
+            }
+        }
+ 
+        .activity-wrapper {
+         margin-bottom: 4rem;
+        }
+       }
     }
   }

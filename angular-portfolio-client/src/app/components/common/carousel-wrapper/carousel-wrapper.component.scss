@@ -6,23 +6,7 @@
         width: 100%;
         height: fit-content;
     }
-    
-    .igx-carousel {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        max-width: 100%;
-        width: unset;
-        height: var(--carousel-height);
-    }
-    .igx-carousel__inner {
-        position: unset;
-        width: 100%;
-        height: inherit;
-        overflow: hidden;
-        outline-style: none;
-        border-radius: var(--border-radius);
-        min-height: fit-content;
-        min-width: 18.75rem;
+    .owl-carousel .owl-item {
+        height: var(--carousel-height) !important;
     }
 }

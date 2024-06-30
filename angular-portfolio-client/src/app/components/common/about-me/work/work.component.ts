@@ -21,6 +21,9 @@ export class WorkComponent implements OnDestroy{
   handleOpenViewDetailDialog(id: string) {
     this.dynamicDialogRef = this.dialogService.open(ViewDetailCompanyDialogComponent, {
       width: '90vw',
+      data: {
+        id
+      },
       contentStyle: { overflow: 'auto' },
       closeOnEscape: true,
       breakpoints: {

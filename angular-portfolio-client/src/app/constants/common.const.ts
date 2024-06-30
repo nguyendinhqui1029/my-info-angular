@@ -4,7 +4,8 @@ export const QUERY_KEYS = {
     SEARCH: 'search-key',
     SKILL_CONTENT: 'skill-content',
     CATEGORIES_BY_ID: 'categories-by-id',
-    ABOUT_ME: 'about-me'
+    ABOUT_ME: 'about-me',
+    COMPANY_DETAIL: 'company-detail'
 }
 
 export enum LocalStorageKey {
@@ -23,3 +24,4 @@ export enum CardTypeComponent {
     imageHorizontalCard = 'IMAGE_HORIZONTAL'
 }
 
+export const DEFAULT_IMAGE = 'assets/images/default.png'

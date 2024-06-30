@@ -1,0 +1,42 @@
+{
+  "statusCode": 0,
+  "statusText": "Success",
+  "data": {
+    "id": "C1",
+    "name": "Smilegate Viet Name",
+    "address": "665, Dien Bien Phu, Binh Thanh, Tp.HCM",
+    "description": "Smilegate is a Mega Value Innovator in Entertainment headquartered in Korea, since its foundation in 2002, Smilegate has continuously strived for happier lives and a more hopeful society by developing and providing quality games and content. Smilegate operates businesses in areas of game development and services, investments, and social contributions; develops and discovers various games and cultural content; and provides them as global services by increasing their value. The representative game is CROSSFIRE that world’s no.1 online FPS game with more than 670 million players from 80 countries, has surprising records such as having over 8 million concurrent users, has reached $10.5 billion sales revenue since its global launch.",
+    "shortDescription": "Entering the Vietnam market from 2023, Smilegate Vietnam's mission is to provide stable development & operation of the Smilegate platform and services, expanding beyond the development center to the region and expanding into an Asian hub.",
+    "thumbnailUrl": "https://assets.topdev.vn/images/2024/06/07/TopDev-80d36a3db5c218eade7dbaf06ca69d9a-1717746089.png",
+    "images": [
+      "https://assets.topdev.vn/images/2024/06/07/TopDev-80d36a3db5c218eade7dbaf06ca69d9a-1717746089.png",
+      "https://assets.topdev.vn/images/2024/06/07/TopDev-4ce1c093139e3ead853d8d8663b566a6-1717746090.png",
+      "https://assets.topdev.vn/images/2024/06/07/TopDev-bb9f0cd89bcdab8696f41b8098bc5cd8-1717746090.png",
+      "https://assets.topdev.vn/images/2024/06/07/TopDev-a2c3662e0fc63420c6ed4daadbbba19b-1717746089.png",
+      "https://assets.topdev.vn/images/2024/06/07/TopDev-48e8171cd3ba6998a018a1eb48180052-1717746089.png"
+    ],
+    "activities": [
+      {
+        "id": "Banner1",
+        "type": "IMAGE_VERTICAL",
+        "content": "Company Trip",
+        "title": "Company trip with smilegate vietname",
+        "source": "https://assets.topdev.vn/images/2024/06/07/TopDev-80d36a3db5c218eade7dbaf06ca69d9a-1717746089.png"
+      },
+      {
+        "id": "Banner2",
+        "type": "IMAGE_VERTICAL",
+        "content": "Football Team",
+        "title": "Football Team",
+        "source": "https://assets.topdev.vn/images/2024/06/07/TopDev-4ce1c093139e3ead853d8d8663b566a6-1717746090.png"
+      },
+      {
+        "id": "Banner3",
+        "type": "IMAGE_VERTICAL",
+        "content": "Beer time",
+        "title": "Beer time",
+        "source": "https://assets.topdev.vn/images/2024/06/07/TopDev-bb9f0cd89bcdab8696f41b8098bc5cd8-1717746090.png"
+      }
+    ]
+  }
+}

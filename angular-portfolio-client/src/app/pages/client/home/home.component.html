@@ -4,7 +4,7 @@
     [class.mobile-margin]="(contentLayoutWrapper | containerSize:'832').isMaxWidthMatch">
 
 
-    <q-carousel-wrapper [bannerItems]="bannerItems"></q-carousel-wrapper>
+    <q-carousel-wrapper [isCalculateHeight]="true" [bannerItems]="bannerItems"></q-carousel-wrapper>
     
     <q-grid-container [items]="gridCard" [title]="'demo'" [titlePosition]="'center'"></q-grid-container>
 

@@ -21,6 +21,7 @@ import { AnimationImageCardComponent } from "@app/components/common/card/animati
 import { TimelineModule } from 'primeng/timeline';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { InputTextareaModule } from 'primeng/inputtextarea';
+import { ImageModule } from 'primeng/image';
 
 export const PrimeComponent = [
     //Custom component
@@ -49,5 +50,6 @@ export const PrimeComponent = [
     ScrollPanelModule,
     TimelineModule,
     InputNumberModule,
-    InputTextareaModule
+    InputTextareaModule,
+    ImageModule
 ];

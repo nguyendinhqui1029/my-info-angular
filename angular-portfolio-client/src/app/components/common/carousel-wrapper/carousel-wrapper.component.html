@@ -2,13 +2,14 @@
 qContainerChangeSize 
 (sizeChange)="handleCarouselWrapperChangeSize($event)" 
 [maxWidth]="[832]" 
+[style.--carousel-height]="maxHeightCarouselWrapper"
 >
-<owl-carousel-o [options]="customOptions">
-  <ng-container *ngFor="let slide of bannerItems">
-    <ng-template carouselSlide [id]="slide.id">
+@if(carouselOptions) {
+  <owl-carousel-o [options]="carouselOptions" >
+    <ng-template *ngFor="let slide of bannerItems" carouselSlide [id]="slide.id">
       @defer {
         @if(slide.type === cardTypeComponent.imageHorizontalCard) {
-          <q-content-overlap-image-card [item]="slide" />
+          <q-content-overlap-image-card [item]="slide" (eventClick)="eventClick.next($event)"/>
         }
         @if(slide.type === cardTypeComponent.imageVerticalCard) {
           <q-vertical-image-card 
@@ -21,8 +22,9 @@ qContainerChangeSize
           [videoId]="slide.source" 
           [date]="slide?.date || ''" [content]="slide.content" [title]="slide. title" (eventClick)="eventClick.next($event)"/>
         }
-      } 
+    }
     </ng-template>
-  </ng-container>
-</owl-carousel-o>
+  </owl-carousel-o>
+}
+
 </div>
