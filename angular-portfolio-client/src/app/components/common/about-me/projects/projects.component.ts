@@ -1,10 +1,9 @@
-import { Component, Input, OnDestroy, inject } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Project } from '@app/shared/models/personal-info.model';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { CarouselWrapperComponent } from '@components/common/carousel-wrapper/carousel-wrapper.component';
-import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
-import { ProjectDetailDialogComponent } from '@app/components/dialogs/project-detail-dialog/project-detail-dialog.component';
+import { DialogService } from 'primeng/dynamicdialog';
 import { Banner } from '@app/shared/models/banner.model';
 
 @Component({
@@ -15,13 +14,10 @@ import { Banner } from '@app/shared/models/banner.model';
   styleUrl: './projects.component.scss',
   providers:  [TranslateService, DialogService]
 })
-export class ProjectsComponent implements OnDestroy{
+export class ProjectsComponent {
   @Input({required: true}) project!: Project;
 
-  private dialogService: DialogService = inject(DialogService);
-  private translateService: TranslateService = inject(TranslateService);
-  private dynamicDialogRef: DynamicDialogRef | undefined;
-
+ 
   customOptions: OwlOptions = {
     loop: true,
     autoplay: true,
@@ -52,24 +48,8 @@ export class ProjectsComponent implements OnDestroy{
   }
   
   handleViewDetail(item: Banner) {
-    this.dynamicDialogRef = this.dialogService.open(ProjectDetailDialogComponent, {
-      header: this.translateService.instant('project_detail_header', { name: item.title }),
-      width: '90vw',
-      data: {
-        id: item
-      },
-      contentStyle: { overflow: 'auto' },
-      closeOnEscape: true,
-      breakpoints: {
-        '1360px': '90vw',
-        '344px': '100vw'
-      }
-    });
+    console.log(item)
   }
 
-  ngOnDestroy() {
-    if (this.dynamicDialogRef) {
-      this.dynamicDialogRef.close();
-    }
-  }
+  
 }

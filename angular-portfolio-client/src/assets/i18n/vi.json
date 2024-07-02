@@ -45,5 +45,5 @@
   "project_header": "Dự án",
   "education_header": "Giáo dục",
   "hobbies_header": "Sở thích",
-  "project_detail_header": "Dự án {{name}}"
+  "hobby_detail_header": "Sở thích {{name}}"
 }

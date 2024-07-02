@@ -45,5 +45,5 @@
   "project_header": "Projects",
   "education_header": "Education",
   "hobbies_header": "Hobbies",
-  "project_detail_header": "{{name}} Project"
+  "hobby_detail_header": "{{name}} Hobby"
 }

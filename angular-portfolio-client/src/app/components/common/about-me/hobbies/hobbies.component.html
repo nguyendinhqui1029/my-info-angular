@@ -4,6 +4,6 @@
     <small>{{hobby.subDescription}}</small>
   </header>
   <section class="hobbies-content-wrapper">
-    <q-carousel-wrapper [bannerItems]="hobby.hobbies || []" [customOptions]="customOptions"></q-carousel-wrapper>
+    <q-carousel-wrapper [bannerItems]="hobby.hobbies || []" [customOptions]="customOptions" (eventClick)="handleOpenDialogViewDetail($event)"></q-carousel-wrapper>
   </section>
 </article>
