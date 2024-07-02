@@ -4,7 +4,7 @@
         <h3>{{item.title}}</h3>
         <p>{{item.content}}</p>
         @if(buttonName) {
-            <p-button [label]="buttonName" (click)="eventClick.next(item.id)"></p-button>
+            <p-button [label]="buttonName" (click)="eventClick.next(item)"></p-button>
         }
     </div>
 </div>

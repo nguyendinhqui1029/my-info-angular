@@ -1,9 +1,8 @@
-import { ChangeDetectorRef, Component, OnDestroy, OnInit, computed, inject, signal } from '@angular/core';
+import { ChangeDetectorRef, Component, OnDestroy, OnInit, computed, inject } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { VerticalMenuLeftComponent } from '@app/components/common/vertical-menu-left/vertical-menu-left.component';
 import { VerticalMenuRightComponent } from '@app/components/common/vertical-menu-right/vertical-menu-right.component';
 import { ContainerChangeSizeDirective } from '@app/shared/directives/container-change-size.directive';
-import { Category } from '@app/shared/models/category.model';
 import { ContainerSize } from '@app/shared/models/container-size.mode';
 import { ContentSection } from '@app/shared/models/content-section.model';
 import { CategoryService } from '@app/shared/services/category.service';

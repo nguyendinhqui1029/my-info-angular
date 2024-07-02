@@ -33,7 +33,7 @@ export class CarouselWrapperComponent implements  OnChanges, OnInit {
   @Input({ required: false }) customOptions!: OwlOptions;
   @Input({ required: false }) isCalculateHeight: boolean = false;
 
-  @Output() eventClick = new EventEmitter<string>();
+  @Output() eventClick = new EventEmitter<Banner>();
 
   private changeDetectorRef: ChangeDetectorRef = inject(ChangeDetectorRef);
   cardTypeComponent = CardTypeComponent;

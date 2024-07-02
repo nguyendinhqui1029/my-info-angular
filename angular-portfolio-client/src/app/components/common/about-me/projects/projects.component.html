@@ -4,6 +4,6 @@
       <small>{{project.subDescription}}</small>
     </header>
     <section class="project-content-wrapper">
-      <q-carousel-wrapper [bannerItems]="project.projects || []" [customOptions]="customOptions"></q-carousel-wrapper>
+      <q-carousel-wrapper [bannerItems]="project.projects || []" [customOptions]="customOptions" (eventClick)="handleViewDetail($event)"></q-carousel-wrapper>
     </section>
   </article>

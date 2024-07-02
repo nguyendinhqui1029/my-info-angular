@@ -42,5 +42,8 @@
   "about_me_header": "Về tôi",
   "skill_header": "Kĩ năng",
   "work_header": "Công việc",
-  "project_header": "Dự án"
+  "project_header": "Dự án",
+  "education_header": "Giáo dục",
+  "hobbies_header": "Sở thích",
+  "project_detail_header": "Dự án {{name}}"
 }

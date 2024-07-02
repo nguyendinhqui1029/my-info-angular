@@ -15,12 +15,12 @@ qContainerChangeSize
           <q-vertical-image-card 
           [id]="slide.id" 
           [imageUrl]="slide.source" 
-          [date]="slide?.date || ''" [content]="slide.content" [title]="slide. title" (eventClick)="eventClick.next($event)"/>
+          [date]="slide?.date || ''" [content]="slide.content" [title]="slide.title" (eventClick)="eventClick.next($event)"/>
         }
         @if(slide.type === cardTypeComponent.videoVerticalCard) {
           <q-vertical-video-card [id]="slide.id" 
           [videoId]="slide.source" 
-          [date]="slide?.date || ''" [content]="slide.content" [title]="slide. title" (eventClick)="eventClick.next($event)"/>
+          [date]="slide?.date || ''" [content]="slide.content" [title]="slide.title" (eventClick)="eventClick.next($event)"/>
         }
     }
     </ng-template>

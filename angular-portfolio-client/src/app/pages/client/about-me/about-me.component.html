@@ -1,13 +1,11 @@
-<article class="about-me-wrapper" qContainerChangeSize (sizeChange)="handleAboutMeLayoutWrapperWrapperChangeSize($event)" [maxWidth]="[832]"
-[class.mobile-margin]="(aboutMeLayoutWrapper | containerSize:'832').isMaxWidthMatch"
->
-<q-introduce-myself [introduce]="introduceMySelf"></q-introduce-myself>
-<q-experience [experience]="experience"></q-experience>
-<q-skills [skill]="skill"></q-skills>
-<q-work [work]="work"></q-work>
-<q-projects [project]="project"></q-projects>
-<q-education></q-education>
-<q-hobbies></q-hobbies>
-<q-contact></q-contact>
+<article class="about-me-wrapper" qContainerChangeSize
+  (sizeChange)="handleAboutMeLayoutWrapperWrapperChangeSize($event)" [maxWidth]="[832]"
+  [class.mobile-margin]="(aboutMeLayoutWrapper | containerSize:'832').isMaxWidthMatch">
+  <q-introduce-myself [introduce]="introduceMySelf" (eventClick)="handleOpenDialogContact()"></q-introduce-myself>
+  <q-experience [experience]="experience"></q-experience>
+  <q-skills [skill]="skill"></q-skills>
+  <q-work [work]="work"></q-work>
+  <q-projects [project]="project"></q-projects>
+  <q-education [education]="education"></q-education>
+  <q-hobbies [hobby]="hobby"></q-hobbies>
 </article>
-

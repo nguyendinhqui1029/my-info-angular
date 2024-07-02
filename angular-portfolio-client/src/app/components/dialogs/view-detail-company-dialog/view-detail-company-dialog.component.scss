@@ -1,64 +1,65 @@
 ::ng-deep {
-    body {
-      @import 'assets/styles/variables/light.mode.scss'; // Default mode
-  
-      .view-detail-wrapper {
-       display: flex;
-       flex-direction: column;
-       gap: 3rem;
-       max-width: 85rem;
-       padding-top: 1rem;
+  body {
+    @import 'assets/styles/variables/light.mode.scss'; // Default mode
 
-       .content-wrapper {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
+    .view-detail-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+      max-width: 85rem;
+      padding-top: 1rem;
+      margin: auto;
 
-            h2 {
-            font-size: 1.5rem;
-            color: $main-header-text;
-           }
-
-           .content {
-            color: $main-content-text;
-           }
-       }
-
-       .activity-wrapper {
-        margin-bottom: 4rem;
-       }
-      }
-  
-    }
-  
-    body.dark {
-      @import 'assets/styles/variables/dark.mode.scss';
-  
-      .view-detail-wrapper {
+      .content-wrapper {
         display: flex;
         flex-direction: column;
-        gap: 3rem;
-        max-width: 85rem;
-        padding-top: 1rem;
- 
-        .content-wrapper {
-             display: flex;
-             flex-direction: column;
-             gap: 1.5rem;
- 
-             h2 {
-             font-size: 1.5rem;
-             color: $main-header-text;
-            }
- 
-            .content {
-             color: $main-content-text;
-            }
+        gap: 1.5rem;
+
+        h2 {
+          font-size: 1.5rem;
+          color: $main-header-text;
         }
- 
-        .activity-wrapper {
-         margin-bottom: 4rem;
+
+        .content {
+          color: $main-content-text;
         }
-       }
+      }
+
+      .activity-wrapper {
+        margin-bottom: 4rem;
+      }
+    }
+
+  }
+
+  body.dark {
+    @import 'assets/styles/variables/dark.mode.scss';
+    .view-detail-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+      max-width: 85rem;
+      padding-top: 1rem;
+      margin: auto;
+
+      .content-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+
+        h2 {
+          font-size: 1.5rem;
+          color: $main-header-text;
+        }
+
+        .content {
+          color: $main-content-text;
+        }
+      }
+
+      .activity-wrapper {
+        margin-bottom: 4rem;
+      }
     }
   }
+}

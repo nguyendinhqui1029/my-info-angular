@@ -54,10 +54,31 @@ export interface Work {
         imageUrl: string;
       }[];
 }
+
+export interface Education {
+    subDescription: string;
+    educations: {
+        id: string;
+        name: string;
+        icon: string;
+        startDate: string;
+        endDate: string;
+        address: string;
+        description: string;
+        imageUrl: string;
+      }[];
+}
+
+export interface Hobby {
+    subDescription: string;
+    hobbies: Banner[];
+}
 export interface AboutMeResponseValue {
     introduceMySelf: IntroduceMySelf;
     experience: Experience;
     skill: Skill;
     work: Work;
     project: Project;
+    education: Education;
+    hobby: Hobby;
 }

@@ -14,5 +14,5 @@ export class RatingLevelComponent {
  @Input({required: true}) title!: string;
  @Input({required: true}) items: CommonOption[] = [];
 
- @Output() eventClick = new EventEmitter<string>();
+ @Output() eventClick = new EventEmitter<CommonOption>();
 }

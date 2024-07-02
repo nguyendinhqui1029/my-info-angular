@@ -12,5 +12,5 @@ import { Banner } from '@app/shared/models/banner.model';
 export class ContentOverlapImageCardComponent {
   @Input({ required: true }) item!: Banner;
   @Input({ required: false }) buttonName: string="detail";
-  @Output() eventClick = new EventEmitter<string>();
+  @Output() eventClick = new EventEmitter<Banner>();
 }

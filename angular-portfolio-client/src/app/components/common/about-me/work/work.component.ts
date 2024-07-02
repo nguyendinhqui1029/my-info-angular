@@ -13,7 +13,7 @@ import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
   styleUrl: './work.component.scss',
   providers: [DialogService]
 })
-export class WorkComponent implements OnDestroy{
+export class WorkComponent implements OnDestroy {
   @Input({ required: true }) work!: Work;
   private dialogService: DialogService = inject(DialogService);
 

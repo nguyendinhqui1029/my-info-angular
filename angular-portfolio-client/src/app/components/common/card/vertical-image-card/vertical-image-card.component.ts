@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { PrimeComponent } from '@app/configs/prime-angular/prime.config';
+import { Banner } from '@app/shared/models/banner.model';
 
 @Component({
   selector: 'q-vertical-image-card',
@@ -15,5 +16,5 @@ export class VerticalImageCardComponent {
  @Input({required: true}) content: string = ''; 
  @Input({required: true}) title: string = ''; 
 
- @Output() eventClick = new EventEmitter<string>();
+ @Output() eventClick = new EventEmitter<Banner>();
 }

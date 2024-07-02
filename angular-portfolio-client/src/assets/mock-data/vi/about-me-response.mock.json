@@ -172,6 +172,67 @@
           "source": "https://assets.topdev.vn/images/2024/06/07/TopDev-bb9f0cd89bcdab8696f41b8098bc5cd8-1717746090.png"
         }
       ]
+    },
+    "education": {
+      "subDescription": "My education",
+      "educations": [
+        {
+          "id": "1",
+          "name": "Smilegate Viet nam",
+          "icon": "pi pi-graduation-cap",
+          "startDate": "09/2019",
+          "endDate": "07/2022",
+          "address": "365 Điện biên phủ, quận bình thạnh",
+          "description": "DXC Technology (NYSE: DXC) helps global companies run their mission-critical systems and operations while modernizing IT, optimizing data architectures, and ensuring security and scalability across public, private and hybrid clouds. The world's largest companies and public sector organizations trust DXC to deploy services to drive new levels of performance, competitiveness, and customer experience across their IT estates. Learn more about how we deliver excellence for our customers and colleagues at DXC.com.",
+          "imageUrl": "https://media.licdn.com/dms/image/C5622AQECY7Za1NLhlA/feedshare-shrink_800/0/1678870517771?e=1721865600&v=beta&t=cw5VtChxt2bSYwU1n_u4oX38P9P9DnKKnm5DRIQEqGY"
+        },
+        {
+          "id": "2",
+          "name": "Saigon Technology",
+          "icon": "pi pi-graduation-cap",
+          "startDate": "09/2019",
+          "endDate": "07/2022",
+          "address": "364 Đ. Cộng Hòa, Phường 13, Tân Bình, Hồ Chí Minh",
+          "description": "DXC Technology (NYSE: DXC) helps global companies run their mission-critical systems and operations while modernizing IT, optimizing data architectures, and ensuring security and scalability across public, private and hybrid clouds. The world's largest companies and public sector organizations trust DXC to deploy services to drive new levels of performance, competitiveness, and customer experience across their IT estates. Learn more about how we deliver excellence for our customers and colleagues at DXC.com.",
+          "imageUrl": "https://media.licdn.com/dms/image/C5622AQECY7Za1NLhlA/feedshare-shrink_800/0/1678870517771?e=1721865600&v=beta&t=cw5VtChxt2bSYwU1n_u4oX38P9P9DnKKnm5DRIQEqGY"
+        },
+        {
+          "id": "3",
+          "name": "DXC Technology",
+          "icon": "pi pi-graduation-cap",
+          "startDate": "09/2019",
+          "endDate": "07/2022",
+          "address": "364 Đ. Cộng Hòa, Phường 13, Tân Bình, Hồ Chí Minh",
+          "description": "DXC Technology (NYSE: DXC) helps global companies run their mission-critical systems and operations while modernizing IT, optimizing data architectures, and ensuring security and scalability across public, private and hybrid clouds. The world's largest companies and public sector organizations trust DXC to deploy services to drive new levels of performance, competitiveness, and customer experience across their IT estates. Learn more about how we deliver excellence for our customers and colleagues at DXC.com.",
+          "imageUrl": "https://media.licdn.com/dms/image/C5622AQECY7Za1NLhlA/feedshare-shrink_800/0/1678870517771?e=1721865600&v=beta&t=cw5VtChxt2bSYwU1n_u4oX38P9P9DnKKnm5DRIQEqGY"
+        }
+      ]
+    },
+    "hobby": {
+      "subDescription": "My hobbies",
+      "hobbies": [
+        {
+          "id": "Banner1",
+          "type": "IMAGE_VERTICAL",
+          "content": "Company Trip",
+          "title": "Company trip with smilegate vietname",
+          "source": "https://assets.topdev.vn/images/2024/06/07/TopDev-80d36a3db5c218eade7dbaf06ca69d9a-1717746089.png"
+        },
+        {
+          "id": "Banner2",
+          "type": "IMAGE_VERTICAL",
+          "content": "Football Team",
+          "title": "Football Team",
+          "source": "https://assets.topdev.vn/images/2024/06/07/TopDev-4ce1c093139e3ead853d8d8663b566a6-1717746090.png"
+        },
+        {
+          "id": "Banner3",
+          "type": "IMAGE_VERTICAL",
+          "content": "Beer time",
+          "title": "Beer time",
+          "source": "https://assets.topdev.vn/images/2024/06/07/TopDev-bb9f0cd89bcdab8696f41b8098bc5cd8-1717746090.png"
+        }
+      ]
     }
   }
 }

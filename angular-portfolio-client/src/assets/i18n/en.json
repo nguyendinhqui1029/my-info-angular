@@ -42,5 +42,8 @@
   "about_me_header": "About Me",
   "skill_header": "Skills",
   "work_header": "Work",
-  "project_header": "Projects"
+  "project_header": "Projects",
+  "education_header": "Education",
+  "hobbies_header": "Hobbies",
+  "project_detail_header": "{{name}} Project"
 }

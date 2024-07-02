@@ -1,1 +1,9 @@
-<p>hobbies works!</p>
+<article class="about-me-hobbies-wrapper">
+  <header>
+    <h3>{{'hobbies_header' | translate}}</h3>
+    <small>{{hobby.subDescription}}</small>
+  </header>
+  <section class="hobbies-content-wrapper">
+    <q-carousel-wrapper [bannerItems]="hobby.hobbies || []" [customOptions]="customOptions"></q-carousel-wrapper>
+  </section>
+</article>

@@ -1,1 +1,7 @@
-<p>education works!</p>
+<article class="education-wrapper">
+  <header>
+    <h3>{{'education_header' | translate}}</h3>
+    <small>{{education.subDescription}}</small>
+  </header>
+  <q-timeline [items]="education.educations" [isShowButtonViewDetail]="false"></q-timeline>
+</article>
