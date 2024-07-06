@@ -1,1 +1,14 @@
-<p>admin-menu-top works!</p>
+<div class="admin-menu-top-wrapper" 
+qContainerChangeSize 
+(sizeChange)="handleAdminMenuTopWrapperWrapperChangeSize($event)" 
+[maxWidth]="[100]">
+  <i class="icon pi pi-bars" [style.visibility]="isHiddenToggleButton ? 'hidden' : 'visible'" (click)="handleToggleMenu()"></i>
+  @if(!(adminMenuTopWrapper | containerSize:'100').isMaxWidthMatch) {
+    <div class="actions-wrapper">
+      <!-- Search  -->
+      <i class="icon pi pi-search" ></i>
+      <!-- Notify  -->
+      <i class="icon pi pi-bell"></i>
+    </div>
+  }
+</div>

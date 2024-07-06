@@ -1,5 +1,5 @@
 import { Router, RouterModule } from '@angular/router';
-import { Component, Input, inject } from '@angular/core';
+import { Component, Input, EventEmitter, Output } from '@angular/core';
 import { AdminMenu } from '@app/shared/models/menu.mode';
 import { TranslateModule } from '@ngx-translate/core';
 
@@ -12,4 +12,5 @@ import { TranslateModule } from '@ngx-translate/core';
 })
 export class AdminMenuLeftContentComponent {
   @Input() items: AdminMenu[] = [];
+  @Output() eventClick =  new EventEmitter<boolean>();
 }

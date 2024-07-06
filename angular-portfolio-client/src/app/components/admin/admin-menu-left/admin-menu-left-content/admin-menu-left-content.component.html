@@ -6,7 +6,7 @@
   <ul class="parent-container">
     @for(item of items; track item) {
     <li class="parent-item">
-      <a class="parent-wrapper" [routerLink]="item.path" [routerLinkActive]="'parent-active'">
+      <a class="parent-wrapper" [routerLink]="item.path" [routerLinkActive]="'parent-active'" (click)="eventClick.next(!item.children.length)">
         @if(item?.icon) {
           <i class="icon pi" [class]="item?.icon"></i>
         }
@@ -15,7 +15,7 @@
       @if(item.children.length) {
         <ul class="children-wrapper">
           @for(childItem of item.children; track childItem) {
-            <li class="child-item" routerLink="/admin/personal-management/{{childItem.path}}" [routerLinkActive]="'active'">
+            <li class="child-item" routerLink="/admin/personal-management/{{childItem.path}}" [routerLinkActive]="'active'" (click)="eventClick.next(true)">
               {{childItem.name}}
             </li>
           }

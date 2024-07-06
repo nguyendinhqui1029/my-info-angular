@@ -1,0 +1,55 @@
+::ng-deep {
+  body {
+    @import 'assets/styles/variables/light.mode.scss'; // Default mode
+
+    .admin-menu-top-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 1px 1px 0.25rem $main-border;
+      padding: 1rem;
+      width: inherit;
+      height: inherit;
+      background: $secondary-background;
+
+      .icon {
+        font-size: 1.5rem;
+        color: $main-icon;
+        cursor: pointer;
+      }
+
+      .actions-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+    }
+  }
+
+  body.dark {
+    @import 'assets/styles/variables/dark.mode.scss';
+
+    .admin-menu-top-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 1px 1px 0.25rem $main-border;
+      padding: 1rem;
+      width: inherit;
+      height: inherit;
+      background: $secondary-background;
+
+      .icon {
+        font-size: 1.5rem;
+        color: $main-icon;
+        cursor: pointer;
+      }
+
+      .actions-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+    }
+  }
+}

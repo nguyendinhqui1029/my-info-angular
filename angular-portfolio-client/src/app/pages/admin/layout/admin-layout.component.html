@@ -1,8 +1,12 @@
-<q-admin-menu-left>
-</q-admin-menu-left>
-<div class="admin-content-wrapper">
-  <q-admin-menu-top></q-admin-menu-top>
-  <section class="admin-content">
-   <router-outlet></router-outlet>
+<div class="admin-layout-wrapper" qContainerChangeSize (sizeChange)="handleAdminLayoutWrapperWrapperChangeSize($event)"
+  [maxWidth]="[630]">
+  <q-admin-menu-left [style.--maxMenuLeftWidth]="menuLeftMaxWidth" (eventClick)="handleCloseMenu($event)">
+  </q-admin-menu-left>
+  <q-admin-menu-top [isHiddenToggleButton]="isHiddenToggleButton" [style.--maxMenuLeftWidth]="menuLeftMaxWidth"
+    (eventToggleMenuClick)="handleSetWidthMenuLeft()"></q-admin-menu-top>
+
+  <section class="admin-content" [style.margin-left]="isHiddenToggleButton ? MENU_LEFT_MAX_WIDTH : '0'"
+    [style.--maxMenuLeftWidth]="menuLeftMaxWidth">
+    <router-outlet></router-outlet>
   </section>
 </div>

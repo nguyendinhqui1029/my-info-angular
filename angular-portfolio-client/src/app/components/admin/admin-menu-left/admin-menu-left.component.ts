@@ -1,5 +1,4 @@
-import { Component, inject } from '@angular/core';
-import { AdminMenu } from '@app/shared/models/menu.mode';
+import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { MenuService } from '@app/shared/services/menu.service';
 import { AdminMenuLeftContentComponent } from '@components/admin/admin-menu-left/admin-menu-left-content/admin-menu-left-content.component';
 
@@ -11,8 +10,10 @@ import { AdminMenuLeftContentComponent } from '@components/admin/admin-menu-left
   styleUrl: './admin-menu-left.component.scss'
 })
 export class AdminMenuLeftComponent {
-
+  @Output() eventClick = new EventEmitter<boolean>();
+  
   private menuService: MenuService = inject(MenuService);
 
   menuItems = this.menuService.getAdminMenu().result;
+  
 }
