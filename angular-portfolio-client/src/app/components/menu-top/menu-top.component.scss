@@ -31,9 +31,6 @@
         }
 
         .logo-wrapper {
-          display: flex;
-          gap: 0.75rem;
-          align-items: center;
           cursor: pointer;
 
           .logo {
@@ -92,6 +89,11 @@
       padding: 1rem 0;
       box-shadow: 0rem 0.005rem 0.2rem #767676;
       background: $primary-background;
+      position: fixed;
+      width: 100%;
+      left: 0;
+      top: 0;
+      z-index: 800;
 
       .menu-top-wrapper {
         display: flex;
@@ -112,9 +114,6 @@
         }
 
         .logo-wrapper {
-          display: flex;
-          gap: 0.75rem;
-          align-items: center;
           cursor: pointer;
 
           .logo {
@@ -141,6 +140,10 @@
     }
 
     .sidebar {
+
+      .vertical-menu-content {
+        z-index: 1300;
+      }
 
       .logo-wrapper {
         display: flex;

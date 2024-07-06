@@ -22,6 +22,7 @@ import { TimelineModule } from 'primeng/timeline';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { ImageModule } from 'primeng/image';
+import { BreadcrumbModule } from 'primeng/breadcrumb';
 
 export const PrimeComponent = [
     //Custom component
@@ -51,5 +52,6 @@ export const PrimeComponent = [
     TimelineModule,
     InputNumberModule,
     InputTextareaModule,
-    ImageModule
+    ImageModule,
+    BreadcrumbModule
 ];

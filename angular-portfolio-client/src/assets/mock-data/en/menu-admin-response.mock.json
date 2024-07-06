@@ -1,0 +1,80 @@
+{
+    "statusCode": 0,
+    "statusText": "Success",
+    "data": [
+        {
+            "id": "MENU01",
+            "name": "Dashboard",
+            "path": "dashboard",
+            "icon": "pi-chart-bar",
+            "isActive": false,
+            "children": []
+        },
+        {
+            "id": "MENU08",
+            "name": "Personal Management",
+            "path": "personal-management",
+            "icon": "pi-user",
+            "isActive": false,
+            "children": [
+                {
+                    "id": "MENU02",
+                    "name": "Companies Management",
+                    "path": "companies-management",
+                    "icon": "",
+                    "isActive": false,
+                    "children": []
+                },
+                {
+                    "id": "MENU03",
+                    "name": "Education Management",
+                    "path": "education-management",
+                    "icon": "",
+                    "isActive": false,
+                    "children": []
+                },
+                {
+                    "id": "MENU04",
+                    "name": "Footer Management",
+                    "path": "footer-management",
+                    "icon": "",
+                    "isActive": false,
+                    "children": []
+                },
+                {
+                    "id": "MENU05",
+                    "name": "Hobbies Management",
+                    "path": "hobby-management",
+                    "icon": "",
+                    "isActive": false,
+                    "children": []
+                },
+                {
+                    "id": "MENU06",
+                    "name": "Projects Management",
+                    "path": "projects-management",
+                    "icon": "",
+                    "isActive": false,
+                    "children": []
+                },
+                {
+                    "id": "MENU07",
+                    "name": "Skills Management",
+                    "path": "skills-management",
+                    "icon": "",
+                    "isActive": false,
+                    "children": []
+                }
+            ]
+        },
+        {
+            "id": "MENU09",
+            "name": "Settings",
+            "path": "settings",
+            "icon": "pi-cog",
+            "isActive": false,
+            "children": []
+        }
+        
+    ]
+}

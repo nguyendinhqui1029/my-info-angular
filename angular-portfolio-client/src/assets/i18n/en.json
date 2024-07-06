@@ -45,5 +45,8 @@
   "project_header": "Projects",
   "education_header": "Education",
   "hobbies_header": "Hobbies",
-  "hobby_detail_header": "{{name}} Hobby"
+  "hobby_detail_header": "{{name}} Hobby",
+  "not_found_title": "UH OH! You're lost.",
+  "not_found_description": "The page you are looking for does not exist. How you got here is a mystery. But you can click the button below to go back to the homepage.",
+  "button_homepage": "Homepage"
 }

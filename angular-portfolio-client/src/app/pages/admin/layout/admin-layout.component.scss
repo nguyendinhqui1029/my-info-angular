@@ -1,0 +1,41 @@
+:host {
+  --maxMenuLeftWidth: 15.25rem;
+  --minMenuLeftWidth: 5rem;
+  --menuTopHeight: 4.09375rem;
+}
+
+::ng-deep {
+  admin-layout {
+    height: 100vh;
+    position: relative;
+
+    q-admin-menu-left {
+      position: fixed;
+      min-width: var(--minMenuLeftWidth, 5rem);
+      width: var(--maxMenuLeftWidth, 15.25rem);
+      max-width: var(--maxMenuLeftWidth, 15.25rem);
+      top: 0;
+      height: 100vh;
+    }
+
+    .admin-content-wrapper {
+      position: relative;
+      margin-left: var(--maxMenuLeftWidth, 15.25rem);
+      margin-top: var(--menuTopHeight, 3.75rem);
+      q-admin-menu-top {
+        position: fixed;
+        left: var(--maxMenuLeftWidth, 15.25rem);
+        top: 0;
+        width: 100%;
+        height: var(--menuTopHeight, 3.75rem);
+        max-height: var(--menuTopHeight, 3.75rem);
+      }
+
+      .admin-content {
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+      }
+    }
+  }
+}

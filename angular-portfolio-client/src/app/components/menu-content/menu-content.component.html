@@ -1,5 +1,5 @@
 <nav [ngClass]="{'nav-horizontal-wrapper': !isVertical, 'nav-vertical-wrapper': isVertical}">
-    @for(item of menuItems(); track item) {
+    @for(item of menuItems().data?.data; track item) {
         <p-button 
             icon="{{item.isActive ? 'pi pi-star-fill' : ''}}" 
             styleClass="button-full" 

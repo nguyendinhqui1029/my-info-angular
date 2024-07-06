@@ -4,6 +4,7 @@ import { RouterLink } from '@angular/router';
 import { PrimeComponent } from '@app/configs/prime-angular/prime.config';
 import { MENU_ITEMS } from '@app/constants/menu.const';
 import { MenuItem } from '@app/shared/models/menu.mode';
+import { MenuService } from '@app/shared/services/menu.service';
 import { UserService } from '@app/shared/services/user.service';
 import { Subscription } from 'rxjs/internal/Subscription';
 
@@ -21,11 +22,12 @@ export class MenuContentComponent  implements OnInit, OnDestroy {
   @Output() menuItemClick= new EventEmitter<MenuItem>();
 
   private userService: UserService = inject(UserService);
+  private menuService: MenuService = inject(MenuService);
 
   
   private unSubscribeLoginSubject: Subscription | undefined;
 
-  menuItems = signal<MenuItem[]>(MENU_ITEMS);
+  menuItems = this.menuService.getClientMenu().result;
   menuActive = signal<string>('');
   isLogin = signal<boolean>(true);
 

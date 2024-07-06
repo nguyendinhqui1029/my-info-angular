@@ -5,3 +5,7 @@ export interface MenuItem {
     icon?: string;
     isActive: boolean;
 }
+
+export interface AdminMenu extends MenuItem{
+  children: MenuItem[];
+}

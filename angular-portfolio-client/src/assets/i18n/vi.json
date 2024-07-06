@@ -45,5 +45,8 @@
   "project_header": "Dự án",
   "education_header": "Giáo dục",
   "hobbies_header": "Sở thích",
-  "hobby_detail_header": "Sở thích {{name}}"
+  "hobby_detail_header": "Sở thích {{name}}",
+  "not_found_title": "Ôi không! Bạn đã bị lạc đường.",
+  "not_found_description": "Trang bạn đang tìm kiếm không tồn tại. Cách bạn đến đây là một điều bí ẩn. Nhưng bạn có thể nhấn vào nút bên dưới để quay lại trang chủ.",
+  "button_homepage": "Trang chủ"
 }

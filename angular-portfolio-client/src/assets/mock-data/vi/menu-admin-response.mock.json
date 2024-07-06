@@ -1,0 +1,79 @@
+{
+  "statusCode": 0,
+  "statusText": "Success",
+  "data": [
+    {
+      "id": "MENU01",
+      "name": "Dashboard",
+      "path": "dashboard",
+      "icon": "pi-chart-bar",
+      "isActive": true,
+      "children": []
+    },
+    {
+      "id": "MENU08",
+      "name": "Personal Management",
+      "path": "personal-management",
+      "icon": "pi-user",
+      "isActive": false,
+      "children": [
+        {
+          "id": "MENU02",
+          "name": "Quản lí công ty",
+          "path": "companies-management",
+          "icon": "",
+          "isActive": false,
+          "children": []
+        },
+        {
+          "id": "MENU03",
+          "name": "Quản lí giáo dục",
+          "path": "education-management",
+          "icon": "",
+          "isActive": false,
+          "children": []
+        },
+        {
+          "id": "MENU04",
+          "name": "Quản lí footer",
+          "path": "footer-management",
+          "icon": "",
+          "isActive": false,
+          "children": []
+        },
+        {
+          "id": "MENU05",
+          "name": "Quản lí sở thích",
+          "path": "hobby-management",
+          "icon": "",
+          "isActive": false,
+          "children": []
+        },
+        {
+          "id": "MENU06",
+          "name": "Quản lí dự án",
+          "path": "projects-management",
+          "icon": "",
+          "isActive": false,
+          "children": []
+        },
+        {
+          "id": "MENU07",
+          "name": "Quản lí kĩ năng",
+          "path": "skills-management",
+          "icon": "",
+          "isActive": false,
+          "children": []
+        }
+      ]
+    },
+    {
+        "id": "MENU09",
+        "name": "Settings",
+        "path": "settings",
+        "icon": "pi-cog",
+        "isActive": false,
+        "children": []
+    }
+  ]
+}

@@ -1,0 +1,193 @@
+::ng-deep {
+  body {
+    @import 'assets/styles/variables/light.mode.scss'; // Default mode
+    q-admin-menu-left-content {
+      display: flex;
+      flex-direction: column;
+      background: $primary-background;
+      height: inherit;
+      box-shadow: 0.025rem 0.025rem 0.25rem $main-border;
+      width: inherit;
+      
+      .admin-logo-wrapper {
+        display: flex;
+        flex-direction: row;
+        gap: 0.75rem;
+        align-items: center;
+        padding: 0.75rem 0.5rem;
+        border-bottom: 0.1rem solid $main-border;
+        .logo {
+          width: 2.5em;
+          height: 2.5em;
+        }
+  
+        .name {
+          font-size: 1.25rem;
+          font-weight: bold;
+          color: $main-header-text;
+        }
+      }
+
+      .menu-item-wrapper {
+        display: flex;
+        padding: 0.75rem 0.5rem;
+        overflow: auto;
+        height: 100%;
+        .parent-container {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+
+          .parent-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.275rem;
+            padding-bottom: 0.4375rem;
+
+            .parent-wrapper:hover {
+              background: $hover-background;
+              color: $main-header-text;
+            }
+            .parent-wrapper {
+              display: flex;
+              align-items: flex-end;
+              gap: 0.5rem;
+              padding: 0.4375rem;
+              min-height: 2.375rem;
+
+              cursor: pointer;
+              .icon {
+                font-size: 1.5em;
+              }
+  
+              h3 {
+                line-height: 1rem;
+              }
+            }
+
+            .parent-active {
+              color: $main-highlight-content-text;
+              background: $background-avatar;
+            }
+
+            .children-wrapper {
+              display: flex;
+              flex-direction: column;
+              margin-left: 1.5rem;
+
+              .child-item {
+                cursor: pointer;
+                color: $main-content-text;
+                border-left: 0.15rem solid $main-border;
+                padding: 0.4375rem 0.4375rem 0.4375rem 0.875rem;
+              }
+              .child-item:hover {
+                background: $hover-background;
+              }
+              .active {
+                border-left: 0.15rem solid $second-border;
+              }
+            }
+          }
+        }
+      }
+    }
+    
+  }
+
+  body.dark {
+    @import 'assets/styles/variables/dark.mode.scss';
+
+    q-admin-menu-left-content {
+      display: flex;
+      flex-direction: column;
+      background: $primary-background;
+      height: inherit;
+      box-shadow: 0.025rem 0.025rem 0.25rem $main-border;
+      width: inherit;
+      
+      .admin-logo-wrapper {
+        display: flex;
+        flex-direction: row;
+        gap: 0.75rem;
+        align-items: center;
+        padding: 0.75rem 0.5rem;
+        border-bottom: 0.1rem solid $main-border;
+        .logo {
+          width: 2.5em;
+          height: 2.5em;
+        }
+  
+        .name {
+          font-size: 1.25rem;
+          font-weight: bold;
+          color: $main-header-text;
+        }
+      }
+
+      .menu-item-wrapper {
+        display: flex;
+        padding: 0.75rem 0.5rem;
+        overflow: auto;
+        height: 100%;
+        .parent-container {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+
+          .parent-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.275rem;
+            padding-bottom: 0.4375rem;
+
+            .parent-wrapper:hover {
+              background: $hover-background;
+              color: $main-header-text;
+            }
+            .parent-wrapper {
+              display: flex;
+              align-items: flex-end;
+              gap: 0.5rem;
+              padding: 0.4375rem;
+              min-height: 2.375rem;
+              
+              cursor: pointer;
+              .icon {
+                font-size: 1.5em;
+              }
+  
+              h3 {
+                line-height: 1rem;
+              }
+            }
+
+            .parent-active {
+              color: $main-highlight-content-text;
+              background: $background-avatar;
+            }
+
+            .children-wrapper {
+              display: flex;
+              flex-direction: column;
+              margin-left: 1.5rem;
+
+              .child-item {
+                cursor: pointer;
+                color: $main-content-text;
+                border-left: 0.15rem solid $main-border;
+                padding: 0.4375rem 0.4375rem 0.4375rem 0.875rem;
+              }
+              .child-item:hover {
+                background: $hover-background;
+              }
+              .active {
+                border-left: 0.15rem solid $second-border;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

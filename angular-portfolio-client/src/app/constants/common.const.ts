@@ -5,7 +5,9 @@ export const QUERY_KEYS = {
     SKILL_CONTENT: 'skill-content',
     CATEGORIES_BY_ID: 'categories-by-id',
     ABOUT_ME: 'about-me',
-    COMPANY_DETAIL: 'company-detail'
+    COMPANY_DETAIL: 'company-detail',
+    MENU_CLIENT: 'menu-client',
+    MENU_ADMIN: 'menu-admin',
 }
 
 export enum LocalStorageKey {

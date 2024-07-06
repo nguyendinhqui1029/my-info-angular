@@ -1,0 +1,34 @@
+{
+    "statusCode": 0,
+    "statusText": "Success",
+    "data": [
+        {
+            "id": "MENU01",
+            "name": "Frontend",
+            "path": "/skills/1",
+            "icon": "",
+            "isActive": false
+        },
+        {
+            "id": "MENU02",
+            "name": "Backend",
+            "path": "/skills/2",
+            "icon": "",
+            "isActive": false
+        },
+        {
+            "id": "MENU03",
+            "name": "Cuộc sống",
+            "path": "/my-life",
+            "icon": "",
+            "isActive": false
+        },
+        {
+            "id": "MENU04",
+            "name": "Về tôi",
+            "path": "/about-me",
+            "icon": "",
+            "isActive": false
+        }
+    ]
+}

@@ -1,0 +1,27 @@
+<div class="admin-logo-wrapper">
+  <img class="logo" src="assets/images/logo.png" alt="logo" />
+  <span class="name">{{'author_name' | translate}}</span>
+</div>
+<div class="menu-item-wrapper">
+  <ul class="parent-container">
+    @for(item of items; track item) {
+    <li class="parent-item">
+      <a class="parent-wrapper" [routerLink]="item.path" [routerLinkActive]="'parent-active'">
+        @if(item?.icon) {
+          <i class="icon pi" [class]="item?.icon"></i>
+        }
+        <h3>{{item.name}}</h3>
+      </a>
+      @if(item.children.length) {
+        <ul class="children-wrapper">
+          @for(childItem of item.children; track childItem) {
+            <li class="child-item" routerLink="/admin/personal-management/{{childItem.path}}" [routerLinkActive]="'active'">
+              {{childItem.name}}
+            </li>
+          }
+        </ul>
+      }
+    </li>
+    }
+  </ul>
+</div>
