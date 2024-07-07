@@ -34,14 +34,6 @@
                     "children": []
                 },
                 {
-                    "id": "MENU04",
-                    "name": "Footer Management",
-                    "path": "footer-management",
-                    "icon": "",
-                    "isActive": false,
-                    "children": []
-                },
-                {
                     "id": "MENU05",
                     "name": "Hobbies Management",
                     "path": "hobby-management",
@@ -66,6 +58,14 @@
                     "children": []
                 }
             ]
+        },
+        {
+            "id": "MENU04",
+            "name": "Footer Management",
+            "path": "footer-management",
+            "icon": "",
+            "isActive": false,
+            "children": []
         },
         {
             "id": "MENU09",

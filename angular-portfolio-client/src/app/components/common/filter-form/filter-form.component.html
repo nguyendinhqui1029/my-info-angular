@@ -1,0 +1,31 @@
+<p-button size="small" icon="pi pi-filter" outlined label="filter" (click)="overlay.toggle($event)"/>
+<p-overlayPanel #overlay>
+  <ng-template pTemplate="content">
+    <div class="filter-wrapper">
+      @for(item of items; track item) {
+        <div class="section">
+          <h4>{{item.title}}</h4>
+            <ul class="content">
+              @for(option of item.options; track option) {
+                <li>
+                  <p-radioButton 
+                  [(ngModel)]="currentValue[item.key]"
+                  [name]="option.value" 
+                  [value]="option.value" 
+                  [inputId]="option.value" />
+                  <label [for]="option.value">
+                      {{option.name}}
+                  </label>
+                </li>
+              }
+            </ul>
+         </div>
+      }
+     
+     <div class="actions-wrapper">
+      <p-button size="small" outlined [label]="'reset_button' | translate" (click)="handleResetFilter()"></p-button>
+      <p-button size="small" [label]="'submit_button' | translate" (click)="handleSubmitFilter()"></p-button>
+     </div>
+    </div>
+  </ng-template>
+</p-overlayPanel>

@@ -40,12 +40,12 @@ export const routes: Routes = [
                     { path: '', redirectTo: '/admin/personal-management/companies-management', pathMatch: 'full' },
                     { path: 'companies-management', component: CompanyManagementComponent },
                     { path: 'education-management', component: EducationManagementComponent },
-                    { path: 'footer-management', component: FooterManagementComponent },
                     { path: 'hobby-management', component: HobbyManagementComponent },
                     { path: 'projects-management', component: ProjectManagementComponent },
                     { path: 'skills-management', component: SkillManagementComponent }
                 ]
             },
+            { path: 'footer-management', component: FooterManagementComponent },
             {
                 path: 'settings',
                 component: ChildWrapperComponent,

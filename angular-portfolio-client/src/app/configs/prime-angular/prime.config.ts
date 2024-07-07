@@ -23,6 +23,8 @@ import { InputNumberModule } from 'primeng/inputnumber';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { ImageModule } from 'primeng/image';
 import { BreadcrumbModule } from 'primeng/breadcrumb';
+import { TableModule } from 'primeng/table';
+import { OverlayPanelModule } from 'primeng/overlaypanel';
 
 export const PrimeComponent = [
     //Custom component
@@ -53,5 +55,7 @@ export const PrimeComponent = [
     InputNumberModule,
     InputTextareaModule,
     ImageModule,
-    BreadcrumbModule
+    BreadcrumbModule,
+    TableModule,
+    OverlayPanelModule
 ];

@@ -1,0 +1,42 @@
+::ng-deep {
+  body {
+    @import 'assets/styles/variables/light.mode.scss'; // Default mode
+
+    .filter-wrapper {
+      display: flex;
+      flex-direction: column;
+      min-width: 10rem;
+      gap: 1rem;
+
+      .section {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        .content {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(7rem, 1fr));
+          grid-template-rows: auto;
+          gap: 0.5rem;
+
+          li {
+            display: flex;
+            gap: 0.25rem;
+          }
+        }
+      }
+
+      .actions-wrapper {
+        display: flex;
+        gap: 1rem;
+        justify-content: space-around;
+        align-items: center;
+        margin-top: 1rem;
+      }
+    }
+  }
+
+  body.dark {
+    @import 'assets/styles/variables/dark.mode.scss';
+
+  }
+}

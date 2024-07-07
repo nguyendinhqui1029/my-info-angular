@@ -1,1 +1,33 @@
-<p>company-management works!</p>
+<q-dynamic-search-form></q-dynamic-search-form>
+<div class="actions-wrapper">
+  <p-button size="small" [label]="'register'" />
+</div>
+<div class="header-wrapper">
+  <h3>Header</h3>
+
+  <div class="filter-group">
+    <h4>
+      {{'total_count' | translate}}
+    </h4>
+    <q-filter-form [items]="filterField" (eventClick)="handleFilterClick($event)"></q-filter-form>
+  </div>
+</div>
+
+<p-table [value]="[]" [tableStyle]="{ 'min-width': '50rem' }">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Code</th>
+      <th>Name</th>
+      <th>Category</th>
+      <th>Quantity</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-product>
+    <tr>
+      <td>{{ product.code }}</td>
+      <td>{{ product.name }}</td>
+      <td>{{ product.category }}</td>
+      <td>{{ product.quantity }}</td>
+    </tr>
+  </ng-template>
+</p-table>

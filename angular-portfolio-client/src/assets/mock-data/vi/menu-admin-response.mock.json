@@ -68,6 +68,14 @@
       ]
     },
     {
+        "id": "MENU04",
+        "name": "Footer Management",
+        "path": "footer-management",
+        "icon": "",
+        "isActive": false,
+        "children": []
+    },
+    {
         "id": "MENU09",
         "name": "Settings",
         "path": "settings",
