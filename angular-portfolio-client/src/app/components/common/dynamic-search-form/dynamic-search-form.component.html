@@ -1,1 +1,63 @@
-<p>dynamic-search-form works!</p>
+<div class="search-form-wrapper">
+  <form class="form-wrapper" qContainerChangeSize (sizeChange)="handleDynamicSearchFormWrapperChangeSize($event)"
+    [maxWidth]="[1568]" [style.--gridColumn]="currentColumn">
+    @for(field of fieldConfig; track field) {
+      @if(field.type === 'TEXT') {
+        <q-label-wrapper style.grid-column="auto / span {{currentColumn && field.span && currentColumn >= field.span ? field.span : currentColumn}}" [label]="field.name"
+          [isRequired]="!!field?.isRequired" [id]="field.key">
+          <span ngProjectAs="control-component">
+            <input class="p-fluid" [placeholder]="field?.placeholder || ''" [(ngModel)]="currentValue[field.key]" pInputText
+              [id]="field.key" [ngModelOptions]="{standalone: true}" />
+          </span>
+        </q-label-wrapper>
+      }
+
+      @if(field.type === 'DROPDOWN') {
+        <q-label-wrapper style.grid-column="auto / span {{(currentColumn && field.span && currentColumn >= field.span ? field.span : currentColumn)}}" [label]="field.name"
+          [isRequired]="!!field?.isRequired" [id]="field.key">
+          <span ngProjectAs="control-component">
+            <p-dropdown class="p-fluid" [options]="field?.options || []" [(ngModel)]="currentValue[field.key]"
+              optionLabel="name" optionValue="value" [filter]="(field?.options || []).length > 10"
+              [placeholder]="field?.placeholder || ''" [ngModelOptions]="{standalone: true}" />
+          </span>
+        </q-label-wrapper>
+      }
+
+      @if(field.type === 'CHECKBOX') {
+        <q-label-wrapper style.grid-column="auto / span {{currentColumn && field.span && currentColumn >= field.span ? field.span : currentColumn}}" [label]="field.name"
+          [isRequired]="!!field?.isRequired" [id]="field.key">
+          <span ngProjectAs="control-component" class="field-group">
+            @for(option of field?.options; track option.id) {
+            <div class="checkbox-group">
+              <p-checkbox inputId="{{option.id}}" [(ngModel)]="currentValue[field.key]"
+                [value]="option.value"
+                [ngModelOptions]="{standalone: true}" />
+              <label for="{{option.id}}">{{option.name }}</label>
+            </div>
+            }
+          </span>
+        </q-label-wrapper>
+      }
+
+      @if(field.type === 'RADIO') {
+        <q-label-wrapper style.grid-column="auto / span {{currentColumn && field.span && currentColumn >= field.span ? field.span : currentColumn}}" [label]="field.name"
+          [isRequired]="!!field?.isRequired" [id]="field.key">
+          <span ngProjectAs="control-component" class="field-group">
+            @for(option of field?.options; track option.id) {
+            <div class="checkbox-group">
+              <p-radioButton  inputId="{{option.id}}" [(ngModel)]="currentValue[field.key]"
+                [value]="option.value"
+                [ngModelOptions]="{standalone: true}" />
+              <label for="{{option.id}}">{{option.name }}</label>
+            </div>
+            }
+          </span>
+        </q-label-wrapper>
+      }
+    }
+  </form>
+  <div class="actions">
+    <p-button size="small" icon="pi pi-search" (click)="handleSubmitSearch()"></p-button>
+    <p-button size="small" icon="pi pi-undo" outlined (click)="handleResetSearchForm()"></p-button>
+  </div>
+</div>

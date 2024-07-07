@@ -28,7 +28,8 @@ export class FilterFormComponent implements OnChanges{
   }
 
   handleResetFilter() {
-    this.eventClick.next(this.initialValue);
+    this.currentValue = {...this.initialValue};
+    this.eventClick.next(this.currentValue);
   }
 
   handleSubmitFilter() {

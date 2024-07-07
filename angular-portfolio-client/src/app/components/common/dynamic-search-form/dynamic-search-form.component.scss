@@ -1,0 +1,48 @@
+:host {
+  --gridColumn: 1;
+}
+::ng-deep {
+  body {
+    @import 'assets/styles/variables/light.mode.scss'; // Default mode
+    .search-form-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      border: 0.1rem solid $main-border;
+      border-radius: 0.5rem;
+      padding: 1rem;
+      .form-wrapper {
+        display: grid;
+        grid-template-columns: repeat(var(--gridColumn, 1), minmax(15rem, 1fr));
+        grid-template-rows: auto;
+        gap: 1rem;
+        flex: 1;
+
+        .field-group {
+          display: flex;
+          gap: 1rem;
+          flex-wrap: wrap;
+          .checkbox-group {
+            display: flex;
+            align-self: end;
+            gap: 0.25rem;
+            color: $main-content-text;
+          }
+        }
+        
+      }
+      .actions {
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+        gap: 1rem;
+      }
+    }
+  }
+
+  body.dark {
+    @import 'assets/styles/variables/dark.mode.scss';
+
+
+  }
+}

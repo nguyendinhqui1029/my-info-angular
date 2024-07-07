@@ -3,6 +3,7 @@ import { DynamicSearchFormComponent } from '@app/components/common/dynamic-searc
 import { FilterFormComponent } from '@app/components/common/filter-form/filter-form.component';
 import { PrimeComponent } from '@app/configs/prime-angular/prime.config';
 import { FilterOptions } from '@app/shared/models/filter.model';
+import { SearchFormConfig } from '@app/shared/models/search-form.model';
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
@@ -49,8 +50,74 @@ export class CompanyManagementComponent {
       ]
     }
   ];
+  fieldConfig: SearchFormConfig[] = [{
+    name: 'Field Name 1',
+    isRequired: true,
+    initialValue: '',
+    key: 'keyword',
+    type: 'TEXT',
+    span: 1
+},
+{
+  name: 'Field Name 2',
+  isRequired: true,
+  initialValue: '1',
+  key: 'keyword1',
+  type: 'DROPDOWN',
+  span: 1,
+  options: [{
+    id: '1',
+    name: '1',
+    value: '1'
+  },
+  {
+    id: '2',
+    name: '3',
+    value: '4'
+  }]
+},
+{
+  name: 'Field Name 3',
+  isRequired: true,
+  initialValue: '1',
+  key: 'keyword2',
+  type: 'CHECKBOX',
+  span: 1,
+  options: [{
+    id: '1',
+    name: '1',
+    value: '1'
+  },
+  {
+    id: '2',
+    name: '3',
+    value: '4'
+  }]
+},
+{
+  name: 'Field Name 4',
+  isRequired: true,
+  initialValue: '1',
+  key: 'keyword5',
+  type: 'RADIO',
+  span: 1,
+  options: [{
+    id: '1',
+    name: '1',
+    value: '1'
+  },
+  {
+    id: '2',
+    name: '3',
+    value: '4'
+  }]
+}]
 
   handleFilterClick(value: Record<string, string>) {
+    console.log(value);
+  }
+
+  handleSearchClick(value: Record<string, string | string[] | boolean>) {
     console.log(value);
   }
 }

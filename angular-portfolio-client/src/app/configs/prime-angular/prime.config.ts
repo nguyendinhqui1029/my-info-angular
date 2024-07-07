@@ -25,6 +25,7 @@ import { ImageModule } from 'primeng/image';
 import { BreadcrumbModule } from 'primeng/breadcrumb';
 import { TableModule } from 'primeng/table';
 import { OverlayPanelModule } from 'primeng/overlaypanel';
+import { DropdownModule } from 'primeng/dropdown';
 
 export const PrimeComponent = [
     //Custom component
@@ -57,5 +58,6 @@ export const PrimeComponent = [
     ImageModule,
     BreadcrumbModule,
     TableModule,
-    OverlayPanelModule
+    OverlayPanelModule,
+    DropdownModule
 ];
