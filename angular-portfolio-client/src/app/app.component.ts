@@ -3,6 +3,8 @@ import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { RouterOutlet } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { LocalStorageKey } from './constants/common.const';
+import { environment } from '@environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -18,6 +20,7 @@ export class AppComponent implements OnInit, OnDestroy {
   title: Title = inject(Title);
 
   ngOnInit(): void {
+    this.translateService.use(localStorage.getItem(LocalStorageKey.language) || environment.defaultLanguage);
     this.title.setTitle(this.translateService.instant('author_name'));
     this.subscription = this.translateService.onLangChange.subscribe(() => this.title.setTitle(this.translateService.instant('author_name')));
   }

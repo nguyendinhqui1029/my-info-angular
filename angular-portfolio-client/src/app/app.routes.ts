@@ -6,12 +6,12 @@ import { DashboardComponent } from '@admin/dashboard/dashboard.component';
 import { SkillsComponent } from '@pages/client/skills/skills.component';
 import { MyLifeComponent } from '@pages/client/my-life/my-life.component';
 import { AboutMeComponent } from '@pages/client/about-me/about-me.component';
-import { CompanyManagementComponent } from '@pages/admin/company-management/company-management.component';
-import { EducationManagementComponent } from '@pages/admin/education-management/education-management.component';
+import { CompanyManagementComponent } from '@app/pages/admin/personal-management/company-management/company-management.component';
+import { EducationManagementComponent } from '@app/pages/admin/personal-management/education-management/education-management.component';
 import { FooterManagementComponent } from '@pages/admin/footer-management/footer-management.component';
-import { HobbyManagementComponent } from '@pages/admin/hobby-management/hobby-management.component';
-import { ProjectManagementComponent } from '@pages/admin/project-management/project-management.component';
-import { SkillManagementComponent } from '@pages/admin/skill-management/skill-management.component';
+import { HobbyManagementComponent } from '@app/pages/admin/personal-management/hobby-management/hobby-management.component';
+import { ProjectManagementComponent } from '@app/pages/admin/personal-management/project-management/project-management.component';
+import { SkillManagementComponent } from '@app/pages/admin/personal-management/skill-management/skill-management.component';
 import { ChildWrapperComponent } from '@components/admin/child-wrapper/child-wrapper.component';
 import { NotFound404Component } from '@components/common/not-found-404/not-found-404.component';
 
@@ -35,15 +35,7 @@ export const routes: Routes = [
             { path: 'dashboard', component: DashboardComponent },
             {
                 path: 'personal-management',
-                component: ChildWrapperComponent,
-                children: [
-                    { path: '', redirectTo: '/admin/personal-management/companies-management', pathMatch: 'full' },
-                    { path: 'companies-management', component: CompanyManagementComponent },
-                    { path: 'education-management', component: EducationManagementComponent },
-                    { path: 'hobby-management', component: HobbyManagementComponent },
-                    { path: 'projects-management', component: ProjectManagementComponent },
-                    { path: 'skills-management', component: SkillManagementComponent }
-                ]
+                loadChildren: () => import('./pages/admin/personal-management/admin-personal.routes').then(mod => mod.personalManagementRouters)
             },
             { path: 'footer-management', component: FooterManagementComponent },
             {

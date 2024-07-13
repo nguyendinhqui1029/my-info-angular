@@ -6,14 +6,15 @@ import { PrimeComponent } from '@app/configs/prime-angular/prime.config';
 import { FilterOptions } from '@app/shared/models/filter.model';
 import { SearchFormConfig } from '@app/shared/models/search-form.model';
 import { TableHeaderConfig } from '@app/shared/models/table.model';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'q-company-management',
   standalone: true,
   imports: [PrimeComponent, DynamicSearchFormComponent, TranslateModule, FilterFormComponent, CustomTableComponent],
   templateUrl: './company-management.component.html',
-  styleUrl: './company-management.component.scss'
+  styleUrl: './company-management.component.scss',
+  providers: [TranslateService]
 })
 export class CompanyManagementComponent {
   filterField: FilterOptions[] = [

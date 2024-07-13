@@ -1,11 +1,11 @@
 import { TranslateService } from '@ngx-translate/core';
-import { Component, Input, OnDestroy, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { PrimeComponent } from '@app/configs/prime-angular/prime.config';
 import { LanguageService } from '@app/shared/services/language.service';
 import { environment } from '@environments/environment';
-import { Subscription } from 'rxjs/internal/Subscription';
 import { DynamicDialogRef } from 'primeng/dynamicdialog';
+import { LocalStorageKey } from '@app/constants/common.const';
 
 @Component({
   selector: 'q-select-language-dialog',
@@ -15,31 +15,25 @@ import { DynamicDialogRef } from 'primeng/dynamicdialog';
   styleUrl: './select-language-dialog.component.scss',
   providers: [TranslateService]
 })
-export class SelectLanguageDialogComponent implements OnInit, OnDestroy {
-  private subscription: Subscription | undefined;
+export class SelectLanguageDialogComponent implements OnInit {
 
   private languageService: LanguageService = inject(LanguageService);
   private translateService: TranslateService = inject(TranslateService);
   private dynamicDialogRef: DynamicDialogRef = inject(DynamicDialogRef);
   
   languages = this.languageService.getLanguages().result;
-  selectedLanguage: string = environment.defaultLanguage;
+  selectedLanguage: string = localStorage.getItem(LocalStorageKey.language) || environment.defaultLanguage;
   
   ngOnInit(): void {
-    if(this.translateService.currentLang) {
-      this.selectedLanguage = this.translateService.currentLang;
+    if(this.translateService.currentLang !== this.selectedLanguage) {
+      this.translateService.currentLang = this.selectedLanguage;
+      this.translateService.use(this.selectedLanguage);
     }
-    
-    this.subscription = this.translateService.onLangChange.subscribe(()=> this.languageService.refetchLanguages());
   }
 
   handleOkClick() {
+    localStorage.setItem(LocalStorageKey.language, this.selectedLanguage || environment.defaultLanguage);
     this.dynamicDialogRef.close(this.selectedLanguage)
   }
 
-  ngOnDestroy(): void {
-    if (this.subscription) {
-      this.subscription.unsubscribe();
-    }
-  }
 }

@@ -101,11 +101,8 @@ export class MenuTopComponent implements OnInit, OnDestroy {
     });
 
     // Handle dialog closed 
-    this.dynamicDialogRef.onClose.subscribe((language: string) => {
-      if (!language) {
-        return;
-      }
-      this.translateService.use(language);
+    this.dynamicDialogRef.onClose.subscribe(() => {
+      console.log(1)
     });
   }
 
@@ -121,11 +118,8 @@ export class MenuTopComponent implements OnInit, OnDestroy {
     });
 
     // Handle dialog closed 
-    this.dynamicDialogRef.onClose.subscribe((language: string) => {
-      if (!language) {
-        return;
-      }
-
+    this.dynamicDialogRef.onClose.subscribe(() => {
+      console.log(1)
     });
   }
   
