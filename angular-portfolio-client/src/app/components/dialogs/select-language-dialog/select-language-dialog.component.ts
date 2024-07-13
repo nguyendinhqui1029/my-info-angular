@@ -1,5 +1,5 @@
 import { TranslateService } from '@ngx-translate/core';
-import { Component, OnInit, inject } from '@angular/core';
+import { AfterRenderPhase, Component, OnInit, afterNextRender, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { PrimeComponent } from '@app/configs/prime-angular/prime.config';
 import { LanguageService } from '@app/shared/services/language.service';
@@ -22,8 +22,12 @@ export class SelectLanguageDialogComponent implements OnInit {
   private dynamicDialogRef: DynamicDialogRef = inject(DynamicDialogRef);
   
   languages = this.languageService.getLanguages().result;
-  selectedLanguage: string = localStorage.getItem(LocalStorageKey.language) || environment.defaultLanguage;
-  
+  selectedLanguage: string = environment.defaultLanguage;
+  constructor() {
+    afterNextRender(() => {
+      this.selectedLanguage = localStorage.getItem(LocalStorageKey.language) || environment.defaultLanguage; 
+    }, { phase: AfterRenderPhase.Read });
+  }
   ngOnInit(): void {
     if(this.translateService.currentLang !== this.selectedLanguage) {
       this.translateService.currentLang = this.selectedLanguage;

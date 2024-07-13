@@ -9,17 +9,18 @@ import { EducationUpsertComponent } from '@admin/personal-management/education-m
 import { SkillUpsertComponent } from '@admin/personal-management/skill-management/skill-upsert/skill-upsert.component';
 import { ProjectUpsertComponent } from '@admin/personal-management/project-management/project-upsert/project-upsert.component';
 import { HobbyUpsertComponent } from '@admin/personal-management/hobby-management/hobby-upsert/hobby-upsert.component';
+import { PATH } from '@constants/common.const';
 
 export const personalManagementRouters: Routes = [
-  { path: '', redirectTo: '/admin/personal-management/companies-management', pathMatch: 'full' },
-  { path: 'companies-management', component: CompanyManagementComponent },
-  { path: 'companies-management/:id', component: CompanyUpsertComponent },
-  { path: 'education-management', component: EducationManagementComponent },
-  { path: 'education-management/:id', component: EducationUpsertComponent },
-  { path: 'hobby-management', component: HobbyManagementComponent },
-  { path: 'hobby-management/:id', component: HobbyUpsertComponent },
-  { path: 'projects-management', component: ProjectManagementComponent },
-  { path: 'projects-management/:id', component: ProjectUpsertComponent },
-  { path: 'skills-management', component: SkillManagementComponent },
-  { path: 'skills-management/:id', component: SkillUpsertComponent },
+  { path: '', redirectTo: `/${PATH.ADMIN.ROOT}/${PATH.ADMIN.PERSONAL_MANAGEMENT.ROOT}/${PATH.ADMIN.PERSONAL_MANAGEMENT.COMPANIES_MANAGEMENT}`, pathMatch: 'full' },
+  { path: PATH.ADMIN.PERSONAL_MANAGEMENT.COMPANIES_MANAGEMENT, component: CompanyManagementComponent },
+  { path: PATH.ADMIN.PERSONAL_MANAGEMENT.COMPANIES_REGISTER, component: CompanyUpsertComponent },
+  { path: PATH.ADMIN.PERSONAL_MANAGEMENT.EDUCATION_MANAGEMENT, component: EducationManagementComponent },
+  { path: PATH.ADMIN.PERSONAL_MANAGEMENT.EDUCATION_REGISTER, component: EducationUpsertComponent },
+  { path: PATH.ADMIN.PERSONAL_MANAGEMENT.HOBBY_MANAGEMENT, component: HobbyManagementComponent },
+  { path: PATH.ADMIN.PERSONAL_MANAGEMENT.HOBBY_REGISTER, component: HobbyUpsertComponent },
+  { path: PATH.ADMIN.PERSONAL_MANAGEMENT.PROJECT_MANAGEMENT, component: ProjectManagementComponent },
+  { path: PATH.ADMIN.PERSONAL_MANAGEMENT.PROJECT_REGISTER, component: ProjectUpsertComponent },
+  { path: PATH.ADMIN.PERSONAL_MANAGEMENT.SKILL_MANAGEMENT, component: SkillManagementComponent },
+  { path: PATH.ADMIN.PERSONAL_MANAGEMENT.SKILL_REGISTER, component: SkillUpsertComponent },
 ];

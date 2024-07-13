@@ -6,7 +6,7 @@ import { Result } from '@ngneat/query/lib/types';
 import { QUERY_KEYS } from '@app/constants/common.const';
 import { TranslateService } from '@ngx-translate/core';
 import { environment } from '@environments/environment';
-import { Company } from '@shared/models/company.model';
+import { CompanyRequestBody, CompanyResponseValue } from '@shared/models/company.model';
 
 @Injectable({
   providedIn: 'root'
@@ -18,11 +18,11 @@ export class CompanyService {
   private queryClient: QueryClient = injectQueryClient();
   private query = injectQuery();
 
-  getCompanyDetail(id: string): Result<QueryObserverResult<ApiResponse<Company>>> {
+  getCompanyDetail(id: string): Result<QueryObserverResult<ApiResponse<CompanyResponseValue>>> {
     return this.query({
       queryKey: [QUERY_KEYS.COMPANY_DETAIL],
       queryFn: () => {
-        return this.requestService.get<ApiResponse<Company>>(`company/${id}`, {
+        return this.requestService.get<ApiResponse<CompanyResponseValue>>(`company/${id}`, {
           mockFile: `assets/mock-data/${this.translateService.currentLang || environment.defaultLanguage}/company-by-id-response.mock.json`
         });
       },
@@ -30,5 +30,24 @@ export class CompanyService {
   }
   refetchCompanyDetail(): void {
     this.queryClient.refetchQueries({ queryKey: [QUERY_KEYS.COMPANY_DETAIL]})
+  }
+
+  createCompany(body: CompanyRequestBody) {
+    return this.requestService.post<CompanyRequestBody>('company', body, {
+      mockFile: `assets/mock-data/response-success.mock.json`
+    });
+  }
+
+  updateCompany(body: CompanyRequestBody) {
+    return this.requestService.put<CompanyRequestBody>('company', body, {
+      mockFile: `assets/mock-data/response-success.mock.json`
+    });
+  }
+
+  deleteCompany(body: { ids: string[] }) {
+    return this.requestService.delete('company', {
+      httpRequestOptions: { body },
+      mockFile: `assets/mock-data/response-success.mock.json`
+    });
   }
 }

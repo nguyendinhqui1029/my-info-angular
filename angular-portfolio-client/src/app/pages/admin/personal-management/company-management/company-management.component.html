@@ -1,9 +1,10 @@
 <q-dynamic-search-form [column]="6" [fieldConfig]="fieldConfig" (eventClick)="handleSearchClick($event)"></q-dynamic-search-form>
 <div class="actions-wrapper">
-  <p-button size="small" [label]="'register'" />
+  
+  <p-button [routerLink]="'/admin/personal-management/companies-management/register'" size="small" [label]="'register' | translate" />
 </div>
 <div class="header-wrapper">
-  <h3>Header</h3>
+  <h3> {{'company-list' | translate}}</h3>
 
   <div class="filter-group">
     <h4>

@@ -1,5 +1,5 @@
 import { Subscription } from 'rxjs/internal/Subscription';
-import { Component, OnDestroy, OnInit, inject } from '@angular/core';
+import { AfterRenderPhase, Component, OnDestroy, OnInit, afterNextRender, inject } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { RouterOutlet } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
@@ -19,12 +19,17 @@ export class AppComponent implements OnInit, OnDestroy {
   translateService = inject(TranslateService);
   title: Title = inject(Title);
 
+  constructor() {
+    afterNextRender(() => {
+      this.translateService.use(localStorage.getItem(LocalStorageKey.language) || environment.defaultLanguage);
+
+    }, { phase: AfterRenderPhase.Read });
+  }
   ngOnInit(): void {
-    this.translateService.use(localStorage.getItem(LocalStorageKey.language) || environment.defaultLanguage);
     this.title.setTitle(this.translateService.instant('author_name'));
     this.subscription = this.translateService.onLangChange.subscribe(() => this.title.setTitle(this.translateService.instant('author_name')));
   }
-
+  
 
   ngOnDestroy(): void {
     if(this.subscription) {

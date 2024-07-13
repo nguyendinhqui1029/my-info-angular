@@ -1,0 +1,21 @@
+::ng-deep {
+  body {
+    @import 'assets/styles/variables/light.mode.scss'; // Default mode
+
+    .actions-group {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  body.dark {
+    @import 'assets/styles/variables/dark.mode.scss';
+
+    .actions-group {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+}

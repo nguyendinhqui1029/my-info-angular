@@ -15,7 +15,7 @@
       "@configs/*": ["app/configs/*"],
       "@components/*": ["app/components/*"],
       "@pages/*": ["app/pages/*"],
-     
+      "@constants/*": ["app/constants/*"],
     },
     "outDir": "./dist/out-tsc",
     "strict": true,

@@ -15,5 +15,6 @@ export interface RequestOptions {
     reportProgress?: boolean;
     responseType?: any;
     withCredentials?: boolean;
+    body?:any;
   }
 }
