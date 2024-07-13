@@ -12,11 +12,11 @@ import { BrowserAnimationsModule, provideAnimations } from '@angular/platform-br
 
 export const appConfig: ApplicationConfig = {
   providers: [
+    importProvidersFrom(BrowserAnimationsModule, HttpClientModule),
     provideRouter(routes),
     provideHttpClient(withFetch()),
     importProvidersFrom(TranslateModule.forRoot(provideTranslation())),
     provideClientHydration(),
-    importProvidersFrom(BrowserAnimationsModule, HttpClientModule),
     { provide: HTTP_INTERCEPTORS, useClass: RequestInterceptor, multi: true }, provideAnimationsAsync(),
     provideAnimations()
   ]

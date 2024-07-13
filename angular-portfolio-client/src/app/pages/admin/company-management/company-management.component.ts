@@ -1,15 +1,17 @@
 import { Component } from '@angular/core';
+import { CustomTableComponent } from '@app/components/common/custom-table/custom-table.component';
 import { DynamicSearchFormComponent } from '@app/components/common/dynamic-search-form/dynamic-search-form.component';
 import { FilterFormComponent } from '@app/components/common/filter-form/filter-form.component';
 import { PrimeComponent } from '@app/configs/prime-angular/prime.config';
 import { FilterOptions } from '@app/shared/models/filter.model';
 import { SearchFormConfig } from '@app/shared/models/search-form.model';
+import { TableHeaderConfig } from '@app/shared/models/table.model';
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'q-company-management',
   standalone: true,
-  imports: [PrimeComponent, DynamicSearchFormComponent, TranslateModule, FilterFormComponent],
+  imports: [PrimeComponent, DynamicSearchFormComponent, TranslateModule, FilterFormComponent, CustomTableComponent],
   templateUrl: './company-management.component.html',
   styleUrl: './company-management.component.scss'
 })
@@ -111,7 +113,21 @@ export class CompanyManagementComponent {
     name: '3',
     value: '4'
   }]
-}]
+}];
+dataHeaderTable: TableHeaderConfig<{col: string, col2: string, col3: string}>[] = [{
+  key: 'col',
+  header: 'Header 1',
+},
+{
+  key: 'col2',
+  header: 'Header 2',
+},
+{
+  key: 'col3',
+  header: 'Header 3',
+}
+];
+dataTable: {col: string, col2: string, col3: string}[] = [{col: 'string', col2: 'string', col3: 'string'},{col: 'string', col2: 'string', col3: 'string'}];
 
   handleFilterClick(value: Record<string, string>) {
     console.log(value);

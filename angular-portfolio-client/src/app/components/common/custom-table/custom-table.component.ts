@@ -1,12 +1,20 @@
-import { Component } from '@angular/core';
+import { CommonModule, JsonPipe } from '@angular/common';
+import { Component, ContentChild, ElementRef, Input, TemplateRef } from '@angular/core';
+import { PrimeComponent } from '@app/configs/prime-angular/prime.config';
+import { TableHeaderConfig } from '@app/shared/models/table.model';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'q-custom-table',
   standalone: true,
-  imports: [],
+  imports: [CommonModule, PrimeComponent, TranslateModule, JsonPipe],
   templateUrl: './custom-table.component.html',
   styleUrl: './custom-table.component.scss'
 })
-export class CustomTableComponent {
+export class CustomTableComponent<T> {
+  @Input({required: true}) dataHeaderTable: TableHeaderConfig<T>[] = [];
+  @Input({required: true}) dataTable: T[] = [];
+  @ContentChild('headerTemplate') headerTemplate: TemplateRef<any> | null = null;
+  @ContentChild('contentRowTemplate') contentRowTemplate: TemplateRef<any> | null = null;
 
 }
