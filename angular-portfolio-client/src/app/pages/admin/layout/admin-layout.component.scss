@@ -6,7 +6,7 @@
 ::ng-deep {
     .admin-layout-wrapper {
       width: 100%;
-      height: 100vh;
+      // height: 100vh; // TODO: If have issue, we should be remain it
       position: relative;
 
       q-admin-menu-left {

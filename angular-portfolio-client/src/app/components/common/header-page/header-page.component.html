@@ -1,0 +1,26 @@
+<div class="header-main-wrapper">
+  @if(title) { 
+    <div class="content-group">
+      <h2 class="title">{{title}}</h2>
+      @if(description) {
+        <p class="description">{{description}}</p>
+      }
+    </div>  
+  }
+  
+  @if(breadcrumbItems.length) { 
+    <div class="breadcrumb-wrapper">
+      @for(item of breadcrumbItems; track item.name; let last = $last) {
+        @if(item.isShowIcon) {
+          <i class="item pi pi-chevron-right" [class]="item.icon" [routerLink]="item.link"></i>
+        } @else {
+          <span class="item" [routerLink]="item.link">{{item.name}}</span>
+        }
+        @if(!last) {
+          <i class="pi pi-chevron-right"></i>
+        }
+      }
+    </div>
+  }
+  
+</div>

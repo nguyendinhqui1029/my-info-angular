@@ -1,3 +1,8 @@
+<q-header-page 
+    [title]="companyUpsertHeader().title" 
+    [description]="companyUpsertHeader().description" 
+    [breadcrumbItems]="companyUpsertHeader().breadcrumb"></q-header-page>
+    
 <form></form>
 <div class="actions-group">
     <p-button outlined [routerLink]="goToListUrl" [label]="'list'| translate"/>

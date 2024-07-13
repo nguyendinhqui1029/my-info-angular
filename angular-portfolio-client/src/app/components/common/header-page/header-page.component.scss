@@ -1,0 +1,54 @@
+::ng-deep {
+  body {
+    @import 'assets/styles/variables/light.mode.scss'; // Default mode
+
+    .header-main-wrapper {
+      display: flex;
+      flex-wrap: wrap-reverse;
+      justify-content: space-between;
+      align-items: flex-end !important;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+
+      .breadcrumb-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        width: fit-content;
+        gap: 0.25rem;
+        color: $main-content-text;
+        align-items: center;
+        line-height: 1.75rem;
+        
+        .item {
+          cursor: pointer;
+          max-width: 15rem;
+          display: inline-block;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+      .content-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+
+        .title {
+          font-size: 1.75rem;
+          line-height: 1.75rem;
+          color: $main-header-text;
+        }
+
+        .description {
+          color: $main-content-text;
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+
+  body.dark {
+    @import 'assets/styles/variables/dark.mode.scss';
+
+  }
+}

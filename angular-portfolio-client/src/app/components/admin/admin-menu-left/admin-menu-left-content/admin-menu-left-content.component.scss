@@ -92,6 +92,7 @@
               }
               .active {
                 border-left: 0.2rem solid $second-border !important;
+                color: $second-border !important;
               }
             }
           }
@@ -194,6 +195,7 @@
               }
               .active {
                 border-left: 0.2rem solid $second-border;
+                color: $second-border !important;
               }
             }
           }

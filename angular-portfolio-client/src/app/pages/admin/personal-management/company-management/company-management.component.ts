@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, computed } from '@angular/core';
 import { CustomTableComponent } from '@app/components/common/custom-table/custom-table.component';
 import { DynamicSearchFormComponent } from '@app/components/common/dynamic-search-form/dynamic-search-form.component';
 import { FilterFormComponent } from '@app/components/common/filter-form/filter-form.component';
+import { HeaderPageComponent } from '@app/components/common/header-page/header-page.component';
 import { PrimeComponent } from '@app/configs/prime-angular/prime.config';
+import { PATH } from '@app/constants/common.const';
 import { FilterOptions } from '@app/shared/models/filter.model';
 import { SearchFormConfig } from '@app/shared/models/search-form.model';
 import { TableHeaderConfig } from '@app/shared/models/table.model';
@@ -11,7 +13,7 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'q-company-management',
   standalone: true,
-  imports: [PrimeComponent, DynamicSearchFormComponent, TranslateModule, FilterFormComponent, CustomTableComponent],
+  imports: [PrimeComponent, HeaderPageComponent, DynamicSearchFormComponent, TranslateModule, FilterFormComponent, CustomTableComponent],
   templateUrl: './company-management.component.html',
   styleUrl: './company-management.component.scss',
   providers: [TranslateService]
@@ -130,6 +132,25 @@ dataHeaderTable: TableHeaderConfig<{col: string, col2: string, col3: string}>[] 
 ];
 dataTable: {col: string, col2: string, col3: string}[] = [{col: 'string', col2: 'string', col3: 'string'},{col: 'string', col2: 'string', col3: 'string'}];
 
+
+companyUpsertHeader = computed(() => ({
+  title: 'Company Management',
+  description: 'This page is used for register/update company.',
+  breadcrumb: [
+    {
+      link: `/${PATH.ADMIN.ROOT}/${PATH.ADMIN.DASHBOARD}`,
+      name: 'Dashboard',
+      icon: '',
+      isShowIcon: false
+  },
+  {
+    link: `/${PATH.ADMIN.ROOT}/${PATH.ADMIN.PERSONAL_MANAGEMENT.ROOT}/${PATH.ADMIN.PERSONAL_MANAGEMENT.COMPANIES_MANAGEMENT}`,
+    name: 'Companies Management',
+    icon: '',
+    isShowIcon: false
+  }
+  ]
+}));
   handleFilterClick(value: Record<string, string>) {
     console.log(value);
   }
