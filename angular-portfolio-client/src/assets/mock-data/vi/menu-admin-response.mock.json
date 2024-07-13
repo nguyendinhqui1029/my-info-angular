@@ -34,14 +34,6 @@
           "children": []
         },
         {
-          "id": "MENU04",
-          "name": "Quản lí footer",
-          "path": "footer-management",
-          "icon": "",
-          "isActive": false,
-          "children": []
-        },
-        {
           "id": "MENU05",
           "name": "Quản lí sở thích",
           "path": "hobby-management",
@@ -68,13 +60,28 @@
       ]
     },
     {
-        "id": "MENU04",
-        "name": "Footer Management",
-        "path": "footer-management",
-        "icon": "",
-        "isActive": false,
-        "children": []
-    },
+      "id": "MENU04",
+      "name": "Quản lí trang",
+      "path": "page-management",
+      "icon": "pi-file-edit",
+      "isActive": false,
+      "children": [{
+          "id": "MENU09",
+          "name": "Quản lí đầu trang",
+          "path": "header-management",
+          "icon": "",
+          "isActive": false,
+          "children": []
+      },
+      {
+          "id": "MENU10",
+          "name": "Quản lí chân trang",
+          "path": "footer-management",
+          "icon": "",
+          "isActive": false,
+          "children": []
+      }]
+  },
     {
         "id": "MENU09",
         "name": "Settings",

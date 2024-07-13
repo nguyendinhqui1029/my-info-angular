@@ -15,7 +15,7 @@
       @if(item.children.length) {
         <ul class="children-wrapper">
           @for(childItem of item.children; track childItem) {
-            <li class="child-item" routerLink="/admin/personal-management/{{childItem.path}}" [routerLinkActive]="'active'" (click)="eventClick.next(true)">
+            <li class="child-item" routerLink="/admin/{{item.path}}/{{childItem.path}}" [routerLinkActive]="'active'" (click)="eventClick.next(true)">
               {{childItem.name}}
             </li>
           }

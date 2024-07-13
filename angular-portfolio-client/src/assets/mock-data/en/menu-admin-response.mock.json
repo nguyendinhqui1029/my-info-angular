@@ -61,11 +61,26 @@
         },
         {
             "id": "MENU04",
-            "name": "Footer Management",
-            "path": "footer-management",
-            "icon": "",
+            "name": "Page Management",
+            "path": "page-management",
+            "icon": "pi-file-edit",
             "isActive": false,
-            "children": []
+            "children": [{
+                "id": "MENU09",
+                "name": "Header Management",
+                "path": "/header-management",
+                "icon": "",
+                "isActive": false,
+                "children": []
+            },
+            {
+                "id": "MENU10",
+                "name": "Footer Management",
+                "path": "footer-management",
+                "icon": "",
+                "isActive": false,
+                "children": []
+            }]
         },
         {
             "id": "MENU09",
