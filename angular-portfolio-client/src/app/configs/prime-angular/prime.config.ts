@@ -26,6 +26,7 @@ import { BreadcrumbModule } from 'primeng/breadcrumb';
 import { TableModule } from 'primeng/table';
 import { OverlayPanelModule } from 'primeng/overlaypanel';
 import { DropdownModule } from 'primeng/dropdown';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
 
 export const PrimeComponent = [
     //Custom component
@@ -59,5 +60,6 @@ export const PrimeComponent = [
     BreadcrumbModule,
     TableModule,
     OverlayPanelModule,
-    DropdownModule
+    DropdownModule,
+    ConfirmDialogModule
 ];

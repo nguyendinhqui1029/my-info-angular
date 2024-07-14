@@ -1,10 +1,20 @@
-<q-header-page 
-    [title]="companyUpsertHeader().title" 
-    [description]="companyUpsertHeader().description" 
-    [breadcrumbItems]="companyUpsertHeader().breadcrumb"></q-header-page>
-    
-<form></form>
+<q-header-page [title]="companyUpsertHeader().title" [description]="companyUpsertHeader().description"
+  [breadcrumbItems]="companyUpsertHeader().breadcrumb"></q-header-page>
+
+<form>
+  <q-multiple-language-container [initializeData]="initializeData" [initializeLanguages]="initializeLanguages">
+    <ng-template #formDataTemplate let-data>
+      @defer {
+        <q-label-wrapper label="{{'email' | translate}}" [isRequired]="true" id="email" [message]="''">
+          <span ngProjectAs="control-component">
+            <input class="p-fluid" pInputText inputId="email" [(ngModel)]="data.title" [ngModelOptions]="{standalone: true}" />
+          </span>
+        </q-label-wrapper>
+      }
+    </ng-template>
+  </q-multiple-language-container>
+</form>
 <div class="actions-group">
-    <p-button outlined [routerLink]="goToListUrl" [label]="'list'| translate"/>
-    <p-button [label]="'register'| translate"/>
+  <p-button outlined [routerLink]="goToListUrl" [label]="'list'| translate" />
+  <p-button [label]="'register'| translate" />
 </div>

@@ -48,5 +48,12 @@
   "hobby_detail_header": "{{name}} Hobby",
   "not_found_title": "UH OH! You're lost.",
   "not_found_description": "The page you are looking for does not exist. How you got here is a mystery. But you can click the button below to go back to the homepage.",
-  "button_homepage": "Homepage"
+  "button_homepage": "Homepage",
+  "default": "(Default)",
+  "confirm_delete_header": "Confirm",
+  "confirm_delete_message": "Are you sure you want to delete the {{language}} language?",
+  "language_information": "Language Information",
+  "add_language": "Add language",
+  "company_list": "Company list",
+  "total_count": "Total: {{total}}"
 }

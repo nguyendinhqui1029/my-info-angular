@@ -65,6 +65,21 @@ body {
   .p-inputotp-input {
     width: 2.5rem;
   }
+
+  .p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
+    border-color: $second-border;
+    background: $secondary-background;
+  }
+  .p-tabview .p-tabview-nav li .p-tabview-nav-link {
+    padding: 0 0.5rem;
+  }
+
+  .p-avatar img {
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: center;
+  }
 }
 
 
@@ -113,5 +128,19 @@ body.dark {
     .button-full {
       color: $wc-green;
     }
+  }
+  .p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
+    border-color: $second-border;
+    background: $secondary-background;
+  }
+  .p-tabview .p-tabview-nav li .p-tabview-nav-link {
+    padding: 0 0.5rem;
+  }
+
+  .p-avatar img {
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: center;
   }
 }

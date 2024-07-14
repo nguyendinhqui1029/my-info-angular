@@ -1,0 +1,50 @@
+::ng-deep {
+  body {
+    @import 'assets/styles/variables/light.mode.scss'; // Default mode
+
+    .multiple-language-wrapper {
+      display: flex;
+      flex-direction: column;
+      background: $secondary-background;
+      gap: 0.5rem;
+      padding: 1rem;
+      border-radius: 0.5rem;
+
+      .multiple-language-header {
+        font-size: 1.25rem;
+      }
+      .multiple-language-action {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;  
+        gap: 1rem;
+
+        .checkbox-group {
+          display: flex;
+          align-self: center;
+          gap: 0.5rem;
+          color: $main-content-text;
+        }
+      }
+     
+     .tab-wrapper {
+      display: flex;
+      gap: 0.5rem;
+      min-width: max-content;
+      align-items: center;
+      .delete-icon {
+        color: $error-message;
+      }
+      .title {
+        font-weight: bold;
+        font-size: 0.75rem;
+      }
+     }
+    }
+  }
+
+  body.dark {
+    @import 'assets/styles/variables/dark.mode.scss';
+
+  }
+}

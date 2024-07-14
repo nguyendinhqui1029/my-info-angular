@@ -48,5 +48,12 @@
   "hobby_detail_header": "Sở thích {{name}}",
   "not_found_title": "Ôi không! Bạn đã bị lạc đường.",
   "not_found_description": "Trang bạn đang tìm kiếm không tồn tại. Cách bạn đến đây là một điều bí ẩn. Nhưng bạn có thể nhấn vào nút bên dưới để quay lại trang chủ.",
-  "button_homepage": "Trang chủ"
+  "button_homepage": "Trang chủ",
+  "default": "(Mặc định)",
+  "confirm_delete_header": "Xác nhận",
+  "confirm_delete_message": "Bạn có chắc chắn muốn xoá ngôn ngữ {{language}} không?",
+  "language_information": "Thông tin ngôn ngữ",
+  "add_language": "Thêm ngôn ngữ",
+  "company_list": "Danh sách công ty",
+  "total_count": "Tổng: {{total}}"
 }

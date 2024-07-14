@@ -9,11 +9,11 @@
   <p-button [routerLink]="'/admin/personal-management/companies-management/register'" size="small" [label]="'register' | translate" />
 </div>
 <div class="header-wrapper">
-  <h3> {{'company-list' | translate}}</h3>
+  <h3> {{'company_list' | translate}}</h3>
 
   <div class="filter-group">
     <h4>
-      {{'total_count' | translate}}
+      {{'total_count' | translate: {total: dataTable.length} }}
     </h4>
     <q-filter-form [items]="filterField" (eventClick)="handleFilterClick($event)"></q-filter-form>
   </div>

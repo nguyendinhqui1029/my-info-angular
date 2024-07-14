@@ -1,15 +1,18 @@
-import { JsonPipe } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { Component, computed, inject } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { HeaderPageComponent } from '@app/components/common/header-page/header-page.component';
+import { MultipleLanguageContainerComponent } from '@app/components/common/multiple-language-container/multiple-language-container.component';
 import { PrimeComponent } from '@app/configs/prime-angular/prime.config';
+import { MultipleLanguage } from '@app/shared/models/multiple-language.model';
 import { PATH } from '@constants/common.const';
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'q-company-upsert',
   standalone: true,
-  imports: [TranslateModule, PrimeComponent, HeaderPageComponent, JsonPipe],
+  imports: [FormsModule, TranslateModule, PrimeComponent, HeaderPageComponent, MultipleLanguageContainerComponent],
   templateUrl: './company-upsert.component.html',
   styleUrl: './company-upsert.component.scss'
 })
@@ -40,4 +43,20 @@ export class CompanyUpsertComponent {
     }
     ]
   }));
+
+  initializeData: {title: string} = {title: '1'}
+  initializeLanguages: MultipleLanguage<{title: string}>[] = [{
+    languageCode: 'vi',
+    name: 'Vietnamese',
+    isDefault: true,
+    icon: 'https://flagcdn.com/w320/vn.png',
+    data: this.initializeData
+},
+{
+  languageCode: 'en',
+  name: 'English',
+  isDefault: false,
+  icon: 'https://flagcdn.com/w320/vi.png',
+  data: this.initializeData
+}];
 }

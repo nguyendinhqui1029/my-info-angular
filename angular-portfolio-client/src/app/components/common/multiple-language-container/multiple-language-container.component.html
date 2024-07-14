@@ -1,1 +1,45 @@
-<p>multiple-language-container works!</p>
+<div class="multiple-language-wrapper">
+  <h2 class="multiple-language-header">{{'language_information' | translate}}</h2>
+
+  <div class="multiple-language-action">
+    <div class="checkbox-group">
+      <p-checkbox inputId="defaultLanguage" 
+        binary
+        [ngModelOptions]="{standalone: true}" 
+        [disabled]="defaultLanguageCode === activeLanguage?.languageCode" 
+        [(ngModel)]="isDefaultLanguageCheckbox"
+        (onChange)="handleChangeDefaultLanguage($event)"/>
+      <label for="defaultLanguage">{{activeLanguage?.name}} 
+        @if(defaultLanguageCode === activeLanguage?.languageCode) {
+          {{'default'| translate}}
+        }
+      </label>
+    </div>
+    <p-button [label]="'add_language'| translate" size="small" (click)="handleOpenDialogSelectLanguage()"/>
+  </div>
+  <p-tabView [scrollable]="true" (activeIndexChange)="handleTabChange($event)">
+    @for(item of languageItems; track item.languageCode; let index=$index) {
+      <p-tabPanel [selected]="item.languageCode === activeLanguage?.languageCode">
+        <ng-template pTemplate="header">
+          <div class="tab-wrapper">
+            <p-avatar size="normal" [image]="item.icon" shape="circle" />
+            <span class="title">
+              {{item.name}}
+              @if(item.isDefault) {
+                <span>{{'default'| translate}}</span>
+              }
+            </span>
+            @if(!item.isDefault) {
+              <i class="delete-icon pi pi-trash" (click)="handleTabViewClose($event, index)" ></i>
+            }
+          </div>
+        </ng-template>
+        <ng-container>
+          <ng-container [ngTemplateOutlet]="formDataTemplate" 
+          [ngTemplateOutletContext]="{ $implicit: item.data }"></ng-container>
+        </ng-container>
+      </p-tabPanel>
+    }
+  </p-tabView>
+  <p-confirmDialog appendTo="body"/>
+</div>
