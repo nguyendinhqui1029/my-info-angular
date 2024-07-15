@@ -6,7 +6,7 @@
       display: flex;
       flex-direction: column;
       background: $secondary-background;
-      gap: 0.5rem;
+      gap: 1rem;
       padding: 1rem;
       border-radius: 0.5rem;
 
@@ -18,7 +18,8 @@
         justify-content: space-between;
         align-items: center;  
         gap: 1rem;
-
+        flex-wrap: wrap;
+        
         .checkbox-group {
           display: flex;
           align-self: center;
@@ -26,12 +27,15 @@
           color: $main-content-text;
         }
       }
-     
+     .p-tabview-panels {
+      padding: 1rem 0 0 0;
+     }
      .tab-wrapper {
       display: flex;
       gap: 0.5rem;
       min-width: max-content;
       align-items: center;
+
       .delete-icon {
         color: $error-message;
       }

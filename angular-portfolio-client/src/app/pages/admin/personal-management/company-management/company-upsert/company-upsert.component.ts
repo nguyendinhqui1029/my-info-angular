@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { HeaderPageComponent } from '@app/components/common/header-page/header-page.component';
 import { MultipleLanguageContainerComponent } from '@app/components/common/multiple-language-container/multiple-language-container.component';
+import { UploadImageFieldComponent } from '@app/components/common/upload-image-field/upload-image-field.component';
 import { PrimeComponent } from '@app/configs/prime-angular/prime.config';
 import { MultipleLanguage } from '@app/shared/models/multiple-language.model';
 import { PATH } from '@constants/common.const';
@@ -12,7 +13,12 @@ import { TranslateModule } from '@ngx-translate/core';
 @Component({
   selector: 'q-company-upsert',
   standalone: true,
-  imports: [FormsModule, TranslateModule, PrimeComponent, HeaderPageComponent, MultipleLanguageContainerComponent],
+  imports: [
+    FormsModule, 
+    PrimeComponent, 
+    HeaderPageComponent, 
+    MultipleLanguageContainerComponent,
+    UploadImageFieldComponent],
   templateUrl: './company-upsert.component.html',
   styleUrl: './company-upsert.component.scss'
 })

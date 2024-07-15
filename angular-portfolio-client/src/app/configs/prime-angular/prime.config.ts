@@ -27,6 +27,8 @@ import { TableModule } from 'primeng/table';
 import { OverlayPanelModule } from 'primeng/overlaypanel';
 import { DropdownModule } from 'primeng/dropdown';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { FileUploadModule } from 'primeng/fileupload';
+import { BadgeModule } from 'primeng/badge';
 
 export const PrimeComponent = [
     //Custom component
@@ -61,5 +63,7 @@ export const PrimeComponent = [
     TableModule,
     OverlayPanelModule,
     DropdownModule,
-    ConfirmDialogModule
+    ConfirmDialogModule,
+    FileUploadModule,
+    BadgeModule
 ];

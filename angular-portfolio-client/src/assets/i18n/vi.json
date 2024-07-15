@@ -53,7 +53,8 @@
   "confirm_delete_header": "Xác nhận",
   "confirm_delete_message": "Bạn có chắc chắn muốn xoá ngôn ngữ {{language}} không?",
   "language_information": "Thông tin ngôn ngữ",
-  "add_language": "Thêm ngôn ngữ",
+  "add_language": "Thêm",
   "company_list": "Danh sách công ty",
-  "total_count": "Tổng: {{total}}"
+  "total_count": "Tổng: {{total}}",
+  "description_upload": "Drag and drop files to here to upload."
 }

@@ -1,0 +1,65 @@
+<p-fileUpload 
+  name="file[]" 
+  url="https://www.primefaces.org/cdn/api/upload.php" 
+  [multiple]="isMultiple" 
+  [accept]="acceptFileType"
+  [maxFileSize]="maxFileSize" 
+  (onUpload)="onTemplatedUpload()" 
+  (onSelect)="onSelectedFiles($event)">
+  <ng-template pTemplate="header" let-files let-chooseCallback="chooseCallback" let-clearCallback="clearCallback"
+    let-uploadCallback="uploadCallback">
+    <div class="upload-image-header">
+      <h3>{{label}}</h3>
+      <div class="actions-group">
+        <p-button (onClick)="choose($event, chooseCallback)" icon="pi pi-images" [rounded]="true" [outlined]="true" />
+        <p-button (onClick)="clearCallback()" icon="pi pi-times" [rounded]="true" [outlined]="true" severity="danger"
+          [disabled]="!files || files.length === 0" />
+      </div>
+    </div>
+  </ng-template>
+  <ng-template pTemplate="content" let-files let-uploadedFiles="uploadedFiles"
+    let-removeFileCallback="removeFileCallback" let-removeUploadedFileCallback="removeUploadedFileCallback">
+    @if(files?.length > 0) {
+      <div>
+        <h5>{{'pending' | translate}}</h5>
+        <div class="upload-image-content-card">
+          @for(file of files; track file; let i = $index) {
+          <div class="card">
+            <img class="image" role="presentation" [alt]="file.name" [src]="file.objectURL" width="150" height="70" />
+
+            <h3>{{ file.name }}</h3>
+            <div>{{ formatSize(file.size) }}</div>
+            <p-badge value="{{'pending' | translate}}" severity="warning" />
+            <p-button icon="pi pi-times" (onClick)="onRemoveTemplatedFile($event, file, removeFileCallback, i)"
+              [outlined]="true" [rounded]="true" severity="danger" />
+          </div>
+          }
+        </div>
+      </div>
+    }
+    @if(uploadedFiles?.length > 0) {
+      <div>
+        <h5>{{'completed' | translate}}</h5>
+        <div class="upload-image-content-card">
+          @for(file of files; track file; let i = $index) {
+          <div class="card">
+            <img class="image" role="presentation" [alt]="file.name" [src]="file.objectURL" width="150" height="70" />
+            <h3>{{ file.name }}</h3>
+            <div>{{ formatSize(file.size) }}</div>
+            <p-badge value="{{'completed' | translate}}" severity="success" />
+            <p-button icon="pi pi-times" (onClick)="removeUploadedFileCallback(i)" [outlined]="true" [rounded]="true"
+              severity="danger" />
+          </div>
+          }
+        </div>
+      </div>
+    }
+  </ng-template>
+  <ng-template pTemplate="file"> </ng-template>
+  <ng-template pTemplate="empty">
+    <div class="upload-image-empty-content">
+      <i class="pi pi-cloud-upload icon"></i>
+      <p class="description">{{'description_upload' | translate}}</p>
+    </div>
+  </ng-template>
+</p-fileUpload>

@@ -53,7 +53,8 @@
   "confirm_delete_header": "Confirm",
   "confirm_delete_message": "Are you sure you want to delete the {{language}} language?",
   "language_information": "Language Information",
-  "add_language": "Add language",
+  "add_language": "Add",
   "company_list": "Company list",
-  "total_count": "Total: {{total}}"
+  "total_count": "Total: {{total}}",
+  "description_upload": "Drag and drop files to here to upload."
 }
