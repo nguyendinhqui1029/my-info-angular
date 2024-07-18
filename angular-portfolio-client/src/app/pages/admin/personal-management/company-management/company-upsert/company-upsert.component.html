@@ -1,21 +1,30 @@
 <q-header-page [title]="companyUpsertHeader().title" [description]="companyUpsertHeader().description"
   [breadcrumbItems]="companyUpsertHeader().breadcrumb"></q-header-page>
 
-<form>
-  <q-multiple-language-container [initializeData]="initializeData" [initializeLanguages]="initializeLanguages">
-    <ng-template #formDataTemplate let-data>
-      @defer {
+@defer {
+<form [formGroup]="companyForm">
+  <q-date-range formControlName="workingTime"></q-date-range>
+
+ 
+  <q-upload-image-field></q-upload-image-field>
+  <ckeditor data="<p>Hello, world!</p>"></ckeditor>
+</form>
+}
+<q-multiple-language-container [initializeData]="initializeData" [initializeLanguages]="initializeLanguages">
+  <ng-template #formDataTemplate let-data>
+    @defer {
+      <form [formGroup]="languageForm">
         <q-label-wrapper label="{{'email' | translate}}" [isRequired]="true" id="email" [message]="''">
           <span ngProjectAs="control-component">
-            <input class="p-fluid" pInputText inputId="email" [(ngModel)]="data.title" [ngModelOptions]="{standalone: true}" />
+            <input class="p-fluid" formControlName="email" pInputText inputId="email"/>
           </span>
         </q-label-wrapper>
         <q-upload-image-field></q-upload-image-field>
-      }
-    </ng-template>
-  </q-multiple-language-container>
-</form>
+      </form>
+    }
+  </ng-template>
+</q-multiple-language-container>
 <div class="actions-group">
   <p-button outlined [routerLink]="goToListUrl" [label]="'list'| translate" />
-  <p-button [label]="'register'| translate" />
+  <p-button [label]="'register'| translate" (click)="handleRegisterClick()"/>
 </div>

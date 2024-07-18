@@ -29,6 +29,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { FileUploadModule } from 'primeng/fileupload';
 import { BadgeModule } from 'primeng/badge';
+import { CalendarModule } from 'primeng/calendar';
 
 export const PrimeComponent = [
     //Custom component
@@ -65,5 +66,6 @@ export const PrimeComponent = [
     DropdownModule,
     ConfirmDialogModule,
     FileUploadModule,
-    BadgeModule
+    BadgeModule,
+    CalendarModule
 ];

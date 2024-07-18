@@ -1,0 +1,23 @@
+
+::ng-deep {
+  body {
+    @import 'assets/styles/variables/light.mode.scss'; // Default mode
+    
+    .date-rage-wrapper {
+      display: flex;
+      gap: 0.5rem;
+      align-items: end;
+      min-width: $min-width;
+      .to {
+        display: flex;
+        height: 45.5px;
+        align-items: center;
+      }
+    }
+  }
+
+  body.dark {
+    @import 'assets/styles/variables/dark.mode.scss';
+
+  }
+}

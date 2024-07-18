@@ -1,29 +1,32 @@
-import { CommonModule } from '@angular/common';
-import { Component, computed, inject } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { Component, OnInit, computed, inject } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { DateRangeComponent } from '@app/components/common/date-range/date-range.component';
 import { HeaderPageComponent } from '@app/components/common/header-page/header-page.component';
 import { MultipleLanguageContainerComponent } from '@app/components/common/multiple-language-container/multiple-language-container.component';
 import { UploadImageFieldComponent } from '@app/components/common/upload-image-field/upload-image-field.component';
 import { PrimeComponent } from '@app/configs/prime-angular/prime.config';
 import { MultipleLanguage } from '@app/shared/models/multiple-language.model';
 import { PATH } from '@constants/common.const';
-import { TranslateModule } from '@ngx-translate/core';
-
 @Component({
   selector: 'q-company-upsert',
   standalone: true,
   imports: [
+    ReactiveFormsModule,
     FormsModule, 
     PrimeComponent, 
     HeaderPageComponent, 
     MultipleLanguageContainerComponent,
-    UploadImageFieldComponent],
+    UploadImageFieldComponent,
+    DateRangeComponent
+    ],
   templateUrl: './company-upsert.component.html',
   styleUrl: './company-upsert.component.scss'
 })
-export class CompanyUpsertComponent {
+export class CompanyUpsertComponent implements OnInit{
   activatedRoute:ActivatedRoute = inject(ActivatedRoute);
+  formBuilder: FormBuilder = inject(FormBuilder);
+
   goToListUrl: string = `/${PATH.ADMIN.ROOT}/${PATH.ADMIN.PERSONAL_MANAGEMENT.ROOT}/${PATH.ADMIN.PERSONAL_MANAGEMENT.COMPANIES_MANAGEMENT}`;
   companyUpsertHeader = computed(() => ({
     title: 'Company Management',
@@ -64,5 +67,21 @@ export class CompanyUpsertComponent {
   isDefault: false,
   icon: 'https://flagcdn.com/w320/vi.png',
   data: this.initializeData
-}];
+  }];
+
+  companyForm!:FormGroup;
+  languageForm!:FormGroup;
+
+  ngOnInit(): void {
+    this.companyForm = this.formBuilder.group({
+      workingTime: [{startDate: null, endDate: null}, [Validators.required]],
+    });
+    this.languageForm = this.formBuilder.group({
+      email: ['', [Validators.required]]
+    });
+  }
+  handleRegisterClick() {
+    console.log(this.companyForm)
+    console.log(this.languageForm)
+  }
 }
