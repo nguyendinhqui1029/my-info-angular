@@ -1,5 +1,5 @@
 import { Component, OnInit, computed, inject } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { DateRangeComponent } from '@app/components/common/date-range/date-range.component';
 import { HeaderPageComponent } from '@app/components/common/header-page/header-page.component';
@@ -8,6 +8,8 @@ import { UploadImageFieldComponent } from '@app/components/common/upload-image-f
 import { PrimeComponent } from '@app/configs/prime-angular/prime.config';
 import { MultipleLanguage } from '@app/shared/models/multiple-language.model';
 import { PATH } from '@constants/common.const';
+import { CkeditorWrapperComponent } from '@app/components/common/ckeditor-wrapper/ckeditor-wrapper.component';
+
 @Component({
   selector: 'q-company-upsert',
   standalone: true,
@@ -18,7 +20,8 @@ import { PATH } from '@constants/common.const';
     HeaderPageComponent, 
     MultipleLanguageContainerComponent,
     UploadImageFieldComponent,
-    DateRangeComponent
+    DateRangeComponent,
+    CkeditorWrapperComponent
     ],
   templateUrl: './company-upsert.component.html',
   styleUrl: './company-upsert.component.scss'
@@ -68,7 +71,7 @@ export class CompanyUpsertComponent implements OnInit{
   icon: 'https://flagcdn.com/w320/vi.png',
   data: this.initializeData
   }];
-
+  
   companyForm!:FormGroup;
   languageForm!:FormGroup;
 

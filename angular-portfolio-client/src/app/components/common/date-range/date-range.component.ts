@@ -16,7 +16,7 @@ import { PrimeComponent } from '@app/configs/prime-angular/prime.config';
     }
   ]
 })
-export class DateRangeComponent implements ControlValueAccessor{
+export class DateRangeComponent implements ControlValueAccessor {
   @Input({required: false}) startDateLabel: string = 'Start date'; 
   @Input({required: false}) endDateLabel: string = 'End date'; 
   @Input({required: false}) startDateMessage: string = ''; 

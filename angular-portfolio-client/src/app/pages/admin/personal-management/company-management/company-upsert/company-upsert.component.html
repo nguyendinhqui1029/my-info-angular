@@ -1,15 +1,15 @@
 <q-header-page [title]="companyUpsertHeader().title" [description]="companyUpsertHeader().description"
   [breadcrumbItems]="companyUpsertHeader().breadcrumb"></q-header-page>
 
-@defer {
+
 <form [formGroup]="companyForm">
   <q-date-range formControlName="workingTime"></q-date-range>
 
  
   <q-upload-image-field></q-upload-image-field>
-  <ckeditor data="<p>Hello, world!</p>"></ckeditor>
+  <q-ckeditor-wrapper></q-ckeditor-wrapper>
 </form>
-}
+
 <q-multiple-language-container [initializeData]="initializeData" [initializeLanguages]="initializeLanguages">
   <ng-template #formDataTemplate let-data>
     @defer {

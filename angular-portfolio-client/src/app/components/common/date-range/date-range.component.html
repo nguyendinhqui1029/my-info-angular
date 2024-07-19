@@ -1,13 +1,13 @@
 <div class="date-rage-wrapper">
   <q-label-wrapper [label]="startDateLabel" [isRequired]="true" id="startDate" [message]="startDateMessage">
     <span ngProjectAs="control-component">
-      <p-calendar (onBlur)="onBlur()" (onSelect)="startDateChanged()" appendTo="body" [showTime]="isShowTime" [disabled]="isDisableStartDate" [ngModelOptions]="{standalone: true}" [(ngModel)]="startDate" iconDisplay="input" [showIcon]="true" inputId="startDate" />
+      <p-calendar class="p-fluid" (onBlur)="onBlur()" (onSelect)="startDateChanged()" appendTo="body" [showTime]="isShowTime" [disabled]="isDisableStartDate" [ngModelOptions]="{standalone: true}" [(ngModel)]="startDate" iconDisplay="input" [showIcon]="true" inputId="startDate" />
     </span>
   </q-label-wrapper>
   <span class="to">~</span>
   <q-label-wrapper [label]="endDateLabel" [isRequired]="true" id="endDate" [message]="endDateMessage">
     <span ngProjectAs="control-component">
-      <p-calendar (onBlur)="onBlur()" (onSelect)="endDateChanged()" appendTo="body" [minDate]="startDate" [showTime]="isShowTime" [disabled]="isDisableEndDate" [ngModelOptions]="{standalone: true}" [(ngModel)]="endDate" iconDisplay="input" [showIcon]="true" inputId="endDate" />
+      <p-calendar class="p-fluid" (onBlur)="onBlur()" (onSelect)="endDateChanged()" appendTo="body" [minDate]="startDate" [showTime]="isShowTime" [disabled]="isDisableEndDate" [ngModelOptions]="{standalone: true}" [(ngModel)]="endDate" iconDisplay="input" [showIcon]="true" inputId="endDate" />
     </span>
   </q-label-wrapper>
 

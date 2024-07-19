@@ -7,6 +7,7 @@
 @import "primeicons/primeicons.css";
 @import 'assets/styles/common.scss'; // Common css
 
+
 html, body, body.dark { 
   // height: 100%; 
   width: 100vw;
@@ -22,6 +23,8 @@ html, body, body.dark {
     opacity: 1;
   }
 }
+
+
 body {
   @import 'assets/styles/variables/light.mode.scss'; // Default mode
   background: $primary-background;
