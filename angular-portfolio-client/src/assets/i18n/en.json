@@ -56,5 +56,13 @@
   "add_language": "Add",
   "company_list": "Company list",
   "total_count": "Total: {{total}}",
-  "description_upload": "Drag and drop files to here to upload."
+  "description_upload": "Drag and drop files to here to upload.",
+  "company_thumbnail": "Thumbnail image",
+  "company_event_images": "Event images",
+  "dimension": "Dimension",
+  "file_type": "File type",
+  "max_size_image": "Maximum capacity",
+  "company_name": "Company name",
+  "company_address": "Address",
+  "description": "Description"
 }

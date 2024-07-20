@@ -56,5 +56,13 @@
   "add_language": "Thêm",
   "company_list": "Danh sách công ty",
   "total_count": "Tổng: {{total}}",
-  "description_upload": "Drag and drop files to here to upload."
+  "description_upload": "Kéo và thả tập tin vào đây để tải lên.",
+  "company_thumbnail": "Hình bìa",
+  "company_event_images": "Hình ảnh sự kiện",
+  "dimension": "Kích thước",
+  "file_type": "Loại tệp",
+  "max_size_image": "Dung lượng tối đa",
+  "company_name": "Tên công ty",
+  "company_address": "Địa chỉ",
+  "description": "Mô tả"
 }

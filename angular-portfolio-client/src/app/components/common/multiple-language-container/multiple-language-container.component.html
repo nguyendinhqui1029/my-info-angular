@@ -35,10 +35,10 @@
             }
           </div>
         </ng-template>
-        <ng-container>
+        @defer {
           <ng-container [ngTemplateOutlet]="formDataTemplate" 
           [ngTemplateOutletContext]="{ $implicit: item.data }"></ng-container>
-        </ng-container>
+        }
       </p-tabPanel>
     }
   </p-tabView>

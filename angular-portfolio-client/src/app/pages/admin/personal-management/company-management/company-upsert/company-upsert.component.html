@@ -2,29 +2,48 @@
   [breadcrumbItems]="companyUpsertHeader().breadcrumb"></q-header-page>
 
 
-<form [formGroup]="companyForm">
-  <q-date-range formControlName="workingTime"></q-date-range>
+<form [formGroup]="companyForm" class="company-main-form">
+  <div class="working-time">
+    <q-date-range formControlName="workingTime"></q-date-range>
+    <div class="empty-element"></div>
+  </div>
+  <div class="company-image-upload-wrapper">
+    <!-- Thumbnail  -->
+    <q-upload-image-field [dimension]="{ width: '200', height: '200', unit: 'px' }" label="{{'company_thumbnail' | translate}}" formControlName="thumbnail" [isMultiple]="false"></q-upload-image-field>
 
- 
-  <q-upload-image-field></q-upload-image-field>
-  <q-ckeditor-wrapper></q-ckeditor-wrapper>
+    <!-- Image list  -->
+    <q-upload-image-field [dimension]="{ width: '200', height: '200', unit: 'px' }" label="{{'company_event_images' | translate}}" formControlName="images" [isMultiple]="true"></q-upload-image-field> 
+  </div>
 </form>
 
 <q-multiple-language-container [initializeData]="initializeData" [initializeLanguages]="initializeLanguages">
   <ng-template #formDataTemplate let-data>
-    @defer {
-      <form [formGroup]="languageForm">
-        <q-label-wrapper label="{{'email' | translate}}" [isRequired]="true" id="email" [message]="''">
+      <form [formGroup]="languageForm" class="company-language-form">
+        <!-- Company name  -->
+        <div class="row">
+          <q-label-wrapper label="{{'company_name' | translate}}" [isRequired]="true" id="companyName" [message]="''">
+            <span ngProjectAs="control-component">
+              <input class="p-fluid" formControlName="companyName" pInputText inputId="companyName"/>
+            </span>
+          </q-label-wrapper>
+  
+          <!-- Address  -->
+          <q-label-wrapper label="{{'company_address' | translate}}" [isRequired]="true" id="companyAddress" [message]="''">
+            <span ngProjectAs="control-component">
+              <input class="p-fluid" formControlName="companyAddress" pInputText inputId="companyAddress"/>
+            </span>
+          </q-label-wrapper>  
+        </div>
+        <!-- Description  -->
+        <q-label-wrapper class="description" label="{{'description' | translate}}" [isRequired]="true" id="description" [message]="''">
           <span ngProjectAs="control-component">
-            <input class="p-fluid" formControlName="email" pInputText inputId="email"/>
+            <q-ckeditor-wrapper formControlName="description" id="description"></q-ckeditor-wrapper>
           </span>
         </q-label-wrapper>
-        <q-upload-image-field></q-upload-image-field>
       </form>
-    }
   </ng-template>
 </q-multiple-language-container>
-<div class="actions-group">
+<div class="company-actions-group">
   <p-button outlined [routerLink]="goToListUrl" [label]="'list'| translate" />
   <p-button [label]="'register'| translate" (click)="handleRegisterClick()"/>
 </div>

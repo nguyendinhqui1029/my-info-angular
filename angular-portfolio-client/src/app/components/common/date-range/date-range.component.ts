@@ -24,8 +24,10 @@ export class DateRangeComponent implements ControlValueAccessor {
   @Input({required: false}) isDisableStartDate: boolean = false; 
   @Input({required: false}) isDisableEndDate: boolean = false;
   @Input({required: false}) isShowTime: boolean = false;
+  @Input({required: false}) startDatePlaceholder: string = 'dd-mm-yyyy'; 
+  @Input({required: false}) endDatePlaceholder: string = 'dd-mm-yyyy';
+  @Input({required: false}) dateFormat: string = 'dd-mm-yy';
 
-  
   startDate!: Date | null;
   endDate!: Date | null;
 

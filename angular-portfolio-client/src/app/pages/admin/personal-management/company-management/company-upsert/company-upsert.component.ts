@@ -78,9 +78,13 @@ export class CompanyUpsertComponent implements OnInit{
   ngOnInit(): void {
     this.companyForm = this.formBuilder.group({
       workingTime: [{startDate: null, endDate: null}, [Validators.required]],
+      thumbnail: [[], [Validators.required]],
+      images: [[], [Validators.required]]
     });
     this.languageForm = this.formBuilder.group({
-      email: ['', [Validators.required]]
+      companyName: ['', [Validators.required]],
+      companyAddress: ['', [Validators.required]],
+      description: ['', [Validators.required]]
     });
   }
   handleRegisterClick() {

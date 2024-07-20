@@ -2,11 +2,58 @@
   body {
     @import 'assets/styles/variables/light.mode.scss'; // Default mode
 
-    .actions-group {
+    .company-actions-group {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      margin-top: 2rem;
     }
+    .company-main-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      .working-time {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        q-date-range, .empty-element  {
+          min-width: $min-width;
+          flex: 1;
+        }
+      }
+      .company-image-upload-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        q-upload-image-field {
+          min-width: $min-width;
+          flex: 1;
+        }
+      }
+    }
+    .company-language-form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      
+    }
+
+    .company-language-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      .row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        q-label-wrapper {
+          min-width: $min-width;
+          flex: 1;
+        }
+      }
+    }
+    
   }
 
   body.dark {
