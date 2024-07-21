@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { RequestService } from './request.service';
-import { ApiResponse } from '@shared/models/api-response.model';
+import { ApiResponse, ResponseSuccessValue } from '@shared/models/api-response.model';
 import { QueryClient, QueryObserverResult, injectQuery, injectQueryClient } from '@ngneat/query';
 import { Result } from '@ngneat/query/lib/types';
 import { QUERY_KEYS } from '@app/constants/common.const';
@@ -33,19 +33,19 @@ export class CompanyService {
   }
 
   createCompany(body: CompanyRequestBody) {
-    return this.requestService.post<CompanyRequestBody>('company', body, {
+    return this.requestService.post<ResponseSuccessValue>('company', body, {
       mockFile: `assets/mock-data/response-success.mock.json`
     });
   }
 
   updateCompany(body: CompanyRequestBody) {
-    return this.requestService.put<CompanyRequestBody>('company', body, {
+    return this.requestService.put<ResponseSuccessValue>(`company/${body.id}`, body, {
       mockFile: `assets/mock-data/response-success.mock.json`
     });
   }
 
   deleteCompany(body: { ids: string[] }) {
-    return this.requestService.delete('company', {
+    return this.requestService.delete<ResponseSuccessValue>('company', {
       httpRequestOptions: { body },
       mockFile: `assets/mock-data/response-success.mock.json`
     });

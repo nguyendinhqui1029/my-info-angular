@@ -64,5 +64,12 @@
   "max_size_image": "Dung lượng tối đa",
   "company_name": "Tên công ty",
   "company_address": "Địa chỉ",
-  "description": "Mô tả"
+  "description": "Mô tả",
+  "period_of_employment": "Thời gian làm việc",
+  "field_required_message": "{{fieldName}} không được để trống.",
+  "field_required_message_by_language": "[{{language}}][{{fieldName}}] không được để trống.",
+  "field_required_message_by_language_index": "[{{language}}][{{fieldName}}][#{{index}}] không được để trống.",
+  "start_date_required_message": "Thời gian bắt đầu không được để trống.",
+  "end_date_required_message": "Thời gian kết thúc không được để trống.",
+  "save_successfully": "Lưu thành công."
 }

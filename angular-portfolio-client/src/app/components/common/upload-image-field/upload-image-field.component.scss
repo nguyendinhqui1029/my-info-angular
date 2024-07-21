@@ -2,6 +2,10 @@
   body {
     @import 'assets/styles/variables/light.mode.scss'; // Default mode
 
+    p-fileUpload {
+      min-width: 19.5rem;
+    }
+
     .upload-image-header {
       display: flex;
       justify-content: space-between;
@@ -33,21 +37,22 @@
       }
     }
 
-    .p-fileupload .p-fileupload-content  {
+    .p-fileupload .p-fileupload-content {
       display: flex;
       flex-direction: column;
       padding: 1rem;
-      max-height: 17rem;
+      height: 13.5rem;
+      max-height: 13.5rem;
       overflow: auto;
     }
+
     .p-fileupload-buttonbar {
       padding: 0.75rem;
     }
 
     .upload-image-content-card {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
-      grid-template-rows: auto;
+      display: flex;
+      flex-direction: column;
       gap: 0.5rem;
       margin-top: 1rem;
 
@@ -59,13 +64,14 @@
         padding: 1rem;
         border-radius: 0.5rem;
         position: relative;
-        min-width: 19.5rem;
+        width: 100%;
 
         .delete-button {
           position: absolute;
           right: 0.02rem;
-          top:  0.02rem;
+          top: 0.02rem;
         }
+
         .image {
           height: 5rem;
           aspect-ratio: 16 / 12;
@@ -83,6 +89,7 @@
           align-items: flex-start;
           flex-direction: column;
           gap: 0.5rem;
+
           h3 {
             overflow: hidden;
             display: -webkit-box;
@@ -90,7 +97,7 @@
             -webkit-box-orient: vertical;
             line-height: 1rem;
             text-wrap: pretty;
-            word-break: break-word;        
+            word-break: break-word;
           }
         }
       }
@@ -121,5 +128,126 @@
   body.dark {
     @import 'assets/styles/variables/dark.mode.scss';
 
+    p-fileUpload {
+      min-width: 19.5rem;
+    }
+
+    .upload-image-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+
+      .description_group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+
+        .label-group {
+          display: flex;
+          gap: 0.5rem;
+
+          .label {
+            font-weight: 600;
+          }
+
+          .content {
+            min-width: fit-content;
+          }
+        }
+      }
+
+      .actions-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+    }
+
+    .p-fileupload .p-fileupload-content {
+      display: flex;
+      flex-direction: column;
+      padding: 1rem;
+      height: 13.5rem;
+      max-height: 13.5rem;
+      overflow: auto;
+    }
+
+    .p-fileupload-buttonbar {
+      padding: 0.75rem;
+    }
+
+    .upload-image-content-card {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-top: 1rem;
+
+      .card {
+        margin: 0;
+        display: flex;
+        border: 0.1rem solid $main-border;
+        gap: 0.75rem;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        position: relative;
+        width: 100%;
+
+        .delete-button {
+          position: absolute;
+          right: 0.02rem;
+          top: 0.02rem;
+        }
+
+        .image {
+          height: 5rem;
+          aspect-ratio: 16 / 12;
+          object-fit: cover;
+          object-position: center;
+          border-radius: 0.5rem;
+        }
+
+        .card-empty-element {
+          min-width: 1rem;
+        }
+
+        .content-image {
+          display: flex;
+          align-items: flex-start;
+          flex-direction: column;
+          gap: 0.5rem;
+
+          h3 {
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            line-height: 1rem;
+            text-wrap: pretty;
+            word-break: break-word;
+          }
+        }
+      }
+
+    }
+
+    .upload-image-empty-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 1rem;
+
+      .description {
+        text-align: center;
+      }
+
+      .icon {
+        border: 0.15rem solid $main-border;
+        border-radius: 50%;
+        padding: 1rem;
+        font-size: 4rem;
+        font-weight: 400;
+      }
+    }
   }
 }

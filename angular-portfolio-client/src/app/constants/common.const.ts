@@ -62,3 +62,8 @@ export enum CardTypeComponent {
 }
 
 export const DEFAULT_IMAGE = 'assets/images/default.png'
+
+export const PAGE_TYPE = {
+  EDIT: 'edit',
+  REGISTER: 'register'
+}

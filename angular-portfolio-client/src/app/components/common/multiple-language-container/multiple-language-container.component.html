@@ -37,7 +37,7 @@
         </ng-template>
         @defer {
           <ng-container [ngTemplateOutlet]="formDataTemplate" 
-          [ngTemplateOutletContext]="{ $implicit: item.data }"></ng-container>
+          [ngTemplateOutletContext]="{ $implicit: { data: item, index: index } }"></ng-container>
         }
       </p-tabPanel>
     }

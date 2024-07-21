@@ -13,3 +13,8 @@ export interface ApiResponseWithPagination<T> {
         pageSize: number;
     };
 }
+
+export interface ResponseSuccessValue {
+    statusCode: number;
+    statusText: string;
+}

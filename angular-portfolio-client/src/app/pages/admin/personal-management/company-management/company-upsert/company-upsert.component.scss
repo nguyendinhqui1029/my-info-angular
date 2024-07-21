@@ -1,7 +1,6 @@
 ::ng-deep {
   body {
     @import 'assets/styles/variables/light.mode.scss'; // Default mode
-
     .company-actions-group {
       display: flex;
       justify-content: space-between;
@@ -17,7 +16,7 @@
         display: flex;
         flex-wrap: wrap;
         gap: 1rem;
-        q-date-range, .empty-element  {
+        .period-of-employment, .empty-element  {
           min-width: $min-width;
           flex: 1;
         }

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectorRef, Component, ContentChild, Input, OnChanges, OnDestroy, SimpleChanges, TemplateRef, computed, inject } from '@angular/core';
+import { ChangeDetectorRef, Component, ContentChild, EventEmitter, Input, OnChanges, OnDestroy, Output, SimpleChanges, TemplateRef, computed, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MultipleLanguageDialogComponent } from '@app/components/dialogs/multiple-language-dialog/multiple-language-dialog.component';
 import { PrimeComponent } from '@app/configs/prime-angular/prime.config';
@@ -20,8 +20,10 @@ import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
   providers: [DialogService, ConfirmationService]
 })
 export class MultipleLanguageContainerComponent<T> implements OnChanges, OnDestroy {
-  @Input({required: true}) initializeData!: T;
   @Input({required: true}) initializeLanguages: MultipleLanguage<T>[] = [];
+  @Output() eventAddNewLanguage = new EventEmitter<LanguageItem[]>();
+  @Output() eventRemoveLanguage = new EventEmitter<MultipleLanguage<T>>();
+
   @ContentChild('formDataTemplate') formDataTemplate: TemplateRef<any> | null = null;
 
 
@@ -77,13 +79,7 @@ export class MultipleLanguageContainerComponent<T> implements OnChanges, OnDestr
       if (!language) {
         return;
       }
-      this.languageItems.push(...language.map((item: LanguageItem) => ({
-        languageCode: item.code,
-        name: item.name,
-        isDefault: false,
-        icon: item.flag,
-        data: this.initializeData
-    })));
+      this.eventAddNewLanguage.emit(language);
     });
   }
 
@@ -98,10 +94,12 @@ export class MultipleLanguageContainerComponent<T> implements OnChanges, OnDestr
       rejectButtonStyleClass:"p-button-outlined p-button-sm",
       acceptButtonStyleClass:"p-button p-button-sm",
       accept: () => {
+        const deleteItem = this.languageItems[index];
         this.languageItems.splice(index, 1);
         const selectItem = this.languageItems.find((item: MultipleLanguage<T>)=>item.isDefault);
         this.activeLanguage = selectItem;
         this.isDefaultLanguageCheckbox = selectItem!.isDefault;
+        this.eventRemoveLanguage.emit(deleteItem);
         this.changeDetectorRef.detectChanges();
       },
       reject: () => {

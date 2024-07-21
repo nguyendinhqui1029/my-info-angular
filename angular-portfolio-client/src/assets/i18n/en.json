@@ -64,5 +64,12 @@
   "max_size_image": "Maximum capacity",
   "company_name": "Company name",
   "company_address": "Address",
-  "description": "Description"
+  "description": "Description",
+  "period_of_employment": "Period of employment",
+  "field_required_message": "{{fieldName}} is required.",
+  "field_required_message_by_language": "[{{language}}][{{fieldName}}] is required.",
+  "field_required_message_by_language_index": "[{{language}}][{{fieldName}}][#{{index}}] is required.",
+  "start_date_required_message": "Start date is required.",
+  "end_date_required_message": "End date is required.",
+  "save_successfully": "Save successfully."
 }

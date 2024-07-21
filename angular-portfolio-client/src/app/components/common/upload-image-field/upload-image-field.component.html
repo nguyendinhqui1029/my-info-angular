@@ -35,7 +35,7 @@
               <img class="image" role="presentation" [alt]="file.name" [src]="file.objectURL" />
               <div class="content-image">
                 <h3>{{ file.name }} </h3>
-                <div>{{ formatSize(file.size) }}</div>
+                <small>{{ formatSize(file.size) }}</small>
               </div>
               <div class="card-empty-element"></div>
               <p-button class="delete-button" icon="pi pi-trash" (onClick)="onRemoveTemplatedFile($event, file, removeFileCallback, i)"
