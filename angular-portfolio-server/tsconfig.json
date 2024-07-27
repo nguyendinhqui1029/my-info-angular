@@ -1,8 +1,4 @@
 {
-  "ts-node": {
-        // Do not forget to `npm i -D tsconfig-paths`
-        "require": ["tsconfig-paths/register"]
-    },
     "compilerOptions": {
       "target": "es6",
       "module": "commonjs",

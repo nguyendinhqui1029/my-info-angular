@@ -2,7 +2,9 @@ import express, { Application } from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import env from '../config/env';
+import { ROUTER_PATH } from '../constants/common.constants';
 import userRoutes from '../routes/userRoutes';
+import uploadRouters from '../routes/uploadRouter';
 
  class App {
   public app: Application;
@@ -17,13 +19,16 @@ import userRoutes from '../routes/userRoutes';
   }
 
   private config(): void {
+    this.app.use(express.static('public'));
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(cors());
   }
 
   private routes(): void {
-    this.app.use('/api/users', userRoutes);
+    const root = `${ROUTER_PATH.ROOT}/${ROUTER_PATH.VERSION}`;
+    this.app.use(`${root}/${ROUTER_PATH.USER}`, userRoutes);
+    this.app.use(`${root}/${ROUTER_PATH.FILE_UPLOAD}`, uploadRouters);
     // Add more routes as needed
   }
 
@@ -31,9 +36,9 @@ import userRoutes from '../routes/userRoutes';
     try {
       await mongoose.connect(env.MONGODB_URI.replace('<username>', env.MONGOOSE_USER).replace('<password>', env.MONGOOSE_PASS), {
         bufferCommands: true,
-        // dbName: string;
-        // user?: string;
-        // pass?: string;
+        dbName: env.DB_NAME.toString(),
+        user:  env.MONGOOSE_USER.toString(),
+        pass: env.MONGOOSE_PASS.toString(),
         autoIndex: true,
         autoCreate: true
       });
