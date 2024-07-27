@@ -1,0 +1,14 @@
+{
+  "statusCode": 0,
+  "statusText": "Success",
+  "data": [
+    {
+      "id": "66a449ef5ef81c07c4786868",
+      "fileName": "1722042862994_ 404.webp",
+      "fileSize": 900930,
+      "isUse": true,
+      "createdAt": "2024-07-27T08:14:23.000+00:00",
+      "updatedAt": "2024-07-27T08:37:41.000+00:00"
+    }
+  ]
+}

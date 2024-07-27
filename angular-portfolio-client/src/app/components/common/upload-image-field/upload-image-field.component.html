@@ -1,7 +1,7 @@
 <q-label-wrapper [label]="label" [isRequired]="true" [id]="id" [message]="errorMessage">
   <span ngProjectAs="control-component">
     <p-fileUpload name="file[]" url="https://www.primefaces.org/cdn/api/upload.php" [multiple]="isMultiple"
-      [accept]="acceptFileType" [maxFileSize]="maxFileSize" (onUpload)="onTemplatedUpload()"
+      [accept]="acceptFileType" [maxFileSize]="maxFileSize"
       (onSelect)="onSelectedFiles($event)">
       <ng-template pTemplate="header" let-files let-chooseCallback="chooseCallback" let-clearCallback="clearCallback"
         let-uploadCallback="uploadCallback">
@@ -18,42 +18,40 @@
             </div>
           </div>
           <div class="actions-group">
-            <p-button size="small" (onClick)="clearCallback()" icon="pi pi-times" [rounded]="true" [outlined]="true"
-              severity="danger" [disabled]="!files || files.length === 0" />
+            <p-button size="small" (onClick)="onClearContent()" icon="pi pi-times" [rounded]="true" [outlined]="true"
+              severity="danger" [disabled]="!fileResponse() || fileResponse().length === 0" />
             <p-button size="small" (onClick)="choose($event, chooseCallback)" icon="pi pi-images" [rounded]="true"
               [outlined]="true" />
           </div>
         </div>
       </ng-template>
       <ng-template pTemplate="content" let-files let-uploadedFiles="uploadedFiles"
-        let-removeFileCallback="removeFileCallback" let-removeUploadedFileCallback="removeUploadedFileCallback">
-        @if(files?.length > 0) {
-        <div>
+         let-removeUploadedFileCallback="removeUploadedFileCallback">
+        @if(!!fileResponse()?.length) {
           <div class="upload-image-content-card">
-            @for(file of files; track file; let i = $index) {
+            @for(file of fileResponse(); track file; let i = $index) {
             <div class="card">
-              <img class="image" role="presentation" [alt]="file.name" [src]="file.objectURL" />
+              <img class="image" role="presentation" [alt]="file.fileName" src="{{apiUrl}}{{file.fileName}}" />
               <div class="content-image">
-                <h3>{{ file.name }} </h3>
-                <small>{{ formatSize(file.size) }}</small>
+                <h3>{{ file.fileName }} </h3>
+                <small>{{ formatSize(file.fileSize) }}</small>
               </div>
               <div class="card-empty-element"></div>
-              <p-button class="delete-button" icon="pi pi-trash" (onClick)="onRemoveTemplatedFile($event, file, removeFileCallback, i)"
+              <p-button class="delete-button" icon="pi pi-trash" (onClick)="onRemoveTemplatedFile($event, i)"
               [outlined]="true" [text]="true" severity="danger" />
             </div>
             }
           </div>
-        </div>
+        } @else {
+          <div class="upload-image-empty-content">
+            <i class="pi pi-cloud-upload icon"></i>
+            <p class="description">{{'description_upload' | translate}}</p>
+          </div>
         }
       </ng-template>
       <ng-template pTemplate="file"> </ng-template>
-      <ng-template pTemplate="empty">
-        <div class="upload-image-empty-content">
-          <i class="pi pi-cloud-upload icon"></i>
-          <p class="description">{{'description_upload' | translate}}</p>
-        </div>
-      </ng-template>
     </p-fileUpload>
   </span>
 
 </q-label-wrapper>
+<p-confirmDialog appendTo="body" [closable]="false"/>

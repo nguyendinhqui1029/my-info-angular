@@ -28,6 +28,6 @@ export class RequestService {
 
   delete<T>(url: string, options: RequestOptions): Observable<T> {
     const apiUrl = environment.isUseMock ? options.mockFile : `${environment.apiUrl}/${url}`;
-    return this.http.delete<T>(url, options.httpRequestOptions);
+    return this.http.delete<T>(apiUrl, options.httpRequestOptions);
   }
 }

@@ -7,3 +7,5 @@ package-lock.json
 # Ignore nodemon.json file (if necessary)
 nodemon.json
 package-lock.json 
+
+public/images

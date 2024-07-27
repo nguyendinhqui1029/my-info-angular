@@ -18,3 +18,8 @@ export interface ResponseSuccessValue {
     statusCode: number;
     statusText: string;
 }
+
+export interface ResponseErrorValue {
+    message: string;
+    translateKey: string;
+}

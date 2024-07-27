@@ -30,7 +30,7 @@ router.post('/', upload.array('files', 10), [
       throw new Error(JSON.stringify({ message: 'File type is not empty.', translateKey: 'file_type_required' }));
     }
     const hasErrorFileType = req.files.find((item: Express.Multer.File) => {
-      return !value.replace(/\s/g, '').split(',').includes(item.originalname.substring(item.originalname.lastIndexOf('.')));
+      return value !==  'image/*' && !value.replace(/\s/g, '').split(',').includes(item.originalname.substring(item.originalname.lastIndexOf('.')));
     });
     if (hasErrorFileType) {
       throw new Error(JSON.stringify({ message: 'File type is not allow.', translateKey: 'file_type_not_allow' }));
@@ -62,14 +62,32 @@ router.delete('/', [param('ids').custom((value, { req }) => {
   response.status(200).send(fileUploadResult);
 });
 
-router.put('/', [param('ids').custom((value, { req }) => {
-  if (!req.query?.ids?.length) {
+router.put('/', [body('ids').custom((value, { req }) => {
+  if (!req?.ids?.length) {
     throw new Error(JSON.stringify({ message: 'Field ids is required.', translateKey: 'ids_required' }));
   }
   return true;
+}),
+body('isUse').custom((value, { req }) => {
+  if (req?.isUse !== null || req?.isUse !== undefined) {
+    throw new Error(JSON.stringify({ message: 'Field isUse is required.', translateKey: 'is_use_required' }));
+  }
+  return true;
 })], ValidationService.handleValidationErrors, async (request: Request, response: Response) => {
-  const ids = eval(request.query['ids'] as string);
-  const fileUploadResult = await FileUploadController.updateUseFileStatus(ids);
+  const ids = eval(request.body['ids'] as string);
+  const isUse = eval(request.body['isUse'] as string);
+  const fileUploadResult = await FileUploadController.updateUseFileStatus(ids, isUse);
+  response.status(200).send(fileUploadResult);
+})
+
+router.get('/', [param('names').custom((value, { req }) => {
+  if (!req.query?.names?.length) {
+    throw new Error(JSON.stringify({ message: 'Field names is required.', translateKey: 'names_required' }));
+  }
+  return true;
+})], ValidationService.handleValidationErrors, async (request: Request, response: Response) => {
+  const names = eval(request.query['names'] as string);
+  const fileUploadResult = await FileUploadController.getFilesByFileName(names);
   response.status(200).send(fileUploadResult);
 })
 export default router;

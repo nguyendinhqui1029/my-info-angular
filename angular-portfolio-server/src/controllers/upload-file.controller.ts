@@ -2,7 +2,6 @@ import { ApiResponseValue, ErrorResponse } from '../models/response-value.model'
 import FileUploadModel, { FileUpload } from '../models/file.model';
 import { promises as fs } from 'fs';
 import path from 'path';
-import { ObjectId } from 'mongoose';
 
 export default class FileUploadController {
 
@@ -64,12 +63,12 @@ export default class FileUploadController {
     }
   };
 
-  public static updateUseFileStatus = async (ids: string[]): Promise<ApiResponseValue<ErrorResponse[]>> => {
+  public static updateUseFileStatus = async (ids: string[], isUse: boolean): Promise<ApiResponseValue<ErrorResponse[]>> => {
     try {
       const currentDate = new Date();
       const currentDateUTC = new Date(Date.UTC(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate(), currentDate.getHours(), currentDate.getMinutes(), currentDate.getSeconds(), 0))
       await FileUploadModel.updateMany({ _id: { $in: ids } }, {
-        $set: { isUse: true, updatedAt: currentDateUTC }
+        $set: { isUse: isUse, updatedAt: currentDateUTC }
       });
       return ({
         statusCode: 200,
@@ -77,6 +76,29 @@ export default class FileUploadController {
         totalCount: 0,
         page: 0,
         data: null
+      });
+    } catch (error) {
+      return new Promise((resolve) => {
+        resolve({
+          statusCode: 400,
+          statusText: 'Something is wrong.',
+          totalCount: 0,
+          page: 0,
+          data: [{ message: 'Server error', translateKey: 'server_error' }]
+        });
+      });
+    }
+  };
+
+  public static getFilesByFileName = async (names: string[]): Promise<ApiResponseValue<FileUpload[] | ErrorResponse[]>> => {
+    try {
+      const files = await FileUploadModel.find({ fileName: { $in: names } });
+      return ({
+        statusCode: 200,
+        statusText: 'Get file is successful.',
+        totalCount: 0,
+        page: 0,
+        data: files
       });
     } catch (error) {
       return new Promise((resolve) => {

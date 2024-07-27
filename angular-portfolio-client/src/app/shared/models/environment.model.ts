@@ -3,4 +3,5 @@ export interface Environment {
     apiUrl: string;
     isUseMock: boolean;
     defaultLanguage: string;
+    resourceHost: string;
 }
