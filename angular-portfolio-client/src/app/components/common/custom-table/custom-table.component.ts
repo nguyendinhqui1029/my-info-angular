@@ -12,7 +12,7 @@ import { TranslateModule } from '@ngx-translate/core';
   styleUrl: './custom-table.component.scss'
 })
 export class CustomTableComponent<T> {
-  @Input({required: true}) dataHeaderTable: TableHeaderConfig<T>[] = [];
+  @Input({required: true}) dataHeaderTable: TableHeaderConfig[] = [];
   @Input({required: true}) dataTable: T[] = [];
   @ContentChild('headerTemplate') headerTemplate: TemplateRef<any> | null = null;
   @ContentChild('contentRowTemplate') contentRowTemplate: TemplateRef<any> | null = null;

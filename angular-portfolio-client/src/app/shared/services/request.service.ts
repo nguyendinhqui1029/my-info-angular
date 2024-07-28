@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Observable, catchError, retry } from 'rxjs';
 import { RequestOptions } from '@shared/models/request.model';
 import { environment } from '@environments/environment';
 
@@ -13,7 +13,13 @@ export class RequestService {
 
   get<T>(url: string, options: RequestOptions): Observable<T> {
     const apiUrl = environment.isUseMock ? options.mockFile : `${environment.apiUrl}/${url}`;
-    return this.http.get<T>(apiUrl, options.httpRequestOptions);
+    return this.http.get<T>(apiUrl, options.httpRequestOptions).pipe(catchError((error: HttpErrorResponse) => {
+      // Handle error
+      if(error.status === 404) {
+        return this.http.get<T>(options.mockFile);
+      }
+      throw error;
+    }));
   }
 
   post<T>(url: string, body: any, options: RequestOptions): Observable<T> {

@@ -8,6 +8,7 @@ export const QUERY_KEYS = {
   COMPANY_DETAIL: 'company-detail',
   MENU_CLIENT: 'menu-client',
   MENU_ADMIN: 'menu-admin',
+  COMPANY_LIST: 'company-list',
 }
 
 export const PATH = {

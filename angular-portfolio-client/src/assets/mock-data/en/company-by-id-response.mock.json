@@ -14,29 +14,6 @@
       "https://assets.topdev.vn/images/2024/06/07/TopDev-bb9f0cd89bcdab8696f41b8098bc5cd8-1717746090.png",
       "https://assets.topdev.vn/images/2024/06/07/TopDev-a2c3662e0fc63420c6ed4daadbbba19b-1717746089.png",
       "https://assets.topdev.vn/images/2024/06/07/TopDev-48e8171cd3ba6998a018a1eb48180052-1717746089.png"
-    ],
-    "activities": [
-      {
-        "id": "Banner1",
-        "type": "IMAGE_VERTICAL",
-        "content": "Company Trip",
-        "title": "Company trip with smilegate vietname",
-        "source": "https://assets.topdev.vn/images/2024/06/07/TopDev-80d36a3db5c218eade7dbaf06ca69d9a-1717746089.png"
-      },
-      {
-        "id": "Banner2",
-        "type": "IMAGE_VERTICAL",
-        "content": "Football Team",
-        "title": "Football Team",
-        "source": "https://assets.topdev.vn/images/2024/06/07/TopDev-4ce1c093139e3ead853d8d8663b566a6-1717746090.png"
-      },
-      {
-        "id": "Banner3",
-        "type": "IMAGE_VERTICAL",
-        "content": "Beer time",
-        "title": "Beer time",
-        "source": "https://assets.topdev.vn/images/2024/06/07/TopDev-bb9f0cd89bcdab8696f41b8098bc5cd8-1717746090.png"
-      }
     ]
   }
 }

@@ -1,16 +1,39 @@
-import { Banner } from "@shared/models/banner.model";
 
-export interface CompanyResponseValue {
-    id: string;
+export interface CompanyRequestParams {
+    page: number;
+    pageSize: number;
+    order: string;
+    companyName: string;
+    startDate: Date | null;
+    endDate: Date | null;
+}
+export interface LanguageResponseValue {
+    languageCode: string;
+    isDefault: boolean;
     name: string;
     address: string;
     description: string;
     shortDescription: string;
+}
+
+export interface CompanyDetailWithLanguageResponseValue {
+    id: string;
     thumbnailUrl: string;
     images: string[];
-    activities: Banner[];
-    startDate: number;
-    endDate: number;
+    startDate: string;
+    endDate: string;
+    name: string;
+    address: string;
+    description: string;
+    shortDescription: string;
+}
+export interface CompanyResponseValue {
+    id: string;
+    thumbnailUrl: string;
+    images: string[];
+    startDate: string;
+    endDate: string;
+    languages: LanguageResponseValue[];
 }
 
 export interface LanguageForm { 
@@ -31,7 +54,7 @@ export interface CompanyRequestBody {
     id?: string;
     thumbnailUrl: string;
     images: string[];
-    startDate: number;
-    endDate: number;
+    startDate: string;
+    endDate: string;
     languages: LanguageInfoRequestBody[];
 }

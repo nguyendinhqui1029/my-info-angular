@@ -71,5 +71,6 @@
   "field_required_message_by_language_index": "[{{language}}][{{fieldName}}][#{{index}}] is required.",
   "start_date_required_message": "Start date is required.",
   "end_date_required_message": "End date is required.",
-  "save_successfully": "Save successfully."
+  "save_successfully": "Save successfully.",
+  "short_description": "Short description"
 }

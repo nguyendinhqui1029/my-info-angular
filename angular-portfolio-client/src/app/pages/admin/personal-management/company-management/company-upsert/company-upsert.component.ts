@@ -10,11 +10,11 @@ import { MultipleLanguage } from '@app/shared/models/multiple-language.model';
 import { PAGE_TYPE, PATH } from '@constants/common.const';
 import { CkeditorWrapperComponent } from '@app/components/common/ckeditor-wrapper/ckeditor-wrapper.component';
 import { CompanyService } from '@app/shared/services/company.service';
-import { CompanyRequestBody, LanguageForm } from '@app/shared/models/company.model';
+import { CompanyRequestBody, CompanyResponseValue, LanguageForm, LanguageResponseValue } from '@app/shared/models/company.model';
 import { LanguageItem } from '@app/shared/models/language.model';
 import { ValidatorService } from '@app/shared/services/validators.service';
 import { TransformErrorMessagePipe } from '@app/shared/pipes/transform-error-message.pipe';
-import { ResponseSuccessValue } from '@app/shared/models/api-response.model';
+import { ApiResponse, ResponseSuccessValue } from '@app/shared/models/api-response.model';
 import { TranslateService } from '@ngx-translate/core';
 import { ConfirmationService } from 'primeng/api';
 
@@ -45,7 +45,7 @@ export class CompanyUpsertComponent implements OnInit {
   private companyService: CompanyService = inject(CompanyService);
   private confirmationService: ConfirmationService = inject(ConfirmationService);
   private translateService: TranslateService = inject(TranslateService);
-  
+
 
   goToListUrl: string = `/${PATH.ADMIN.ROOT}/${PATH.ADMIN.PERSONAL_MANAGEMENT.ROOT}/${PATH.ADMIN.PERSONAL_MANAGEMENT.COMPANIES_MANAGEMENT}`;
   companyUpsertHeader = computed(() => ({
@@ -75,42 +75,59 @@ export class CompanyUpsertComponent implements OnInit {
 
   initializeLanguages: MultipleLanguage<LanguageForm>[] = [{
     languageCode: 'vi',
-    name: 'Vietnamese',
+    name: this.translateService.instant('vi_language'),
     isDefault: true,
     icon: 'https://flagcdn.com/w320/vn.png',
     data: {
-      companyName: '323',
-      companyAddress: '323',
-      shortDescription: '32',
-      description: '32'
-    }
-  },
-  {
-    languageCode: 'en',
-    name: 'English',
-    isDefault: false,
-    icon: 'https://flagcdn.com/w320/vi.png',
-    data: {
-      companyName: '3ư23',
-      companyAddress: '3323',
-      shortDescription: '332',
-      description: '323'
+      companyName: '',
+      companyAddress: '',
+      shortDescription: '',
+      description: ''
     }
   }];
 
   companyForm!: FormGroup;
   isEdit: boolean = false;
+  companyDetailResponse!: CompanyResponseValue | null;
 
-  languageFormArray = computed(()=> {
+  languageFormArray = computed(() => {
     return this.companyForm.get('languages') as FormArray
   });
 
   ngOnInit(): void {
     this.isEdit = this.activatedRoute.snapshot.params['id'] === PAGE_TYPE.EDIT;
+    if (this.isEdit) {
+      const companyId = this.activatedRoute.snapshot.queryParams['id'];
+      this.companyService.getCompanyDetail(companyId).subscribe((response: ApiResponse<CompanyResponseValue>) => {
+        if (response?.statusCode === 200) {
+          this.companyDetailResponse = response.data;
+          this.initializeLanguages = this.companyDetailResponse?.languages.map((item: LanguageResponseValue) => ({
+            languageCode: item.languageCode,
+            isDefault: item.isDefault,
+            data: {
+              companyName: item.name || '',
+              companyAddress: item.address || '',
+              shortDescription: item.shortDescription || '',
+              description: item.description || ''
+            }
+          })) || [];
+          this.initCompanyForm();
+        }});
+        return;
+    }
+    this.initCompanyForm();
+  }
+
+  initCompanyForm() {
+    const startDate = this.companyDetailResponse?.startDate ? new Date(this.companyDetailResponse.startDate) : null;
+    const endDate = this.companyDetailResponse?.endDate ? new Date(this.companyDetailResponse.endDate) : null;
+    const thumbnail = this.companyDetailResponse?.thumbnailUrl || '';
+    const images = this.companyDetailResponse?.images || [];
+
     this.companyForm = this.formBuilder.group({
-      workingTime: [{ startDate: null, endDate: null }, [ValidatorService.dateRangeRequired('field_required_message')]],
-      thumbnail: [[], [ValidatorService.fieldRequired('field_required_message')]],
-      images: [[], [ValidatorService.fieldRequired('field_required_message')]],
+      workingTime: [{ startDate, endDate }, [ValidatorService.dateRangeRequired('field_required_message')]],
+      thumbnail: [[thumbnail], [ValidatorService.fieldRequired('field_required_message')]],
+      images: [images, [ValidatorService.fieldRequired('field_required_message')]],
       languages: this.formBuilder.array([])
     });
 
@@ -123,7 +140,6 @@ export class CompanyUpsertComponent implements OnInit {
         description: [item.data.description || '', [ValidatorService.fieldRequired('field_required_message_by_language')]]
       }));
     })
-    console.log(this.companyForm.controls['languages'])
   }
 
   handleAddNewLanguageForm(value: LanguageItem[]) {
@@ -166,9 +182,9 @@ export class CompanyUpsertComponent implements OnInit {
     if (formValid) {
       const body: CompanyRequestBody = {
         id: this.activatedRoute.snapshot.queryParams['id'] || null,
-        thumbnailUrl: this.companyForm.value.thumbnail,
-        startDate: this.companyForm.value.workingTime.startDate,
-        endDate: this.companyForm.value.workingTime.endDate,
+        thumbnailUrl: this.companyForm.value.thumbnail[0] || '',
+        startDate: this.companyForm.value.workingTime.startDate.toISOString(),
+        endDate: this.companyForm.value.workingTime.endDate.toISOString(),
         images: this.companyForm.value.images,
         languages: this.initializeLanguages.map((item: MultipleLanguage<LanguageForm>) => {
           const data = this.companyForm.value.languages.find((languageFormItem: {
@@ -183,42 +199,42 @@ export class CompanyUpsertComponent implements OnInit {
             isDefault: item.isDefault,
             name: data?.companyName || '',
             address: data?.companyAddress || '',
-            description: data?.shortDescription || '',
-            shortDescription: data?.description || ''
+            description: data?.description || '',
+            shortDescription: data?.shortDescription || ''
           }
         })
       };
       const responseObservables = this.isEdit ? this.companyService.updateCompany(body) : this.companyService.createCompany(body);
-          responseObservables.subscribe((response: ResponseSuccessValue)=>{
-            if(response.statusCode !== 0) {
-              this.confirmationService.confirm({
-                  message: response.statusText,
-                  header: '',
-                  icon: 'pi pi-info-circle',
-                  acceptIcon:"none",
-                  rejectIcon:"none",
-                  rejectVisible: false,
-                  acceptButtonStyleClass:"p-button p-button-sm",
-                  accept: () => {
-                    return;
-                  }
-              });
+      responseObservables.subscribe((response: ResponseSuccessValue) => {
+        if (response.statusCode !== 200) {
+          this.confirmationService.confirm({
+            message: response.statusText,
+            header: '',
+            icon: 'pi pi-info-circle',
+            acceptIcon: "none",
+            rejectIcon: "none",
+            rejectVisible: false,
+            acceptButtonStyleClass: "p-button p-button-sm",
+            accept: () => {
               return;
             }
-            this.confirmationService.confirm({
-                message: this.translateService.instant('save_successfully'),
-                header: '',
-                icon: 'pi pi-verified',
-                acceptIcon:"none",
-                rejectIcon:"none",
-                rejectVisible: false,
-                acceptButtonStyleClass:"p-button p-button-sm",
-                accept: () => {
-                  this.zone.run(() => this.route.navigateByUrl(this.goToListUrl));
-                }
-            });
           });
-      
+          return;
+        }
+        this.confirmationService.confirm({
+          message: this.translateService.instant('save_successfully'),
+          header: '',
+          icon: 'pi pi-verified',
+          acceptIcon: "none",
+          rejectIcon: "none",
+          rejectVisible: false,
+          acceptButtonStyleClass: "p-button p-button-sm",
+          accept: () => {
+            this.zone.run(() => this.route.navigateByUrl(this.goToListUrl));
+          }
+        });
+      });
+
     }
   }
 }

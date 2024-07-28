@@ -41,6 +41,14 @@
               </span>
             </q-label-wrapper>  
           </div>
+          
+          <!-- shortDescription  -->
+          <q-label-wrapper class="description" label="{{'short_description' | translate}}" [isRequired]="true" id="shortDescription" [message]="''">
+            <span ngProjectAs="control-component">
+              <q-ckeditor-wrapper formControlName="shortDescription" id="shortDescription"></q-ckeditor-wrapper>
+            </span>
+          </q-label-wrapper>
+
           <!-- Description  -->
           <q-label-wrapper class="description" label="{{'description' | translate}}" [isRequired]="true" id="description" [message]="''">
             <span ngProjectAs="control-component">

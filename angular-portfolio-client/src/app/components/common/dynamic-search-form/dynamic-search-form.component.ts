@@ -15,10 +15,10 @@ import { SearchFormConfig } from '@app/shared/models/search-form.model';
 export class DynamicSearchFormComponent implements OnChanges {
   @Input({ required: true }) fieldConfig: SearchFormConfig[] = [];
   @Input({ required: true }) column!: number;
-  @Output() eventClick = new EventEmitter<Record<string, string | string[] | boolean>>();
+  @Output() eventClick = new EventEmitter<Record<string, string | string[] | boolean | Date | null>>();
 
-  initialValue: Record<string, string | string[] | boolean> = {};
-  currentValue: Record<string, string | string[] | boolean> = {};
+  initialValue: Record<string, string | string[] | boolean | null> = {};
+  currentValue: Record<string, string | string[] | boolean | null> = {};
   currentColumn: number = 1;
   private changeDetectorRef: ChangeDetectorRef = inject(ChangeDetectorRef);
 

@@ -1,5 +1,5 @@
-export interface TableHeaderConfig<T> {
-    key: keyof T;
+export interface TableHeaderConfig {
+    key: string;
     header: string;
     headerClass?: string;
     contentClass?: string;

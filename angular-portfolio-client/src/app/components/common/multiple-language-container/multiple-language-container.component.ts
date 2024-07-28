@@ -5,6 +5,7 @@ import { MultipleLanguageDialogComponent } from '@app/components/dialogs/multipl
 import { PrimeComponent } from '@app/configs/prime-angular/prime.config';
 import { LanguageItem } from '@app/shared/models/language.model';
 import { MultipleLanguage } from '@app/shared/models/multiple-language.model';
+import { LanguageService } from '@app/shared/services/language.service';
 import { environment } from '@environments/environment';
 import { TranslateService } from '@ngx-translate/core';
 import { ConfirmationService } from 'primeng/api';
@@ -32,6 +33,9 @@ export class MultipleLanguageContainerComponent<T> implements OnChanges, OnDestr
   private translateService: TranslateService = inject(TranslateService);
   private dynamicDialogRef: DynamicDialogRef | undefined;
   private confirmationService: ConfirmationService = inject(ConfirmationService);
+  private languageService: LanguageService = inject(LanguageService);
+
+  languages = this.languageService.getLanguages().result;
 
   languageItems: MultipleLanguage<T>[] = [];
   activeLanguage!: MultipleLanguage<T> | undefined;
@@ -42,7 +46,14 @@ export class MultipleLanguageContainerComponent<T> implements OnChanges, OnDestr
       this.activeLanguage = this.initializeLanguages.find((item: MultipleLanguage<T>)=>item.isDefault);
       this.isDefaultLanguageCheckbox = this.activeLanguage?.isDefault || false ;
       this.defaultLanguageCode = this.activeLanguage?.languageCode || environment.defaultLanguage;
-      this.languageItems = [...this.initializeLanguages];
+      this.languageItems = [...this.initializeLanguages.map((item: MultipleLanguage<T>)=> {
+        const languageInfo = (this.languages().data?.data || []).find((lang: LanguageItem)=>lang.code === item.languageCode);
+        return {
+          ...item,
+          name: languageInfo?.name || '',
+          icon: languageInfo?.flag  || ''
+        }
+      })];
     }
   }
 
@@ -64,7 +75,8 @@ export class MultipleLanguageContainerComponent<T> implements OnChanges, OnDestr
       header: this.translateService.instant('select_language'),
       width: '60vw',
       data: {
-        initializeLanguage: this.languageItems.map((item: MultipleLanguage<T>) => item.languageCode)
+        initializeLanguage: this.languageItems.map((item: MultipleLanguage<T>) => item.languageCode),
+        languages: this.languages().data?.data || []
       },
       contentStyle: { overflow: 'auto' },
       closeOnEscape: true,

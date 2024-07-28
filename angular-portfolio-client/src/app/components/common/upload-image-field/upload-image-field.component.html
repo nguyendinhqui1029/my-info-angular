@@ -27,7 +27,7 @@
       </ng-template>
       <ng-template pTemplate="content" let-files let-uploadedFiles="uploadedFiles"
          let-removeUploadedFileCallback="removeUploadedFileCallback">
-        @if(!!fileResponse()?.length) {
+        @if(!!fileResponse().length) {
           <div class="upload-image-content-card">
             @for(file of fileResponse(); track file; let i = $index) {
             <div class="card">

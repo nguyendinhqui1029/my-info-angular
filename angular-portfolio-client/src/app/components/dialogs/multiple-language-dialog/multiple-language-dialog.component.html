@@ -1,5 +1,5 @@
 <div class="multiple-language-dialog-wrapper">
-  @for(item of languages().data?.data; track item) {
+  @for(item of languages; track item) {
   <div class="language-item">
     <p-checkbox [disabled]="initializeLanguage.includes(item.code)" [name]="item.name" [(ngModel)]="selectedLanguage" [value]="item.code" [inputId]="item.code"[ngModelOptions]="{standalone: true}"/>
     <div class="content-wrapper">

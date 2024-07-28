@@ -1,37 +1,40 @@
 <p-table [value]="dataTable" responsiveLayout="stack" [breakpoint]="'960px'" [tableStyle]="{'min-width': '18rem'}"
-  [paginator]="true" [rows]="5">
+  [paginator]="true" [rows]="10">
   <ng-template pTemplate="header" let-columns>
     @defer {
-    @if(headerTemplate)
-    {
-    <ng-container [ngTemplateOutlet]="headerTemplate" 
-    [ngTemplateOutletContext]="{ $implicit: dataHeaderTable }"></ng-container>
-    } @else {
-    <!-- Default template definition -->
-    <tr>
-      @for( headerItem of dataHeaderTable; track headerItem.header) {
-      <th class="header-cell" [class]="headerItem.headerClass">{{headerItem.header}}</th>
+      @if(headerTemplate)
+      {
+      <ng-container [ngTemplateOutlet]="headerTemplate" 
+      [ngTemplateOutletContext]="{ $implicit: dataHeaderTable }"></ng-container>
+      } @else {
+      <!-- Default template definition -->
+      <tr>
+        @for( headerItem of dataHeaderTable; track headerItem.header) {
+        <th class="header-cell" [class]="headerItem.headerClass">{{headerItem.header | translate}}</th>
+        }
+      </tr>
       }
-    </tr>
-    }
     }
   </ng-template>
   <ng-template pTemplate="body" let-data>
-    @defer {
-    @if(contentRowTemplate)
-    {
-    <ng-container [ngTemplateOutlet]="contentRowTemplate" 
-          [ngTemplateOutletContext]="{ $implicit: data }"></ng-container>
-    } @else {
-    <tr>
-      @for( headerItem of dataHeaderTable; track headerItem.key) {
-      <td class="content-cell" [class]="headerItem.contentClass">
-        <h3
-          class="p-column-title">{{headerItem.header}}</h3>{{data[headerItem.key]}}
-      </td>
+    @defer {  
+      @if(contentRowTemplate) {
+        <ng-container [ngTemplateOutlet]="contentRowTemplate" 
+            [ngTemplateOutletContext]="{ $implicit: data }"></ng-container>
+      } @else {
+        <tr>
+          @for( headerItem of dataHeaderTable; track headerItem.key) {
+          <td class="content-cell" [class]="headerItem.contentClass">
+            <h3 class="p-column-title">{{headerItem.header | translate}}</h3>{{data[headerItem.key]}}
+          </td>
+          }
+        </tr>
       }
+    }
+  </ng-template>
+  <ng-template pTemplate="emptymessage">
+    <tr>
+      <td [attr.colspan]="dataHeaderTable.length" style="justify-content: center; text-align: center; padding: 1rem;">{{'empty_value' | translate}}</td>
     </tr>
-    }
-    }
   </ng-template>
 </p-table>

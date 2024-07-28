@@ -5,7 +5,7 @@ import env from '../config/env';
 import { ROUTER_PATH } from '../constants/common.constants';
 import userRoutes from '../routes/userRoutes';
 import uploadRouters from '../routes/uploadRouter';
-
+import companyRouters from '../routes/companyRouter';
  class App {
   public app: Application;
   public port: number;
@@ -29,6 +29,9 @@ import uploadRouters from '../routes/uploadRouter';
     const root = `${ROUTER_PATH.ROOT}/${ROUTER_PATH.VERSION}`;
     this.app.use(`${root}/${ROUTER_PATH.USER}`, userRoutes);
     this.app.use(`${root}/${ROUTER_PATH.FILE_UPLOAD}`, uploadRouters);
+    this.app.use(`${root}/${ROUTER_PATH.COMPANY}`, companyRouters);
+
+    
     // Add more routes as needed
   }
 

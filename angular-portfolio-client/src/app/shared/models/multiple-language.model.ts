@@ -1,7 +1,7 @@
 export interface MultipleLanguage<T> {
     languageCode: string;
-    name: string;
+    name?: string;
     isDefault: boolean;
-    icon: string;
+    icon?: string;
     data: T;
 }

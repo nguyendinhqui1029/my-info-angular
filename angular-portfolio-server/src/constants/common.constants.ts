@@ -2,5 +2,6 @@ export const ROUTER_PATH = {
     ROOT: '/api',
     VERSION: 'v1',
     USER: 'users',
-    FILE_UPLOAD: 'files-upload'
+    FILE_UPLOAD: 'files-upload',
+    COMPANY: 'company',
 }

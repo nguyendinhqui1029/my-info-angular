@@ -71,5 +71,6 @@
   "field_required_message_by_language_index": "[{{language}}][{{fieldName}}][#{{index}}] không được để trống.",
   "start_date_required_message": "Thời gian bắt đầu không được để trống.",
   "end_date_required_message": "Thời gian kết thúc không được để trống.",
-  "save_successfully": "Lưu thành công."
+  "save_successfully": "Lưu thành công.",
+  "short_description": "Mô tả tóm tắt"
 }

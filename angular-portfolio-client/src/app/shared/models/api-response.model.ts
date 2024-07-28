@@ -7,11 +7,9 @@ export interface ApiResponse<T> {
 export interface ApiResponseWithPagination<T> {
     statusCode: number;
     statusText: string;
-    data: {
-        list: T[];
-        totalItems: number;
-        pageSize: number;
-    };
+    totalCount: number;
+    page: number;
+    data: T | null;
 }
 
 export interface ResponseSuccessValue {

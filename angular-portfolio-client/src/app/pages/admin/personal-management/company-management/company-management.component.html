@@ -6,18 +6,33 @@
 <q-dynamic-search-form [column]="6" [fieldConfig]="fieldConfig" (eventClick)="handleSearchClick($event)"></q-dynamic-search-form>
 <div class="actions-wrapper">
   
-  <p-button [routerLink]="'/admin/personal-management/companies-management/register'" size="small" [label]="'register' | translate" />
+  <p-button [routerLink]="registerLink" size="small" [label]="'register' | translate" />
 </div>
 <div class="header-wrapper">
   <h3> {{'company_list' | translate}}</h3>
 
   <div class="filter-group">
     <h4>
-      {{'total_count' | translate: {total: dataTable.length} }}
+      {{'total_count' | translate: {total: totalCount} }}
     </h4>
     <q-filter-form [items]="filterField" (eventClick)="handleFilterClick($event)"></q-filter-form>
   </div>
 </div>
 
-<q-custom-table [dataHeaderTable]="dataHeaderTable" [dataTable]="dataTable">
+<q-custom-table [dataHeaderTable]="dataHeaderTable" [dataTable]="dataTable || []">
+  <ng-template #contentRowTemplate let-data>
+    <tr>
+      <td style="padding: 1rem;">
+        <a routerLink="">{{data.name}}</a>
+      </td>
+      <td style="padding: 1rem;">
+        <img src="{{resourceLink+'images/'+data.thumbnailUrl}}" [alt]="data.shortDescription" width="100" height="40"/>
+      </td >
+      <td style="padding: 1rem;">{{data.shortDescription}}</td>
+      <td style="padding: 1rem;">{{data.startDate}} ~ {{data.endDate}}</td>
+      <td style="padding: 1rem;">
+        <p-button size="small" [label]="'delete'| translate" (click)="handleDeleteItem(data.id)"/>
+      </td>
+    </tr>
+  </ng-template>
 </q-custom-table>

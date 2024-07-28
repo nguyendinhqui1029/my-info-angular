@@ -1,8 +1,7 @@
-import { Component, Input, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { PrimeComponent } from '@app/configs/prime-angular/prime.config';
 import { LanguageItem } from '@app/shared/models/language.model';
-import { LanguageService } from '@app/shared/services/language.service';
 import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 
 @Component({
@@ -14,21 +13,21 @@ import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 })
 export class MultipleLanguageDialogComponent implements OnInit{
   
-  private languageService: LanguageService = inject(LanguageService);
   private dynamicDialogRef: DynamicDialogRef = inject(DynamicDialogRef);
   private dialogConfig: DynamicDialogConfig = inject(DynamicDialogConfig);
 
+  languages: LanguageItem[] = [];
   initializeLanguage: string[] = [];
-  languages = this.languageService.getLanguages().result;
   selectedLanguage: string[] = [];
   
   ngOnInit(): void {
     this.initializeLanguage = this.dialogConfig.data.initializeLanguage;
+    this.languages = this.dialogConfig.data.languages;
     this.selectedLanguage = [...this.initializeLanguage];
   }
 
   handleOkClick() {
-    const newItemSelected = this.languages().data?.data?.filter((item: LanguageItem) => !this.initializeLanguage.includes(item.code) && this.selectedLanguage.includes(item.code));
+    const newItemSelected = this.languages?.filter((item: LanguageItem) => !this.initializeLanguage.includes(item.code) && this.selectedLanguage.includes(item.code));
     this.dynamicDialogRef.close(newItemSelected);
   }
 }
