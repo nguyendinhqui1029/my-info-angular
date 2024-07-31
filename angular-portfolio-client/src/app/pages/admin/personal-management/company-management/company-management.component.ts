@@ -10,6 +10,7 @@ import { CompanyDetailWithLanguageResponseValue } from '@app/shared/models/compa
 import { FilterOptions } from '@app/shared/models/filter.model';
 import { SearchFormConfig } from '@app/shared/models/search-form.model';
 import { TableHeaderConfig } from '@app/shared/models/table.model';
+import { FormatDateWithZonePipe } from '@app/shared/pipes/format-date-with-zone.pipe';
 import { CompanyService } from '@app/shared/services/company.service';
 import { environment } from '@environments/environment';
 import { injectQuery, injectQueryClient } from '@ngneat/query';
@@ -19,7 +20,14 @@ import { Subscription, lastValueFrom, switchMap } from 'rxjs';
 @Component({
   selector: 'q-company-management',
   standalone: true,
-  imports: [PrimeComponent, HeaderPageComponent, DynamicSearchFormComponent, TranslateModule, FilterFormComponent, CustomTableComponent],
+  imports: [
+      PrimeComponent, 
+      HeaderPageComponent, 
+      DynamicSearchFormComponent, 
+      TranslateModule, 
+      FilterFormComponent, 
+      CustomTableComponent,
+      FormatDateWithZonePipe],
   templateUrl: './company-management.component.html',
   styleUrl: './company-management.component.scss',
   providers: [TranslateService]
@@ -94,7 +102,7 @@ export class CompanyManagementComponent implements OnInit, OnDestroy {
     span: 1
   }];
 
-  registerLink: string = `/${PATH.ADMIN.ROOT}/${PATH.ADMIN.PERSONAL_MANAGEMENT}/${PATH.ADMIN.PERSONAL_MANAGEMENT.COMPANIES_MANAGEMENT}/register`;
+  registerLink: string = `/${PATH.ADMIN.ROOT}/${PATH.ADMIN.PERSONAL_MANAGEMENT.ROOT}/${PATH.ADMIN.PERSONAL_MANAGEMENT.COMPANIES_MANAGEMENT}/register`;
   dataHeaderTable: TableHeaderConfig[] = [{
     key: 'name',
     header: 'company_name',
@@ -166,6 +174,7 @@ export class CompanyManagementComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
    }
   }
+
   handleFilterClick(value: Record<string, string>) {
     this.filterForm = {
       orderBy: value['orderBy'],

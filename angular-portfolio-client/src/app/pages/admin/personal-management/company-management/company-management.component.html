@@ -22,15 +22,24 @@
 <q-custom-table [dataHeaderTable]="dataHeaderTable" [dataTable]="dataTable || []">
   <ng-template #contentRowTemplate let-data>
     <tr>
-      <td style="padding: 1rem;">
-        <a routerLink="">{{data.name}}</a>
+      <td class="content-cell" style="padding: 1rem;">
+        <h3 class="p-column-title">{{dataHeaderTable[0].header | translate}}</h3> <a routerLink="">{{data.name}}</a>
       </td>
-      <td style="padding: 1rem;">
-        <img src="{{resourceLink+'images/'+data.thumbnailUrl}}" [alt]="data.shortDescription" width="100" height="40"/>
+      <td class="content-cell" style="padding: 1rem;">
+        <h3 class="p-column-title">{{dataHeaderTable[1].header | translate}}</h3> <img src="{{resourceLink+'images/'+data.thumbnailUrl}}" [alt]="data.shortDescription" width="100" height="40"/>
       </td >
-      <td style="padding: 1rem;">{{data.shortDescription}}</td>
-      <td style="padding: 1rem;">{{data.startDate}} ~ {{data.endDate}}</td>
-      <td style="padding: 1rem;">
+      <td class="content-cell" style="padding: 1rem;">
+        <h3 class="p-column-title">{{dataHeaderTable[2].header | translate}}</h3>{{data.shortDescription}}</td>
+      <td class="content-cell" style="padding: 1rem;">
+        <h3 class="p-column-title">{{dataHeaderTable[3].header | translate}}</h3>
+        <div style="width:11.6875rem; display: flex; flex-wrap: wrap; gap: 0.2rem; justify-content: center;">
+          <span>{{data.startDate | formatDateWithZone}}</span> 
+          <span>~</span> 
+          <span>{{data.endDate | formatDateWithZone}}</span>
+        </div>
+      </td>
+      <td class="content-cell" style="padding: 1rem;">
+        <h3 class="p-column-title">{{dataHeaderTable[4].header | translate}}</h3>
         <p-button size="small" [label]="'delete'| translate" (click)="handleDeleteItem(data.id)"/>
       </td>
     </tr>

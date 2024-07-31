@@ -10,7 +10,7 @@
       <!-- Default template definition -->
       <tr>
         @for( headerItem of dataHeaderTable; track headerItem.header) {
-        <th class="header-cell" [class]="headerItem.headerClass">{{headerItem.header | translate}}</th>
+        <th class="header-cell text-center" [class]="headerItem.headerClass">{{headerItem.header | translate}}</th>
         }
       </tr>
       }
