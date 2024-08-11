@@ -6,6 +6,8 @@ import { ROUTER_PATH } from '../constants/common.constants';
 import userRoutes from '../routes/userRoutes';
 import uploadRouters from '../routes/uploadRouter';
 import companyRouters from '../routes/companyRouter';
+import menuRouters from '../routes/menuRouter';
+
  class App {
   public app: Application;
   public port: number;
@@ -30,7 +32,7 @@ import companyRouters from '../routes/companyRouter';
     this.app.use(`${root}/${ROUTER_PATH.USER}`, userRoutes);
     this.app.use(`${root}/${ROUTER_PATH.FILE_UPLOAD}`, uploadRouters);
     this.app.use(`${root}/${ROUTER_PATH.COMPANY}`, companyRouters);
-
+    this.app.use(`${root}/${ROUTER_PATH.MENU}`, menuRouters);
     
     // Add more routes as needed
   }

@@ -28,28 +28,13 @@ class CompanyController {
 
   public static getCompanyByIdWithLanguage = async (id: string, language: string): Promise<ApiResponseValue<CompanyDetailWithLanguage | ErrorResponse[]>> => {
     try {
-      const company = await CompanyService.getCompanyById(id);
-      let valueByLanguage = company?.languages.find((item: LanguageInfo)=> item.languageCode === language);
-      if(!valueByLanguage) {
-        valueByLanguage = company?.languages.find((item: LanguageInfo)=> item.isDefault);
-      }
+      const company = await CompanyService.getCompanyByIdWithLanguage(id, language);
       return {
         statusCode: 200,
         statusText: 'Get company by id is successful.',
         totalCount: 0,
         page: 0,
-        data: {
-          thumbnailUrl: company?.thumbnailUrl || '',
-          images: company?.images || [],
-          startDate: company?.startDate || null,
-          endDate: company?.endDate || null,
-          name: valueByLanguage?.name || '',
-          address: valueByLanguage?.address || '',
-          description: valueByLanguage?.description || '',
-          shortDescription: valueByLanguage?.shortDescription || '',
-          languageCode: valueByLanguage?.languageCode || '',
-          isDefault: valueByLanguage?.isDefault || false
-        } as CompanyDetailWithLanguage
+        data: company
       }
     } catch (error: any) {
       return {

@@ -19,6 +19,7 @@ class CompanyService {
       data: company.map((item: Company)=>{
         const itemByLanguage = item.languages.find((langItem: LanguageInfo)=>langItem.languageCode === language);
         return {
+          id: item._id,
           thumbnailUrl: item.thumbnailUrl || '',
           images: item.images || [],
           startDate: item.startDate || null,
@@ -34,9 +35,37 @@ class CompanyService {
       };
   }
 
+  public static async getCompanyByIdWithLanguage(id: string, language: string): Promise<CompanyDetailWithLanguage | null> {
+    const company = await CompanyModel.findById(id);
+    let valueByLanguage = company?.languages.find((item: LanguageInfo)=> item.languageCode === language);
+    if(!valueByLanguage) {
+      valueByLanguage = company?.languages.find((item: LanguageInfo)=> item.isDefault);
+    }
+    return {
+      id: company?._id?.toString() || '',
+      thumbnailUrl: company?.thumbnailUrl || '',
+      images: company?.images || [],
+      startDate: company?.startDate || null,
+      endDate: company?.endDate || null,
+      name: valueByLanguage?.name || '',
+      address: valueByLanguage?.address || '',
+      description: valueByLanguage?.description || '',
+      shortDescription: valueByLanguage?.shortDescription || '',
+      languageCode: valueByLanguage?.languageCode || '',
+      isDefault: valueByLanguage?.isDefault || false
+    } ;
+  }
+
   public static async getCompanyById(id: string): Promise<Company | null> {
     const company = await CompanyModel.findById(id);
-    return company;
+    return {
+      id: company?._id?.toString() || '',
+      thumbnailUrl: company?.thumbnailUrl || '',
+      images: company?.images || [],
+      startDate: company?.startDate || null,
+      endDate: company?.endDate || null,
+      languages: company?.languages|| []
+    } as Company;
   }
 
   public static async createCompany(companyModel: Company): Promise<any> {
@@ -44,8 +73,8 @@ class CompanyService {
     return newCompany;
   }
 
-  public static async updateCompany(id: string, userData: any): Promise<any | null> {
-    const updatedCompany = await CompanyModel.findByIdAndUpdate(id, userData, { new: true });
+  public static async updateCompany(id: string, body: Company): Promise<any | null> {
+    const updatedCompany = await CompanyModel.findByIdAndUpdate(id, body, { new: true });
     return updatedCompany;
   }
 

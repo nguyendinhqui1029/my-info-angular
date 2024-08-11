@@ -18,7 +18,8 @@ export interface LanguageInfo {
   isDefault: boolean;
 }
 
-export interface CompanyDetailWithLanguage extends Document {
+export interface CompanyDetailWithLanguage {
+  id: string;
   thumbnailUrl: string;
   images: string[];
   startDate: Date | null;
@@ -33,6 +34,7 @@ export interface CompanyDetailWithLanguage extends Document {
 
 // Define interface for TypeScript type-checking
 export interface Company extends Document {
+  id: string,
   thumbnailUrl: string;
   images: string[];
   startDate: Date | null;

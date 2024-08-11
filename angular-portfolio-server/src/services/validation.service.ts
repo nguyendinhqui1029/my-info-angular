@@ -4,7 +4,6 @@ import { Request, Response } from 'express';
 class ValidationService {
     static handleValidationErrors = (request: Request, response: Response, next: Function) => {
       const errors = validationResult(request);
-      console.log(errors)
       if (!errors.isEmpty()) {
           return response.status(200).json({
             statusCode: 400,

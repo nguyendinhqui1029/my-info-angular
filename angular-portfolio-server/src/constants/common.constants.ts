@@ -4,4 +4,5 @@ export const ROUTER_PATH = {
     USER: 'users',
     FILE_UPLOAD: 'files-upload',
     COMPANY: 'company',
+    MENU: 'menu',
 }
