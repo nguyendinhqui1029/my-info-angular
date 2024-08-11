@@ -3,6 +3,7 @@ import CompanyController from '../controllers/company.controller';
 import ValidationService from '../services/validation.service';
 import express, { Request, Response } from 'express';
 import { body, param } from 'express-validator';
+import { Language } from '@/models/common.model';
 
 const router = express.Router();
 
@@ -40,7 +41,7 @@ router.get('/:id',[
 
 router.post('/',[
     body('languages').isArray({min: 1}).withMessage(JSON.stringify({ message: 'Field languages is required.', translateKey: 'languages_required' })).custom((value, { req }) => {
-        const hasFieldError = value.find((item: LanguageInfo)=>!item.languageCode.trim() || !item.address.trim() || !item.description.trim() ||!item.name.trim() || !item.shortDescription);
+        const hasFieldError = value.find((item: Language<LanguageInfo>)=>!item.languageCode.trim() || !item.data.address.trim() || !item.data.description.trim() ||!item.name.trim() || !item.data.shortDescription);
         if(hasFieldError) {
             throw new Error(JSON.stringify({ message: 'The field of multiple language is incorrect.', translateKey: 'multiple_language_required' }));
         }
@@ -57,7 +58,7 @@ router.post('/',[
 });
 router.put('/:id', [
     body('languages').isArray({min: 1}).withMessage(JSON.stringify({ message: 'Field languages is required.', translateKey: 'languages_required' })).custom((value, { req }) => {
-        const hasFieldError = value.find((item: LanguageInfo)=>!item.languageCode.trim() || !item.address.trim() || !item.description.trim() ||!item.name.trim() || !item.shortDescription);
+        const hasFieldError = value.find((item: Language<LanguageInfo>)=>!item.languageCode.trim() || !item.data.address.trim() || !item.data.description.trim() ||!item.name.trim() || !item.data.shortDescription);
         if(hasFieldError) {
             throw new Error(JSON.stringify({ message: 'The field of multiple language is incorrect.', translateKey: 'multiple_language_required' }));
         }

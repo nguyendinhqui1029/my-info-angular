@@ -1,4 +1,6 @@
-import MenuModel, { MenuByLanguage, MenuItem, MenuItemByLanguage, MenuRequestParams } from "../models/menu.model";
+import { getUTCDate } from "../utils/date.util";
+import { Language } from "../models/common.model";
+import MenuModel, { MenuItem, MenuItemByLanguage, MenuRequestParams } from "../models/menu.model";
 
 class MenuService {
   public static async getAll(params: MenuRequestParams, language: string): Promise<{total: number, data: MenuItemByLanguage[]}> {
@@ -17,10 +19,10 @@ class MenuService {
     return {
       total: totalCount,
       data: result.map((item: MenuItem)=>{
-        const itemByLanguage = item.languages.find((langItem: MenuByLanguage)=>langItem.languageCode === language);
+        const itemByLanguage = item.languages.find((langItem: Language<{name: string}>)=>langItem.languageCode === language);
         return {
           id: item._id,
-          name: itemByLanguage?.name || '',
+          name: itemByLanguage?.data?.name || '',
           languageCode: itemByLanguage?.languageCode || '',
           isDefault: itemByLanguage?.isDefault || false,
           path: item.path || '',
@@ -43,7 +45,7 @@ class MenuService {
   }
 
   public static async update(id: string, body: MenuItem): Promise<MenuItem | null> {
-    const updatedResult = await MenuModel.findByIdAndUpdate(id, body, { new: true });
+    const updatedResult = await MenuModel.findByIdAndUpdate(id, {...body, updatedAt: getUTCDate(new Date())}, { new: true });
     return updatedResult;
   }
 

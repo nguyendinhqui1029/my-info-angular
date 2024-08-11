@@ -1,4 +1,5 @@
 import mongoose, { Schema, Document } from 'mongoose';
+import { Language } from './common.model';
 
 export interface CompanyRequestParams {
   page: number;
@@ -14,8 +15,6 @@ export interface LanguageInfo {
   address: string;
   description: string;
   shortDescription: string;
-  languageCode: string;
-  isDefault: boolean;
 }
 
 export interface CompanyDetailWithLanguage {
@@ -39,7 +38,7 @@ export interface Company extends Document {
   images: string[];
   startDate: Date | null;
   endDate: Date | null;
-  languages: LanguageInfo[];
+  languages: Language<LanguageInfo>[];
 }
 
 // Define Mongoose schema for Company model
@@ -49,7 +48,7 @@ const CompanySchema: Schema = new Schema({
   startDate: { type: Date, required: true },
   endDate: { type: Date, required: true },
   languages: {
-    type: Array<LanguageInfo>,
+    type: Array<Language<LanguageInfo>>,
     required: true
   }, 
   createdAt: { type: Date, default: Date.now },

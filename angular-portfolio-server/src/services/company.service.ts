@@ -1,3 +1,5 @@
+import { getUTCDate } from "../utils/date.util";
+import { Language } from "../models/common.model";
 import CompanyModel, { Company, CompanyDetailWithLanguage, CompanyRequestParams, LanguageInfo } from "../models/company.model";
 
 class CompanyService {
@@ -17,7 +19,7 @@ class CompanyService {
     return {
       total: totalCount,
       data: company.map((item: Company)=>{
-        const itemByLanguage = item.languages.find((langItem: LanguageInfo)=>langItem.languageCode === language);
+        const itemByLanguage = item.languages.find((langItem: Language<LanguageInfo>)=>langItem.languageCode === language);
         return {
           id: item._id,
           thumbnailUrl: item.thumbnailUrl || '',
@@ -25,9 +27,9 @@ class CompanyService {
           startDate: item.startDate || null,
           endDate: item.endDate || null,
           name: itemByLanguage?.name || '',
-          address: itemByLanguage?.address || '',
-          description: itemByLanguage?.description || '',
-          shortDescription: itemByLanguage?.shortDescription || '',
+          address: itemByLanguage?.data?.address || '',
+          description: itemByLanguage?.data?.description || '',
+          shortDescription: itemByLanguage?.data?.shortDescription || '',
           languageCode: itemByLanguage?.languageCode || '',
           isDefault: itemByLanguage?.isDefault || false
         } as CompanyDetailWithLanguage;
@@ -37,9 +39,9 @@ class CompanyService {
 
   public static async getCompanyByIdWithLanguage(id: string, language: string): Promise<CompanyDetailWithLanguage | null> {
     const company = await CompanyModel.findById(id);
-    let valueByLanguage = company?.languages.find((item: LanguageInfo)=> item.languageCode === language);
+    let valueByLanguage = company?.languages.find((item: Language<LanguageInfo>)=> item.languageCode === language);
     if(!valueByLanguage) {
-      valueByLanguage = company?.languages.find((item: LanguageInfo)=> item.isDefault);
+      valueByLanguage = company?.languages.find((item: Language<LanguageInfo>)=> item.isDefault);
     }
     return {
       id: company?._id?.toString() || '',
@@ -48,9 +50,9 @@ class CompanyService {
       startDate: company?.startDate || null,
       endDate: company?.endDate || null,
       name: valueByLanguage?.name || '',
-      address: valueByLanguage?.address || '',
-      description: valueByLanguage?.description || '',
-      shortDescription: valueByLanguage?.shortDescription || '',
+      address: valueByLanguage?.data?.address || '',
+      description: valueByLanguage?.data?.description || '',
+      shortDescription: valueByLanguage?.data?.shortDescription || '',
       languageCode: valueByLanguage?.languageCode || '',
       isDefault: valueByLanguage?.isDefault || false
     } ;
@@ -74,7 +76,7 @@ class CompanyService {
   }
 
   public static async updateCompany(id: string, body: Company): Promise<any | null> {
-    const updatedCompany = await CompanyModel.findByIdAndUpdate(id, body, { new: true });
+    const updatedCompany = await CompanyModel.findByIdAndUpdate(id, {...body, updatedAt: getUTCDate(new Date())}, { new: true });
     return updatedCompany;
   }
 

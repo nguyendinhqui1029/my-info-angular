@@ -1,14 +1,9 @@
-import { ObjectId } from './../../node_modules/bson/src/objectid';
 import mongoose, { Schema, Document } from 'mongoose';
+import { Language } from './common.model';
 
 export interface MenuRequestParams {
     page: number;
     pageSize: number;
-    name: string;
-}
-export interface MenuByLanguage {
-    languageCode: string; 
-    isDefault: boolean;
     name: string;
 }
 export interface MenuItem extends Document {
@@ -16,7 +11,7 @@ export interface MenuItem extends Document {
     icon?: string;
     role: number;
     sortNo: number;
-    languages: MenuByLanguage[];
+    languages: Language<{name: string}>[];
     rootId: string | null;
 }
 
@@ -38,7 +33,7 @@ const MenuSchema: Schema = new Schema({
     role: { type: Number, required: true },
     rootId: { type: String },
     languages: {
-        type: Array<MenuByLanguage>,
+        type: Array<Language<{name: string}>>,
         required: true
     },
     sortNo: { type: Number, required: true },

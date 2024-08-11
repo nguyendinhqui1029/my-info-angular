@@ -1,4 +1,4 @@
-import { MenuByLanguage } from '../models/menu.model';
+import { Language } from '../models/common.model';
 import MenuController from '../controllers/menu.controller';
 import ValidationService from '../services/validation.service';
 import express, { Request, Response } from 'express';
@@ -32,7 +32,7 @@ router.get('/:id',[
 
 router.post('/',[
     body('languages').isArray({min: 1}).withMessage(JSON.stringify({ message: 'Field languages is required.', translateKey: 'languages_required' })).custom((value, { req }) => {
-        const hasFieldError = value.find((item: MenuByLanguage)=>!item.languageCode.trim() || !item.name.trim());
+        const hasFieldError = value.find((item: Language<{name: string}>)=>!item.languageCode.trim() || !item.name.trim());
         if(hasFieldError) {
             throw new Error(JSON.stringify({ message: 'The field of multiple language is incorrect.', translateKey: 'multiple_language_required' }));
         }
@@ -49,7 +49,7 @@ router.post('/',[
 
 router.put('/:id', [
     body('languages').isArray({min: 1}).withMessage(JSON.stringify({ message: 'Field languages is required.', translateKey: 'languages_required' })).custom((value, { req }) => {
-        const hasFieldError = value.find((item: MenuByLanguage)=>!item.languageCode.trim() ||!item.name.trim());
+        const hasFieldError = value.find((item: Language<{name: string}>)=>!item.languageCode.trim() ||!item.name.trim());
         if(hasFieldError) {
             throw new Error(JSON.stringify({ message: 'The field of multiple language is incorrect.', translateKey: 'multiple_language_required' }));
         }

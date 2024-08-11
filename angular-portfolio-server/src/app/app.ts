@@ -1,3 +1,4 @@
+import { personalManagementRouters } from './../../../angular-portfolio-client/src/app/pages/admin/personal-management/admin-personal.routes';
 import express, { Application } from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
@@ -7,7 +8,7 @@ import userRoutes from '../routes/userRoutes';
 import uploadRouters from '../routes/uploadRouter';
 import companyRouters from '../routes/companyRouter';
 import menuRouters from '../routes/menuRouter';
-
+import personalInformationRouter from '../routes/personalInformationRouter';
  class App {
   public app: Application;
   public port: number;
@@ -33,7 +34,7 @@ import menuRouters from '../routes/menuRouter';
     this.app.use(`${root}/${ROUTER_PATH.FILE_UPLOAD}`, uploadRouters);
     this.app.use(`${root}/${ROUTER_PATH.COMPANY}`, companyRouters);
     this.app.use(`${root}/${ROUTER_PATH.MENU}`, menuRouters);
-    
+    this.app.use(`${root}/${ROUTER_PATH.PERSONAL_INFORMATION}`, personalInformationRouter);
     // Add more routes as needed
   }
 
