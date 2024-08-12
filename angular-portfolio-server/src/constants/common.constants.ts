@@ -6,4 +6,5 @@ export const ROUTER_PATH = {
     COMPANY: 'company',
     MENU: 'menu',
     PERSONAL_INFORMATION: 'personal-information',
+    LINK: 'link',
 }
