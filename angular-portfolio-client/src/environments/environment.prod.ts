@@ -4,5 +4,6 @@ export const environment: Environment = {
     production: true,
     apiUrl: 'https://api.example.com',
     isUseMock: true,
-    defaultLanguage: 'vi'
+    defaultLanguage: 'vi',
+    resourceHost: 'https://api.example.com'
   };

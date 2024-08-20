@@ -10,6 +10,7 @@ import companyRouters from '../routes/companyRouter';
 import menuRouters from '../routes/menuRouter';
 import personalInformationRouter from '../routes/personalInformationRouter';
 import linkRouter from '../routes/linkRouter';
+import postTypeRouter from '../routes/postTypeRouter';
  class App {
   public app: Application;
   public port: number;
@@ -37,7 +38,7 @@ import linkRouter from '../routes/linkRouter';
     this.app.use(`${root}/${ROUTER_PATH.MENU}`, menuRouters);
     this.app.use(`${root}/${ROUTER_PATH.PERSONAL_INFORMATION}`, personalInformationRouter);
     this.app.use(`${root}/${ROUTER_PATH.LINK}`, linkRouter);
-
+    this.app.use(`${root}/${ROUTER_PATH.POST_TYPE}`, postTypeRouter);
     // Add more routes as needed
   }
 

@@ -7,4 +7,5 @@ export const ROUTER_PATH = {
     MENU: 'menu',
     PERSONAL_INFORMATION: 'personal-information',
     LINK: 'link',
+    POST_TYPE: 'post-type'
 }
